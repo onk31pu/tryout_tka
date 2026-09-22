@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA PPKN SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 { text-align: center; color: #0b3b5c; margin-bottom: 6px; font-size: 1.4rem; }
+  .login-subtitle { text-align: center; color: #6a7a8a; font-size: 0.85rem; margin-bottom: 24px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem; }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus { border-color: #2874a6; box-shadow: 0 0 0 3px rgba(40,116,166,0.15); }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg { color: #e74c3c; font-size: 0.78rem; margin-top: 4px; display: none; }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(11,59,92,0.35); }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin-bottom: 10px; }
+  .soal-pertanyaan ol, .soal-pertanyaan ul { margin-left: 22px; margin-bottom: 10px; }
+  .soal-pertanyaan li { margin-bottom: 4px; }
+  .stimulus {
+    background: #f8fafc; border-left: 3px solid #2874a6;
+    padding: 12px 16px; border-radius: 6px; margin-bottom: 14px;
+    font-style: italic; color: #34495e;
+  }
+  .instruction {
+    background: #fff8e1; border: 1px solid #f0d98a;
+    padding: 8px 14px; border-radius: 6px; margin-bottom: 12px;
+    font-size: 0.9rem; font-weight: 600; color: #8a6d00;
+  }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan label:has(input:checked) { background: #e3f2fd; border-color: #2874a6; }
+  .pilihan input[type="radio"], .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #0b3b5c; }
+  .pilihan .option-text { flex: 1; }
+  .cb-group { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .cb-group label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .cb-group label:hover { background: #eef4fa; }
+  .cb-group label:has(input:checked) { background: #e3f2fd; border-color: #2874a6; }
+  .cb-group input[type="checkbox"] { margin-top: 4px; accent-color: #0b3b5c; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; }
+  .tf-item .opsi label { display: flex; align-items: center; gap: 4px; font-size: 0.9rem; cursor: pointer; }
+  .kat-item {
+    background: #f8fafc; padding: 12px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0; margin-bottom: 10px;
+  }
+  .kat-pernyataan { margin-bottom: 10px; font-size: 0.95rem; line-height: 1.5; }
+  .kat-opsi { display: flex; flex-wrap: wrap; gap: 8px; }
+  .kat-opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.85rem; cursor: pointer;
+    padding: 6px 10px; border-radius: 6px;
+    border: 1px solid #d8e2ec; background: #fff;
+    transition: background 0.15s;
+  }
+  .kat-opsi label:hover { background: #eef4fa; }
+  .kat-opsi label:has(input:checked) { background: #e3f2fd; border-color: #2874a6; font-weight: 600; }
+  .kat-opsi input { accent-color: #0b3b5c; }
+  .math-block {
+    background: #f8fafc; padding: 12px 18px; border-radius: 8px;
+    margin: 10px 0; overflow-x: auto;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    font-size: 1.05rem; border-left: 3px solid #0b3b5c;
+  }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 { text-align: center; color: #0b3b5c; margin-bottom: 20px; font-size: 1.4rem; }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val { font-size: 3rem; font-weight: bold; color: #0b3b5c; }
+  .score-badge .predikat-val { font-size: 1.1rem; font-weight: bold; color: #27ae60; margin-top: 5px; }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a { color: #0b7a44; font-weight: 600; text-decoration: none; word-break: break-all; }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer { text-align: center; padding: 20px; font-size: 0.85rem; color: #7a8a9a; }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+    .kat-opsi label { font-size: 0.78rem; padding: 5px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TryOut TKA PPKN</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN / IDENTITAS PESERTA ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">⚖️</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII IPS 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span>Pancasila — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Dalam proses perumusan dasar negara di BPUPK, terdapat dialektika pemikiran yang tajam antara gagasan negara integralistik/religius-nasionalis dengan gagasan sekuler. Moh. Yamin, Soepomo, dan Soekarno menyampaikan pandangan yang berbeda namun bermuara pada persatuan bangsa. Soekarno dalam pidatonya pada tanggal 1 Juni 1945 menawarkan prinsip "Mufakat atau Demokrasi" serta "Kesejahteraan Sosial" yang berakar dari kepribadian bangsa Indonesia.
+        </div>
+        <p>Apabila dianalisis secara historis dan filosofis, gagasan dasar negara yang disampaikan oleh para perumus tersebut tidak serta-merta mengadopsi sistem liberalisme barat maupun komunisme murni, melainkan...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">A. Mengakomodasi seluruh sistem ideologi dunia secara hibrid tanpa batasan nilai budaya lokal.</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">B. Menyelaraskan paham kolektivitas kekeluargaan dengan hak individualisme mutlak demi keseimbangan sosial.</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">C. Menggali nilai-nilai dasar yang hidup (living values) dari peradaban nusantara dan menyelaraskannya dengan dinamika modern.</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">D. Menjadikan hukum agama tertentu sebagai satu-satunya dasar hukum positif tata negara Republik Indonesia.</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">E. Mengutamakan supremasi kaum intelektual perkotaan dalam memimpin struktur birokrasi pemerintahan nasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span>Pancasila — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pancasila memiliki kedudukan ganda yang sangat krusial bagi kelangsungan hidup bangsa, yaitu sebagai Dasar Negara (Philosophische Grondslag) dan sekaligus Pandangan Hidup Bangsa (Weltanschauung).
+        </div>
+        <div class="instruction">Pilihlah DUA pernyataan yang paling tepat menggambarkan implikasi dari perbedaan fungsi Pancasila sebagai Dasar Negara dan sebagai Pandangan Hidup Bangsa!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal2" value="A"><span class="option-text">A. Sebagai Dasar Negara, Pancasila berfungsi sebagai norma hukum tertinggi yang menjiwai seluruh peraturan perundang-undangan, sedangkan sebagai Pandangan Hidup Bangsa, Pancasila menjadi pedoman perilaku moral sehari-hari masyarakat.</span></label>
+        <label><input type="checkbox" name="soal2" value="B"><span class="option-text">B. Sebagai Dasar Negara, Pancasila bersifat fleksibel terhadap perubahan zaman tanpa batas, sementara sebagai Pandangan Hidup Bangsa, Pancasila bersifat kaku dan tidak boleh diinterpretasikan ulang.</span></label>
+        <label><input type="checkbox" name="soal2" value="C"><span class="option-text">C. Sebagai Pandangan Hidup Bangsa, Pancasila dirumuskan secara resmi ke dalam Pembukaan UUD 1945, sedangkan sebagai Dasar Negara, Pancasila hanya berlaku bagi kalangan aparatur sipil negara saja.</span></label>
+        <label><input type="checkbox" name="soal2" value="D"><span class="option-text">D. Pelanggaran terhadap Pancasila sebagai Dasar Negara dapat dikenakan sanksi hukum positif, sedangkan pelanggaran terhadap Pancasila sebagai Pandangan Hidup Bangsa umumnya berkonsekuensi sanksi moral dan sosial.</span></label>
+        <label><input type="checkbox" name="soal2" value="E"><span class="option-text">E. Pancasila sebagai Pandangan Hidup Bangsa hanya mengatur hubungan vertikal manusia dengan Tuhan, sementara fungsinya sebagai dasar negara mengatur hubungan horizontal antarwarga negara.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span>Pancasila — Kategori / Tabel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Nilai-nilai luhur yang terkandung dalam setiap sila Pancasila harus diimplementasikan secara utuh dan hierarkis dalam kehidupan berbangsa dan bernegara.
+        </div>
+        <div class="instruction">Pasangkan dengan tepat antara kasus implementasi dengan Sila Pancasila yang paling relevan!</div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">1) Pemerintah dan masyarakat bahu-membahu mengevakuasi korban bencana alam tanpa memandang latar belakang suku dan agama.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal3a" value="I"> Sila I</label>
+          <label><input type="radio" name="soal3a" value="II"> Sila II</label>
+          <label><input type="radio" name="soal3a" value="III"> Sila III</label>
+          <label><input type="radio" name="soal3a" value="IV"> Sila IV</label>
+          <label><input type="radio" name="soal3a" value="V"> Sila V</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">2) Keputusan pembangunan infrastruktur strategis nasional diputuskan melalui dengar pendapat publik yang melibatkan berbagai elemen masyarakat sipil secara transparan.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal3b" value="I"> Sila I</label>
+          <label><input type="radio" name="soal3b" value="II"> Sila II</label>
+          <label><input type="radio" name="soal3b" value="III"> Sila III</label>
+          <label><input type="radio" name="soal3b" value="IV"> Sila IV</label>
+          <label><input type="radio" name="soal3b" value="V"> Sila V</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">3) Pemberian jaminan sosial yang merata bagi kelompok rentan dan difabel agar mendapatkan hak kesejahteraan yang berkeadilan.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal3c" value="I"> Sila I</label>
+          <label><input type="radio" name="soal3c" value="II"> Sila II</label>
+          <label><input type="radio" name="soal3c" value="III"> Sila III</label>
+          <label><input type="radio" name="soal3c" value="IV"> Sila IV</label>
+          <label><input type="radio" name="soal3c" value="V"> Sila V</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span>Pancasila — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Di era globalisasi digital, penetrasi ideologi transnasional radikal dan hedonisme individualistis marak disebarkan melalui media sosial. Hal ini mengancam eksistensi Pancasila bukan lagi sebagai bentuk penjajahan fisik, melainkan invasi nilai kultural dan ideologis.
+        </div>
+        <p>Sebagai ideologi terbuka, bagaimana strategi implementatif yang paling tepat bagi bangsa Indonesia untuk membentengi diri dari ancaman tersebut tanpa terjebak menjadi ideologi tertutup yang dogmatis?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">A. Menutup seluruh akses internet global dan melarang masuknya kebudayaan asing ke dalam teritori nasional.</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">B. Melakukan internalisasi nilai instrumental Pancasila secara kritis, kreatif, serta adaptif terhadap perkembangan ilmu pengetahuan dan teknologi.</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">C. Menjadikan Pancasila sebagai dogma kaku yang wajib dihafalkan di setiap jenjang pendidikan formal tanpa ruang diskusi.</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">D. Mengganti sistem demokrasi dengan sistem sentralisasi mutlak di bawah pengawasan ketat aparatur keamanan negara.</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">E. Membiarkan dinamika ideologi global berjalan secara bebas karena masyarakat modern dianggap mampu menyaringnya secara otomatis.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span>UUD 1945 — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Sidang Panitia Persiapan Kemerdekaan Indonesia (PPKI) pada 18 Agustus 1945 mengesahkan UUD 1945 yang terdiri atas Pembukaan, Batang Tubuh (Pasal-pasal), dan Aturan Peralihan. Dalam perkembangannya, sistem konstitusional Indonesia mengalami beberapa kali fase perubahan UUD, puncaknya adalah amandemen sebanyak 4 kali pada era reformasi (1999–2002).
+        </div>
+        <div class="instruction">Pilihlah DUA dampak ketatanegaraan yang sangat krusial sebagai hasil dari proses amandemen UUD 1945 pada era reformasi!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal5" value="A"><span class="option-text">A. Penghapusan sepenuhnya Lembaga Majelis Permusyawaratan Rakyat (MPR) karena dianggap tidak relevan dengan sistem presidensial modern.</span></label>
+        <label><input type="checkbox" name="soal5" value="B"><span class="option-text">B. Perubahan sistem pemilihan Presiden dan Wakil Presiden yang semula dipilih oleh MPR menjadi dipilih secara langsung oleh rakyat.</span></label>
+        <label><input type="checkbox" name="soal5" value="C"><span class="option-text">C. Penguatan prinsip checks and balances antarlembaga negara melalui pembentukan Mahkamah Konstitusi untuk menguji undang-undang terhadap UUD 1945.</span></label>
+        <label><input type="checkbox" name="soal5" value="D"><span class="option-text">D. Dihilangkannya Bab khusus mengenai Hak Asasi Manusia karena pengaturannya diserahkan sepenuhnya kepada hukum adat daerah.</span></label>
+        <label><input type="checkbox" name="soal5" value="E"><span class="option-text">E. Penetapan masa jabatan Presiden tanpa batasan periode asalkan mendapat dukungan mayoritas mutlak parlemen.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span>UUD 1945 — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Dalam kerangka perlindungan hukum dan penegakan Hak Asasi Manusia (HAM) di Indonesia, Pasal 28D ayat (1) UUD 1945 menyatakan bahwa "Setiap orang berhak atas pengakuan, jaminan, perlindungan, dan kepastian hukum yang adil serta perlakuan yang sama di hadapan hukum."
+        </div>
+        <p>Sebuah kasus menunjukkan ketimpangan penegakan hukum di mana pelaku kejahatan kerah putih (white collar crime) dengan status sosial tinggi mendapat keistimewaan fasilitas penjara, sementara pencuri kasus kecil dihukum berat tanpa asesmen keadilan substantif. Berdasarkan instrumen UUD 1945, kondisi ini menunjukkan adanya deviasi pada prinsip...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">A. Pembatasan hak asasi warga negara secara konstitusional demi kepentingan stabilitas ekonomi makro.</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">B. Supremasi hukum dan prinsip kesetaraan di hadapan hukum (equality before the law) tanpa diskriminasi status sosial.</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">C. Desentralisasi kewenangan yudisial kepada pemerintah daerah otonom tingkat kabupaten/kota.</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">D. Pelimpahan kedaulatan mutlak negara kepada lembaga penegak hukum eksekutif.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span>UUD 1945 — Kategori / Tabel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Perilaku taat hukum mencerminkan kesadaran hukum seseorang yang dapat diukur dari indikator pengetahuan, pemahaman, sikap, dan pola tindak nyata terhadap hukum yang berlaku.
+        </div>
+        <div class="instruction">Klasifikasikan jenis perilaku berikut ke dalam kategori "Taat Hukum Berdasarkan Kesadaran Internal" atau "Taat Hukum Berdasarkan Paksaan Eksternal"!</div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">1) Membayar pajak tepat waktu karena menyadari perannya dalam pembangunan fasilitas publik meskipun petugas pajak sedang tidak melakukan pengawasan.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal7a" value="INTERNAL"> Kesadaran Internal</label>
+          <label><input type="radio" name="soal7a" value="EKSTERNAL"> Paksaan Eksternal</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">2) Menggunakan helm standar nasional hanya karena takut ditilang oleh polisi lalu lintas yang berjaga di persimpangan jalan.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal7b" value="INTERNAL"> Kesadaran Internal</label>
+          <label><input type="radio" name="soal7b" value="EKSTERNAL"> Paksaan Eksternal</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">3) Senantiasa mematuhi rambu lalu lintas di jalan sepi pada tengah malam demi keselamatan diri sendiri dan pengguna jalan lain.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal7c" value="INTERNAL"> Kesadaran Internal</label>
+          <label><input type="radio" name="soal7c" value="EKSTERNAL"> Paksaan Eksternal</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span>Sistem Pemerintahan — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Berdasarkan UUD 1945 hasil amandemen, sistem pemerintahan Indonesia menganut sistem presidensial. Namun dalam praktiknya, sering kali terjadi dinamika hubungan antara eksekutif dan legislatif (DPR) yang memicu tarik-menarik kepentingan politik, seperti penggunaan hak interpelasi, hak angket, dan hak menyatakan pendapat.
+        </div>
+        <p>Apabila DPR menggunakan hak angket untuk menyelidiki suatu kebijakan pemerintah yang diduga bertentangan dengan undang-undang, hal ini merupakan manifestasi dari...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-text">A. Bentuk intervensi langsung legislatif terhadap proses peradilan pidana di Mahkamah Agung.</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-text">B. Mekanisme pengawasan konstitusional dalam kerangka pembagian kekuasaan dan checks and balances.</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-text">C. Pelanggaran terhadap asas pemisahan kekuasaan murni (trias politica cara Montesquieu).</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-text">D. Pengambilalihan fungsi eksekutif secara penuh oleh parlemen dalam keadaan darurat nasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span>Sistem Pemerintahan — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Hubungan antara pemerintah pusat dan daerah diatur melalui prinsip otonomi luas dalam wadah Negara Kesatuan Republik Indonesia. Pemerintah daerah berwenang mengurus urusan rumah tangganya sendiri kecuali urusan pemerintahan absolut.
+        </div>
+        <div class="instruction">Pilihlah DUA pernyataan yang merupakan implementasi ideal dari hubungan tata kerja pusat dan daerah dalam kerangka otonomi luas!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal9" value="A"><span class="option-text">A. Pemerintah daerah tingkat kabupaten/kota berhak mencetak mata uang rupiah sendiri untuk keperluan transaksi regional daerahnya.</span></label>
+        <label><input type="checkbox" name="soal9" value="B"><span class="option-text">B. Pemerintah daerah menyusun Anggaran Pendapatan dan Belanja Daerah (APBD) yang berorientasi pada pelayanan publik dan partisipasi masyarakat lokal secara transparan.</span></label>
+        <label><input type="checkbox" name="soal9" value="C"><span class="option-text">C. Pemerintah pusat menetapkan kebijakan nasional, sementara daerah memiliki keleluasaan dalam merumuskan inovasi pelayanan publik sesuai potensi lokal.</span></label>
+        <label><input type="checkbox" name="soal9" value="D"><span class="option-text">D. Pemerintah daerah berhak menjalin pakta pertahanan militer bilateral secara mandiri dengan negara tetangga tanpa koordinasi pusat.</span></label>
+        <label><input type="checkbox" name="soal9" value="E"><span class="option-text">E. Segala bentuk perizinan investasi asing skala besar diputuskan sepenuhnya oleh kepala desa tanpa melibatkan kementerian terkait.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span>Sistem Pemerintahan — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Praktik demokrasi di Indonesia mengedepankan asas musyawarah untuk mufakat yang berlandaskan nilai-nilai Pancasila (Demokrasi Pancasila). Di era digital saat ini, partisipasi warga negara sering kali termanifestasikan melalui petisi online, demonstrasi damai, hingga diskusi publik di ruang virtual.
+        </div>
+        <p>Suatu kelompok warga melakukan protes terhadap kebijakan publik dengan cara menyebarkan data pribadi (doxing) pejabat pembuat kebijakan di media sosial guna memberikan tekanan psikologis. Ditinjau dari etika berdemokrasi dan hukum di Indonesia, tindakan tersebut dikategorikan sebagai...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal10" value="A"><span class="option-text">A. Bentuk kebebasan berekspresi mutlak yang dijamin penuh oleh konstitusi tanpa batas.</span></label>
+        <label><input type="radio" name="soal10" value="B"><span class="option-text">B. Perilaku demokrasi deliberatif yang sangat dianjurkan untuk mempercepat transparansi birokrasi.</span></label>
+        <label><input type="radio" name="soal10" value="C"><span class="option-text">C. Penyalahgunaan kebebasan berpendapat yang melanggar hak privasi dan hukum perlindungan data pribadi.</span></label>
+        <label><input type="radio" name="soal10" value="D"><span class="option-text">D. Partisipasi politik tingkat tinggi yang mencerminkan fungsi kontrol sosial warga negara secara efektif.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span>Hak & Kewajiban — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pasal 27 ayat (1) UUD 1945 menegaskan bahwa "Segala warga negara bersamaan kedudukannya di dalam hukum dan pemerintahan dan wajib menjunjung hukum dan pemerintahan itu dengan tidak ada kecualinya." Di sisi lain, Pasal 31 ayat (1) menyatakan bahwa "Tiap-tiap warga negara berhak mendapatkan pengajaran."
+        </div>
+        <p>Berdasarkan analisis keterkaitan antara hak dan kewajiban tersebut, manakah narasi penyelesaian yang paling tepat apabila seorang anak dari keluarga prasejahtera mendapati akses sekolahnya terhambat akibat pungutan biaya ilegal di sekolah negeri?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">A. Anak tersebut kehilangan hak pendidikannya secara permanen karena tidak mampu memenuhi kewajiban finansial kepada sekolah.</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">B. Negara wajib hadir melalui intervensi anggaran dan penegakan hukum terhadap oknum sekolah, sebab hak mendapatkan pengajaran dijamin konstitusi dan tidak boleh direduksi oleh kendala ekonomi.</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">C. Kewajiban membayar pajak orang tua harus ditiadakan terlebih dahulu agar anak tersebut dapat bersekolah secara gratis.</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">D. Pemerintah pusat berhak menutup seluruh sekolah negeri di wilayah tersebut dan menyerahkannya kepada sektor swasta komersial.</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">E. Pihak sekolah memiliki diskresi penuh untuk menolak siswa yang tidak mampu membayar iuran bulanan demi menjaga mutu operasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span>Hak & Kewajiban — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Harmonisasi antara hak dan kewajiban warga negara merupakan prasyarat mutlak terciptanya keadilan sosial. Seringkali pelanggaran hak terjadi akibat pengabaian terhadap kewajiban warga negara yang lain.
+        </div>
+        <div class="instruction">Pilihlah DUA contoh perilaku konkret yang menunjukkan keseimbangan antara pelaksanaan hak dan kewajiban dalam kehidupan bernegara!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal12" value="A"><span class="option-text">A. Menuntut fasilitas kesehatan gratis dari pemerintah, namun enggan mendaftar atau membayar iuran jaminan kesehatan sosial serta mengabaikan protokol kesehatan pencegahan penyakit.</span></label>
+        <label><input type="checkbox" name="soal12" value="B"><span class="option-text">B. Menggunakan hak pilih dalam pemilu dengan penuh tanggung jawab serta menghormati perbedaan pilihan politik warga negara lain tanpa melakukan provokasi.</span></label>
+        <label><input type="checkbox" name="soal12" value="C"><span class="option-text">C. Memanfaatkan fasilitas jalan raya untuk mobilitas ekonomi, namun juga mematuhi rambu lalu lintas serta membayar pajak kendaraan tepat waktu.</span></label>
+        <label><input type="checkbox" name="soal12" value="D"><span class="option-text">D. Melakukan unjuk rasa secara anarkis dengan merusak fasilitas halte bus kota demi memperjuangkan aspirasi kelompok tertentu.</span></label>
+        <label><input type="checkbox" name="soal12" value="E"><span class="option-text">E. Menolak mematuhi aturan jam malam di lingkungan tempat tinggal dengan dalih pembatasan hak kebebasan pribadi mutlak.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span>Bhinneka Tunggal Ika — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Masyarakat Indonesia yang plural terdiri dari beragam suku, agama, ras, dan golongan (SARA). Di satu sisi, kebinekaan adalah kekayaan; di sisi lain, ia menyimpan potensi disintegrasi jika tidak dikelola dengan wawasan kebangsaan yang kuat melalui semangat integrasi nasional.
+        </div>
+        <p>Dalam menghadapi potensi konflik horizontal akibat fanatisme sempit (chauvinisme atau etnosentrisme), pendekatan manakah yang paling efektif dan komprehensif untuk membangun integrasi nasional jangka panjang?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">A. Asimilasi budaya secara paksa agar seluruh kelompok minoritas melebur ke dalam satu kebudayaan mayoritas dominan.</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">B. Menerapkan kebijakan segregasi teritorial agar setiap kelompok suku hidup terpisah tanpa interaksi sosial yang rentan konflik.</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">C. Mengembangkan multikulturalisme yang inklusif melalui dialog antarbudaya, penegakan hukum antidiskriminasi, dan penguatan nilai gotong royong.</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">D. Menghapuskan seluruh identitas kultural lokal dan menggantinya dengan satu bahasa serta adat istiadat buatan negara.</span></label>
+        <label><input type="radio" name="soal13" value="E"><span class="option-text">E. Menyerahkan penyelesaian konflik antarsuku sepenuhnya kepada hukum adat lokal tanpa intervensi hukum positif nasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span>Bhinneka Tunggal Ika — Kategori / Tabel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Budaya gotong royong merupakan identitas kultural bangsa Indonesia yang menjadi perekat sosial utama dalam menjaga harmoni keberagaman di tengah masyarakat majemuk.
+        </div>
+        <div class="instruction">Tentukan kategori bentuk manifestasi gotong royong berikut ke dalam "Tolong-Menolong Tradisional (Lokal)" atau "Kolaborasi Sistemik Modern"!</div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">1) Kegiatan ngayah atau sambatan membantu tetangga membangun rumah atau memanen padi secara sukarela tanpa upah finansial langsung.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal14a" value="TRADISIONAL"> Tolong-Menolong Tradisional</label>
+          <label><input type="radio" name="soal14a" value="MODERN"> Kolaborasi Sistemik Modern</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">2) Kolaborasi lintas komunitas relawan digital dan pemerintah dalam membangun sistem tanggap darurat bencana berbasis aplikasi terbuka.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal14b" value="TRADISIONAL"> Tolong-Menolong Tradisional</label>
+          <label><input type="radio" name="soal14b" value="MODERN"> Kolaborasi Sistemik Modern</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">3) Tradisi kerja bakti membersihkan saluran air desa menjelang musim penghujan yang digerakkan oleh ketua RT setempat.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal14c" value="TRADISIONAL"> Tolong-Menolong Tradisional</label>
+          <label><input type="radio" name="soal14c" value="MODERN"> Kolaborasi Sistemik Modern</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span>Bhinneka Tunggal Ika — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Di era keterbukaan informasi, polarisasi sosial akibat disinformasi politik identitas di media sosial sering kali merapuhkan kohesi sosial dan mengancam integrasi nasional.
+        </div>
+        <p>Langkah preventif paling strategis yang dapat dilakukan oleh generasi muda sebagai agen perubahan (agent of change) untuk meredam disintegrasi bangsa akibat polarisasi digital adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal15" value="A"><span class="option-text">A. Memblokir semua akun media sosial yang berbeda pandangan politik dengan kelompoknya.</span></label>
+        <label><input type="radio" name="soal15" value="B"><span class="option-text">B. Mengembangkan budaya literasi digital, berpikir kritis (critical thinking), dan memvalidasi informasi sebelum menyebarkannya.</span></label>
+        <label><input type="radio" name="soal15" value="C"><span class="option-text">C. Menghindari segala bentuk diskusi publik mengenai isu-isu sosial dan politik di ruang digital.</span></label>
+        <label><input type="radio" name="soal15" value="D"><span class="option-text">D. Mendukung gerakan pemisahan diri daerah apabila merasa aspirasi kelompoknya tidak diakomodasi negara.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span>NKRI — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Ancaman terhadap keutuhan NKRI di era modern bersifat multidimensional, mencakup bidang ideologi, politik, ekonomi, sosial, budaya, serta pertahanan dan keamanan. Salah satu bentuk ancaman non-militer yang paling berbahaya adalah masuknya pengaruh negatif kemajuan IPTEKS yang mengikis nasionalisme generasi muda.
+        </div>
+        <p>Analisis manakah yang paling akurat mengenai bentuk ancaman non-militer di bidang budaya akibat kemajuan IPTEKS terhadap keutuhan NKRI?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal16" value="A"><span class="option-text">A. Masuknya investasi asing dalam jumlah besar yang mendanai pembangunan infrastruktur pelabuhan laut nasional.</span></label>
+        <label><input type="radio" name="soal16" value="B"><span class="option-text">B. Arus globalisasi budaya yang memuja individualisme ekstrem dan konsumerisme sehingga mengikis nilai-nilai solidaritas sosial serta kearifan lokal.</span></label>
+        <label><input type="radio" name="soal16" value="C"><span class="option-text">C. Peningkatan kerja sama riset teknologi kecerdasan buatan antara universitas lokal dan kampus luar negeri.</span></label>
+        <label><input type="radio" name="soal16" value="D"><span class="option-text">D. Penggunaan satelit komunikasi nasional untuk pemerataan siaran pendidikan di daerah 3T.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span>NKRI — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Konsep Wawasan Nusantara memandang wilayah Indonesia sebagai satu kesatuan yang utuh meliputi politik, ekonomi, sosial budaya, serta pertahanan keamanan.
+        </div>
+        <div class="instruction">Pilihlah DUA perwujudan dari Wawasan Nusantara dalam bidang ekonomi yang benar!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal17" value="A"><span class="option-text">A. Kekayaan Nusantara secara potensial dan efektif adalah milik bersama bangsa, dan keperluan hidup sehari-hari harus tersedia merata di seluruh wilayah tanah air.</span></label>
+        <label><input type="checkbox" name="soal17" value="B"><span class="option-text">B. Perekonomian daerah diselenggarakan sebagai usaha bersama berdasar atas asas kekeluargaan untuk kemakmuran rakyat secara berkeadilan.</span></label>
+        <label><input type="checkbox" name="soal17" value="C"><span class="option-text">C. Pembentukan blok ekonomi eksklusif yang memisahkan perdagangan antarprovinsi dengan bea cukai domestik yang ketat.</span></label>
+        <label><input type="checkbox" name="soal17" value="D"><span class="option-text">D. Penyerahan pengelolaan seluruh sumber daya alam strategis sepenuhnya kepada perusahaan multinasional asing demi efisiensi modal.</span></label>
+        <label><input type="checkbox" name="soal17" value="E"><span class="option-text">E. Pengelolaan sumber daya alam diserahkan sepenuhnya kepada mekanisme pasar bebas tanpa regulasi negara.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span>NKRI — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Sistem pertahanan dan keamanan negara Republik Indonesia bersifat semesta (Sishankamrata), yang melibatkan seluruh warga negara, wilayah, dan sumber daya nasional lainnya, serta dipersiapkan secara dini oleh pemerintah.
+        </div>
+        <p>Dalam menghadapi ancaman militer berupa agresi militer dari negara luar, manakah bentuk partisipasi warga negara yang sesuai dengan doktrin Sistem Pertahanan Keamanan Rakyat Semesta (Sishankamrata)?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal18" value="A"><span class="option-text">A. Warga negara sipil dilatih secara militer dan diposisikan sebagai komponen utama pertahanan di garis depan pertempuran terbuka.</span></label>
+        <label><input type="radio" name="soal18" value="B"><span class="option-text">B. TNI bertindak sebagai komponen utama pertahanan, sementara warga negara berperan sebagai komponen pendukung dan cadangan sesuai kapasitas keahlian masing-masing.</span></label>
+        <label><input type="radio" name="soal18" value="C"><span class="option-text">C. Menyerahkan seluruh strategi pertahanan wilayah perbatasan sepenuhnya kepada pasukan penjaga perdamaian PBB tanpa melibatkan unsur nasional.</span></label>
+        <label><input type="radio" name="soal18" value="D"><span class="option-text">D. Warga negara dibebaskan dari segala bentuk kewajiban bela negara karena pertahanan negara sepenuhnya merupakan monopoli mutlak militer profesional.</span></label>
+        <label><input type="radio" name="soal18" value="E"><span class="option-text">E. Melakukan evakuasi massal keluar negeri dan menyerahkan wilayah teritorial kepada pihak penyerang untuk menghindari jatuhnya korban jiwa.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span>NKRI — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pembukaan UUD 1945 alinea keempat mengamanatkan agar Indonesia ikut serta dalam ketertiban dunia yang berdasarkan kemerdekaan, perdamaian abadi, dan keadilan sosial. Hal ini diimplementasikan melalui politik luar negeri yang bebas aktif.
+        </div>
+        <p>Berdasarkan prinsip politik luar negeri bebas aktif, tindakan diplomatik manakah yang paling tepat diambil oleh pemerintah Indonesia dalam merespons ketegangan geopolitik antara dua negara adidaya di kawasan regional?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">A. Memihak secara mutlak kepada salah satu negara adidaya yang memberikan bantuan pinjaman utang luar negeri terbesar.</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">B. Menutup seluruh perwakilan diplomatik kedua negara tersebut dan mengisolasi diri dari percaturan organisasi internasional.</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">C. Bersikap aktif mendamaikan kedua belah pihak melalui forum multilateral (seperti ASEAN atau PBB) tanpa terikat pada aliansi militer manapun.</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">D. Mendukung penuh aksi militer salah satu pihak demi tercapainya hegemoni ekonomi regional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span>Pengayaan Modul 1 & 4 — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Sila keempat Pancasila menegaskan prinsip kerakyatan yang dipimpin oleh hikmat kebijaksanaan. Dalam konteks partisipasi politik warga negara, kebebasan menyampaikan pendapat di muka umum diatur dalam UU No. 9 Tahun 1998, namun pelaksanaannya harus memperhatikan hak orang lain dan ketertiban umum.
+        </div>
+        <p>Sebuah aliansi mahasiswa melakukan aksi unjuk rasa menolak undang-undang kontroversial. Namun, aksi tersebut menutup jalan tol utama sehingga melumpuhkan logistik nasional dan merugikan hak pengguna jalan lain. Analisis pelanggaran keseimbangan hak dan kewajiban yang terjadi adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal20" value="A"><span class="option-text">A. Mahasiswa melanggar kewajiban menghormati hak orang lain dan ketertiban umum, meskipun hak menyampaikan pendapat dijamin konstitusi.</span></label>
+        <label><input type="radio" name="soal20" value="B"><span class="option-text">B. Pengguna jalan tol yang dirugikan telah melanggar hak konstitusional mahasiswa untuk menyampaikan aspirasi.</span></label>
+        <label><input type="radio" name="soal20" value="C"><span class="option-text">C. Aparat penegak hukum seharusnya membiarkan penutupan jalan tol karena demonstrasi adalah hak mutlak tanpa batas.</span></label>
+        <label><input type="radio" name="soal20" value="D"><span class="option-text">D. Pemerintah daerah wajib membubarkan universitas asal mahasiswa tersebut sebagai sanksi administratif.</span></label>
+        <label><input type="radio" name="soal20" value="E"><span class="option-text">E. Hak menyampaikan pendapat mengungguli segala bentuk hak warga negara lainnya di ruang publik.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span>Pengayaan Modul 2 & 3 — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Mahkamah Konstitusi (MK) dan Mahkamah Agung (MA) merupakan dua lembaga kekuasaan kehakiman yang independen di Indonesia dengan yurisdiksi kewenangan yang berbeda berdasarkan UUD 1945.
+        </div>
+        <div class="instruction">Pilihlah DUA pernyataan yang merupakan kewenangan konstitusional Mahkamah Konstitusi (MK)!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal21" value="A"><span class="option-text">A. Menguji undang-undang terhadap Undang-Undang Dasar Negara Republik Indonesia Tahun 1945.</span></label>
+        <label><input type="checkbox" name="soal21" value="B"><span class="option-text">B. Memutus sengketa kewenangan lembaga negara yang kewenangannya diberikan oleh UUD 1945.</span></label>
+        <label><input type="checkbox" name="soal21" value="C"><span class="option-text">C. Memutus permohonan kasasi terhadap putusan pengadilan tingkat banding di seluruh lingkungan peradilan umum.</span></label>
+        <label><input type="checkbox" name="soal21" value="D"><span class="option-text">D. Melakukan pengawasan terhadap jalannya peradilan di seluruh lingkungan badan peradilan di Indonesia.</span></label>
+        <label><input type="checkbox" name="soal21" value="E"><span class="option-text">E. Memberi keterangan di hadapan DPR mengenai kebijakan fiskal dan moneter nasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span>Pengayaan Modul 3 & 6 — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Otonomi daerah memberikan kewenangan kepada daerah untuk mengurus rumah tangganya sendiri. Namun, dalam bidang pertahanan, keamanan, dan kebijakan strategis nasional, pemerintah pusat tetap memegang kendali penuh agar disintegrasi bangsa dapat dicegah.
+        </div>
+        <p>Mengapa desentralisasi kekuasaan melalui otonomi daerah tidak boleh mencakup kewenangan di bidang politik luar negeri dan pertahanan keamanan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal22" value="A"><span class="option-text">A. Karena daerah otonom dianggap belum memiliki anggaran pendapatan yang cukup untuk membeli alutsista militer modern.</span></label>
+        <label><input type="radio" name="soal22" value="B"><span class="option-text">B. Karena urusan pertahanan dan politik luar negeri berkaitan langsung dengan kedaulatan utuh negara kesatuan yang tidak boleh terfragmentasi secara teritorial.</span></label>
+        <label><input type="radio" name="soal22" value="C"><span class="option-text">C. Karena pemerintah pusat ingin memonopoli seluruh pendapatan pajak dari sektor ekspor-impor internasional.</span></label>
+        <label><input type="radio" name="soal22" value="D"><span class="option-text">D. Karena kepala daerah dipilih langsung oleh rakyat sehingga dikhawatirkan mengabaikan kebijakan pemerintah pusat.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span>Pengayaan Modul 5 & 6 — Kategori / Tabel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Integrasi nasional dan ketahanan negara diuji oleh berbagai ancaman baik dari dalam maupun luar negeri yang memerlukan sinergi seluruh komponen bangsa.
+        </div>
+        <div class="instruction">Petakan bentuk ancaman berikut ke dalam kategori "Ancaman Militer" atau "Ancaman Non-Militer"!</div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">1) Aksi spionase atau pencurian data rahasia pertahanan negara oleh agen intelijen asing menggunakan perangkat siber canggih.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal23a" value="MILITER"> Ancaman Militer</label>
+          <label><input type="radio" name="soal23a" value="NONMILITER"> Ancaman Non-Militer</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">2) Perang dagang global yang memicu krisis pangan dan inflasi ekstrem di dalam negeri akibat ketergantungan impor.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal23b" value="MILITER"> Ancaman Militer</label>
+          <label><input type="radio" name="soal23b" value="NONMILITER"> Ancaman Non-Militer</label>
+        </div>
+      </div>
+      <div class="kat-item">
+        <div class="kat-pernyataan">3) Gerakan separatisme bersenjata yang ingin memisahkan diri dari wilayah kedaulatan NKRI menggunakan kekuatan senjata.</div>
+        <div class="kat-opsi">
+          <label><input type="radio" name="soal23c" value="MILITER"> Ancaman Militer</label>
+          <label><input type="radio" name="soal23c" value="NONMILITER"> Ancaman Non-Militer</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span>Pengayaan Modul 1 & 6 — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pancasila sebagai ideologi terbuka mampu menjawab tantangan zaman. Di era Revolusi Industri 4.0 dan Society 5.0, nilai-nilai kemanusiaan dan keadilan sosial sering kali terpinggirkan oleh dominasi algoritma teknologi dan kapitalisme digital global.
+        </div>
+        <p>Bagaimana pengamalan Sila Kedua Pancasila ("Kemanusiaan yang Adil dan Beradab") diimplementasikan dalam menghadapi era disrupsi digital dan kecerdasan buatan (Artificial Intelligence)?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal24" value="A"><span class="option-text">A. Membatasi penggunaan teknologi digital hanya pada kelompok elit masyarakat perkotaan yang berpendidikan tinggi.</span></label>
+        <label><input type="radio" name="soal24" value="B"><span class="option-text">B. Memastikan pengembangan dan pemanfaatan teknologi berbasis AI menghormati hak asasi manusia, privasi, serta tidak menimbulkan diskriminasi algoritmik.</span></label>
+        <label><input type="radio" name="soal24" value="C"><span class="option-text">C. Menyerahkan seluruh kendali moral kemanusiaan kepada sistem otomatisasi mesin tanpa intervensi etika manusia.</span></label>
+        <label><input type="radio" name="soal24" value="D"><span class="option-text">D. Melarang masuknya teknologi asing dan kembali menggunakan sistem manual tradisional secara total.</span></label>
+        <label><input type="radio" name="soal24" value="E"><span class="option-text">E. Menggunakan teknologi digital semata-mata untuk kepentingan akumulasi keuntungan ekonomi korporasi multinasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span>Pengayaan Modul 2, 4 & 6 — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pasal 30 ayat (1) UUD 1945 menyatakan bahwa "Tiap-tiap warga negara berhak dan wajib ikut serta dalam usaha pertahanan dan keamanan negara." Hal ini menegaskan bahwa bela negara bukan hanya monopoli TNI/Polri, melainkan panggilan konstitusional setiap warga negara.
+        </div>
+        <div class="instruction">Pilihlah DUA bentuk perwujudan bela negara yang dapat dilakukan oleh pelajar SMA di era modern saat ini!</div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal25" value="A"><span class="option-text">A. Mengikuti pelatihan militer wajib di medan perang luar negeri secara sukarela tanpa izin negara.</span></label>
+        <label><input type="checkbox" name="soal25" value="B"><span class="option-text">B. Belajar dengan giat, menguasai ilmu pengetahuan dan teknologi, serta menjauhi penyalahgunaan narkoba dan tawuran antar-pelajar.</span></label>
+        <label><input type="checkbox" name="soal25" value="C"><span class="option-text">C. Mencintai produk dalam negeri, melestarikan budaya lokal, serta menjaga persatuan di sekolah yang majemuk.</span></label>
+        <label><input type="checkbox" name="soal25" value="D"><span class="option-text">D. Melakukan tindakan peretasan (hacking) terhadap sistem keamanan institusi negara tetangga demi membela nama baik bangsa di dunia maya.</span></label>
+        <label><input type="checkbox" name="soal25" value="E"><span class="option-text">E. Menyebarkan berita hoaks tentang negara lain untuk menunjukkan keunggulan bangsa Indonesia.</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_PPKN_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA PPKN SMA/MA/SMK
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  // Format: string = PG biasa, array = PG kompleks (semua harus dipilih, tidak lebih),
+  //         object = TF / tabel kategori (semua sub harus tepat)
+  const kunciJawaban = {
+    soal1:  "C",
+    soal2:  ["A", "D"],
+    soal3:  { a: "II", b: "IV", c: "V" },
+    soal4:  "B",
+    soal5:  ["B", "C"],
+    soal6:  "B",
+    soal7:  { a: "INTERNAL", b: "EKSTERNAL", c: "INTERNAL" },
+    soal8:  "B",
+    soal9:  ["B", "C"],
+    soal10: "C",
+    soal11: "B",
+    soal12: ["B", "C"],
+    soal13: "C",
+    soal14: { a: "TRADISIONAL", b: "MODERN", c: "TRADISIONAL" },
+    soal15: "B",
+    soal16: "B",
+    soal17: ["A", "B"],
+    soal18: "B",
+    soal19: "C",
+    soal20: "A",
+    soal21: ["A", "B"],
+    soal22: "B",
+    soal23: { a: "MILITER", b: "NONMILITER", c: "MILITER" },
+    soal24: "B",
+    soal25: ["B", "C"]
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_ppkn_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_ppkn_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== FUNGSI PENILAIAN PER SOAL =====
+  function nilaiSoal(key, kunci) {
+    if (kunci === null || kunci === undefined) return null;
+
+    // PG biasa
+    if (typeof kunci === 'string') {
+      const sel = document.querySelector('input[name="' + key + '"]:checked');
+      return (sel && sel.value === kunci) ? 1 : 0;
+    }
+
+    // PG kompleks (checkbox) — semua kunci harus dipilih, tidak ada tambahan
+    if (Array.isArray(kunci)) {
+      const sel = Array.from(document.querySelectorAll('input[name="' + key + '"]:checked')).map(el => el.value);
+      if (sel.length !== kunci.length) return 0;
+      return kunci.every(k => sel.includes(k)) ? 1 : 0;
+    }
+
+    // TF / tabel kategori — semua sub-jawaban harus tepat
+    if (typeof kunci === 'object') {
+      const subKeys = Object.keys(kunci);
+      for (const sub of subKeys) {
+        const sel = document.querySelector('input[name="' + key + sub + '"]:checked');
+        if (!sel || sel.value !== kunci[sub]) return 0;
+      }
+      return 1;
+    }
+
+    return 0;
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    let benar = 0;
+    let totalSoalDinilai = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (kunci === null || kunci === undefined) continue;
+      totalSoalDinilai++;
+      const hasil = nilaiSoal(key, kunci);
+      if (hasil === 1) benar++;
+    }
+
+    benarGlobal = benar;
+    skorGlobal = totalSoalDinilai > 0 ? Math.round((benar / totalSoalDinilai) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + totalSoalDinilai;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_PPKN_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE (FOLDER TUJUAN) =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_PPKN_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_PPKN_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

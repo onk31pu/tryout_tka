@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Biologi SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b5c34; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b5c34; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b5c34; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b5c34, #1e8449);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,92,52,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b5c34;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #1e8449;
+    box-shadow: 0 0 0 3px rgba(30,132,73,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b5c34, #1e8449);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,92,52,0.35);
+  }
+  .login-info-box {
+    background: #eefaf3; border: 1px solid #c8e6d4;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b5c34; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eefaf3; border: 2px solid #0b5c34;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b5c34;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b5c34; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .section-title {
+    background: #0b5c34; color: #fff;
+    padding: 10px 20px; border-radius: 8px;
+    font-weight: 700; font-size: 1rem;
+    margin: 10px 0 20px; letter-spacing: 0.4px;
+    box-shadow: 0 4px 10px rgba(11,92,52,0.25);
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b5c34;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b5c34; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-tag {
+    background: #eefaf3; color: #0b5c34;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.78rem; font-weight: 600;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan ol, .soal-pertanyaan ul { margin-left: 20px; margin-top: 8px; }
+  .soal-pertanyaan li { margin-bottom: 4px; }
+  .kategori-box {
+    background: #f8fafc; border: 1px dashed #b0c4d8;
+    border-radius: 8px; padding: 10px 16px; margin: 12px 0;
+    font-size: 0.88rem; color: #33475b; line-height: 1.7;
+  }
+  .kategori-box strong { color: #0b5c34; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eefaf3; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #0b5c34; }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .select-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .select-item {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .select-item .pernyataan { flex: 1; min-width: 200px; }
+  .select-item select {
+    padding: 8px 12px; border-radius: 8px;
+    border: 1.5px solid #b0c4d8; background: #fff;
+    font-family: inherit; font-size: 0.9rem; color: #1e2a3a;
+    cursor: pointer; outline: none; min-width: 110px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .select-item select:focus {
+    border-color: #1e8449;
+    box-shadow: 0 0 0 3px rgba(30,132,73,0.15);
+  }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b5c34;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b5c34;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eefaf3;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b5c34; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b5c34;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol {
+    margin-left: 18px; margin-top: 6px;
+  }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .select-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Biologi</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN / IDENTITAS PESERTA ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">🧬</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII MIPA 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ======= BAGIAN A: PILIHAN GANDA BIASA ======= -->
+    <div class="section-title">A. PILIHAN GANDA BIASA (No. 1 – 10) — Pilih satu jawaban paling benar</div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="soal-tag">Keanekaragaman Hayati</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Keanekaragaman gen ditunjukkan oleh adanya variasi…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">Hutan hujan dan hutan gugur</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">Mangga manalagi, mangga golek, mangga arumanis</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">Padi, jagung, dan kedelai</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">Harimau, singa, dan kucing</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">Ekosistem darat dan air</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="soal-tag">Virus</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Virus tidak dapat hidup di medium agar nutrisi karena…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-text">Memerlukan sel hidup untuk bereplikasi</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-text">Ukurannya terlalu besar</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-text">Membutuhkan cahaya matahari</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-text">Tidak tahan suhu hangat</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-text">Memerlukan oksigen tinggi</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="soal-tag">Jamur &amp; Bioteknologi Pangan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Jamur <em>Rhizopus oryzae</em> dimanfaatkan manusia untuk pembuatan…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-text">Yoghurt</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-text">Tempe</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-text">Kecap</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-text">Oncom</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-text">Tape</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="soal-tag">Pencemaran Lingkungan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Peristiwa <em>blooming</em> alga yang menyebabkan ikan mati massal di danau akibat limbah detergen disebut…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">Eutrofikasi</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">Bioakumulasi</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">Magnifikasi</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">Abrasi</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">Sedimentasi</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="soal-tag">Sel &amp; Organel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Organel sel yang berfungsi sebagai tempat respirasi sel dan penghasil energi adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-text">Ribosom</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-text">Lisosom</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-text">Mitokondria</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-text">Nukleus</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-text">Sentriol</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="soal-tag">Sistem Pencernaan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Enzim yang mengubah amilum menjadi maltosa di dalam mulut adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">Pepsin</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">Lipase</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">Ptialin</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">Tripsin</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">Renin</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="soal-tag">Sistem Pernapasan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tempat terjadinya pertukaran gas O₂ dan CO₂ dalam paru-paru adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-text">Trakea</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-text">Bronkus</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-text">Bronkiolus</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-text">Alveolus</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-text">Laring</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="soal-tag">Sistem Hormon</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Hormon yang berfungsi menurunkan kadar glukosa darah adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-text">Glukagon</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-text">Insulin</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-text">Adrenalin</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-text">Tiroksin</span></label>
+        <label><input type="radio" name="soal8" value="E"><span class="option-text">Kortisol</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="soal-tag">Pewarisan Sifat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Persilangan sesama individu heterozigot Aa × Aa akan menghasilkan rasio fenotip…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-text">1 : 1</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-text">3 : 1</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-text">9 : 3 : 3 : 1</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-text">1 : 2 : 1</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-text">2 : 1</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="soal-tag">Bioteknologi Molekuler</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Teknik untuk memperbanyak salinan DNA secara cepat di laboratorium adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal10" value="A"><span class="option-text">Kloning</span></label>
+        <label><input type="radio" name="soal10" value="B"><span class="option-text">PCR</span></label>
+        <label><input type="radio" name="soal10" value="C"><span class="option-text">Elektroforesis</span></label>
+        <label><input type="radio" name="soal10" value="D"><span class="option-text">Fusi sel</span></label>
+        <label><input type="radio" name="soal10" value="E"><span class="option-text">Kultur jaringan</span></label>
+      </div>
+    </div>
+
+    <!-- ======= BAGIAN B: PILIHAN GANDA KATEGORI ======= -->
+    <div class="section-title">B. PILIHAN GANDA KATEGORI (No. 11 – 18) — Pasangkan pernyataan dengan kategori yang tepat</div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="soal-tag">Protista</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan protista dengan kelompoknya!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Alga &nbsp;|&nbsp; B. Protozoa &nbsp;|&nbsp; C. Jamur Lendir
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) <em>Amoeba, Paramecium</em></span>
+          <select name="soal11a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) <em>Euglena, Chlorella</em></span>
+          <select name="soal11b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) <em>Physarum</em></span>
+          <select name="soal11c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="soal-tag">Organel Sel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan organel dengan fungsinya!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Pencernaan intrasel &nbsp;|&nbsp; B. Sintesis protein &nbsp;|&nbsp; C. Respirasi sel
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Ribosom</span>
+          <select name="soal12a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Mitokondria</span>
+          <select name="soal12b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Lisosom</span>
+          <select name="soal12c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="soal-tag">Enzim &amp; Substrat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan enzim dengan substratnya!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Lemak &nbsp;|&nbsp; B. Protein &nbsp;|&nbsp; C. Amilum
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Pepsin</span>
+          <select name="soal13a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Amilase</span>
+          <select name="soal13b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Lipase</span>
+          <select name="soal13c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="soal-tag">Sistem Ekskresi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan bagian ginjal dengan proses pembentukan urin!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Filtrasi &nbsp;|&nbsp; B. Reabsorpsi &nbsp;|&nbsp; C. Augmentasi
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Glomerulus</span>
+          <select name="soal14a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Tubulus Kontortus Proksimal</span>
+          <select name="soal14b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Tubulus Kolektivus</span>
+          <select name="soal14c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="soal-tag">Pembelahan Sel</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan fase pembelahan dengan kejadiannya!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Mitosis &nbsp;|&nbsp; B. Meiosis &nbsp;|&nbsp; C. Meiosis saja
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Terjadi di sel somatik, menghasilkan 2 sel identik</span>
+          <select name="soal15a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Menghasilkan 4 sel haploid</span>
+          <select name="soal15b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Kromosom homolog berpisah</span>
+          <select name="soal15c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="soal-tag">Teori Evolusi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan tokoh evolusi dengan teorinya!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Seleksi Alam &nbsp;|&nbsp; B. Use and Disuse &nbsp;|&nbsp; C. Plasma Nutfah
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Lamarck</span>
+          <select name="soal16a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Darwin</span>
+          <select name="soal16b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Weismann</span>
+          <select name="soal16c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="soal-tag">Bioteknologi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan bioteknologi dengan jenisnya!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Konvensional &nbsp;|&nbsp; B. Modern &nbsp;|&nbsp; C. Rekayasa Reproduksi
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Tempe, Tapai, Yoghurt</span>
+          <select name="soal17a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Jagung Bt, Insulin rekombinan</span>
+          <select name="soal17b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Bayi Tabung</span>
+          <select name="soal17c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="soal-tag">Sistem Peredaran Darah</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pasangkan antibodi dengan golongan darah!</p>
+      </div>
+      <div class="kategori-box">
+        <strong>Kategori:</strong> A. Anti-A &nbsp;|&nbsp; B. Anti-B &nbsp;|&nbsp; C. Anti-A dan Anti-B
+      </div>
+      <div class="select-group">
+        <div class="select-item">
+          <span class="pernyataan">1) Golongan darah A memiliki…</span>
+          <select name="soal18a">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">2) Golongan darah B memiliki…</span>
+          <select name="soal18b">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+        <div class="select-item">
+          <span class="pernyataan">3) Golongan darah O memiliki…</span>
+          <select name="soal18c">
+            <option value="">-- Pilih --</option>
+            <option value="A">A</option><option value="B">B</option><option value="C">C</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- ======= BAGIAN C: PILIHAN GANDA KOMPLEKS ======= -->
+    <div class="section-title">C. PILIHAN GANDA KOMPLEKS (No. 19 – 25) — Pilih LEBIH DARI SATU jawaban benar</div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="soal-tag">Ciri Jamur (Fungi)</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Manakah ciri-ciri Jamur (Fungi) yang benar?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal19" value="A"><span class="option-text">Eukariotik</span></label>
+        <label><input type="checkbox" name="soal19" value="B"><span class="option-text">Dinding sel dari kitin</span></label>
+        <label><input type="checkbox" name="soal19" value="C"><span class="option-text">Mampu berfotosintesis</span></label>
+        <label><input type="checkbox" name="soal19" value="D"><span class="option-text">Heterotrof</span></label>
+        <label><input type="checkbox" name="soal19" value="E"><span class="option-text">Prokariotik</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="soal-tag">Sistem Rangka</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Manakah yang termasuk tulang penyusun rangka aksial?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal20" value="A"><span class="option-text">Tulang tengkorak</span></label>
+        <label><input type="checkbox" name="soal20" value="B"><span class="option-text">Tulang rusuk</span></label>
+        <label><input type="checkbox" name="soal20" value="C"><span class="option-text">Tulang femur</span></label>
+        <label><input type="checkbox" name="soal20" value="D"><span class="option-text">Tulang belakang (vertebrae)</span></label>
+        <label><input type="checkbox" name="soal20" value="E"><span class="option-text">Tulang humerus</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="soal-tag">Pembuluh Darah</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Ciri pembuluh vena adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal21" value="A"><span class="option-text">Dinding tipis tidak elastis</span></label>
+        <label><input type="checkbox" name="soal21" value="B"><span class="option-text">Membawa darah menuju jantung</span></label>
+        <label><input type="checkbox" name="soal21" value="C"><span class="option-text">Banyak katup</span></label>
+        <label><input type="checkbox" name="soal21" value="D"><span class="option-text">Tekanan rendah</span></label>
+        <label><input type="checkbox" name="soal21" value="E"><span class="option-text">Denyut terasa kuat</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="soal-tag">Pertumbuhan &amp; Perkembangan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Faktor eksternal yang mempengaruhi pertumbuhan kecambah adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal22" value="A"><span class="option-text">Cahaya</span></label>
+        <label><input type="checkbox" name="soal22" value="B"><span class="option-text">Air</span></label>
+        <label><input type="checkbox" name="soal22" value="C"><span class="option-text">Suhu</span></label>
+        <label><input type="checkbox" name="soal22" value="D"><span class="option-text">Gen</span></label>
+        <label><input type="checkbox" name="soal22" value="E"><span class="option-text">Kelembaban</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="soal-tag">Mitosis — Profase</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Peristiwa yang terjadi pada profase mitosis adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal23" value="A"><span class="option-text">Kromosom memendek dan menebal</span></label>
+        <label><input type="checkbox" name="soal23" value="B"><span class="option-text">Membran inti menghilang</span></label>
+        <label><input type="checkbox" name="soal23" value="C"><span class="option-text">Terbentuk benang spindel</span></label>
+        <label><input type="checkbox" name="soal23" value="D"><span class="option-text">Kromosom berjejer di ekuator</span></label>
+        <label><input type="checkbox" name="soal23" value="E"><span class="option-text">Kromatid berpisah ke kutub</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="soal-tag">Bioteknologi Modern</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Manakah yang termasuk produk bioteknologi modern?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal24" value="A"><span class="option-text">Jagung Bt</span></label>
+        <label><input type="checkbox" name="soal24" value="B"><span class="option-text">Insulin dari bakteri <em>E. coli</em></span></label>
+        <label><input type="checkbox" name="soal24" value="C"><span class="option-text">Vaksin mRNA</span></label>
+        <label><input type="checkbox" name="soal24" value="D"><span class="option-text">Tempe</span></label>
+        <label><input type="checkbox" name="soal24" value="E"><span class="option-text">Tape singkong</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="soal-tag">Gangguan Sistem Hormon</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dampak kekurangan yodium dalam jangka panjang adalah…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal25" value="A"><span class="option-text">Produksi tiroksin menurun</span></label>
+        <label><input type="checkbox" name="soal25" value="B"><span class="option-text">Kelenjar tiroid membesar (gondok)</span></label>
+        <label><input type="checkbox" name="soal25" value="C"><span class="option-text">Metabolisme tubuh menurun</span></label>
+        <label><input type="checkbox" name="soal25" value="D"><span class="option-text">Tubuh menjadi lesu dan berat badan naik</span></label>
+        <label><input type="checkbox" name="soal25" value="E"><span class="option-text">Gula darah meningkat drastis</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Biologi_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Biologi SMA/MA/SMK
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  // string  -> pilihan ganda biasa (radio)
+  // object  -> pilihan ganda kategori (dropdown, semua sub harus benar)
+  // array   -> pilihan ganda kompleks (checkbox, harus tepat semua)
+  const kunciJawaban = {
+    soal1:  "B",
+    soal2:  "A",
+    soal3:  "B",
+    soal4:  "A",
+    soal5:  "C",
+    soal6:  "C",
+    soal7:  "D",
+    soal8:  "B",
+    soal9:  "B",
+    soal10: "B",
+    soal11: { a: "B", b: "A", c: "C" },
+    soal12: { a: "B", b: "C", c: "A" },
+    soal13: { a: "B", b: "C", c: "A" },
+    soal14: { a: "A", b: "B", c: "C" },
+    soal15: { a: "A", b: "B", c: "C" },
+    soal16: { a: "B", b: "A", c: "C" },
+    soal17: { a: "A", b: "B", c: "C" },
+    soal18: { a: "B", b: "A", c: "C" },
+    soal19: ["A", "B", "D"],
+    soal20: ["A", "B", "D"],
+    soal21: ["A", "B", "C", "D"],
+    soal22: ["A", "B", "C", "E"],
+    soal23: ["A", "B", "C"],
+    soal24: ["A", "B", "C"],
+    soal25: ["A", "B", "C", "D"]
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_biologi_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_biologi_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    let benar = 0;
+    let totalSoalDinilai = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (kunci === null || kunci === undefined) continue;
+      totalSoalDinilai++;
+
+      if (typeof kunci === 'string') {
+        // Pilihan ganda biasa
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        // Pilihan ganda kompleks (checkbox) — harus tepat semua
+        const checked = Array.from(
+          document.querySelectorAll('input[name="' + key + '"]:checked')
+        ).map(el => el.value).sort();
+        const kunciSorted = [...kunci].sort();
+        if (checked.length === kunciSorted.length &&
+            checked.every((v, idx) => v === kunciSorted[idx])) {
+          benar++;
+        }
+
+      } else if (typeof kunci === 'object') {
+        // Pilihan ganda kategori (dropdown) — semua sub harus benar
+        const subKeys = Object.keys(kunci);
+        let subBenar = true;
+        subKeys.forEach(sub => {
+          const sel = document.querySelector('select[name="' + key + sub + '"]');
+          if (!sel || sel.value !== kunci[sub]) subBenar = false;
+        });
+        if (subBenar) benar++;
+      }
+    }
+
+    benarGlobal = benar;
+    skorGlobal = totalSoalDinilai > 0 ? Math.round((benar / totalSoalDinilai) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + totalSoalDinilai;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Biologi_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE (FOLDER TUJUAN) =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+
+    // Tampilkan panduan
+    document.getElementById('drive-info').classList.add('show');
+
+    // 1. Otomatis unduh PDF terlebih dahulu
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Biologi_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      // 2. Setelah PDF terunduh, buka folder Google Drive tujuan
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Biologi_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

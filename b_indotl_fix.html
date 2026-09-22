@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Bahasa Indonesia Tingkat Lanjut 2026 — XII IBB</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 3px rgba(40,116,166,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,59,92,0.35);
+  }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-header .title-text { font-weight: 700; color: #0b3b5c; font-size: 1rem; }
+  .badge {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 6px;
+    background: #eaf1fb; color: #1a5fb4; vertical-align: middle; margin-left: 6px;
+  }
+  .badge.mcma { background: #fdf1e3; color: #b96a10; }
+  .badge.kategori { background: #e8f6ee; color: #1d7a4c; }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin: 0 0 10px; }
+  .wacana-box {
+    background: #f0f7ff; border-left: 4px solid #2874a6;
+    padding: 14px 18px; border-radius: 6px; margin-bottom: 16px;
+    font-size: 0.94rem; line-height: 1.75;
+  }
+  .wacana-box strong { color: #0b3b5c; }
+  .wacana-box p { margin: 0 0 10px; }
+  .wacana-box p:last-child { margin-bottom: 0; }
+  .wacana-box .sumber {
+    font-size: 0.8rem; font-style: italic; color: #6a7a8a; margin-top: 10px;
+  }
+  .puisi {
+    background: #fffaf0; border-left: 4px solid #c9a227;
+    padding: 14px 18px; border-radius: 6px; margin-bottom: 16px;
+    font-family: 'Georgia', 'Times New Roman', serif;
+    font-style: italic; line-height: 1.9; font-size: 0.95rem;
+  }
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 600px; font-size: 0.9rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #b0c4d8; padding: 8px 12px; text-align: center;
+  }
+  table.data-tabel th { background: #eef4fa; color: #0b3b5c; }
+  table.data-tabel td.left { text-align: left; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #0b3b5c; flex-shrink: 0; }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; font-size: 0.95rem; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .tf-item .opsi input[type="radio"] { accent-color: #0b3b5c; }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b3b5c;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none; word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Bahasa Indonesia Tingkat Lanjut</h1>
+  <div class="subtitle">SMA/MA/SMK — Kelas XII IBB Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">📖</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII IBB 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>120 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">120:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="title-text">Struktur Teks Hikayat</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Hikayat Sa-ijaan dan Ikan Todak</strong>
+        <p>Hatta, ketika laut tenang, seekor ikan besar tiba-tiba muncul dari permukaan laut dan terbang menyerangnya. Tanpa beringsut dari tempat duduk maupun membuka mata, Datu Mabrur menepis serangan mendadak itu. Ikan itu terpelanting dan jatuh di karang. Setelah jatuh ke air, ikan itu menyerang lagi. Demikian berulang-ulang. Di sekeliling karang, ribuan ikan lain mengepung, memperlihatkan gigi mereka yang panjang dan tajam, seakan prajurit siap tempur. Pada serangannya yang terakhir, ikan itu terpelanting jatuh persis saat Datu Mabrur membuka matanya.</p>
+        <p>"Hai, ikan! Apa maksudmu mengganggu samadiku? Ikan apa kamu?"</p>
+        <p>"Aku ikan todak, Raja Ikan Todak yang menguasai perairan ini. Samadimu membuat lautan bergelora. Kami terusik, dan aku memutuskan untuk menyerangmu. Tapi, engkau memang sakti, Datu Mabrur. Aku takluk," katanya, megap-megap. Matanya berkedip-kedip menahan sakit. Tubuhnya terjepit di sela-sela karang tajam.</p>
+        <p>"Jadi, itu rakyatmu?" Datu Mabrur menunjuk ribuan ikan yang mengepung karang.</p>
+        <p>"Ya, Datu. Tapi, sebelum menyerangmu tadi, kami telah bersepakat. Kalau aku kalah, kami akan menyerah dan mematuhi apa pun perintahmu." "Datu, tolonglah aku. Obati luka-lukaku dan kembalikanlah aku ke laut. Kalau terlalu lama di darat, aku bisa mati. Atas nama rakyatku, aku berjanji akan mengabdi padamu, bila engkau menolongku..." Raja Ikan Todak mengiba-iba. Seolah sulit bernapas, insangnya membuka dan menutup.</p>
+        <p>"Baiklah," Datu Mabrur berdiri. "Sebagai sesama makhluk ciptaan-Nya, aku akan menolongmu."</p>
+        <p>"Apa pun permintaanmu, kami akan memenuhinya. Datu ingin istana bawah laut yang terbuat dari emas dan permata, dilayani ikan duyung dan gurita? Ingin berkeliling dunia, bersama ikan paus dan lumba-lumba?"</p>
+        <p>"Tidak. Aku tak punya keinginan pribadi, tapi untuk masa depan anak-cucuku nanti..." Lalu, Datu Mabrur menceritakan maksud pertapaannya selama ini.</p>
+        <p>"Akan kukerahkan rakyatku, seluruh penghuni lautan dan samudera. Sebelum matahari terbit esok pagi, impianmu akan terwujud. Aku bersumpah!" jawab Raja Ikan Todak.</p>
+        <p>Datu Mabrur tak dapat membayangkan, bagaimana Raja Ikan Todak akan memenuhi sumpahnya itu. "Baiklah. Tapi kita harus membuat perjanjian. Sejak sekarang kita harus <em>sa-ijaan,</em> seiring sejalan. Seia sekata, sampai ke anak-cucu kita. Kita harus rakat mufakat, bantu membantu, bahu membahu. Setuju?"</p>
+        <p>"Setuju, Datu...," sahut Raja Ikan Todak yang tergolek lemah.</p>
+        <div class="sumber">Sumber: <em>Cerdas Cergas Berbahasa dan Bersastra Indonesia untuk SMA/SMK Kelas X</em></div>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Urutan peristiwa yang tepat sesuai dengan isi hikayat tersebut adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">Raja Ikan Todak muncul – Datu Mabrur dan Raja Ikan Todak berkelahi – Raja Ikan Todak menyerah – perjanjian disepakati</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">Raja Ikan Todak menyerang – Raja Ikan Todak menyerah – Datu Mabrur bertapa – laut menjadi tenang kembali</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">Ribuan ikan mengepung – Raja Ikan Todak menyerang – Datu Mabrur mengusulkan perjanjian – perjanjian disepakati</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">Raja Ikan Todak menyerang – Datu Mabrur menolong Raja Ikan Todak – ikan-ikan mengepung – perjanjian dibuat</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">Raja ikan menyerang Datu Mabrur – Datu Mabrur mengusulkan perjanjian – perjanjian dibuat – Raja Ikan Todak mengiba</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="title-text">Peristiwa Penting dalam Hikayat</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Hikayat Sa-ijaan dan Ikan Todak</strong>
+        <p>Hatta, ketika laut tenang, seekor ikan besar tiba-tiba muncul dari permukaan laut dan terbang menyerangnya. Tanpa beringsut dari tempat duduk maupun membuka mata, Datu Mabrur menepis serangan mendadak itu. Ikan itu terpelanting dan jatuh di karang. Setelah jatuh ke air, ikan itu menyerang lagi. Demikian berulang-ulang. Di sekeliling karang, ribuan ikan lain mengepung, memperlihatkan gigi mereka yang panjang dan tajam, seakan prajurit siap tempur. Pada serangannya yang terakhir, ikan itu terpelanting jatuh persis saat Datu Mabrur membuka matanya.</p>
+        <p>"Hai, ikan! Apa maksudmu mengganggu samadiku? Ikan apa kamu?"</p>
+        <p>"Aku ikan todak, Raja Ikan Todak yang menguasai perairan ini. Samadimu membuat lautan bergelora. Kami terusik, dan aku memutuskan untuk menyerangmu. Tapi, engkau memang sakti, Datu Mabrur. Aku takluk," katanya, megap-megap. Matanya berkedip-kedip menahan sakit. Tubuhnya terjepit di sela-sela karang tajam.</p>
+        <p>"Jadi, itu rakyatmu?" Datu Mabrur menunjuk ribuan ikan yang mengepung karang.</p>
+        <p>"Ya, Datu. Tapi, sebelum menyerangmu tadi, kami telah bersepakat. Kalau aku kalah, kami akan menyerah dan mematuhi apa pun perintahmu." "Datu, tolonglah aku. Obati luka-lukaku dan kembalikanlah aku ke laut. Kalau terlalu lama di darat, aku bisa mati. Atas nama rakyatku, aku berjanji akan mengabdi padamu, bila engkau menolongku..." Raja Ikan Todak mengiba-iba. Seolah sulit bernapas, insangnya membuka dan menutup.</p>
+        <p>"Baiklah," Datu Mabrur berdiri. "Sebagai sesama makhluk ciptaan-Nya, aku akan menolongmu."</p>
+        <p>"Apa pun permintaanmu, kami akan memenuhinya. Datu ingin istana bawah laut yang terbuat dari emas dan permata, dilayani ikan duyung dan gurita? Ingin berkeliling dunia, bersama ikan paus dan lumba-lumba?"</p>
+        <p>"Tidak. Aku tak punya keinginan pribadi, tapi untuk masa depan anak-cucuku nanti..." Lalu, Datu Mabrur menceritakan maksud pertapaannya selama ini.</p>
+        <p>"Akan kukerahkan rakyatku, seluruh penghuni lautan dan samudera. Sebelum matahari terbit esok pagi, impianmu akan terwujud. Aku bersumpah!" jawab Raja Ikan Todak.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Peristiwa penting yang terjadi setelah Datu Mabrur menolong Raja Ikan Todak adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-text">Raja Ikan Todak melanggar janjinya dan kembali menyerang</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-text">Datu Mabrur meminta harta dan singgasana bawah laut</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-text">Raja Ikan Todak berjanji akan memenuhi permintaan Datu Mabrur</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-text">Datu Mabrur mengajak semua ikan menyerang kerajaan manusia</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-text">Raja Ikan Todak mengangkat Datu Mabrur menjadi raja laut</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="title-text">Relevansi Nilai Sosial Hikayat</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Konteks:</strong> Raja Ikan Todak berjanji akan mengerahkan seluruh rakyatnya untuk memenuhi permintaan Datu Mabrur sebagai bentuk balas budi karena telah ditolong dan diobati lukanya.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa tindakan Raja Ikan Todak yang ingin mengerahkan rakyatnya untuk memenuhi permintaan Datu Mabrur masih relevan dengan norma sosial saat ini?</p>
+        <p><strong>Klik pada pilihan Benar atau Salah untuk setiap pernyataan berikut!</strong></p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Menggambarkan sikap balas budi terhadap orang yang telah berjasa dalam hidup kita.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal3a" value="B"> Benar</label>
+            <label><input type="radio" name="soal3a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Menunjukkan sikap suka menolong terhadap semua orang yang membutuhkan pertolongan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal3b" value="B"> Benar</label>
+            <label><input type="radio" name="soal3b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Mencerminkan sikap pandai berterima kasih terhadap orang yang telah menolong.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal3c" value="B"> Benar</label>
+            <label><input type="radio" name="soal3c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="title-text">Pemaknaan Larik Puisi</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="puisi">
+        <strong>Pahlawan Tak Dikenal</strong><br>
+        Karya: Toto Sudarto Bachtiar<br><br>
+        Sepuluh tahun yang lalu dia terbaring<br>
+        Tetapi bukan tidur, sayang<br>
+        Sebuah lubang peluru bundar di dadanya<br>
+        Senyum bekunya mau berkata, kita sedang perang<br><br>
+        Dia tidak ingat bilamana dia datang<br>
+        Kedua lengannya memeluk senapan<br>
+        Dia tidak tahu untuk siapa dia datang<br>
+        Kemudian dia terbaring, tapi bukan tidur sayang<br><br>
+        Wajah sunyi setengah tengadah<br>
+        Menangkap sepi padang senja<br>
+        Dunia tambah beku di tengah derap dan suara merdu<br>
+        Dia masih sangat muda<br><br>
+        Hari itu 10 November, hujanpun mulai turun<br>
+        Orang-orang ingin kembali memandangnya<br>
+        Sambil merangkai karangan bunga<br>
+        Tapi yang nampak, wajah-wajahnya sendiri yang tak dikenalnya<br><br>
+        Sepuluh tahun yang lalu dia terbaring<br>
+        Tetapi bukan tidur, sayang<br>
+        Sebuah peluru bundar di dadanya<br>
+        Senyum bekunya mau berkata: aku sangat muda.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa larik "Dia tidak tahu untuk siapa dia datang" sudah tepat menguatkan gambaran tentang pahlawan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">Latar belakang daerah tidaklah penting untuk menjadi pahlawan</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">Seorang pejuang tidak memerlukan bantuan dari pihak mana pun</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">Pengorbanan dilakukan untuk tanah air bukan untuk orang tertentu</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">Figur pejuang sering kali tidak dihargai oleh generasi muda saat ini</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">Gambaran ketidaktahuan kita dalam menghormati seorang pahlawan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="title-text">Majas Repetisi pada Puisi</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="puisi">
+        <strong>Pahlawan Tak Dikenal</strong> — Toto Sudarto Bachtiar<br><br>
+        Sepuluh tahun yang lalu dia terbaring<br>
+        Tetapi bukan tidur, sayang<br>
+        Sebuah lubang peluru bundar di dadanya<br>
+        Senyum bekunya mau berkata, kita sedang perang<br><br>
+        Dia tidak ingat bilamana dia datang<br>
+        Kedua lengannya memeluk senapan<br>
+        Dia tidak tahu untuk siapa dia datang<br>
+        Kemudian dia terbaring, tapi bukan tidur sayang<br><br>
+        Wajah sunyi setengah tengadah<br>
+        Menangkap sepi padang senja<br>
+        Dunia tambah beku di tengah derap dan suara merdu<br>
+        Dia masih sangat muda<br><br>
+        Hari itu 10 November, hujanpun mulai turun<br>
+        Orang-orang ingin kembali memandangnya<br>
+        Sambil merangkai karangan bunga<br>
+        Tapi yang nampak, wajah-wajahnya sendiri yang tak dikenalnya<br><br>
+        Sepuluh tahun yang lalu dia terbaring<br>
+        Tetapi bukan tidur, sayang<br>
+        Sebuah peluru bundar di dadanya<br>
+        Senyum bekunya mau berkata: aku sangat muda.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa penyair menggunakan majas repetisi (pengulangan) pada bait awal dan akhir puisinya? <strong>Klik pada setiap pilihan jawaban benar! Jawaban benar lebih dari satu.</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal5" value="A"><span class="option-text">Menguatkan gambaran tentang pahlawan yang tewas tertembak.</span></label>
+        <label><input type="checkbox" name="soal5" value="B"><span class="option-text">Menguatkan tentang adanya perjuangan di Batavia pada masa itu.</span></label>
+        <label><input type="checkbox" name="soal5" value="C"><span class="option-text">Menegaskan tentang adanya pahlawan yang gugur demi tanah air.</span></label>
+        <label><input type="checkbox" name="soal5" value="D"><span class="option-text">Menggambarkan kondisi peperangan yang pecah pada masa itu.</span></label>
+        <label><input type="checkbox" name="soal5" value="E"><span class="option-text">Mengisyaratkan pengorbanan pahlawan yang tewas tanpa tanda jasa.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="title-text">Makna Simbolik Larik Puisi</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="puisi">
+        <strong>Pahlawan Tak Dikenal</strong> — Toto Sudarto Bachtiar<br><br>
+        ... Hari itu 10 November, hujanpun mulai turun<br>
+        Orang-orang ingin kembali memandangnya<br>
+        <strong>Sambil merangkai karangan bunga</strong><br>
+        Tapi yang nampak, wajah-wajahnya sendiri yang tak dikenalnya ...
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Makna simbolik pada larik "Sambil merangkai karangan bunga" pada puisi tersebut adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">Menyusun bunga untuk orang yang dicintai</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">Menghormati jasa para pahlawan yang gugur</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">Menaruh hormat pada setiap orang yang ditemui</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">Menghargai nilai keindahan yang ada pada bunga</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">Menata beberapa tangkai bunga untuk pahlawan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="title-text">Pemecahan Masalah dalam Teks</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Metode Bercocok Tanam di Lahan Sempit</strong>
+        <p>Urbanisasi yang terjadi secara masif menimbulkan berbagai tantangan serius, terutama dalam hal penyediaan pangan dan keterbatasan lahan. Seiring dengan pertumbuhan populasi yang pesat, kebutuhan akan makanan segar meningkat, sementara lahan perkotaan semakin sempit karena dialokasikan untuk pembangunan infrastruktur, perumahan, dan fasilitas publik. Situasi ini menyebabkan ketergantungan tinggi pada pasokan dari luar kota yang rentan terhadap gangguan distribusi dan peningkatan biaya. Kondisi ini menuntut adanya inovasi dalam sistem produksi pangan agar kebutuhan masyarakat tetap terpenuhi. Perlu metode bercocok tanam yang dapat diterapkan di dalam ruang terbatas. Inovasi metode bercocok tanam yang dapat mengatasi keterbatasan lahan di kota besar, yaitu pertanian vertikal. Metode ini dilakukan dengan menyusun tanaman dalam rak-rak bertingkat di lingkungan yang terkontrol. Metode ini memanfaatkan teknologi modern seperti hidroponik, aeroponik, dan pencahayaan LED. Sistem ini memungkinkan produksi pangan dilakukan dalam ruang terbatas secara efisien sehingga sangat cocok diterapkan di wilayah perkotaan. Selain menghemat lahan, pertanian vertikal juga dapat mengurangi penggunaan air, pestisida, serta tidak tergantung pada musim.</p>
+        <p>Namun demikian, pengembangan pertanian vertikal masih menghadapi sejumlah tantangan. Biaya awal pembangunan fasilitas ini tergolong tinggi karena membutuhkan peralatan canggih seperti sistem irigasi otomatis, kontrol suhu, dan pencahayaan khusus. Selain itu, konsumsi energi yang tinggi menjadi isu penting, meskipun teknologi energi terbarukan seperti panel surya mulai digunakan untuk mengatasi hal ini.</p>
+        <p>Indonesia sebagai negara dengan jumlah penduduk yang besar dan tingkat urbanisasi yang terus meningkat memiliki potensi dalam pengembangan pertanian vertikal. Kota-kota besar seperti Jakarta, Surabaya, dan Bandung menghadapi tekanan besar dalam pemenuhan kebutuhan pangan masyarakatnya. Pertanian vertikal bukan hanya sekadar solusi teknis, melainkan juga mencerminkan perubahan cara pandang dalam memproduksi pangan secara berkelanjutan. Dengan dukungan teknologi dan kreativitas, pertanian vertikal dapat menjadi jalan menuju masa depan yang lebih tangguh dalam menghadapi tantangan urbanisasi dan krisis pangan global.</p>
+        <div class="sumber">Sumber: radarmukomuko.bacakoran.co &amp; kumparan.com (dengan pengubahan)</div>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Setelah memahami fenomena dalam teks, bagaimana kalimat yang tepat untuk menyampaikan pemecahan masalah?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-text">Meningkatnya urbanisasi harus dibiarkan agar masyarakat kota terbiasa dengan keterbatasan pangan.</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-text">Ketergantungan kota pada pasokan luar dapat dikurangi dengan menerapkan pertanian vertikal di ruang terbatas.</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-text">Krisis pangan di kota besar tidak perlu dikhawatirkan karena dapat diatasi dengan menambah impor bahan pangan.</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-text">Pembangunan kota harus diutamakan dibanding penyediaan ruang untuk pertanian atau tanaman pangan.</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-text">Penduduk kota harus dibiasakan untuk mengurangi konsumsi makanan segar dan beralih ke makanan instan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="title-text">Fungsi Subjek dalam Kalimat</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Cermati paragraf 1 kalimat 1:</strong></p>
+        <p>"<u>Urbanisasi yang terjadi secara masif</u> menimbulkan berbagai tantangan serius, terutama dalam hal penyediaan pangan dan keterbatasan lahan."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa frasa "urbanisasi yang terjadi secara masif" tepat sebagai pengisi fungsi subjek?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-text">Menyatakan akibat dari suatu peristiwa</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-text">Berbentuk verba yang menempati posisi predikat</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-text">Merupakan frasa kerja yang menjelaskan objek</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-text">Berbentuk frasa nomina dan berperan sebagai pelaku</span></label>
+        <label><input type="radio" name="soal8" value="E"><span class="option-text">Mengandung keterangan tempat yang lengkap</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="title-text">Ketepatan Istilah dalam Teks</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan:</strong> "Urbanisasi yang terjadi secara masif menimbulkan berbagai tantangan serius, terutama dalam hal penyediaan pangan dan keterbatasan lahan."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa penggunaan istilah "urbanisasi" tepat digunakan dalam teks tersebut? <strong>Klik pada setiap pernyataan yang benar! Jawaban benar lebih dari satu.</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal9" value="A"><span class="option-text">Berhubungan dengan peningkatan jumlah penduduk di wilayah perkotaan.</span></label>
+        <label><input type="checkbox" name="soal9" value="B"><span class="option-text">Menunjukkan metode pertanian modern yang cocok diterapkan di kota.</span></label>
+        <label><input type="checkbox" name="soal9" value="C"><span class="option-text">Menyebabkan tantangan serius dalam penyediaan pangan di kota.</span></label>
+        <label><input type="checkbox" name="soal9" value="D"><span class="option-text">Menjadi pemicu perlu adanya inovasi, seperti pertanian vertikal.</span></label>
+        <label><input type="checkbox" name="soal9" value="E"><span class="option-text">Menjelaskan cara pendistribusian hasil pangan dari desa ke kota.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="title-text">Konstruksi Frasa Verba</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Perhatikan kalimat berikut.</strong></p>
+        <p>"Agar sejahtera, masyarakat mesti melepaskan dari kemiskinan."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa konstruksi frase verba "mesti melepaskan" tidak sesuai dengan konteks kalimat tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal10" value="A"><span class="option-text">Kata <em>melepaskan</em> merupakan verba transitif yang memerlukan objek langsung.</span></label>
+        <label><input type="radio" name="soal10" value="B"><span class="option-text">Seharusnya kata <em>mesti</em> tidak perlu digunakan dalam konstruksi frasa tersebut.</span></label>
+        <label><input type="radio" name="soal10" value="C"><span class="option-text">Frase <em>mesti melepaskan</em> bukanlah frasa verba karena memiliki inti nominal.</span></label>
+        <label><input type="radio" name="soal10" value="D"><span class="option-text">Frase <em>mesti melepaskan</em> bukanlah frasa verba tidak hanya menduduki satu fungsi.</span></label>
+        <label><input type="radio" name="soal10" value="E"><span class="option-text">Kata <em>melepaskan</em> sudah tepat penggunaannya tanpa perlu tambahan objek.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="title-text">Pertanyaan Berdasarkan Tabel</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Beranjak dari Kemiskinan</strong>
+        <p>Menurut Badan Pusat Statistik (BPS), nilai rasio Gini, yang berkaitan dengan ketimpangan pengeluaran, berkisar 0–1. Di Indonesia, rasio Gini pada tahun 2024 sebesar 0,381. Berikut tabel yang menjelaskan angka kemiskinan di Indonesia dalam 5 tahun terakhir.</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Tahun</th><th>Jumlah Penduduk Miskin</th><th>Persentase Penduduk Miskin</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>2020</td><td>27,55 juta</td><td>10,19%</td></tr>
+            <tr><td>2021</td><td>26,50 juta</td><td>9,71%</td></tr>
+            <tr><td>2022</td><td>26,35 juta</td><td>9,57%</td></tr>
+            <tr><td>2023</td><td>25,90 juta</td><td>9,36%</td></tr>
+            <tr><td>2024</td><td>24,06 juta</td><td>8,57%</td></tr>
+          </tbody>
+        </table>
+        <div class="sumber">Sumber: kompas.id (dengan pengubahan seperlunya)</div>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pertanyaan paling tepat berdasarkan informasi tabel dalam teks tersebut adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">Jumlah penduduk miskin di Indonesia terus mengalami peningkatan sejak tahun 2020 hingga tahun 2024.</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">Persentase penduduk miskin tertinggi terjadi pada tahun 2022, yaitu sebesar 9,57% dan tahun sebelumnya.</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">Penurunan jumlah penduduk miskin paling besar terjadi antara tahun 2023 dan 2024, yaitu sebesar 1,84 juta jiwa.</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">Jumlah penduduk miskin pada tahun 2021 lebih tinggi dibandingkan tahun 2020, yaitu 26,50 juta jiwa.</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">Jumlah penduduk miskin pada tahun 2022 mengalami peningkatan sebesar 1,35 juta jiwa dibandingkan tahun 2020.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="title-text">Kesesuaian Argumentasi dengan Data</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Perhatikan kalimat berikut:</strong></p>
+        <p>"Meski demikian, bantuan sosial saja tak cukup untuk membuat kemiskinan menjauh."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa kalimat argumentasi tersebut sesuai dengan data yang diberikan penulis dalam teks?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">Bantuan sosial belum mampu menurunkan angka kemiskinan secara signifikan.</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">Bantuan sosial yang diberikan tidak menyentuh akar persoalan kemiskinan.</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">Bantuan sosial harus dikombinasikan dengan pendidikan dan pemberdayaan ekonomi.</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">Bantuan sosial menciptakan ketergantungan yang justru memperpanjang kemiskinan.</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">Bantuan sosial membuat masyarakat memiliki kemandirian untuk lepas dari kemiskinan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="title-text">Tanggapan Sesuai Norma Sosial Budaya</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Batik, Pakaian Resmi, dan Aspek Keberlanjutan</strong>
+        <p>Fenomena menarik terjadi saat penyelenggaraan Research and Development 20 Summer School 2024 tentang transisi energi. Peserta dari negara empat musim tampak kedinginan di ballroom hotel meskipun berasal dari negara dingin. Hal ini terjadi karena ketidaksesuaian antara pengaturan suhu ruangan dengan pakaian yang dikenakan.</p>
+        <p>Dalam konsep kenyamanan termal, pakaian menjadi salah satu faktor penting. Menurut ASHRAE, pakaian dengan nilai clo rendah tidak cocok untuk suhu ruang yang disetel dingin. Di negara tropis, pengaturan suhu yang terlalu rendah dapat menyebabkan pemborosan energi. Hal ini terjadi karena biasanya orang-orang memakai pakaian tebal, seperti jas. Ironisnya, budaya berpakaian formal di Indonesia masih mengandalkan jas sebagai standar, padahal penggunaan jas kurang sesuai dengan iklim tropis. Batik telah diakui UNESCO sebagai Warisan Budaya Tak Benda bisa menjadi solusi elegan sekaligus ramah lingkungan. Batik memiliki bahan dan corak yang lebih sesuai dengan suhu tropis. Selain itu, penggunaan batik juga dapat mendukung efisiensi energi dan tidak menuntut suhu ruangan yang terlalu rendah. Penyesuaian ini bukan hanya tentang kenyamanan dalam mengenakan pakaian, melainkan juga tentang keberlanjutan.</p>
+        <p>Penurunan suhu ruangan satu derajat celcius bisa menghasilkan emisi 160 kg CO<sub>2</sub> per tahun. Bayangkan dampaknya jika diterapkan di hotel atau gedung perkantoran.</p>
+        <p>Setiap lembar batik yang dikenakan menghidupi pengrajin, pelestari budaya, dan sektor UMKM kreatif. Bagi industri lokal, penggunaan batik secara luas dapat menjadi dorongan agar berkembang lebih pesat. Pemerintah dapat mendorong perubahan ini dengan menetapkan kebijakan yang memprioritaskan batik dalam acara resmi. Lembaga pendidikan dan instansi pemerintah juga bisa menjadi pelopor gerakan batik harian. Selain efisiensi energi, langkah ini juga memperkuat identitas nasional. Budaya bisa menjadi solusi atas krisis global, termasuk krisis iklim. Batik bukan sekadar pakaian, tetapi pernyataan sikap atas masa depan yang lestari.</p>
+        <p>Sudah saatnya, Indonesia menetapkan batik sebagai pakaian resmi dalam berbagai forum formal. Bahkan, batik akan lebih kuat jika digunakan dalam acara pelantikan, bukan jas. Hal ini akan menjadi simbol kuat keberlanjutan sekaligus kebanggaan nasional. Dengan memilih batik, kita tidak hanya melestarikan budaya, tetapi juga mengambil langkah konkret dalam menjaga bumi bagi generasi mendatang.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan teks tersebut, manakah tanggapan yang sesuai dengan norma sosial dan budaya?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">Sudah saatnya Indonesia menetapkan batik sebagai pakaian resmi dalam berbagai forum formal.</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">Penurunan suhu ruangan satu derajat celcius bisa menghasilkan emisi 160 kg CO<sub>2</sub> per tahun.</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">Di negara tropis, pengaturan suhu yang terlalu rendah dapat menyebabkan pemborosan energi.</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">Menurut ASHRAE, pakaian dengan nilai clo rendah tidak cocok untuk suhu ruang yang disetel dingin.</span></label>
+        <label><input type="radio" name="soal13" value="E"><span class="option-text">Peserta dari negara empat musim kedinginan di ballroom hotel, meskipun berasal dari negara dingin.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="title-text">Unsur Kebahasaan dalam Kalimat</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p>"<em>Dengan memilih batik, kita tidak hanya melestarikan budaya, tetapi juga mengambil langkah konkret dalam menjaga bumi bagi generasi mendatang.</em>"</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Makna kalimat tersebut diperjelas melalui penggunaan unsur kalimat berupa:</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal14" value="A"><span class="option-text">Penggunaan majas hiperbola untuk memberikan efek dramatis.</span></label>
+        <label><input type="radio" name="soal14" value="B"><span class="option-text">Pengulangan frasa inti untuk penekanan maksud pertanyaan.</span></label>
+        <label><input type="radio" name="soal14" value="C"><span class="option-text">Penempatan subjek utama di awal kalimat untuk fokus aksi.</span></label>
+        <label><input type="radio" name="soal14" value="D"><span class="option-text">Penggunaan pola hubungan sebab-akibat untuk penjelasan utama.</span></label>
+        <label><input type="radio" name="soal14" value="E"><span class="option-text">Penggunaan konjungsi korelatif untuk menghubungkan dua manfaat.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="title-text">Pandangan Logis Berdasarkan Isi Teks</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan:</strong> "Batik memiliki bahan dan corak yang lebih sesuai dengan suhu tropis. Selain itu, penggunaan batik juga dapat mendukung efisiensi energi dan tidak menuntut suhu ruangan yang terlalu rendah."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Manakah pernyataan berikut yang menunjukkan pandangan logis berdasarkan isi teks? <strong>Klik pada pilihan Benar atau Salah untuk setiap pernyataan berikut!</strong></p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Penggunaan pakaian ringan seperti batik dapat mengurangi kebutuhan energi untuk pendingin ruangan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15a" value="B"> Benar</label>
+            <label><input type="radio" name="soal15a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Penggunaan jas dalam acara resmi di Indonesia perlu dipertahankan karena sudah menjadi standar formal.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15b" value="B"> Benar</label>
+            <label><input type="radio" name="soal15b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Penggunaan batik sebagai pakaian resmi hanya berdampak pada pelestarian budaya, bukan pada isu lingkungan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15c" value="B"> Benar</label>
+            <label><input type="radio" name="soal15c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="title-text">Analisis Konstruksi Frasa</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Perhatikan frasa berikut:</strong></p>
+        <p>"tekanan inflasi dari kejutan di sisi pasokan"</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Frasa tersebut merupakan frasa yang kompleks. Manakah analisis konstruksi frasa yang paling tepat?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal16" value="A"><span class="option-text">Frasa "<em>tekanan inflasi</em>" merupakan frasa nomina. Sedangkan frasa "<em>dari kejutan</em>" dan "<em>di sisi pasokan</em>" merupakan frasa pronominal.</span></label>
+        <label><input type="radio" name="soal16" value="B"><span class="option-text">Frasa "<em>tekanan inflasi</em>" merupakan frasa nomina. Sedangkan frasa "<em>dari kejutan</em>" dan "<em>di sisi pasokan</em>" merupakan frasa preposisional.</span></label>
+        <label><input type="radio" name="soal16" value="C"><span class="option-text">Frasa "<em>tekanan inflasi</em>" merupakan frasa pronomina. Sedangkan frasa "<em>dari kejutan</em>" dan "<em>di sisi pasokan</em>" merupakan frasa preposisional.</span></label>
+        <label><input type="radio" name="soal16" value="D"><span class="option-text">Frasa "<em>tekanan inflasi</em>" merupakan frasa preposisional. Sedangkan frasa "<em>dari kejutan</em>" dan "<em>di sisi pasokan</em>" merupakan frasa preposisional.</span></label>
+        <label><input type="radio" name="soal16" value="E"><span class="option-text">Frasa "<em>tekanan inflasi</em>" merupakan frasa verba. Sedangkan frasa "<em>dari kejutan</em>" dan "<em>di sisi pasokan</em>" merupakan frasa preposisional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="title-text">Interpretasi Tabel Inflasi</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p>Inflasi nasional merupakan rata-rata tertimbang dari inflasi daerah di Indonesia. Bobot inflasi kota Jakarta masih merupakan yang terbesar di antara 66 kota yang diukur melalui Survei Biaya Hidup (SBH).</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Wilayah</th><th>Bobot Inflasi (%)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">Jakarta</td><td>22,49</td></tr>
+            <tr><td class="left">Surabaya</td><td>6,47</td></tr>
+            <tr><td class="left">Semarang</td><td>3,48</td></tr>
+            <tr><td class="left">Makassar</td><td>2,56</td></tr>
+            <tr><td class="left">Palembang</td><td>2,96</td></tr>
+            <tr><td class="left">Padang</td><td>1,69</td></tr>
+            <tr><td class="left">Banjarmasin</td><td>1,54</td></tr>
+            <tr><td class="left">Denpasar</td><td>1,53</td></tr>
+            <tr><td class="left">Gabungan 56 Kota Lainnya</td><td>47,23</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Manakah pertanyaan berikut yang paling tepat menggambarkan isi tabel secara logis dan informatif?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal17" value="A"><span class="option-text">Tabel menunjukkan bahwa seluruh kota besar di Indonesia memiliki bobot inflasi yang merata, dengan rata-rata sekitar 3%.</span></label>
+        <label><input type="radio" name="soal17" value="B"><span class="option-text">Bobot inflasi kota Jakarta paling tinggi dibandingkan kota lain, yaitu mencapai 22,49%, lebih dari tiga kali lipat bobot inflasi Surabaya.</span></label>
+        <label><input type="radio" name="soal17" value="C"><span class="option-text">Tabel menunjukkan bahwa gabungan kota selain Jakarta menyumbang bobot inflasi yang lebih rendah daripada Jakarta sendiri.</span></label>
+        <label><input type="radio" name="soal17" value="D"><span class="option-text">Data menunjukkan bahwa inflasi di Pulau Jawa secara keseluruhan menyumbang hampir 90% dari bobot inflasi nasional.</span></label>
+        <label><input type="radio" name="soal17" value="E"><span class="option-text">Data menunjukkan bahwa inflasi di Pulau Jawa secara keseluruhan menyumbang hampir 90% dari bobot inflasi nasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="title-text">Argumentasi dan Data dalam Teks</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p>Kajian mengenai fenomena persistensi menjadi sangat penting untuk dilakukan dalam rangka mendukung perumusan kebijakan moneter yang efektif. Inflasi yang tinggi akan memberikan dampak negatif terhadap perekonomian. Daya beli masyarakat menurun dan pelaku dunia usaha akan diliputi ketidakpastian yang tinggi. Implikasi dari persistensi inflasi tersebut juga akan dirasakan di tingkat daerah sehingga perlu mendapat perhatian pemerintah daerah setempat untuk dapat berperan aktif dalam mengendalikan inflasi.</p>
+        <p>Kebijakan moneter tidak dapat digunakan sepenuhnya untuk merespon tekanan inflasi dari kejutan di sisi pasokan. Diperlukan kebijakan sektoral dan regional untuk mengurangi tekanan inflasi dari faktor-faktor nonfundamental. Pemilihan wilayah Jakarta didasarkan pada dominasinya terhadap bobot inflasi nasional dibandingkan dengan daerah lainnya di Indonesia. Bobot inflasi kota Jakarta mencapai 22,49% dari bobot nasional, menurun dari 27,66% berdasarkan SBH tahun 2002.</p>
+        <div class="sumber">Sumber: Bank Indonesia (dengan pengubahan)</div>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Manakah pertanyaan yang berkaitan dengan argumentasi dan data pada teks tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal18" value="A"><span class="option-text">Kajian mengenai persistensi inflasi penting dilakukan agar kebijakan moneter mampu mendukung pertumbuhan ekonomi secara berkelanjutan.</span></label>
+        <label><input type="radio" name="soal18" value="B"><span class="option-text">Jakarta dipilih sebagai fokus studi karena pergerakan distribusi barang kebutuhan pokok di kota ini tergolong rendah dan stabil.</span></label>
+        <label><input type="radio" name="soal18" value="C"><span class="option-text">Bobot inflasi Jakarta mencapai 22,49% berdasarkan SBH 2007, menjadikannya kota dengan pengaruh tertinggi terhadap inflasi nasional.</span></label>
+        <label><input type="radio" name="soal18" value="D"><span class="option-text">Kebijakan moneter tidak cukup untuk mengatasi tekanan inflasi yang berasal dari sisi pasokan sehingga diperlukan strategi sektoral dan regional.</span></label>
+        <label><input type="radio" name="soal18" value="E"><span class="option-text">Seluruh studi mengenai persistensi inflasi di Indonesia selama ini sudah menyertakan data dari daerah, termasuk kota Jakarta dan kota-kota besar lainnya.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="title-text">Persamaan Nilai Sosial Dua Wacana</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Wacana 1 — Metamorfosis (Franz Kafka)</strong>
+        <p>Begitu tiba di Brescia menjelang malam hari kami bermaksud mencapai jalan yang kami tuju dengan cepat. Sopir taksi meminta ongkos 3 lira, yang kami tawar 2 lira saja. Ia menolak ongkos 2 lira dan hanya berdasarkan keakraban ia gambarkan pada kami terpencilnya tempat itu. Otto yang paling bersemangat di antara kami mengatakan bahwa ia sama sekali tidak bermaksud membayar 3 lira untuk perjalanan yang pendek tersebut. Akhirnya kami setuju memberinya 1,5 lira sebagai ongkos dan taksi kembali berjalan melalui jalan sempit, di mana ia terlihat geram dan juga sangat sedih. Tingkah laku seperti yang kami lakukan ini sayang sekali tidak bisa dikatakan tepat, dan siapa pun tidak bisa seenaknya bertindak seperti itu di Italia.</p>
+        <p><strong>Wacana 2 — Bumi Manusia (Pramoedya Ananta Toer)</strong></p>
+        <p>Aku dan Mama lari memapahnya menggantikan perempuan itu. Tetapi lelaki Indo dan perempuan Eropa itu menolak kami. Di bawah tangga telah berkerumun Maresose. Dan kami dihalau tak boleh mendekat. Maka kami hanya dapat melihat makhluk tersayang itu dituntun seperti sapi, dan berjalan lambat-lambat, anak tangga demi anak tangga. Sebegini lemah pribumi di hadapan Eropa? Eropa! Kau, guruku, begini macam perbuatanmu? Sampai-sampai istriku yang tak tahu banyak tentangmu kini kehilangan kepercayaan pada dunianya yang kecil — dunia tanpa keamanan dan jaminan bagi dirinya seorang. "Kita kalah, Ma," bisikku. "Kita telah melawan, Nak, Nyo, sebaik-baiknya, sehormat-hormatnya."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Persamaan nilai sosial yang terkandung dalam kedua kutipan wacana tersebut adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">Pentingnya kekuatan hukum dalam menyelesaikan konflik pribadi maupun keluarga.</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">Perlunya ketegasan dalam mempertahankan harga diri sebagai bangsa yang merdeka.</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">Perilaku tidak adil terhadap pihak yang lemah dan refleksi moral terkait kemanusiaan.</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">Perbedaan budaya yang menyebabkan kesalahpahaman antarnegara dan antarmanusia.</span></label>
+        <label><input type="radio" name="soal19" value="E"><span class="option-text">Kepasrahan sebagai bentuk penerimaan terhadap takdir yang tidak dapat dihindari.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="title-text">Relevansi Nilai Sosial dalam Novel</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan Bumi Manusia:</strong> "Kita telah melawan, Nak, Nyo, sebaik-baiknya, sehormat-hormatnya."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa tindakan tersebut relevan dengan norma sosial masyarakat saat ini? <strong>Klik pada pilihan Benar atau Salah untuk setiap pernyataan berikut!</strong></p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Menjunjung nilai perjuangan yang bermartabat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20a" value="B"> Benar</label>
+            <label><input type="radio" name="soal20a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Menunjukkan sikap kritis terhadap ketidakadilan sosial.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20b" value="B"> Benar</label>
+            <label><input type="radio" name="soal20b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Mengedepankan kehormatan orang lain daripada sendiri.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20c" value="B"> Benar</label>
+            <label><input type="radio" name="soal20c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="title-text">Respons Emosional Tokoh</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan Bumi Manusia (Pramoedya Ananta Toer):</strong></p>
+        <p>Aku dan Mama lari memapahnya menggantikan perempuan itu. Tetapi lelaki Indo dan perempuan Eropa itu menolak kami. Di bawah tangga telah berkerumun Maresose. Dan kami dihalau tak boleh mendekat. Maka kami hanya dapat melihat makhluk tersayang itu dituntun seperti sapi, dan berjalan lambat-lambat, anak tangga demi anak tangga. ... "Aku akan segera menyusul, Ann," pekikku. Tanpa jawab tanpa toleh. "Juga aku, Ann, besarkan hatimu!" seru Mama, suaranya parau, hampir-hampir tak keluar dari kerongkongan. ... "Kita kalah, Ma," bisikku. "Kita telah melawan, Nak, Nyo, sebaik-baiknya, sehormat-hormatnya."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Respons emosional tokoh Aku pada wacana 2 terhadap peristiwa yang dialami adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal21" value="A"><span class="option-text">Kecewa dan menyerah sepenuhnya tanpa merasa telah berbuat apa-apa.</span></label>
+        <label><input type="radio" name="soal21" value="B"><span class="option-text">Marah karena merasa dikhianati oleh orang yang sangat mereka percayai.</span></label>
+        <label><input type="radio" name="soal21" value="C"><span class="option-text">Sedih karena merasa telah gagal atas usaha yang sudah dilakukan.</span></label>
+        <label><input type="radio" name="soal21" value="D"><span class="option-text">Putus asa dan merasa perjuangan untuk Anneliese sudah sia-sia sejak awal.</span></label>
+        <label><input type="radio" name="soal21" value="E"><span class="option-text">Terhormat dengan tidak menunjukkan emosi atas kekalahan yang dialami.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="title-text">Perasaan Tokoh dalam Kutipan</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan Metamorfosis (Franz Kafka) — paragraf terakhir:</strong></p>
+        <p>"Akhirnya kami setuju memberinya 1,5 lira sebagai ongkos dan taksi kembali berjalan melalui jalan sempit, di mana ia terlihat geram dan juga sangat sedih. Tingkah laku seperti yang kami lakukan ini sayang sekali tidak bisa dikatakan tepat, dan siapa pun tidak bisa seenaknya bertindak seperti itu di Italia. Mungkin tidak apa-apa bila terjadi di tempat lain, namun tidak di Italia. Siapa bisa berpikir dengan jernih di tengah panasnya hawa seperti ini."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Apa yang dirasakan tokoh ketika berada dalam suasana seperti yang dideskripsikan dalam wacana 1 paragraf terakhir?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal22" value="A"><span class="option-text">Menyesal karena hanya berhasil menawar ongkos taksi hingga 1,5 lira saja.</span></label>
+        <label><input type="radio" name="soal22" value="B"><span class="option-text">Marah karena merasa telah ditipu oleh sopir taksi asing dengan harga 3 lira.</span></label>
+        <label><input type="radio" name="soal22" value="C"><span class="option-text">Merasa menyesal atas tindakan yang telah mereka lakukan kepada sopir taksi.</span></label>
+        <label><input type="radio" name="soal22" value="D"><span class="option-text">Tidak peduli dengan perasaan sopir karena merasa lokasi tidak sesuai kesepakatan.</span></label>
+        <label><input type="radio" name="soal22" value="E"><span class="option-text">Yakin bahwa tindakan mereka sudah sesuai dengan budaya warga setempat.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="title-text">Persamaan Nilai Sosial Dua Novel</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Wacana 1 — Orang-Orang Proyek (Ahmad Tohari)</strong>
+        <p>Sugeng adalah seorang mandor proyek pembangunan jembatan di desa terpencil. Ia bekerja dengan dedikasi tinggi, karena tahu jembatan itu penting untuk akses ekonomi warga. Namun, di balik kemajuan proyek, ia menyaksikan penyimpangan: bahan bangunan dikurangi, upah buruh dipotong diam-diam, dan laporan keuangan dimanipulasi agar tampak bersih. Suatu malam, Sugeng berbincang dengan Darno, kepala tukang. "Gimana, Sugeng? Kita diam aja?" tanya Darno ragu. "Kalau ngomong, kita bisa dipecat. Tapi kalau diam, kita ikut mencuri dari rakyat," jawab Sugeng pelan. Sugeng sadar ia hidup dalam dilema. Ia butuh pekerjaan itu untuk keluarganya, tetapi juga tidak rela melihat keadilan diinjak-injak. Pada akhirnya, ia memutuskan menolak tanda tangan laporan palsu, meski tahu risikonya.</p>
+        <p><strong>Wacana 2 — A Long Walk to Water (Linda Sue Park)</strong></p>
+        <p>Salva, anak laki-laki Sudan Selatan, terpisah dari keluarganya saat perang sipil meletus. Ia berjalan berhari-hari tanpa arah, melewati padang tandus, kelaparan, dan ancaman serangan. Selama bertahun-tahun, ia tinggal di kamp pengungsi, belajar bertahan dengan harapan kecil. Saat dewasa dan tinggal di Amerika, Salva memutuskan kembali ke Sudan. Ia tak ingin hanya dikenal sebagai penyintas, tetapi sebagai orang yang memberi harapan. Bersama organisasi kemanusiaan, ia membangun sumur air bersih untuk desa-desa yang dulu mengalami kekeringan parah. "Karena saya tahu rasanya haus. Dan saya tidak mau ada anak lain merasakannya," jawab Salva.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Persamaan nilai sosial yang terkandung dalam kedua kutipan wacana tersebut adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal23" value="A"><span class="option-text">Keberanian tokoh dalam melanggar norma demi kepentingan pribadi.</span></label>
+        <label><input type="radio" name="soal23" value="B"><span class="option-text">Keputusan tokoh untuk mengorbankan kepentingan orang lain demi cita-cita yang besar.</span></label>
+        <label><input type="radio" name="soal23" value="C"><span class="option-text">Kebesaran hati tokoh untuk menghadapi situasi yang sulit demi kepentingan bersama.</span></label>
+        <label><input type="radio" name="soal23" value="D"><span class="option-text">Ketaatan tokoh terhadap sistem agar tetap aman secara sosial dan ekonomi.</span></label>
+        <label><input type="radio" name="soal23" value="E"><span class="option-text">Sikap tokoh yang memendam masalah pribadi tanpa mencari solusi.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="title-text">Relevansi Tindakan Tokoh dengan Norma Sosial</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan Orang-Orang Proyek:</strong> "Kalau ngomong, kita bisa dipecat. Tapi kalau diam, kita ikut mencuri dari rakyat." — Sugeng memutuskan menolak tanda tangan laporan palsu, meski tahu risikonya.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Mengapa tindakan tersebut relevan dengan norma sosial masyarakat saat ini? <strong>Klik pada pilihan Benar atau Salah untuk setiap pernyataan berikut!</strong></p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Masyarakat cenderung mengutamakan keamanan posisi masing-masing daripada idealisme.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24a" value="B"> Benar</label>
+            <label><input type="radio" name="soal24a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Masyarakat saat ini sangat mendambakan nilai kejujuran dan transparansi ketika bekerja.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24b" value="B"> Benar</label>
+            <label><input type="radio" name="soal24b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Masyarakat modern berani untuk menolak sistem yang merugikan masyarakat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24c" value="B"> Benar</label>
+            <label><input type="radio" name="soal24c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="title-text">Respons Emosional Tokoh Salva</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><strong>Kutipan A Long Walk to Water (Linda Sue Park):</strong></p>
+        <p>Salva, anak laki-laki Sudan Selatan, terpisah dari keluarganya saat perang sipil meletus. Ia berjalan berhari-hari tanpa arah, melewati padang tandus, kelaparan, dan ancaman serangan. Selama bertahun-tahun, ia tinggal di kamp pengungsi, belajar bertahan dengan harapan kecil. Saat dewasa dan tinggal di Amerika, Salva memutuskan kembali ke Sudan. Ia tak ingin hanya dikenal sebagai penyintas, tetapi sebagai orang yang memberi harapan. Bersama organisasi kemanusiaan, ia membangun sumur air bersih untuk desa-desa yang dulu mengalami kekeringan parah. "Karena saya tahu rasanya haus. Dan saya tidak mau ada anak lain merasakannya," jawab Salva. Kembali ke tanah kelahirannya bukan tanpa rasa sakit. Tapi Salva percaya: dari luka bisa tumbuh kekuatan.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Respons emosional tokoh Salva terhadap peristiwa kehilangan dan penderitaan masa kecilnya adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal25" value="A"><span class="option-text">Tenggelam dalam trauma masa kecilnya dan menolak kembali ke masa lalu.</span></label>
+        <label><input type="radio" name="soal25" value="B"><span class="option-text">Kecewa dan membalas dengan menyalahkan sistem dan masyarakat sekitar.</span></label>
+        <label><input type="radio" name="soal25" value="C"><span class="option-text">Membangun kekuatan dari pengalaman pahit dan memilih untuk memberi.</span></label>
+        <label><input type="radio" name="soal25" value="D"><span class="option-text">Mencari validasi dari orang luar atas penderitaan yang dialaminya pada masa kecil.</span></label>
+        <label><input type="radio" name="soal25" value="E"><span class="option-text">Menggunakan penderitaannya sebagai alasan untuk tidak bertanggung jawab.</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_BahasaIndonesia_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Bahasa Indonesia Tingkat Lanjut — XII IBB
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  const kunciJawaban = {
+    soal1:  "A",
+    soal2:  "C",
+    soal3:  { a: "B", b: "S", c: "B" },
+    soal4:  "C",
+    soal5:  ["A", "C", "E"],
+    soal6:  "B",
+    soal7:  "B",
+    soal8:  "D",
+    soal9:  ["A", "C", "D"],
+    soal10: "A",
+    soal11: "C",
+    soal12: "B",
+    soal13: "A",
+    soal14: "E",
+    soal15: { a: "B", b: "S", c: "S" },
+    soal16: "B",
+    soal17: "B",
+    soal18: "A",
+    soal19: "C",
+    soal20: { a: "B", b: "B", c: "S" },
+    soal21: "C",
+    soal22: "C",
+    soal23: "C",
+    soal24: { a: "S", b: "B", c: "B" },
+    soal25: "C"
+  };
+
+  let timerInterval;
+  let totalTime = 120 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_bindo_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_bindo_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== HITUNG BENAR =====
+  function hitungBenar() {
+    let benar = 0;
+    let total = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (!kunci) continue;
+      total++;
+
+      if (typeof kunci === 'string') {
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        const selected = Array.from(
+          document.querySelectorAll('input[name="' + key + '"]:checked')
+        ).map(cb => cb.value).sort();
+        const expected = [...kunci].sort();
+        if (JSON.stringify(selected) === JSON.stringify(expected)) benar++;
+
+      } else if (typeof kunci === 'object') {
+        let allCorrect = true;
+        for (const sub in kunci) {
+          const subName = key + sub;
+          const sel = document.querySelector('input[name="' + subName + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) {
+            allCorrect = false;
+            break;
+          }
+        }
+        if (allCorrect) benar++;
+      }
+    }
+    return { benar, total };
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    const { benar, total } = hitungBenar();
+    benarGlobal = benar;
+    skorGlobal = total > 0 ? Math.round((benar / total) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + total;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_BahasaIndonesia_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_BahasaIndonesia_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_BahasaIndonesia_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

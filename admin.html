@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Panel — TKA SMA 2026</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --navy:#0b3b5c; --blue:#2874a6; --light:#4a9fd8;
+    --bg:#eef2f7; --card:#fff; --line:#d8e2ec;
+    --text:#1e2a3a; --muted:#6a7a8a;
+    --green:#1e8449; --red:#c0392b; --amber:#b9770e;
+  }
+  body{
+    font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+    background:linear-gradient(135deg,#eef2f7,#dde7f3);
+    min-height:100vh;color:var(--text);
+  }
+
+  /* ===== LOGIN ===== */
+  .login-screen{
+    position:fixed;inset:0;z-index:2000;
+    background:linear-gradient(135deg,#0b3b5c,#2874a6 60%,#4a9fd8);
+    display:flex;align-items:center;justify-content:center;padding:20px;
+    transition:opacity .35s,visibility .35s;
+  }
+  .login-screen.hide{opacity:0;visibility:hidden}
+  .login-card{
+    background:#fff;border-radius:20px;padding:38px 32px 30px;
+    width:100%;max-width:400px;text-align:center;
+    box-shadow:0 24px 60px rgba(0,0,0,.35);
+    position:relative;overflow:hidden;
+  }
+  .login-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:5px;
+    background:linear-gradient(90deg,#0b3b5c,#2874a6,#4a9fd8);
+  }
+  .login-icon{
+    width:72px;height:72px;margin:0 auto 16px;border-radius:20px;
+    background:linear-gradient(135deg,#e7f0f8,#d3e6f5);color:#0b3b5c;
+    display:flex;align-items:center;justify-content:center;font-size:2rem;
+    box-shadow:0 8px 22px rgba(20,60,120,.16);
+  }
+  .login-card h1{font-size:1.25rem;color:#0b3b5c;margin-bottom:6px;font-weight:800}
+  .login-card p{font-size:.85rem;color:#6a7a8a;margin-bottom:22px;line-height:1.5}
+  .login-card input{
+    width:100%;padding:15px 16px;font-size:1.1rem;font-weight:700;
+    letter-spacing:.3em;text-align:center;border:2px solid #d8e2ec;
+    border-radius:14px;outline:none;background:#f8fbfe;color:#0b3b5c;
+    font-family:'Courier New',monospace;transition:.2s;
+  }
+  .login-card input:focus{border-color:#2874a6;box-shadow:0 0 0 4px rgba(40,116,166,.15);background:#fff}
+  .login-card input.err{border-color:#c0392b;animation:shake .4s}
+  @keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+  .login-err{min-height:18px;font-size:.78rem;color:#c0392b;font-weight:600;margin:10px 0 4px}
+  .login-card button{
+    width:100%;padding:14px;border:none;border-radius:12px;cursor:pointer;
+    background:linear-gradient(135deg,#0b3b5c,#2874a6);color:#fff;
+    font-weight:700;font-size:.95rem;font-family:inherit;
+    box-shadow:0 6px 16px rgba(20,60,120,.28);transition:.2s;
+  }
+  .login-card button:hover{box-shadow:0 10px 24px rgba(20,60,120,.4)}
+  .login-hint{margin-top:14px;font-size:.72rem;color:#97a5b3}
+
+  /* ===== TOPBAR ===== */
+  .topbar{
+    background:linear-gradient(135deg,#0b3b5c,#2874a6 70%);
+    color:#fff;padding:16px 26px;
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;flex-wrap:wrap;
+    box-shadow:0 4px 20px rgba(20,60,120,.25);
+    position:sticky;top:0;z-index:100;
+  }
+  .brand{display:flex;align-items:center;gap:12px}
+  .brand .logo{
+    width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.28);
+    display:flex;align-items:center;justify-content:center;font-size:1.3rem;
+  }
+  .brand h1{font-size:1.05rem;font-weight:800;line-height:1.2}
+  .brand small{font-size:.72rem;opacity:.85;font-weight:500}
+  .topbar .actions{display:flex;gap:8px;flex-wrap:wrap}
+  .tb-btn{
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.24);
+    color:#fff;padding:9px 16px;border-radius:999px;font-size:.8rem;
+    font-weight:600;cursor:pointer;font-family:inherit;transition:.2s;
+    display:flex;align-items:center;gap:6px;
+  }
+  .tb-btn:hover{background:rgba(255,255,255,.26)}
+  .tb-btn.danger{background:rgba(192,57,43,.85);border-color:rgba(255,255,255,.3)}
+
+  /* ===== TABS ===== */
+  .tabs{
+    background:#fff;border-bottom:1px solid var(--line);
+    padding:0 20px;display:flex;gap:4px;overflow-x:auto;
+    position:sticky;top:74px;z-index:99;
+    box-shadow:0 2px 10px rgba(20,60,120,.05);
+  }
+  .tab{
+    padding:15px 20px;font-size:.85rem;font-weight:700;color:var(--muted);
+    cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap;
+    transition:.2s;display:flex;align-items:center;gap:7px;
+    background:none;border-top:0;border-left:0;border-right:0;font-family:inherit;
+  }
+  .tab:hover{color:var(--navy);background:#f8fbfe}
+  .tab.active{color:var(--navy);border-bottom-color:var(--blue)}
+
+  /* ===== LAYOUT ===== */
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px}
+  .panel{display:none;animation:fade .3s}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+  .section-head{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+  .section-head h2{font-size:1.1rem;color:var(--navy);font-weight:800;display:flex;align-items:center;gap:10px}
+  .section-head h2::before{content:'';width:5px;height:22px;border-radius:3px;background:linear-gradient(180deg,#0b3b5c,#2874a6)}
+  .section-head .sub{font-size:.82rem;color:var(--muted)}
+
+  /* ===== STAT CARDS ===== */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:26px}
+  .stat{
+    background:#fff;border-radius:14px;padding:20px;
+    box-shadow:0 6px 20px rgba(20,60,120,.08);
+    border-left:5px solid var(--blue);position:relative;overflow:hidden;
+  }
+  .stat .k{font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}
+  .stat .v{font-size:1.9rem;font-weight:800;color:var(--navy);line-height:1}
+  .stat .d{font-size:.75rem;color:var(--muted);margin-top:6px}
+  .stat.g{border-left-color:var(--green)}
+  .stat.a{border-left-color:var(--amber)}
+  .stat.r{border-left-color:var(--red)}
+
+  /* ===== CARD BOX ===== */
+  .box{
+    background:#fff;border-radius:14px;padding:22px;
+    box-shadow:0 6px 20px rgba(20,60,120,.08);margin-bottom:20px;
+  }
+  .box h3{font-size:.95rem;color:var(--navy);font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+
+  /* ===== TOKEN HERO ===== */
+  .token-hero{
+    text-align:center;padding:44px 22px !important;
+    background:linear-gradient(135deg,#0b3b5c,#2874a6 70%,#4a9fd8) !important;
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .token-hero::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.18),transparent 60%),
+               radial-gradient(circle at 80% 80%,rgba(255,255,255,.10),transparent 55%);
+  }
+  .token-hero-label{
+    font-size:.72rem;font-weight:700;text-transform:uppercase;
+    letter-spacing:.15em;opacity:.85;margin-bottom:18px;position:relative;
+  }
+  .token-hero-value{
+    font-family:'Courier New',monospace;font-size:clamp(2.4rem,8vw,4rem);
+    font-weight:800;letter-spacing:.35em;text-indent:.35em;
+    position:relative;text-shadow:0 4px 20px rgba(0,0,0,.25);
+    margin-bottom:16px;line-height:1;
+  }
+  .token-hero-mode{
+    font-size:.78rem;opacity:.92;position:relative;
+    display:inline-block;padding:5px 14px;border-radius:999px;
+    background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);
+  }
+
+  /* ===== ANNOUNCEMENT ===== */
+  textarea{
+    width:100%;min-height:90px;padding:14px;border:2px solid var(--line);
+    border-radius:12px;font-family:inherit;font-size:.88rem;resize:vertical;
+    outline:none;color:var(--text);background:#f8fbfe;transition:.2s;
+  }
+  textarea:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 4px rgba(40,116,166,.12)}
+
+  /* ===== TOGGLE ===== */
+  .switch{position:relative;display:inline-block;width:46px;height:26px;flex-shrink:0}
+  .switch input{opacity:0;width:0;height:0}
+  .slider{
+    position:absolute;cursor:pointer;inset:0;background:#c2ceda;
+    border-radius:999px;transition:.25s;
+  }
+  .slider::before{
+    content:'';position:absolute;height:20px;width:20px;left:3px;top:3px;
+    background:#fff;border-radius:50%;transition:.25s;
+    box-shadow:0 2px 5px rgba(0,0,0,.2);
+  }
+  input:checked + .slider{background:var(--green)}
+  input:checked + .slider::before{transform:translateX(20px)}
+
+  /* ===== TABLE ===== */
+  .tbl-wrap{background:#fff;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(20,60,120,.08)}
+  table{width:100%;border-collapse:collapse;font-size:.85rem}
+  thead{background:linear-gradient(135deg,#0b3b5c,#2874a6);color:#fff}
+  thead th{
+    padding:14px 14px;text-align:left;font-weight:700;font-size:.75rem;
+    text-transform:uppercase;letter-spacing:.06em;white-space:nowrap;
+  }
+  tbody tr{border-bottom:1px solid var(--line);transition:background .15s}
+  tbody tr:hover{background:#f8fbfe}
+  tbody td{padding:13px 14px;vertical-align:middle}
+  .subj-cell{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--navy)}
+  .subj-cell .ic{
+    width:34px;height:34px;border-radius:9px;background:#e7f0f8;color:var(--navy);
+    display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;
+  }
+  .code-pill{
+    font-family:'Courier New',monospace;font-weight:800;font-size:.72rem;
+    background:#eef4fa;color:var(--navy);padding:3px 8px;border-radius:6px;
+  }
+
+  /* token chip */
+  .token-chip{
+    font-family:'Courier New',monospace;font-weight:800;font-size:1rem;
+    letter-spacing:.18em;background:linear-gradient(135deg,#0b3b5c,#2874a6);
+    color:#fff;padding:8px 12px;border-radius:10px;
+    display:inline-flex;align-items:center;gap:8px;
+    box-shadow:0 4px 12px rgba(20,60,120,.22);
+  }
+  .token-chip.manual{background:linear-gradient(135deg,#b9770e,#f39c12)}
+  .token-chip.disabled{background:#c2ceda}
+  .copy-btn{
+    background:rgba(255,255,255,.2);border:none;color:#fff;cursor:pointer;
+    width:22px;height:22px;border-radius:6px;font-size:.72rem;
+    display:flex;align-items:center;justify-content:center;transition:.15s;
+  }
+  .copy-btn:hover{background:rgba(255,255,255,.4)}
+
+  /* inputs */
+  .mini-input{
+    width:76px;padding:8px 10px;border:1.5px solid var(--line);border-radius:9px;
+    font-family:inherit;font-size:.85rem;font-weight:700;color:var(--navy);
+    text-align:center;outline:none;background:#f8fbfe;transition:.2s;
+  }
+  .mini-input:focus{border-color:var(--blue);background:#fff;box-shadow:0 0 0 3px rgba(40,116,166,.12)}
+  .mini-input.mono{font-family:'Courier New',monospace;letter-spacing:.15em;text-transform:uppercase;width:110px}
+
+  /* ===== BUTTONS ===== */
+  .btn{
+    padding:11px 18px;border-radius:11px;font-size:.83rem;font-weight:700;
+    cursor:pointer;border:none;font-family:inherit;transition:.15s;
+    display:inline-flex;align-items:center;gap:7px;white-space:nowrap;
+  }
+  .btn:active{transform:scale(.97)}
+  .btn-primary{background:linear-gradient(135deg,#0b3b5c,#2874a6);color:#fff;box-shadow:0 5px 14px rgba(20,60,120,.25)}
+  .btn-primary:hover{box-shadow:0 8px 20px rgba(20,60,120,.35)}
+  .btn-ghost{background:#eef2f7;color:#5c6c80}
+  .btn-ghost:hover{background:#dde7f3;color:var(--navy)}
+  .btn-danger{background:#fdecea;color:var(--red)}
+  .btn-danger:hover{background:#fbd9d6}
+  .btn-sm{padding:8px 13px;font-size:.78rem}
+
+  /* ===== BADGE ===== */
+  .badge{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:4px 11px;border-radius:999px;font-size:.72rem;font-weight:700;
+  }
+  .badge.ok{background:#d6f3e2;color:#1e8449}
+  .badge.off{background:#fdecea;color:#c0392b}
+  .badge.warn{background:#fdf3d8;color:#8a6d00}
+
+  /* ===== TOAST ===== */
+  .toast-wrap{position:fixed;bottom:24px;right:24px;z-index:3000;display:flex;flex-direction:column;gap:10px}
+  .toast{
+    background:#0b3b5c;color:#fff;padding:14px 20px;border-radius:12px;
+    font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.3);
+    display:flex;align-items:center;gap:10px;
+    animation:slideIn .3s cubic-bezier(.2,.9,.3,1.25);
+    border-left:4px solid var(--green);
+  }
+  .toast.err{border-left-color:var(--red)}
+  .toast.warn{border-left-color:#f39c12}
+  @keyframes slideIn{from{opacity:0;transform:translateX(60px)}to{opacity:1;transform:none}}
+
+  /* ===== EMPTY ===== */
+  .empty{
+    text-align:center;padding:60px 20px;color:var(--muted);
+  }
+  .empty .ic{font-size:3rem;margin-bottom:12px;opacity:.4}
+  .empty p{font-size:.88rem}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:720px){
+    .tabs{top:70px}
+    .tab{padding:13px 14px;font-size:.78rem}
+    .wrap{padding:20px 12px 50px}
+    table{font-size:.78rem}
+    thead th,tbody td{padding:10px 8px}
+    .mini-input{width:62px}
+    .mini-input.mono{width:90px}
+    .token-chip{font-size:.85rem;letter-spacing:.12em}
+    .topbar{padding:12px 16px}
+    .brand h1{font-size:.92rem}
+    .token-hero{padding:30px 16px !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     LOGIN
+     ============================================================ -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-icon">🛡️</div>
+    <h1>Admin Panel TKA 2026</h1>
+    <p>Masukkan PIN admin untuk mengelola token,<br>mapel, dan hasil ujian.</p>
+    <input type="password" id="pinInput" maxlength="20" placeholder="••••••••" autocomplete="off">
+    <div class="login-err" id="pinError"></div>
+    <button id="btnLogin">Masuk →</button>
+    <div class="login-hint">Default PIN: <strong>admin123</strong> (ubah di tab Pengaturan)</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     TOPBAR
+     ============================================================ -->
+<div class="topbar">
+  <div class="brand">
+    <div class="logo">🛡️</div>
+    <div>
+      <h1>Admin Panel · TKA SMA/MA/SMK 2026</h1>
+      <small id="topbarDate">—</small>
+    </div>
+  </div>
+  <div class="actions">
+    <button class="tb-btn" id="btnOpenIndex">🏠 Halaman Ujian</button>
+    <button class="tb-btn" id="btnExport">⬇️ Export</button>
+    <button class="tb-btn" id="btnImport">⬆️ Import</button>
+    <button class="tb-btn danger" id="btnLogout">🚪 Keluar</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     TABS
+     ============================================================ -->
+<div class="tabs" id="tabs">
+  <button class="tab active" data-tab="dash">📊 Dashboard</button>
+  <button class="tab" data-tab="token">🔐 Token</button>
+  <button class="tab" data-tab="subj">📚 Mata Pelajaran</button>
+  <button class="tab" data-tab="result">📈 Hasil Ujian</button>
+  <button class="tab" data-tab="setting">⚙️ Pengaturan</button>
+</div>
+
+<div class="wrap">
+
+  <!-- ========================= DASHBOARD ========================= -->
+  <section class="panel active" id="panel-dash">
+    <div class="stats">
+      <div class="stat">
+        <div class="k">Total Mapel</div>
+        <div class="v" id="stTotal">12</div>
+        <div class="d" id="stActive">12 aktif</div>
+      </div>
+      <div class="stat g">
+        <div class="k">Hasil Ujian Tersimpan</div>
+        <div class="v" id="stResults">0</div>
+        <div class="d">Di perangkat ini</div>
+      </div>
+      <div class="stat a">
+        <div class="k">Rata-rata Nilai</div>
+        <div class="v" id="stAvg">—</div>
+        <div class="d">Dari semua hasil</div>
+      </div>
+      <div class="stat r">
+        <div class="k">Status Ujian</div>
+        <div class="v" id="stExam" style="font-size:1.15rem">—</div>
+        <div class="d" id="stExamSub">—</div>
+      </div>
+    </div>
+
+    <div class="box" style="background:linear-gradient(135deg,#0b3b5c,#2874a6 70%,#4a9fd8);color:#fff">
+      <h3 style="color:#fff">🔐 Token Ujian Hari Ini</h3>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div id="dashToken"
+             style="font-family:'Courier New',monospace;font-size:clamp(1.8rem,5vw,2.6rem);font-weight:800;letter-spacing:.3em;text-indent:.3em;padding:10px 18px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:12px">
+          ------
+        </div>
+        <button class="tb-btn" id="btnCopyDashToken" type="button">📋 Salin</button>
+        <div style="font-size:.82rem;opacity:.92;margin-left:auto">
+          Berlaku untuk <strong>SEMUA mata pelajaran</strong> hari ini
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>🚦 Kontrol Cepat Ujian</h3>
+      <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <label class="switch">
+          <input type="checkbox" id="swExamOpen">
+          <span class="slider"></span>
+        </label>
+        <div style="flex:1;min-width:200px">
+          <div style="font-weight:700;color:#0b3b5c;font-size:.9rem" id="examOpenLabel">Ujian Dibuka</div>
+          <div style="font-size:.78rem;color:#6a7a8a;margin-top:2px">
+            Jika ditutup, seluruh peserta tidak dapat memulai ujian di semua mapel.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>📢 Pengumuman untuk Peserta</h3>
+      <textarea id="annInput" placeholder="Contoh: Token harian dapat diminta ke pengawas di ruang ujian. Dilarang membawa HP."></textarea>
+      <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:12px">
+        <button class="btn btn-ghost btn-sm" id="btnClearAnn">Kosongkan</button>
+        <button class="btn btn-primary btn-sm" id="btnSaveAnn">💾 Simpan Pengumuman</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================= TOKEN ========================= -->
+  <section class="panel" id="panel-token">
+    <div class="section-head">
+      <div>
+        <h2>Token Ujian Harian</h2>
+        <div class="sub" id="tokenDateSub">Berlaku untuk tanggal —</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-ghost btn-sm" id="btnCopyToken">📋 Salin Token</button>
+        <button class="btn btn-ghost btn-sm" id="btnPrintToken">🖨️ Cetak Kartu</button>
+        <button class="btn btn-primary btn-sm" id="btnClearManual">♻️ Reset ke Auto</button>
+      </div>
+    </div>
+
+    <div class="box token-hero">
+      <div class="token-hero-label">Token untuk SEMUA Mata Pelajaran</div>
+      <div class="token-hero-value" id="globalTokenDisplay">------</div>
+      <div class="token-hero-mode" id="globalTokenMode">—</div>
+    </div>
+
+    <div class="box">
+      <h3>✏️ Token Manual (opsional)</h3>
+      <p style="font-size:.82rem;color:#6a7a8a;line-height:1.6;margin-bottom:12px">
+        Kosongkan untuk memakai <strong>token otomatis</strong> (dibangkitkan dari salt + tanggal, berubah tiap hari).
+        Isi 6 karakter untuk memakai <strong>token manual</strong> yang sama di semua mata pelajaran.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input id="globalManualInput" class="mini-input mono" maxlength="6"
+               placeholder="—" style="width:180px;padding:12px 14px;font-size:1.1rem">
+        <button class="btn btn-primary btn-sm" id="btnSaveManual">💾 Simpan Token Manual</button>
+      </div>
+    </div>
+
+    <div class="box" style="border-left:5px solid #f39c12">
+      <h3>ℹ️ Cara Kerja</h3>
+      <ul style="margin-left:20px;font-size:.84rem;color:#4a5a6a;line-height:1.9">
+        <li><strong>Auto:</strong> token dihitung dari <code>salt</code> + tanggal hari ini. Otomatis berubah tiap hari pukul 00:00.</li>
+        <li><strong>Manual:</strong> token tetap sampai Anda mengosongkan kembali field di atas.</li>
+        <li>Token berlaku untuk <strong>seluruh 12 mata pelajaran</strong> — peserta hanya perlu memasukkan sekali.</li>
+        <li>Tekan <kbd style="background:#eef4fa;padding:2px 6px;border-radius:5px;font-size:.75rem">Ctrl</kbd>+<kbd style="background:#eef4fa;padding:2px 6px;border-radius:5px;font-size:.75rem">Shift</kbd>+<kbd style="background:#eef4fa;padding:2px 6px;border-radius:5px;font-size:.75rem">T</kbd> di halaman ujian untuk melihat token (khusus pengawas).</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ========================= SUBJECT ========================= -->
+  <section class="panel" id="panel-subj">
+    <div class="section-head">
+      <div>
+        <h2>Kontrol Mata Pelajaran</h2>
+        <div class="sub">Atur status, durasi, jumlah soal, dan batas percobaan.</div>
+      </div>
+      <button class="btn btn-primary btn-sm" id="btnSaveSubjects">💾 Simpan Semua Perubahan</button>
+    </div>
+
+    <div class="tbl-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Mata Pelajaran</th>
+            <th>Status</th>
+            <th>Durasi (menit)</th>
+            <th>Jumlah Soal</th>
+            <th>Maks. Percobaan</th>
+            <th style="text-align:right">Buka</th>
+          </tr>
+        </thead>
+        <tbody id="subjTbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ========================= RESULTS ========================= -->
+  <section class="panel" id="panel-result">
+    <div class="section-head">
+      <div>
+        <h2>Hasil Ujian Peserta</h2>
+        <div class="sub">Data tersimpan di perangkat ini (localStorage).</div>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <select id="filterSubj" class="mini-input" style="width:auto;text-align:left;padding:10px 12px">
+          <option value="">Semua Mapel</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" id="btnExportCsv">⬇️ CSV</button>
+        <button class="btn btn-danger btn-sm" id="btnClearResults">🗑️ Hapus Semua</button>
+      </div>
+    </div>
+
+    <div class="tbl-wrap" id="resultWrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Peserta</th>
+            <th>Kelas</th>
+            <th>Mapel</th>
+            <th>Skor</th>
+            <th>Benar</th>
+            <th>Pelanggaran</th>
+            <th>Waktu</th>
+            <th>Selesai</th>
+          </tr>
+        </thead>
+        <tbody id="resultTbody"></tbody>
+      </table>
+    </div>
+    <div class="empty" id="resultEmpty" style="display:none">
+      <div class="ic">📭</div>
+      <p>Belum ada hasil ujian yang tersimpan.</p>
+    </div>
+  </section>
+
+  <!-- ========================= SETTING ========================= -->
+  <section class="panel" id="panel-setting">
+    <div class="section-head">
+      <h2>Pengaturan Sistem</h2>
+    </div>
+
+    <div class="box">
+      <h3>🔑 Keamanan Admin</h3>
+      <div style="display:grid;gap:12px;max-width:420px">
+        <label style="font-size:.8rem;font-weight:700;color:#0b3b5c">PIN Admin Baru</label>
+        <input type="text" id="newPin" class="mini-input" style="width:100%;text-align:left;padding:12px 14px;letter-spacing:.1em" placeholder="Min. 4 karakter">
+        <button class="btn btn-primary btn-sm" id="btnSavePin" style="align-self:flex-start">💾 Simpan PIN</button>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>🧂 Secret Salt Token</h3>
+      <p style="font-size:.82rem;color:#6a7a8a;line-height:1.6;margin-bottom:12px">
+        Salt digunakan untuk membangkitkan token harian (mode auto). <strong>Harus sama</strong> dengan yang ada di
+        <code style="background:#eef4fa;padding:2px 6px;border-radius:5px">index.html</code> dan halaman ujian.
+        Mengubah salt akan mengubah token hari ini.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+        <input type="text" id="saltInput" class="mini-input" style="flex:1;min-width:240px;text-align:left;padding:12px 14px;letter-spacing:.05em">
+        <button class="btn btn-primary btn-sm" id="btnSaveSalt">💾 Simpan Salt</button>
+      </div>
+    </div>
+
+    <div class="box">
+      <h3>💾 Backup &amp; Restore</h3>
+      <p style="font-size:.82rem;color:#6a7a8a;line-height:1.6;margin-bottom:12px">
+        Export konfigurasi ke file JSON untuk backup, lalu Import kembali jika diperlukan.
+      </p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <button class="btn btn-primary btn-sm" id="btnExport2">⬇️ Export Konfigurasi (JSON)</button>
+        <button class="btn btn-ghost btn-sm" id="btnImport2">⬆️ Import Konfigurasi</button>
+        <button class="btn btn-danger btn-sm" id="btnResetAll">⚠️ Reset Semua ke Default</button>
+      </div>
+      <input type="file" id="fileImport" accept="application/json" hidden>
+    </div>
+
+    <div class="box">
+      <h3>ℹ️ Informasi</h3>
+      <ul style="margin-left:20px;font-size:.84rem;color:#4a5a6a;line-height:1.9">
+        <li>Konfigurasi tersimpan di <code>localStorage</code> browser ini.</li>
+        <li>Agar berlaku di semua perangkat, distribusikan file <strong>konfigurasi JSON</strong> ke masing-masing perangkat siswa/pengawas.</li>
+        <li>Untuk multi-perangkat real-time, diperlukan backend (Firebase / API).</li>
+      </ul>
+    </div>
+  </section>
+
+</div>
+
+<div class="toast-wrap" id="toastWrap"></div>
+
+<script>
+(function(){
+'use strict';
+
+/* ============================================================
+   KONSTANTA
+   ============================================================ */
+const CFG_KEY    = 'tka_admin_config_v1';
+const RESULT_KEY = 'tka_results_v1';
+const SESSION_KEY= 'tka_admin_logged_in';
+
+const SUBJECTS = [
+  { code:'EKO', name:'Ekonomi',                 icon:'📊', href:'ekonomi_fix.html',    questions:30, duration:60  },
+  { code:'ANT', name:'Antropologi',             icon:'🏛️', href:'antro_fix.html',      questions:25, duration:90  },
+  { code:'GEO', name:'Geografi',                icon:'🌍', href:'geo_fix.html',        questions:25, duration:60  },
+  { code:'SEJ', name:'Sejarah',                 icon:'📜', href:'sejarah_fix.html',    questions:25, duration:60  },
+  { code:'SOS', name:'Sosiologi',               icon:'🌏', href:'sosiologi_fix.html',  questions:30, duration:60  },
+  { code:'PKN', name:'PPKN',                    icon:'⚖️', href:'PPKN_fix.html',       questions:25, duration:60  },
+  { code:'IND', name:'Bahasa Indonesia TL',     icon:'📖', href:'b_indotl_fix.html',   questions:25, duration:120 },
+  { code:'ING', name:'Bahasa Inggris TL',       icon:'🌐', href:'b_ing_tl.html',       questions:25, duration:60  },
+  { code:'MAT', name:'Matematika TL',           icon:'∑',  href:'matematika_fix.html', questions:25, duration:60  },
+  { code:'FIS', name:'Fisika',                  icon:'⚛️', href:'fisika_fix.html',     questions:25, duration:60  },
+  { code:'KIM', name:'Kimia',                   icon:'⚗️', href:'Kimia_fix.html',      questions:25, duration:120 },
+  { code:'BIO', name:'Biologi',                 icon:'🧬', href:'biologi_fix.html',    questions:25, duration:60  }
+];
+
+const TOKEN_ALPHABET   = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+const DEFAULT_SALT     = 'TKA-SMA-2026';
+const DEFAULT_PIN      = 'admin123';
+const GLOBAL_TOKEN_CODE= 'TKA';   // kode tunggal untuk token global
+
+/* ============================================================
+   DEFAULT CONFIG
+   ============================================================ */
+function defaultConfig(){
+  const subjects = {};
+  SUBJECTS.forEach(s => {
+    subjects[s.code] = {
+      enabled: true,
+      duration: s.duration,
+      questions: s.questions,
+      maxAttempts: 3
+    };
+  });
+  return {
+    version: 2,
+    salt: DEFAULT_SALT,
+    examOpen: true,
+    announcement: '',
+    adminPin: DEFAULT_PIN,
+    globalManualToken: '',   // satu token manual untuk semua mapel
+    subjects,
+    updatedAt: Date.now()
+  };
+}
+
+function loadConfig(){
+  try {
+    const raw = localStorage.getItem(CFG_KEY);
+    if(!raw) return defaultConfig();
+    const cfg = JSON.parse(raw);
+    const def = defaultConfig();
+    cfg.subjects = cfg.subjects || {};
+    SUBJECTS.forEach(s => {
+      cfg.subjects[s.code] = Object.assign({}, def.subjects[s.code], cfg.subjects[s.code] || {});
+      // hapus field lama manualToken per mapel (sudah tidak dipakai)
+      if('manualToken' in cfg.subjects[s.code]) delete cfg.subjects[s.code].manualToken;
+    });
+    cfg.salt              = cfg.salt || DEFAULT_SALT;
+    cfg.adminPin          = cfg.adminPin || DEFAULT_PIN;
+    cfg.globalManualToken = cfg.globalManualToken || '';
+    return cfg;
+  } catch(e){
+    console.warn('Config rusak, pakai default', e);
+    return defaultConfig();
+  }
+}
+
+function saveConfig(cfg){
+  cfg.updatedAt = Date.now();
+  localStorage.setItem(CFG_KEY, JSON.stringify(cfg));
+}
+
+/* ============================================================
+   TOKEN ENGINE — IDENTIK dengan index.html
+   ============================================================ */
+function todayKey(d){
+  d = d || new Date();
+  return d.getFullYear() + '-' +
+         String(d.getMonth()+1).padStart(2,'0') + '-' +
+         String(d.getDate()).padStart(2,'0');
+}
+
+function hashString(str){
+  let h = 2166136261 >>> 0;
+  for(let i=0;i<str.length;i++){
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h,16777619) >>> 0;
+  }
+  return h >>> 0;
+}
+
+function generateToken(code, dateStr, salt){
+  const seed = code + '::' + dateStr + '::' + salt;
+  let x = hashString(seed);
+  let out = '';
+  for(let i=0;i<6;i++){
+    out += TOKEN_ALPHABET[x % TOKEN_ALPHABET.length];
+    x = Math.floor(x / TOKEN_ALPHABET.length);
+    if(x === 0 && i < 5) x = hashString(seed + '#' + i);
+  }
+  return out;
+}
+
+/* Token GLOBAL — satu untuk semua mapel */
+function getGlobalToken(cfg, dateStr){
+  const manual = (cfg.globalManualToken && String(cfg.globalManualToken).length === 6)
+    ? String(cfg.globalManualToken).toUpperCase()
+    : '';
+  return manual || generateToken(GLOBAL_TOKEN_CODE, dateStr || todayKey(), cfg.salt);
+}
+
+/* ============================================================
+   STATE
+   ============================================================ */
+let CFG = loadConfig();
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+function toast(msg, type){
+  const el = document.createElement('div');
+  el.className = 'toast' + (type ? ' ' + type : '');
+  el.textContent = msg;
+  document.getElementById('toastWrap').appendChild(el);
+  setTimeout(() => {
+    el.style.transition = 'opacity .3s, transform .3s';
+    el.style.opacity = '0';
+    el.style.transform = 'translateX(60px)';
+    setTimeout(() => el.remove(), 320);
+  }, 2400);
+}
+
+/* ============================================================
+   LOGIN
+   ============================================================ */
+const loginScreen = document.getElementById('loginScreen');
+const pinInput    = document.getElementById('pinInput');
+const pinError    = document.getElementById('pinError');
+
+function checkLogin(){
+  if(sessionStorage.getItem(SESSION_KEY) === '1'){
+    loginScreen.classList.add('hide');
+  } else {
+    setTimeout(() => pinInput.focus(), 300);
+  }
+}
+
+document.getElementById('btnLogin').addEventListener('click', doLogin);
+pinInput.addEventListener('keydown', e => { if(e.key === 'Enter') doLogin(); });
+
+function doLogin(){
+  const val = pinInput.value.trim();
+  if(!val){
+    pinError.textContent = 'PIN tidak boleh kosong.';
+    return;
+  }
+  if(val === CFG.adminPin){
+    sessionStorage.setItem(SESSION_KEY, '1');
+    loginScreen.classList.add('hide');
+    pinError.textContent = '';
+    pinInput.value = '';
+    toast('Berhasil masuk sebagai Admin', '');
+    renderAll();
+  } else {
+    pinError.textContent = 'PIN salah. Coba lagi.';
+    pinInput.classList.add('err');
+    void pinInput.offsetWidth;
+    setTimeout(() => pinInput.classList.remove('err'), 450);
+    pinInput.select();
+  }
+}
+
+document.getElementById('btnLogout').addEventListener('click', () => {
+  if(!confirm('Keluar dari Admin Panel?')) return;
+  sessionStorage.removeItem(SESSION_KEY);
+  location.reload();
+});
+
+/* ============================================================
+   TABS
+   ============================================================ */
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+    if(tab.dataset.tab === 'token')   renderTokenPanel();
+    if(tab.dataset.tab === 'subj')    renderSubjectTable();
+    if(tab.dataset.tab === 'result')  renderResults();
+    if(tab.dataset.tab === 'dash')    renderDashboard();
+  });
+});
+
+/* ============================================================
+   RENDER: DASHBOARD
+   ============================================================ */
+function renderDashboard(){
+  document.getElementById('topbarDate').textContent =
+    new Date().toLocaleString('id-ID', { weekday:'long', day:'numeric', month:'long', year:'numeric', hour:'2-digit', minute:'2-digit' });
+
+  const codes = SUBJECTS.map(s => s.code);
+  const activeCount = codes.filter(c => CFG.subjects[c] && CFG.subjects[c].enabled).length;
+  document.getElementById('stTotal').textContent  = codes.length;
+  document.getElementById('stActive').textContent = activeCount + ' aktif';
+
+  const results = loadResults();
+  document.getElementById('stResults').textContent = results.length;
+  document.getElementById('stAvg').textContent =
+    results.length ? Math.round(results.reduce((a,r) => a + (Number(r.score)||0), 0) / results.length) : '—';
+
+  const stExam = document.getElementById('stExam');
+  const stExamSub = document.getElementById('stExamSub');
+  stExam.textContent = CFG.examOpen ? '✅ Dibuka' : '⛔ Ditutup';
+  stExam.style.color = CFG.examOpen ? '#1e8449' : '#c0392b';
+  stExamSub.textContent = CFG.examOpen
+    ? 'Peserta dapat memulai ujian'
+    : 'Peserta tidak dapat memulai ujian';
+
+  document.getElementById('swExamOpen').checked = !!CFG.examOpen;
+  document.getElementById('examOpenLabel').textContent =
+    CFG.examOpen ? 'Ujian Dibuka' : 'Ujian Ditutup';
+  document.getElementById('annInput').value = CFG.announcement || '';
+
+  // token hari ini di dashboard
+  document.getElementById('dashToken').textContent = getGlobalToken(CFG);
+}
+
+document.getElementById('swExamOpen').addEventListener('change', e => {
+  CFG.examOpen = e.target.checked;
+  saveConfig(CFG);
+  renderDashboard();
+  toast(CFG.examOpen ? 'Ujian DIBUKA' : 'Ujian DITUTUP', CFG.examOpen ? '' : 'warn');
+});
+
+document.getElementById('btnSaveAnn').addEventListener('click', () => {
+  CFG.announcement = document.getElementById('annInput').value.trim();
+  saveConfig(CFG);
+  toast('Pengumuman disimpan');
+});
+document.getElementById('btnClearAnn').addEventListener('click', () => {
+  document.getElementById('annInput').value = '';
+  CFG.announcement = '';
+  saveConfig(CFG);
+  toast('Pengumuman dikosongkan', 'warn');
+});
+
+document.getElementById('btnCopyDashToken').addEventListener('click', () => {
+  const token = getGlobalToken(CFG);
+  navigator.clipboard.writeText(token).then(
+    () => toast('Token disalin: ' + token),
+    () => toast('Gagal menyalin', 'err')
+  );
+});
+
+/* ============================================================
+   RENDER: TOKEN PANEL (GLOBAL)
+   ============================================================ */
+function renderTokenPanel(){
+  const dateStr = todayKey();
+  document.getElementById('tokenDateSub').textContent =
+    'Berlaku untuk tanggal ' +
+    new Date().toLocaleDateString('id-ID', { weekday:'long', day:'numeric', month:'long', year:'numeric' });
+
+  const token    = getGlobalToken(CFG, dateStr);
+  const isManual = !!(CFG.globalManualToken && String(CFG.globalManualToken).trim().length === 6);
+
+  document.getElementById('globalTokenDisplay').textContent = token;
+  document.getElementById('globalTokenMode').innerHTML = isManual
+    ? '✏️ Mode: Manual (diatur admin)'
+    : '🔄 Mode: Otomatis (berubah tiap hari)';
+  document.getElementById('globalManualInput').value = CFG.globalManualToken || '';
+}
+
+/* copy token tunggal */
+document.getElementById('btnCopyToken').addEventListener('click', () => {
+  const token = getGlobalToken(CFG);
+  navigator.clipboard.writeText(token).then(
+    () => toast('Token disalin: ' + token),
+    () => toast('Gagal menyalin', 'err')
+  );
+});
+
+/* input manual — hanya huruf & angka */
+document.getElementById('globalManualInput').addEventListener('input', e => {
+  e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+});
+
+/* simpan token manual */
+document.getElementById('btnSaveManual').addEventListener('click', () => {
+  const val = document.getElementById('globalManualInput').value.trim().toUpperCase();
+  if(val && val.length !== 6){
+    toast('Token manual harus 6 karakter', 'err');
+    return;
+  }
+  CFG.globalManualToken = val;
+  saveConfig(CFG);
+  renderTokenPanel();
+  renderDashboard();
+  toast(val ? 'Token manual disimpan' : 'Token kembali ke mode otomatis');
+});
+
+/* reset ke auto */
+document.getElementById('btnClearManual').addEventListener('click', () => {
+  if(!CFG.globalManualToken) { toast('Sudah dalam mode otomatis', 'warn'); return; }
+  if(!confirm('Reset token ke mode otomatis?')) return;
+  CFG.globalManualToken = '';
+  saveConfig(CFG);
+  renderTokenPanel();
+  renderDashboard();
+  toast('Token kembali ke mode otomatis');
+});
+
+/* cetak kartu token */
+document.getElementById('btnPrintToken').addEventListener('click', () => {
+  const dateStr = todayKey();
+  const token   = getGlobalToken(CFG, dateStr);
+  const w = window.open('', '_blank');
+  w.document.write(`
+    <html><head><title>Kartu Token TKA — ${dateStr}</title></head>
+    <body style="font-family:Segoe UI,sans-serif;padding:40px;color:#1e2a3a;background:#f4f7fb">
+      <div style="text-align:center;border:3px dashed #0b3b5c;border-radius:20px;padding:50px 30px;max-width:620px;margin:0 auto;background:#fff">
+        <h1 style="margin:0;color:#0b3b5c;font-size:1.6rem;letter-spacing:.02em">🔐 KARTU TOKEN UJIAN</h1>
+        <p style="margin:8px 0 0;color:#6a7a8a;font-size:.95rem">TKA SMA/MA/SMK 2026</p>
+        <p style="margin:4px 0 0;color:#6a7a8a;font-size:.9rem">${dateStr}</p>
+        <p style="margin:38px 0 14px;font-size:.8rem;color:#6a7a8a;letter-spacing:.15em;text-transform:uppercase;font-weight:700">Token untuk Semua Mata Pelajaran</p>
+        <div style="font-family:'Courier New',monospace;font-size:4.2rem;font-weight:800;letter-spacing:.35em;color:#0b3b5c;text-indent:.35em;line-height:1">${token}</div>
+        <p style="margin-top:38px;font-size:12px;color:#6a7a8a;line-height:1.6">
+          Token berlaku 1 hari · Diberikan pengawas kepada peserta<br>
+          Gunakan token yang sama untuk seluruh 12 mata pelajaran
+        </p>
+      </div>
+      <script>setTimeout(function(){window.print()}, 350);<\/script>
+    </body></html>
+  `);
+  w.document.close();
+});
+
+/* ============================================================
+   RENDER: SUBJECT TABLE
+   ============================================================ */
+function renderSubjectTable(){
+  const tbody = document.getElementById('subjTbody');
+  tbody.innerHTML = '';
+  SUBJECTS.forEach(s => {
+    const sub = CFG.subjects[s.code];
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>
+        <div class="subj-cell">
+          <div class="ic">${s.icon}</div>
+          <div>
+            <div>${s.name}</div>
+            <span class="code-pill">${s.code}</span>
+          </div>
+        </div>
+      </td>
+      <td>
+        <label class="switch">
+          <input type="checkbox" data-code="${s.code}" data-field="enabled" ${sub.enabled ? 'checked' : ''}>
+          <span class="slider"></span>
+        </label>
+      </td>
+      <td><input class="mini-input" type="number" min="1" max="300" data-code="${s.code}" data-field="duration" value="${sub.duration}"></td>
+      <td><input class="mini-input" type="number" min="1" max="200" data-code="${s.code}" data-field="questions" value="${sub.questions}"></td>
+      <td><input class="mini-input" type="number" min="1" max="99"  data-code="${s.code}" data-field="maxAttempts" value="${sub.maxAttempts}"></td>
+      <td style="text-align:right">
+        <a class="btn btn-ghost btn-sm" href="${s.href}" target="_blank" style="text-decoration:none">↗ Buka</a>
+      </td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+document.getElementById('btnSaveSubjects').addEventListener('click', () => {
+  const inputs = document.querySelectorAll('#subjTbody input');
+  let ok = true;
+  inputs.forEach(inp => {
+    const code  = inp.getAttribute('data-code');
+    const field = inp.getAttribute('data-field');
+    if(!CFG.subjects[code]) return;
+
+    if(field === 'enabled'){
+      CFG.subjects[code].enabled = inp.checked;
+    } else {
+      const n = parseInt(inp.value, 10);
+      if(isNaN(n) || n < 1){
+        toast('Nilai tidak valid untuk ' + code, 'err');
+        ok = false;
+        return;
+      }
+      CFG.subjects[code][field] = n;
+    }
+  });
+  if(!ok) return;
+  saveConfig(CFG);
+  toast('Perubahan mata pelajaran disimpan');
+  renderDashboard();
+});
+
+/* ============================================================
+   RENDER: RESULTS
+   ============================================================ */
+function loadResults(){
+  try {
+    const raw = localStorage.getItem(RESULT_KEY);
+    if(!raw) return [];
+    const arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr : [];
+  } catch(e){ return []; }
+}
+
+function renderResults(){
+  const tbody = document.getElementById('resultTbody');
+  const wrap  = document.getElementById('resultWrap');
+  const empty = document.getElementById('resultEmpty');
+
+  const filter = document.getElementById('filterSubj').value;
+  let data = loadResults();
+  if(filter) data = data.filter(r => r.code === filter);
+
+  data.sort((a,b) => (b.finishedAt||0) - (a.finishedAt||0));
+
+  const sel = document.getElementById('filterSubj');
+  if(sel.options.length <= 1){
+    SUBJECTS.forEach(s => {
+      const o = document.createElement('option');
+      o.value = s.code;
+      o.textContent = s.icon + ' ' + s.name;
+      sel.appendChild(o);
+    });
+    sel.addEventListener('change', renderResults);
+  }
+
+  if(!data.length){
+    wrap.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+  wrap.style.display = '';
+  empty.style.display = 'none';
+
+  tbody.innerHTML = data.map(r => {
+    const subj = SUBJECTS.find(s => s.code === r.code);
+    const subjName = subj ? subj.icon + ' ' + subj.name : r.code;
+    const scoreColor = (r.score >= 75) ? '#1e8449' : (r.score >= 60 ? '#b9770e' : '#c0392b');
+    const violations = Number(r.violations || 0);
+    const date = r.finishedAt ? new Date(r.finishedAt).toLocaleString('id-ID', { day:'2-digit', month:'short', year:'numeric', hour:'2-digit', minute:'2-digit' }) : '—';
+    const dur = r.duration ? Math.floor(r.duration/60) + 'm ' + (r.duration%60) + 's' : '—';
+    return `<tr>
+      <td><strong>${escapeHtml(r.name || '—')}</strong></td>
+      <td>${escapeHtml(r.class || '—')}</td>
+      <td>${subjName}</td>
+      <td><strong style="color:${scoreColor};font-size:1rem">${r.score ?? '—'}</strong></td>
+      <td>${r.correct ?? '—'} / ${r.total ?? '—'}</td>
+      <td>${violations > 0 ? '<span class="badge off">⚠️ ' + violations + '</span>' : '<span class="badge ok">0</span>'}</td>
+      <td>${dur}</td>
+      <td>${date}</td>
+    </tr>`;
+  }).join('');
+}
+
+function escapeHtml(s){
+  return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+}
+
+document.getElementById('btnClearResults').addEventListener('click', () => {
+  if(!confirm('Hapus SEMUA hasil ujian? Tindakan ini tidak dapat dibatalkan.')) return;
+  if(!confirm('Yakin? Data hasil akan hilang permanen.')) return;
+  localStorage.removeItem(RESULT_KEY);
+  renderResults();
+  renderDashboard();
+  toast('Semua hasil ujian dihapus', 'warn');
+});
+
+document.getElementById('btnExportCsv').addEventListener('click', () => {
+  const data = loadResults();
+  if(!data.length){ toast('Tidak ada data untuk diexport', 'warn'); return; }
+  const headers = ['Nama','Kelas','Kode Mapel','Skor','Benar','Total','Pelanggaran','Durasi (detik)','Selesai'];
+  const rows = data.map(r => [
+    r.name || '', r.class || '', r.code || '', r.score ?? '',
+    r.correct ?? '', r.total ?? '', r.violations ?? 0, r.duration ?? '',
+    r.finishedAt ? new Date(r.finishedAt).toISOString() : ''
+  ]);
+  const csv = [headers, ...rows].map(row =>
+    row.map(c => '"' + String(c).replace(/"/g,'""') + '"').join(',')
+  ).join('\n');
+  downloadFile('hasil_tka_' + todayKey() + '.csv', csv, 'text/csv');
+  toast('CSV berhasil diunduh');
+});
+
+/* ============================================================
+   SETTINGS
+   ============================================================ */
+document.getElementById('btnSavePin').addEventListener('click', () => {
+  const v = document.getElementById('newPin').value.trim();
+  if(v.length < 4){ toast('PIN minimal 4 karakter', 'err'); return; }
+  CFG.adminPin = v;
+  saveConfig(CFG);
+  document.getElementById('newPin').value = '';
+  toast('PIN admin diperbarui');
+});
+
+document.getElementById('btnSaveSalt').addEventListener('click', () => {
+  const v = document.getElementById('saltInput').value.trim();
+  if(!v){ toast('Salt tidak boleh kosong', 'err'); return; }
+  if(!confirm('Mengubah salt akan mengubah token (mode auto). Lanjutkan?')) return;
+  CFG.salt = v;
+  saveConfig(CFG);
+  renderTokenPanel();
+  renderDashboard();
+  toast('Salt diperbarui & token diregenerasi');
+});
+
+/* ============================================================
+   EXPORT / IMPORT
+   ============================================================ */
+function downloadFile(filename, content, mime){
+  const blob = new Blob([content], { type: mime || 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function exportConfig(){
+  const payload = {
+    exportedAt: new Date().toISOString(),
+    config: CFG
+  };
+  downloadFile('tka_config_' + todayKey() + '.json', JSON.stringify(payload, null, 2));
+  toast('Konfigurasi diexport');
+}
+
+document.getElementById('btnExport').addEventListener('click', exportConfig);
+document.getElementById('btnExport2').addEventListener('click', exportConfig);
+
+function triggerImport(){
+  document.getElementById('fileImport').click();
+}
+document.getElementById('btnImport').addEventListener('click', triggerImport);
+document.getElementById('btnImport2').addEventListener('click', triggerImport);
+
+document.getElementById('fileImport').addEventListener('change', e => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try {
+      const parsed = JSON.parse(ev.target.result);
+      const incoming = parsed.config || parsed;
+      if(!incoming || typeof incoming !== 'object' || !incoming.subjects){
+        throw new Error('Format tidak valid');
+      }
+      if(!confirm('Import konfigurasi ini? Konfigurasi saat ini akan ditimpa.')) return;
+      const def = defaultConfig();
+      CFG = Object.assign(def, incoming);
+      CFG.subjects = CFG.subjects || {};
+      SUBJECTS.forEach(s => {
+        CFG.subjects[s.code] = Object.assign({}, def.subjects[s.code], CFG.subjects[s.code] || {});
+      });
+      CFG.globalManualToken = CFG.globalManualToken || '';
+      saveConfig(CFG);
+      renderAll();
+      toast('Konfigurasi berhasil diimport');
+    } catch(err){
+      toast('Gagal import: ' + err.message, 'err');
+    } finally {
+      e.target.value = '';
+    }
+  };
+  reader.readAsText(file);
+});
+
+document.getElementById('btnResetAll').addEventListener('click', () => {
+  if(!confirm('Reset SEMUA konfigurasi ke default? Token manual, PIN, dan pengumuman akan hilang.')) return;
+  if(!confirm('Yakin? Tindakan ini tidak dapat dibatalkan.')) return;
+  CFG = defaultConfig();
+  saveConfig(CFG);
+  renderAll();
+  toast('Konfigurasi direset ke default', 'warn');
+});
+
+/* ============================================================
+   MISC
+   ============================================================ */
+document.getElementById('btnOpenIndex').addEventListener('click', () => {
+  window.open('index.html', '_blank');
+});
+
+window.addEventListener('storage', e => {
+  if(e.key === CFG_KEY){
+    CFG = loadConfig();
+    renderAll();
+    toast('Konfigurasi diperbarui dari tab lain');
+  }
+});
+
+/* ============================================================
+   RENDER ALL
+   ============================================================ */
+function renderAll(){
+  renderDashboard();
+  renderTokenPanel();
+  renderSubjectTable();
+  renderResults();
+  document.getElementById('saltInput').value = CFG.salt;
+}
+
+/* ============================================================
+   INIT
+   ============================================================ */
+checkLogin();
+renderAll();
+
+})();
+</script>
+</body>
+</html>

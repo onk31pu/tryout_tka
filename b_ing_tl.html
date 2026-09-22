@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Bahasa Inggris SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 3px rgba(40,116,166,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,59,92,0.35);
+  }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-header .title-text { font-weight: 700; color: #0b3b5c; font-size: 1rem; }
+  .badge {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 6px;
+    background: #eaf1fb; color: #1a5fb4; vertical-align: middle; margin-left: 6px;
+  }
+  .badge.mcma { background: #fdf1e3; color: #b96a10; }
+  .badge.kategori { background: #e8f6ee; color: #1d7a4c; }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin: 0 0 10px; }
+  .wacana-box {
+    background: #f0f7ff; border-left: 4px solid #2874a6;
+    padding: 14px 18px; border-radius: 6px; margin-bottom: 16px;
+    font-size: 0.94rem; line-height: 1.75;
+  }
+  .wacana-box strong { color: #0b3b5c; }
+  .wacana-box p { margin: 0 0 10px; }
+  .wacana-box p:last-child { margin-bottom: 0; }
+  .wacana-box .sumber {
+    font-size: 0.8rem; font-style: italic; color: #6a7a8a; margin-top: 10px;
+  }
+  .wacana-box em { color: #1a5fb4; }
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 620px; font-size: 0.9rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #b0c4d8; padding: 8px 12px; text-align: center;
+  }
+  table.data-tabel th { background: #eef4fa; color: #0b3b5c; }
+  table.data-tabel td.left { text-align: left; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #0b3b5c; flex-shrink: 0; }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; font-size: 0.95rem; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .tf-item .opsi input[type="radio"] { accent-color: #0b3b5c; }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b3b5c;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none; word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Bahasa Inggris Tinggkat Lanjut</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">🌐</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII MIPA 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="title-text">Drawing a Conclusion from Evidence</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which conclusion is BEST supported by the evidence?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">Students have become less disciplined.</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">Teachers are responsible for students' lateness.</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">Transportation changes may be an important factor contributing to lateness.</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">Students should receive punishment for every late arrival.</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">Public transportation should be eliminated.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="title-text">Determining the Most Appropriate Next Step</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>What would be the MOST appropriate next step for the school?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-text">Increase punishment for all late students.</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-text">Ignore the transportation issue and continue enforcing the existing policy.</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-text">Investigate transportation schedules and consider adjustments to the school's arrival policy.</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-text">Cancel all morning classes.</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-text">Require students to walk to school.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="title-text">Critical Thinking about a Conclusion</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which statement best demonstrates critical thinking about the administration's original conclusion?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-text">The administration must be correct because it has authority.</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-text">The students' explanation must be correct because they experienced the problem.</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-text">The original conclusion may be premature because alternative explanations are supported by evidence.</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-text">Students should never be held responsible for lateness.</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-text">Transportation problems always cause students to arrive late.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="title-text">Identifying the Central Argument</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p>For years, schools have treated smartphones primarily as distractions. Consequently, many institutions have adopted strict policies prohibiting students from using them during lessons. However, recent discussions have shifted toward a more nuanced approach. Rather than eliminating smartphones altogether, some educators argue that schools should teach students how to use digital devices responsibly.</p>
+        <p>A smartphone, for instance, can provide immediate access to dictionaries, scientific databases, educational videos, and collaborative platforms. Yet the same device can also fragment students' attention through notifications and social media. The issue, therefore, may not be the technology itself but the user's ability to regulate its use.</p>
+        <p>Schools that integrate smartphones into learning must establish clear boundaries. Without guidance, students may simply replace one form of distraction with another. Digital literacy, in this context, involves not only knowing how to access information but also knowing when, why, and whether such information should be used.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>What is the central argument of the text?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">Smartphones should completely replace traditional learning resources.</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">Schools should prohibit smartphones because they inevitably distract students.</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">Smartphones can support learning if students are taught to use them responsibly.</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">Students are generally incapable of controlling their smartphone usage.</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">Digital literacy primarily means knowing how to operate smartphones.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="title-text">Author's Attitude</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 4.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which statement best represents the author's attitude toward smartphones in education?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-text">Completely supportive</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-text">Strongly opposed</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-text">Cautiously supportive</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-text">Indifferent</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-text">Unconditionally optimistic</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="title-text">Drawing an Inference</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 4.</em></p>
+        <p>The sentence <em>"The issue, therefore, may not be the technology itself but the user's ability to regulate its use"</em> implies that ...</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which of the following best completes the implication?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">technology has no negative effects on students.</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">students should be given unlimited access to smartphones.</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">responsible behavior determines whether technology becomes beneficial or harmful.</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">teachers are responsible for monitoring every student's smartphone.</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">smartphones are more useful than printed learning materials.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="title-text">Best Policy Reflecting the Author's Argument</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 4.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which policy would BEST reflect the author's argument?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-text">Banning smartphones throughout the school year</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-text">Allowing smartphone use only during lunch breaks</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-text">Allowing smartphones in class with clearly defined academic purposes</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-text">Requiring every student to purchase the newest smartphone</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-text">Replacing teachers with digital learning applications</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="title-text">Classifying Statements: Agree / Disagree</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Do Electric Vehicles Guarantee a Sustainable Future?</strong>
+        <p>The transition from gasoline-powered cars to electric vehicles (EVs) is often presented as an important step toward a more sustainable future. Governments, automobile manufacturers, and environmental organizations have promoted EVs because they produce no direct exhaust emissions while being driven. In crowded cities, this characteristic can contribute to cleaner air and reduce people's exposure to certain pollutants.</p>
+        <p>However, calling EVs completely "green" may be an oversimplification. The environmental impact of an electric vehicle begins long before it reaches the road. Its battery requires minerals such as lithium, nickel, and cobalt, which must be extracted and processed. Mining these materials can consume significant amounts of water and energy and, if poorly regulated, can damage ecosystems and affect local communities. The source of electricity is another important consideration. An EV charged using electricity generated largely from coal may still indirectly contribute to greenhouse gas emissions. In contrast, an EV powered by electricity from solar, wind, or other low-carbon sources can have a considerably smaller environmental footprint over its lifetime. Thus, the sustainability of EVs depends partly on the broader energy system in which they operate.</p>
+        <p>Battery disposal also presents a challenge. When batteries are no longer suitable for powering vehicles, simply throwing them away would waste valuable materials and could create environmental risks. Fortunately, battery recycling technologies are developing rapidly. Some used batteries can also be given a second life as energy-storage systems before their materials are eventually recycled.</p>
+        <p>For these reasons, electric vehicles should not be regarded as a magic solution to climate change. They can play a significant role in reducing transportation-related emissions, but their effectiveness depends on responsible mineral extraction, cleaner electricity, longer-lasting batteries, effective recycling systems, and complementary forms of sustainable transportation such as public transit and cycling. Ultimately, the question is not whether electric vehicles are perfectly sustainable. Rather, the more important question is whether societies can develop the infrastructure, policies, and technologies necessary to make electric transportation increasingly sustainable.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Based on the text, classify each statement as <strong>AGREE</strong> or <strong>DISAGREE</strong> with the writer's argument.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Electric vehicles can contribute to cleaner air in densely populated cities.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal8a" value="AGREE"> Agree</label>
+            <label><input type="radio" name="soal8a" value="DISAGREE"> Disagree</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) The writer considers electric vehicles completely environmentally harmless.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal8b" value="AGREE"> Agree</label>
+            <label><input type="radio" name="soal8b" value="DISAGREE"> Disagree</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) The environmental impact of EVs is influenced by the way their batteries are produced.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal8c" value="AGREE"> Agree</label>
+            <label><input type="radio" name="soal8c" value="DISAGREE"> Disagree</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="title-text">Classifying Statements: Cause / Effect</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 8.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Determine whether each statement represents a <strong>CAUSE</strong> or an <strong>EFFECT</strong> according to the text.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) EVs produce no direct exhaust emissions while being driven.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal9a" value="CAUSE"> Cause</label>
+            <label><input type="radio" name="soal9a" value="EFFECT"> Effect</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) EVs can contribute to cleaner air in crowded cities.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal9b" value="CAUSE"> Cause</label>
+            <label><input type="radio" name="soal9b" value="EFFECT"> Effect</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Battery minerals must be extracted and processed.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal9c" value="CAUSE"> Cause</label>
+            <label><input type="radio" name="soal9c" value="EFFECT"> Effect</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="title-text">Summarizing the Author's Position</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p>Artificial intelligence is increasingly being used to assist students in writing. Some educators welcome this development because AI can provide immediate feedback on grammar, organization, and clarity. Others worry that students may become dependent on automated assistance and gradually lose the ability to develop their own ideas.</p>
+        <p>The disagreement, however, may be based on a false choice. Students do not necessarily have to choose between writing independently and using AI. The more important question is how AI is incorporated into the writing process. If students use AI to replace thinking, the technology may weaken learning. If they use it to challenge their assumptions, identify weaknesses, and revise their work, it may strengthen learning.</p>
+        <p>Thus, the educational value of AI depends less on its presence than on the intellectual role students assign to it.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which statement best summarizes the author's position?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal10" value="A"><span class="option-text">AI should replace traditional writing instruction.</span></label>
+        <label><input type="radio" name="soal10" value="B"><span class="option-text">AI inevitably reduces students' creativity.</span></label>
+        <label><input type="radio" name="soal10" value="C"><span class="option-text">AI has educational value when it supports rather than replaces students' thinking.</span></label>
+        <label><input type="radio" name="soal10" value="D"><span class="option-text">Students should never use AI when completing writing assignments.</span></label>
+        <label><input type="radio" name="soal10" value="E"><span class="option-text">Grammar correction is the most important function of AI.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="title-text">Responsible AI Use</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 10.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which student behaviour would BEST demonstrate responsible AI use according to the text?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">Copying an AI-generated essay and submitting it unchanged</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">Asking AI to generate all ideas before writing anything</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">Using AI feedback to identify weaknesses and independently revise the essay</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">Allowing AI to decide the argument and evidence for an essay</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">Using AI so that the student does not need to learn grammar</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="title-text">Interpreting a Phrase</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 10.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>What does the phrase <em>"a false choice"</em> most likely refer to?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">The belief that AI can only correct grammar</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">The belief that students must either write independently or use AI</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">The belief that writing is unnecessary in modern education</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">The belief that teachers should use AI</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">The belief that AI is capable of generating text</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="title-text">Categorizing an Argument</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <p>A school is considering implementing a four-day school week. Supporters argue that an additional day without classes could reduce student stress, allow teachers more time for professional development, and lower transportation and operational costs. Critics, however, point out that reducing instructional days could negatively affect students who depend on school for structured learning and access to educational resources.</p>
+        <p>The school board therefore proposes a pilot program rather than immediate permanent implementation. During the pilot, the school will monitor attendance, academic performance, student well-being, teacher workload, and family feedback.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Categorize each statement as:</p>
+        <p><strong>A.</strong> Supports the four-day school week · <strong>B.</strong> Opposes the four-day school week · <strong>C.</strong> Suggests evaluating the policy through evidence</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">13. The policy may provide teachers with more time for professional development.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal13" value="A"> A. Supports</label>
+            <label><input type="radio" name="soal13" value="B"> B. Opposes</label>
+            <label><input type="radio" name="soal13" value="C"> C. Evaluates</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">14. Students may lose valuable structured learning opportunities.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal14" value="A"> A. Supports</label>
+            <label><input type="radio" name="soal14" value="B"> B. Opposes</label>
+            <label><input type="radio" name="soal14" value="C"> C. Evaluates</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">15. The school should examine academic and well-being data before making the policy permanent.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15" value="A"> A. Supports</label>
+            <label><input type="radio" name="soal15" value="B"> B. Opposes</label>
+            <label><input type="radio" name="soal15" value="C"> C. Evaluates</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="title-text">Statements Supported by the Text</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p>Climate change discussions often focus on individual actions such as reducing plastic consumption, cycling to school, or using less electricity. These actions can be meaningful, but focusing exclusively on them may obscure the role of larger systems. Electricity generation, transportation infrastructure, industrial practices, and government policies strongly influence the environmental choices available to individuals.</p>
+        <p>This does not mean that individual behaviour is irrelevant. Rather, meaningful climate action requires both personal responsibility and systemic change. Individuals can reduce their environmental impact while also supporting policies and institutions that make sustainable choices more accessible.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which statements are supported by the text? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal16" value="A"><span class="option-text">Individual environmental behaviour has no meaningful impact.</span></label>
+        <label><input type="checkbox" name="soal16" value="B"><span class="option-text">Systemic factors influence people's environmental choices.</span></label>
+        <label><input type="checkbox" name="soal16" value="C"><span class="option-text">Government policies can affect environmental outcomes.</span></label>
+        <label><input type="checkbox" name="soal16" value="D"><span class="option-text">Individual responsibility and systemic change can work together.</span></label>
+        <label><input type="checkbox" name="soal16" value="E"><span class="option-text">Climate change can be solved entirely by reducing plastic consumption.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="title-text">Actions Consistent with the Author's Approach</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 16.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which actions are consistent with the author's proposed approach? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal17" value="A"><span class="option-text">Reducing unnecessary electricity consumption</span></label>
+        <label><input type="checkbox" name="soal17" value="B"><span class="option-text">Supporting policies that improve public transportation</span></label>
+        <label><input type="checkbox" name="soal17" value="C"><span class="option-text">Refusing to participate in any environmental policy discussion</span></label>
+        <label><input type="checkbox" name="soal17" value="D"><span class="option-text">Encouraging institutions to adopt sustainable practices</span></label>
+        <label><input type="checkbox" name="soal17" value="E"><span class="option-text">Claiming that individual behavior alone will solve climate change</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="title-text">Evaluating Research Criticisms</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p>A university conducted a study to determine whether background music improves students' concentration. Researchers divided 200 students into two groups. One group completed a reading task while listening to instrumental music, while the other completed the same task in silence. The music group achieved slightly higher average scores.</p>
+        <p>The researchers concluded that instrumental music improves concentration. However, another researcher questioned the conclusion because the study did not measure whether participants regularly listened to music while studying, nor did it control for individual differences in reading ability.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which criticisms are reasonable? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal18" value="A"><span class="option-text">The study may not account for participants' previous study habits.</span></label>
+        <label><input type="checkbox" name="soal18" value="B"><span class="option-text">Individual differences could influence the results.</span></label>
+        <label><input type="checkbox" name="soal18" value="C"><span class="option-text">The sample size of 200 students automatically makes the conclusion invalid.</span></label>
+        <label><input type="checkbox" name="soal18" value="D"><span class="option-text">The study establishes that music improves concentration for every student.</span></label>
+        <label><input type="checkbox" name="soal18" value="E"><span class="option-text">Additional variables may need to be controlled.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="title-text">Additional Information for Reliability</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 18.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which additional information would make the conclusion more reliable? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal19" value="A"><span class="option-text">Participants' previous experience studying with music</span></label>
+        <label><input type="checkbox" name="soal19" value="B"><span class="option-text">Participants' baseline reading ability</span></label>
+        <label><input type="checkbox" name="soal19" value="C"><span class="option-text">The color of the classroom walls</span></label>
+        <label><input type="checkbox" name="soal19" value="D"><span class="option-text">Whether the music group's average score was statistically significantly higher</span></label>
+        <label><input type="checkbox" name="soal19" value="E"><span class="option-text">The participants' favorite music artists</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="title-text">Arguments Presented in the Text</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p>Some schools have introduced mandatory community service for graduation. Supporters believe that volunteering develops empathy, civic responsibility, and practical skills. Critics argue that making service compulsory undermines the meaning of volunteering because students may participate merely to satisfy a requirement.</p>
+        <p>A possible compromise is to require students to complete a community-based project while giving them considerable freedom to choose the organization, issue, or type of contribution. This approach preserves an element of student choice while ensuring that every student gains experience contributing to the community.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which arguments are presented in the text? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal20" value="A"><span class="option-text">Community service may develop civic responsibility.</span></label>
+        <label><input type="checkbox" name="soal20" value="B"><span class="option-text">Compulsory service may reduce students' intrinsic motivation.</span></label>
+        <label><input type="checkbox" name="soal20" value="C"><span class="option-text">Students should have no choice regarding their service activities.</span></label>
+        <label><input type="checkbox" name="soal20" value="D"><span class="option-text">Student choice could address some concerns about compulsory service.</span></label>
+        <label><input type="checkbox" name="soal20" value="E"><span class="option-text">Community service is completely ineffective when required.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="title-text">Best Policy for the Proposed Compromise</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p><em>Refer to the text in Question 20.</em></p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which policy would BEST reflect the proposed compromise? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal21" value="A"><span class="option-text">Requiring students to volunteer at one specific organization</span></label>
+        <label><input type="checkbox" name="soal21" value="B"><span class="option-text">Allowing students to select a community issue they care about</span></label>
+        <label><input type="checkbox" name="soal21" value="C"><span class="option-text">Giving students complete freedom to decide whether they want to participate</span></label>
+        <label><input type="checkbox" name="soal21" value="D"><span class="option-text">Requiring a community-based project but allowing students to choose how to contribute</span></label>
+        <label><input type="checkbox" name="soal21" value="E"><span class="option-text">Removing all assessment from the program</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="title-text">Identifying Assumptions in an Argument</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="wacana-box">
+        <p>"Our school should replace printed textbooks with digital textbooks because digital materials are cheaper and more environmentally friendly. Every student already has access to a smartphone, so there is no reason to continue printing books."</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Which assumptions does the argument make? <em>(More than one answer may be correct. Select ALL correct answers.)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal22" value="A"><span class="option-text">Students can access digital textbooks whenever necessary.</span></label>
+        <label><input type="checkbox" name="soal22" value="B"><span class="option-text">Smartphones are suitable for all forms of extended academic reading.</span></label>
+        <label><input type="checkbox" name="soal22" value="C"><span class="option-text">Digital textbooks have no environmental costs.</span></label>
+        <label><input type="checkbox" name="soal22" value="D"><span class="option-text">The benefits of printed books are not significant enough to justify their cost.</span></label>
+        <label><input type="checkbox" name="soal22" value="E"><span class="option-text">All students prefer digital textbooks.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="title-text">True / False — AI in Education</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>Artificial Intelligence in Education</strong>
+        <p>Artificial intelligence has rapidly entered classrooms, offering students tools that can provide instant explanations, generate examples, and give feedback on written work. Supporters argue that such tools can make learning more personalized because students can ask questions repeatedly without feeling embarrassed. However, easy access to AI also creates a potential problem. If students rely on AI to produce answers instead of engaging with difficult ideas themselves, they may complete assignments successfully without developing deeper understanding. Therefore, educators increasingly emphasize that AI should function as a learning assistant rather than a substitute for students' intellectual effort. The challenge is not simply deciding whether AI belongs in education. Instead, schools need to establish practices that encourage students to question, verify, and critically evaluate AI-generated information.</p>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Read the statement and determine whether it is <strong>TRUE</strong> or <strong>FALSE</strong> based on the text.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">23. According to the text, students may complete assignments without developing sufficient understanding if they depend too heavily on AI.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal23" value="TRUE"> True</label>
+            <label><input type="radio" name="soal23" value="FALSE"> False</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">24. The author believes that schools should completely prohibit AI in education.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24" value="TRUE"> True</label>
+            <label><input type="radio" name="soal24" value="FALSE"> False</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">25. The text implies that students should critically evaluate information generated by AI.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25" value="TRUE"> True</label>
+            <label><input type="radio" name="soal25" value="FALSE"> False</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_BahasaInggris_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Bahasa Inggris SMA/MA/SMK
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  const kunciJawaban = {
+    soal1:  "C",
+    soal2:  "C",
+    soal3:  "C",
+    soal4:  "C",
+    soal5:  "C",
+    soal6:  "C",
+    soal7:  "C",
+    soal8:  { a: "AGREE", b: "DISAGREE", c: "AGREE" },
+    soal9:  { a: "CAUSE", b: "EFFECT", c: "CAUSE" },
+    soal10: "C",
+    soal11: "C",
+    soal12: "B",
+    soal13: "A",
+    soal14: "B",
+    soal15: "C",
+    soal16: ["B", "C", "D"],
+    soal17: ["A", "B", "D"],
+    soal18: ["A", "B", "E"],
+    soal19: ["A", "B", "D"],
+    soal20: ["A", "B", "D"],
+    soal21: ["B", "D"],
+    soal22: ["A", "B", "D"],
+    soal23: "TRUE",
+    soal24: "FALSE",
+    soal25: "TRUE"
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_english_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_english_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== HITUNG BENAR =====
+  function hitungBenar() {
+    let benar = 0;
+    let total = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (!kunci) continue;
+      total++;
+
+      if (typeof kunci === 'string') {
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        const selected = Array.from(
+          document.querySelectorAll('input[name="' + key + '"]:checked')
+        ).map(cb => cb.value).sort();
+        const expected = [...kunci].sort();
+        if (JSON.stringify(selected) === JSON.stringify(expected)) benar++;
+
+      } else if (typeof kunci === 'object') {
+        let allCorrect = true;
+        for (const sub in kunci) {
+          const subName = key + sub;
+          const sel = document.querySelector('input[name="' + subName + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) {
+            allCorrect = false;
+            break;
+          }
+        }
+        if (allCorrect) benar++;
+      }
+    }
+    return { benar, total };
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    const { benar, total } = hitungBenar();
+    benarGlobal = benar;
+    skorGlobal = total > 0 ? Math.round((benar / total) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + total;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_BahasaInggris_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_BahasaInggris_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_BahasaInggris_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

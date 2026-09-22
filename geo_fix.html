@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Geografi SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 3px rgba(40,116,166,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,59,92,0.35);
+  }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-header .title-text { font-weight: 700; color: #0b3b5c; font-size: 1rem; }
+  .badge {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 6px;
+    background: #eaf1fb; color: #1a5fb4; vertical-align: middle; margin-left: 6px;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin: 0 0 10px; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"] { margin-top: 4px; accent-color: #0b3b5c; flex-shrink: 0; }
+  .pilihan .option-text { flex: 1; }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b3b5c;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none; word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Geografi</h1>
+  <div class="subtitle">SMA/MA/SMK — Kelas XII IPS Tahun Ajaran 2026/2027</div>
+
+  <!-- ============ HALAMAN LOGIN ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">🌍</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII IPS 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="title-text">Konsep Wilayah</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Ruang muka bumi yang memiliki karakteristik fisik atau sosial yang khas dan membedakannya dari wilayah lain disebut dengan...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">Wilayah fungsional</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">Kawasan strategis</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">Wilayah formal</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">Perwilayahan nodal</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">Lokasi</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="title-text">Wilayah Fungsional</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Kawasan metropolitan yang terdiri atas kota pusat dan beberapa kota satelit di sekelilingnya yang dihubungkan oleh jaringan transportasi intensif merupakan contoh dari...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-text">Wilayah fungsional</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-text">Kawasan perdesaan</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-text">Wilayah formal</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-text">Kawasan lindung</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-text">Universal</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="title-text">Perwilayahan</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Proses pembagian permukaan bumi menjadi beberapa bagian berdasarkan kriteria tertentu untuk tujuan pengelolaan disebut...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-text">Lokalisasi</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-text">Perwilayahan</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-text">Desentralisasi</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-text">Zonasi tata ruang</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-text">Kawasan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="title-text">RTRWN dan UU Penataan Ruang</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan Undang-Undang Nomor 26 Tahun 2007 tentang Penataan Ruang, jangka waktu berlakunya Rencana Tata Ruang Wilayah Nasional (RTRWN) adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">5 tahun</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">20 tahun</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">10 tahun</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">25 tahun</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">30 tahun</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="title-text">Hierarki Perencanaan Tata Ruang</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Hierarki perencanaan tata ruang wilayah di Indonesia yang mencakup dokumen tata ruang provinsi adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-text">RDTR Kabupaten</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-text">RTRW Nasional</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-text">Rencana Zonasi</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-text">RTRW Provinsi</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-text">Propinsi</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="title-text">Struktur Ruang Wilayah</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di dalam struktur ruang wilayah, pusat kegiatan yang melayani skala nasional atau internasional disebut sebagai...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">Pusat Kegiatan Lingkungan</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">Pusat Kegiatan Lokal</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">Pusat Kegiatan Wilayah</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">Pusat Kegiatan Nasional</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">Kegiatan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="title-text">Kawasan Lindung</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Kawasan yang ditetapkan dengan fungsi utama melindungi kelestarian lingkungan hidup yang mencakup sumber daya alam dan buatan disebut...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-text">Kawasan strategis ekonomi</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-text">Kawasan perkotaan</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-text">Kawasan lindung</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-text">Kawasan budidaya</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-text">Kawasan daerah</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="title-text">Fungsi RDTR Kabupaten/Kota</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Penyusunan Rencana Detail Tata Ruang (RDTR) di tingkat kabupaten/kota berfungsi sebagai...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-text">Penetapan batas wilayah antar negara</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-text">Operasionalisasi RTRW kabupaten/kota dalam perizinan pemanfaatan ruang</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-text">Pengganti undang-undang penataan ruang nasional</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-text">Penentu kebijakan moneter dan fiskal daerah</span></label>
+        <label><input type="radio" name="soal8" value="E"><span class="option-text">Penataan ruang nasional</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="title-text">Ketimpangan Pembangunan Wilayah</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Faktor utama yang menyebabkan terjadinya ketimpangan pembangunan antar wilayah di Indonesia adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-text">Keseragaman tingkat pendidikan di seluruh pulau</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-text">Jumlah penduduk yang selalu sama di setiap daerah</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-text">Penerapan sistem zonasi tata ruang yang kaku</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-text">Penerapan sistem</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-text">Perbedaan potensi sumber daya alam dan konsentrasi infrastruktur</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="title-text">Pusat Pertumbuhan</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dalam konteks perencanaan tata ruang, wilayah yang menunjukkan gejala perkembangan pesat dan mempengaruhi kawasan lain di sekitarnya disebut...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal10" value="A"><span class="option-text">Wilayah pinggiran pasif</span></label>
+        <label><input type="radio" name="soal10" value="B"><span class="option-text">Pusat pertumbuhan</span></label>
+        <label><input type="radio" name="soal10" value="C"><span class="option-text">Kawasan terisolasi</span></label>
+        <label><input type="radio" name="soal10" value="D"><span class="option-text">Kawasan konservasi ketat</span></label>
+        <label><input type="radio" name="soal10" value="E"><span class="option-text">Kawasan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="title-text">Teori Kutub Pertumbuhan</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Teori Kutub Pertumbuhan (Growth Pole Theory) yang menyatakan bahwa pembangunan tidak terjadi secara serentak di semua tempat dipopulerkan oleh...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">Weber</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">W. Christaller</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">E. W. Burgess</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">François Perroux</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">H. Luis</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="title-text">Teori Tempat Pusat Christaller</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dalam Teori Tempat Pusat (Central Place Theory) milik Christaller, hierarki tempat pusat yang berfungsi sebagai tempat pasar optimal digambarkan dengan asas...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">K = 7</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">K = 3</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">K = 2</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">K = 4</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">K = 5</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="title-text">Alih Fungsi Lahan Peri-Urban</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Penyebab utama terjadinya alih fungsi lahan pertanian produktif menjadi kawasan permukiman di wilayah peri-urban adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">Menurunnya kesuburan tanah secara alami akibat erosi vulkanik</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">Bertambahnya luas hutan lindung di sekitar kota</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">Larangan pemerintah untuk melakukan aktivitas bercocok tanam</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">Tingginya nilai ekonomi lahan dan desakan kebutuhan perumahan</span></label>
+        <label><input type="radio" name="soal13" value="E"><span class="option-text">Bercocok tanam</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="title-text">Masa Berlaku RTRW Kabupaten/Kota</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dokumen Rencana Tata Ruang Wilayah (RTRW) Kabupaten/Kota memiliki masa berlaku selama...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal14" value="A"><span class="option-text">5 tahun</span></label>
+        <label><input type="radio" name="soal14" value="B"><span class="option-text">10 tahun</span></label>
+        <label><input type="radio" name="soal14" value="C"><span class="option-text">30 tahun</span></label>
+        <label><input type="radio" name="soal14" value="D"><span class="option-text">20 tahun</span></label>
+        <label><input type="radio" name="soal14" value="E"><span class="option-text">22 tahun</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="title-text">Hambatan Implementasi RTRW</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Salah satu hambatan utama dalam implementasi Rencana Tata Ruang Wilayah (RTRW) di berbagai daerah di Indonesia adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal15" value="A"><span class="option-text">Tidak adanya peta di era modern saat ini</span></label>
+        <label><input type="radio" name="soal15" value="B"><span class="option-text">Ketidaksesuaian antara pemanfaatan ruang di lapangan dengan dokumen rencana (pelanggaran tata ruang)</span></label>
+        <label><input type="radio" name="soal15" value="C"><span class="option-text">Seluruh wilayah Indonesia telah menjadi hutan lindung mutlak</span></label>
+        <label><input type="radio" name="soal15" value="D"><span class="option-text">Menjadi hutan lindung</span></label>
+        <label><input type="radio" name="soal15" value="E"><span class="option-text">Menjadi hutan lindung</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="title-text">Kawasan Strategis Nasional</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Kawasan yang diprioritaskan pengembangannya karena mempunyai pengaruh sangat penting dalam lingkup lintas provinsi terhadap ekonomi nasional disebut...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal16" value="A"><span class="option-text">Kawasan permukiman swadaya</span></label>
+        <label><input type="radio" name="soal16" value="B"><span class="option-text">Kawasan strategis nasional</span></label>
+        <label><input type="radio" name="soal16" value="C"><span class="option-text">Kawasan lokal kecamatan</span></label>
+        <label><input type="radio" name="soal16" value="D"><span class="option-text">Kawasan pedesaan tertinggal</span></label>
+        <label><input type="radio" name="soal16" value="E"><span class="option-text">Pedesaan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="title-text">Pembangunan Berkelanjutan</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pendekatan perencanaan wilayah yang mengutamakan kelestarian lingkungan dan kemampuan generasi mendatang untuk memenuhi kebutuhannya dikenal dengan istilah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal17" value="A"><span class="option-text">Pembangunan berkelanjutan</span></label>
+        <label><input type="radio" name="soal17" value="B"><span class="option-text">Urbanisasi sentralistis</span></label>
+        <label><input type="radio" name="soal17" value="C"><span class="option-text">Desentralisasi fiskal murni</span></label>
+        <label><input type="radio" name="soal17" value="D"><span class="option-text">Pembangunan eksploitatif cepat</span></label>
+        <label><input type="radio" name="soal17" value="E"><span class="option-text">Bangunan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="title-text">Klasifikasi Desa</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Suatu wilayah pedesaan yang menunjukkan tingkat perkembangan maju serta mulai memiliki fasilitas pendukung mirip perkotaan disebut...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal18" value="A"><span class="option-text">Desa terpencil</span></label>
+        <label><input type="radio" name="soal18" value="B"><span class="option-text">Desa swasembada</span></label>
+        <label><input type="radio" name="soal18" value="C"><span class="option-text">Desa swakarya</span></label>
+        <label><input type="radio" name="soal18" value="D"><span class="option-text">Desa swadaya</span></label>
+        <label><input type="radio" name="soal18" value="E"><span class="option-text">Swadaya</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="title-text">Rumus Interaksi Wilayah</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Interaksi antara dua wilayah yang berdekatan dapat dihitung menggunakan rumus interaksi yang dikembangkan oleh...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">H. Hoyt</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">E. W. Burgess</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">W. J. Reilly</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">C. Harris</span></label>
+        <label><input type="radio" name="soal19" value="E"><span class="option-text">L. Alkar</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="title-text">Teori Titik Henti (Breaking Point Theory)</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Menurut Teori Titik Henti (Breaking Point Theory) oleh W. J. Reilly, lokasi pembangunan fasilitas pelayanan umum (seperti pasar atau rumah sakit) idealnya diletakkan...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal20" value="A"><span class="option-text">Lebih dekat dengan wilayah yang jumlah penduduknya lebih sedikit</span></label>
+        <label><input type="radio" name="soal20" value="B"><span class="option-text">Tepat di pusat kota metropolitan terbesar</span></label>
+        <label><input type="radio" name="soal20" value="C"><span class="option-text">Tepat di tengah-tengah jarak garis lurus kedua kota</span></label>
+        <label><input type="radio" name="soal20" value="D"><span class="option-text">Pusat kota</span></label>
+        <label><input type="radio" name="soal20" value="E"><span class="option-text">Tengah garis lurus kota</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="title-text">Fungsi RTRW Provinsi</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Fungsi utama dari Rencana Tata Ruang Wilayah Provinsi (RTRWP) adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal21" value="A"><span class="option-text">Menyelaraskan pembangunan antarkabupaten/kota dalam satu provinsi</span></label>
+        <label><input type="radio" name="soal21" value="B"><span class="option-text">Menentukan batas wilayah administratif antar negara tetangga</span></label>
+        <label><input type="radio" name="soal21" value="C"><span class="option-text">Mengatur tata letak bangunan perumahan warga secara mendetail per RT/RW</span></label>
+        <label><input type="radio" name="soal21" value="D"><span class="option-text">Menetapkan kurikulum pendidikan geografi nasional</span></label>
+        <label><input type="radio" name="soal21" value="E"><span class="option-text">Geografi nasional</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="title-text">Kawasan Budidaya</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Kawasan di dalam wilayah kabupaten/kota yang peruntukannya diarahkan untuk kegiatan industri, pariwisata, atau permukiman disebut...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal22" value="A"><span class="option-text">Kawasan budidaya</span></label>
+        <label><input type="radio" name="soal22" value="B"><span class="option-text">Kawasan lindung mutlak</span></label>
+        <label><input type="radio" name="soal22" value="C"><span class="option-text">Kawasan suaka alam</span></label>
+        <label><input type="radio" name="soal22" value="D"><span class="option-text">Kawasan rawan bencana</span></label>
+        <label><input type="radio" name="soal22" value="E"><span class="option-text">Rawan bencana</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="title-text">Dampak Pemanfaatan Ruang Tidak Sesuai RTRW</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dampak negatif dari pemanfaatan ruang yang tidak sesuai dengan Rencana Tata Ruang Wilayah (RTRW) sering ditunjukkan dengan fenomena...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal23" value="A"><span class="option-text">Hilangnya seluruh polusi udara di kawasan industri</span></label>
+        <label><input type="radio" name="soal23" value="B"><span class="option-text">Banjir perkotaan dan kemacetan lalu lintas parah</span></label>
+        <label><input type="radio" name="soal23" value="C"><span class="option-text">Terwujudnya pemerataan ekonomi secara instan di seluruh desa</span></label>
+        <label><input type="radio" name="soal23" value="D"><span class="option-text">Meningkatnya luas hutan lindung secara drastis di kota besar</span></label>
+        <label><input type="radio" name="soal23" value="E"><span class="option-text">Luas hutan lindung</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="title-text">Faktor Pertimbangan Perumusan Wilayah Perencanaan</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan unsur-unsur berikut:</p>
+        <ol style="margin:8px 0 0 22px;">
+          <li>Topografi dan morfologi</li>
+          <li>Kondisi sosial budaya masyarakat</li>
+          <li>Jaringan infrastruktur transportasi</li>
+          <li>Preferensi politik personal kepala daerah</li>
+        </ol>
+        <p>Faktor utama yang menjadi pertimbangan dalam perumusan wilayah perencanaan tata ruang ditunjukkan oleh nomor...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal24" value="A"><span class="option-text">1, 2, 3, dan 4</span></label>
+        <label><input type="radio" name="soal24" value="B"><span class="option-text">1, 3, dan 4</span></label>
+        <label><input type="radio" name="soal24" value="C"><span class="option-text">2, 3, dan 4</span></label>
+        <label><input type="radio" name="soal24" value="D"><span class="option-text">1, 2, dan 3</span></label>
+        <label><input type="radio" name="soal24" value="E"><span class="option-text">1, 2, dan 5</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="title-text">Langkah Awal Penyusunan RTRW</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Langkah awal yang paling penting dalam proses penyusunan Rencana Tata Ruang Wilayah (RTRW) adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal25" value="A"><span class="option-text">Melakukan pembongkaran seluruh bangunan lama di suatu wilayah</span></label>
+        <label><input type="radio" name="soal25" value="B"><span class="option-text">Inventarisasi data fisik, sosial, dan ekonomi wilayah (analisis potensi)</span></label>
+        <label><input type="radio" name="soal25" value="C"><span class="option-text">Langsung membangun gedung perkantoran pemerintah di titik acak</span></label>
+        <label><input type="radio" name="soal25" value="D"><span class="option-text">Menetapkan sanksi pidana sebelum peta wilayah dibuat</span></label>
+        <label><input type="radio" name="soal25" value="E"><span class="option-text">Peta wilayah</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Geografi_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Geografi SMA/MA/SMK — Kelas XII IPS
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  const kunciJawaban = {
+    soal1:  "C",
+    soal2:  "A",
+    soal3:  "B",
+    soal4:  "B",
+    soal5:  "D",
+    soal6:  "D",
+    soal7:  "C",
+    soal8:  "B",
+    soal9:  "E",
+    soal10: "B",
+    soal11: "D",
+    soal12: "B",
+    soal13: "D",
+    soal14: "D",
+    soal15: "B",
+    soal16: "B",
+    soal17: "A",
+    soal18: "B",
+    soal19: "C",
+    soal20: "A",
+    soal21: "A",
+    soal22: "A",
+    soal23: "B",
+    soal24: "D",
+    soal25: "B"
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_geografi_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_geografi_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== HITUNG BENAR =====
+  function hitungBenar() {
+    let benar = 0;
+    let total = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (!kunci) continue;
+      total++;
+
+      const selected = document.querySelector('input[name="' + key + '"]:checked');
+      if (selected && selected.value === kunci) benar++;
+    }
+    return { benar, total };
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    const { benar, total } = hitungBenar();
+    benarGlobal = benar;
+    skorGlobal = total > 0 ? Math.round((benar / total) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + total;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Geografi_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Geografi_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Geografi_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

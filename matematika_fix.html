@@ -1,0 +1,1970 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Matematika Tingkat Lanjut 2026 — XII MIA</title>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\\[','\\]']]
+    },
+    svg: { fontCache: 'global' }
+  };
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #eef2f7; padding: 30px 15px; color: #17202c;
+    line-height: 1.7;
+  }
+  .container { max-width: 960px; margin: 0 auto; }
+
+  /* ===== HEADER ===== */
+  header.doc {
+    background: linear-gradient(135deg, #123f7d, #1a5fb4 55%, #2b7cd3);
+    color: #fff; border-radius: 18px; padding: 34px 30px;
+    box-shadow: 0 14px 34px rgba(20, 60, 120, 0.22); margin-bottom: 26px;
+  }
+  header.doc .eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: 0.18em;
+    text-transform: uppercase; background: rgba(255,255,255,0.16);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 14px; font-weight: 600;
+  }
+  header.doc h1 { margin: 0 0 8px; font-size: clamp(20px, 3vw, 29px); line-height: 1.3; }
+  header.doc p { margin: 0; opacity: 0.9; font-size: 14.5px; }
+  header.doc .meta { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 10px; }
+  header.doc .meta span {
+    background: rgba(255,255,255,0.14); border: 1px solid rgba(255,255,255,0.22);
+    padding: 5px 13px; border-radius: 999px; font-size: 12.5px; font-weight: 600;
+  }
+
+  /* ===== LOGIN ===== */
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #1a5fb4; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #123f7d, #2b7cd3);
+    margin: 0 auto 16px; display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(26,95,180,0.35);
+  }
+  .identity-card h2 { text-align: center; color: #0f2c52; margin-bottom: 6px; font-size: 1.4rem; }
+  .login-subtitle { text-align: center; color: #6a7a8a; font-size: 0.85rem; margin-bottom: 24px; }
+  .form-group { margin-bottom: 16px; }
+  .form-group label { display: block; font-weight: 600; margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem; }
+  .form-group input {
+    width: 100%; padding: 11px 14px; border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none; transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus { border-color: #2874a6; box-shadow: 0 0 0 3px rgba(40,116,166,0.15); }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg { color: #e74c3c; font-size: 0.78rem; margin-top: 4px; display: none; }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px; background: linear-gradient(135deg, #123f7d, #2b7cd3);
+    color: #fff; border: none; border-radius: 8px; font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s; font-family: inherit;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(26,95,180,0.35); }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee; border-radius: 8px;
+    padding: 12px 14px; font-size: 0.8rem; color: #4a5a6a; line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0f2c52; }
+
+  /* ===== STICKY BAR ===== */
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #1a5fb4; border-radius: 8px;
+    padding: 12px 20px; margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px; font-size: 0.9rem; color: #0f2c52;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0f2c52; color: #fff; padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+
+  /* ===== QUESTION CARD ===== */
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #1a5fb4;
+    break-inside: avoid;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px; flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #1a5fb4; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-header .title-text { font-weight: 700; color: #0f2c52; font-size: 1rem; }
+  .badge {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 6px;
+    background: #eaf1fb; color: #1a5fb4; vertical-align: middle; margin-left: 6px;
+  }
+  .badge.mcma { background: #fdf1e3; color: #b96a10; }
+  .badge.kategori { background: #e8f6ee; color: #1d7a4c; }
+
+  /* ===== INFO BOX ===== */
+  .info {
+    background: #f7fafd; border: 1px solid #dde5ee; border-left: 4px solid #1a5fb4;
+    border-radius: 10px; padding: 12px 16px; margin-bottom: 16px;
+    font-size: 12.8px; color: #5c6c80;
+  }
+  .info dl { margin: 0; display: grid; grid-template-columns: 108px 1fr; gap: 2px 10px; }
+  .info dt { font-weight: 700; color: #33506f; }
+  .info dd { margin: 0; }
+
+  /* ===== QUESTION CONTENT ===== */
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin: 0 0 10px; }
+  .soal-pertanyaan svg { max-width: 100%; height: auto; margin: 12px 0; border-radius: 8px; border: 1px solid #e0e8f0; display: block; }
+  .gambar-wrapper { text-align: center; margin: 14px 0; }
+  .gambar-wrapper svg { margin: 0 auto; display: inline-block; }
+  .caption { font-size: 0.8rem; color: #6a7a8a; text-align: center; margin-top: 4px; font-style: italic; }
+  .note { font-size: 13.5px; color: #5c6c80; font-style: italic; }
+
+  /* ===== TABLES ===== */
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 620px; font-size: 0.9rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #b0c4d8; padding: 8px 12px; text-align: center;
+  }
+  table.data-tabel th { background: #eef4fa; color: #0f2c52; }
+  table.data-tabel td.left { text-align: left; }
+
+  /* ===== OPTIONS ===== */
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #1a5fb4; flex-shrink: 0; }
+  .pilihan .option-text { flex: 1; }
+
+  /* ===== TRUE/FALSE GROUPS ===== */
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; font-size: 0.95rem; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label { display: flex; align-items: center; gap: 4px; font-size: 0.9rem; cursor: pointer; }
+  .tf-item .opsi input[type="radio"] { accent-color: #1a5fb4; }
+
+  /* ===== MATH ===== */
+  .math-block {
+    background: #f8fafc; padding: 12px 18px; border-radius: 8px;
+    margin: 10px 0; overflow-x: auto; border-left: 3px solid #1a5fb4;
+  }
+
+  /* ===== RESULT ===== */
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px; margin: 40px auto;
+    border-top: 6px solid #1a5fb4;
+  }
+  .result-card h2 { text-align: center; color: #0f2c52; margin-bottom: 20px; font-size: 1.4rem; }
+  .result-item {
+    display: flex; justify-content: space-between; padding: 10px 0;
+    border-bottom: 1px solid #eef4fa; font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #1a5fb4; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val { font-size: 3rem; font-weight: bold; color: #1a5fb4; }
+  .score-badge .predikat-val { font-size: 1.1rem; font-weight: bold; color: #27ae60; margin-top: 5px; }
+  .btn-finish {
+    width: 100%; padding: 14px; background: #27ae60; color: #fff;
+    border: none; border-radius: 8px; font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px; transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff; border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5; border-radius: 8px;
+    padding: 12px 14px; margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6; display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a { color: #0b7a44; font-weight: 600; text-decoration: none; word-break: break-all; }
+  .drive-info a:hover { text-decoration: underline; }
+
+  /* ===== ANSWER KEY ===== */
+  .key-section {
+    margin-top: 40px; background: #fff; border: 1px solid #dde5ee;
+    border-radius: 16px; padding: 26px; box-shadow: 0 4px 16px rgba(23,32,44,0.05);
+  }
+  .key-section h2 { margin: 0 0 6px; font-size: 19px; color: #0f2c52; }
+  .key-section p.sub { margin: 0 0 18px; color: #5c6c80; font-size: 13.5px; }
+  .keygrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+  .keyitem {
+    display: flex; gap: 10px; align-items: baseline;
+    border: 1px solid #dde5ee; border-radius: 9px; padding: 8px 12px;
+    font-size: 13.6px; background: #fafcff;
+  }
+  .keyitem b { color: #1a5fb4; min-width: 26px; display: inline-block; }
+  .keyitem span { color: #20334a; }
+
+  .footer { text-align: center; padding: 20px; font-size: 0.85rem; color: #7a8a9a; }
+
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    header.doc { padding: 24px 20px; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+    .info dl { grid-template-columns: 1fr; gap: 0 0; }
+    .info dt { margin-top: 6px; }
+  }
+
+  @media print {
+    body { background: #fff; font-size: 12pt; }
+    .container { max-width: 100%; padding: 0; }
+    header.doc { background: #1a5fb4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .soal-card, .key-section { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+    .sticky-top-bar, .btn-finish, .btn-action, .identity-card { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="doc">
+    <span class="eyebrow">Ujian TKA — Tahun 2026</span>
+    <h1>Matematika Tingkat Lanjut<br>Kelas XII MIA</h1>
+    <p>Paket soal lengkap beserta hierarki indikator, stimulus gambar.</p>
+    <div class="meta">
+      <span>25 Butir Soal</span>
+      <span>Aljabar</span>
+      <span>Geometri &amp; Pengukuran</span>
+      <span>Kalkulus</span>
+    </div>
+  </header>
+
+  <!-- ============ HALAMAN LOGIN ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">∑</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII MIPA 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ================= SOAL 1 ================= -->
+    <div class="soal-card" id="q1">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="title-text">Invers Matriks Berordo 2 × 2</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Matriks</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait invers matriks</dd>
+          <dt>Indikator</dt><dd>Menentukan invers matriks berordo 2 × 2 (1)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan matriks berikut:</p>
+        <p>$$F=\begin{pmatrix} 2 & 0 \\[2pt] 0 & \tfrac{1}{2} \end{pmatrix}$$</p>
+        <p>Invers dari matriks $F$ adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">$\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">$\begin{pmatrix} -1 & 0 \\ 0 & -2 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">$\begin{pmatrix} 2 & 0 \\ 0 & 1 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">$\begin{pmatrix} -1 & 0 \\ 0 & -2 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">$\begin{pmatrix} 1 & 0 \\ 0 & 2 \end{pmatrix}$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 2 ================= -->
+    <div class="soal-card" id="q2">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="title-text">SPLDV dengan Konsep Invers Matriks</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Matriks</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait invers matriks</dd>
+          <dt>Indikator</dt><dd>Menentukan solusi dari persamaan linear dua variabel menggunakan konsep invers matriks (3)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pak Andi memiliki beberapa sapi dan kambing. Semua hewan ternaknya selalu diberikan pakan berupa campuran rumput gajah dan rumput gamal. Setiap hari, dia selalu menyediakan <strong>38 kg rumput gajah</strong> dan <strong>34 kg rumput gamal</strong> untuk seluruh kambing dan sapi miliknya (tanpa sisa). Berikut adalah kebutuhan pakan untuk setiap ekor ternak milik Pak Andi per hari.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 720 400" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ilustrasi sapi dan kambing beserta kebutuhan pakannya">
+            <defs>
+              <linearGradient id="sky2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c3e9fb"/><stop offset="1" stop-color="#eaf7ff"/>
+              </linearGradient>
+            </defs>
+            <rect width="720" height="400" fill="url(#sky2)"/>
+            <ellipse cx="110" cy="250" rx="210" ry="90" fill="#d3ecb4"/>
+            <ellipse cx="620" cy="258" rx="250" ry="96" fill="#cbe8aa"/>
+            <rect y="248" width="720" height="152" fill="#a9d977"/>
+            <rect y="248" width="720" height="7" fill="#8cc75a"/>
+            <g>
+              <rect x="300" y="150" width="150" height="100" fill="#c96b3c"/>
+              <rect x="300" y="150" width="150" height="100" fill="none" stroke="#a5532c" stroke-width="2"/>
+              <polygon points="292,152 375,108 458,152" fill="#8e4523"/>
+              <rect x="352" y="196" width="46" height="54" fill="#7a3a1d"/>
+              <line x1="375" y1="196" x2="375" y2="250" stroke="#c96b3c" stroke-width="2"/>
+              <rect x="318" y="176" width="22" height="22" fill="#f2e2c9"/>
+              <rect x="410" y="176" width="22" height="22" fill="#f2e2c9"/>
+              <rect x="300" y="140" width="150" height="12" fill="#f4d9a8"/>
+              <text x="375" y="150" font-size="11" text-anchor="middle" fill="#7a3a1d" font-family="Arial">HOTEL</text>
+            </g>
+            <g>
+              <polygon points="500,250 512,120 536,120 548,250" fill="#e0c49a"/>
+              <polygon points="506,132 530,132 534,150 502,150" fill="#b98f5b"/>
+              <g stroke="#ffffff" stroke-width="7" stroke-linecap="round">
+                <line x1="524" y1="126" x2="588" y2="98"/>
+                <line x1="524" y1="126" x2="470" y2="86"/>
+                <line x1="524" y1="126" x2="500" y2="182"/>
+                <line x1="524" y1="126" x2="576" y2="168"/>
+              </g>
+              <circle cx="524" cy="126" r="8" fill="#6b4b2a"/>
+              <rect x="492" y="200" width="12" height="50" fill="#9a7444"/>
+            </g>
+            <g transform="translate(60,0)">
+              <rect x="80" y="292" width="13" height="46" rx="5" fill="#f4f4f4" stroke="#2b2b2b" stroke-width="2"/>
+              <rect x="110" y="292" width="13" height="46" rx="5" fill="#3a3a3a"/>
+              <rect x="160" y="292" width="13" height="46" rx="5" fill="#3a3a3a"/>
+              <rect x="188" y="292" width="13" height="46" rx="5" fill="#f4f4f4" stroke="#2b2b2b" stroke-width="2"/>
+              <ellipse cx="140" cy="262" rx="72" ry="44" fill="#fafafa" stroke="#2b2b2b" stroke-width="2.4"/>
+              <path d="M100 232 q22 -14 42 4 q-16 22 -42 -4 z" fill="#2f2f2f"/>
+              <path d="M158 250 q26 -10 40 10 q-20 22 -40 -10 z" fill="#2f2f2f"/>
+              <path d="M112 282 q24 -8 38 8 q-22 16 -38 -8 z" fill="#2f2f2f"/>
+              <ellipse cx="128" cy="300" rx="16" ry="11" fill="#f6b8c4"/>
+              <path d="M74 250 q-24 -18 -30 -44 l26 -8 q10 24 26 32 z" fill="#fafafa" stroke="#2b2b2b" stroke-width="2.4"/>
+              <ellipse cx="48" cy="192" rx="30" ry="25" fill="#fafafa" stroke="#2b2b2b" stroke-width="2.4"/>
+              <ellipse cx="30" cy="200" rx="14" ry="11" fill="#f0b7bd"/>
+              <circle cx="24" cy="198" r="3" fill="#8a5a5a"/>
+              <circle cx="20" cy="196" r="2" fill="#8a5a5a"/>
+              <circle cx="45" cy="184" r="4" fill="#1c1c1c"/>
+              <ellipse cx="62" cy="172" rx="12" ry="7" fill="#e8d7c8" stroke="#2b2b2b" stroke-width="2" transform="rotate(-20 62 172)"/>
+              <path d="M40 168 q-6 -14 6 -18" stroke="#c9a227" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M58 164 q6 -14 -4 -19" stroke="#c9a227" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M208 246 q26 10 22 44" stroke="#2b2b2b" stroke-width="3.4" fill="none" stroke-linecap="round"/>
+              <circle cx="230" cy="292" r="7" fill="#2f2f2f"/>
+            </g>
+            <g transform="translate(430,10)">
+              <rect x="40" y="290" width="10" height="44" rx="4" fill="#8a5a34"/>
+              <rect x="66" y="290" width="10" height="44" rx="4" fill="#7a4e2c"/>
+              <rect x="112" y="290" width="10" height="44" rx="4" fill="#7a4e2c"/>
+              <rect x="136" y="290" width="10" height="44" rx="4" fill="#8a5a34"/>
+              <ellipse cx="92" cy="262" rx="58" ry="36" fill="#a9713f" stroke="#6d4523" stroke-width="2.2"/>
+              <path d="M62 244 q26 -12 40 8 q-22 16 -40 -8 z" fill="#8f5c31"/>
+              <path d="M40 250 q-18 -16 -22 -38 l22 -6 q10 22 22 28 z" fill="#a9713f" stroke="#6d4523" stroke-width="2.2"/>
+              <ellipse cx="18" cy="196" rx="24" ry="21" fill="#b47c46" stroke="#6d4523" stroke-width="2.2"/>
+              <path d="M6 208 q10 10 22 4" stroke="#6d4523" stroke-width="2" fill="none"/>
+              <circle cx="14" cy="190" r="3.6" fill="#1c1c1c"/>
+              <path d="M14 176 q-8 -14 4 -20" stroke="#6b5540" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M30 178 q10 -12 -2 -20" stroke="#6b5540" stroke-width="5" fill="none" stroke-linecap="round"/>
+              <path d="M4 214 q-4 12 4 18" stroke="#7a4e2c" stroke-width="4" fill="none" stroke-linecap="round"/>
+              <path d="M150 250 q16 -4 16 -16" stroke="#6d4523" stroke-width="4" fill="none" stroke-linecap="round"/>
+            </g>
+            <rect y="330" width="720" height="70" fill="#ffffff" opacity="0.96"/>
+            <line x1="360" y1="330" x2="360" y2="400" stroke="#d5e3f0" stroke-width="2"/>
+            <text x="180" y="356" font-size="21" font-weight="bold" text-anchor="middle" fill="#17202c" font-family="Arial">Sapi</text>
+            <text x="540" y="356" font-size="21" font-weight="bold" text-anchor="middle" fill="#17202c" font-family="Arial">Kambing</text>
+            <text x="120" y="380" font-size="14" text-anchor="middle" fill="#3d6b1f" font-family="Arial">Rumput Gajah 10 kg</text>
+            <text x="120" y="396" font-size="14" text-anchor="middle" fill="#3d6b1f" font-family="Arial">Rumput Gamal 10 kg</text>
+            <text x="480" y="380" font-size="14" text-anchor="middle" fill="#3d6b1f" font-family="Arial">Rumput Gajah 2 kg</text>
+            <text x="480" y="396" font-size="14" text-anchor="middle" fill="#3d6b1f" font-family="Arial">Rumput Gamal 1 kg</text>
+            <g transform="translate(40,358)" stroke="#4f9a24" stroke-width="3" fill="none" stroke-linecap="round">
+              <path d="M6 30 q2 -18 -4 -26"/><path d="M12 30 q0 -20 6 -28"/><path d="M18 30 q4 -16 10 -22"/>
+            </g>
+            <g transform="translate(400,358)" stroke="#4f9a24" stroke-width="3" fill="none" stroke-linecap="round">
+              <path d="M6 30 q2 -18 -4 -26"/><path d="M12 30 q0 -20 6 -28"/><path d="M18 30 q4 -16 10 -22"/>
+            </g>
+          </svg>
+          <div class="caption">Kebutuhan pakan harian setiap ekor sapi dan kambing</div>
+        </div>
+        <p>Jika banyaknya sapi dan kambing yang dipelihara oleh Pak Andi berturut-turut adalah $x$ dan $y$, maka …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-text">$\begin{pmatrix} -1 & 1 \\ 10 & -5 \end{pmatrix}\begin{pmatrix} 19 \\ 34 \end{pmatrix}=\begin{pmatrix} 15 \\ 20 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-text">$\begin{pmatrix} 10 & -10 \\ -1 & 2 \end{pmatrix}\begin{pmatrix} 38 \\ 34 \end{pmatrix}=\begin{pmatrix} 4 \\ 3 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-text">$\begin{pmatrix} -1 & 2 \\ 10 & -10 \end{pmatrix}\begin{pmatrix} 38 \\ 34 \end{pmatrix}=\begin{pmatrix} 3 \\ 4 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-text">$\begin{pmatrix} -1 & 2 \\ 10 & 10 \end{pmatrix}\begin{pmatrix} 34 \\ 38 \end{pmatrix}=\begin{pmatrix} 4 \\ 3 \end{pmatrix}$</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-text">$\begin{pmatrix} -1 & 1 \\ 5 & 5 \\ 2 & -1 \end{pmatrix}\begin{pmatrix} 19 \\ 34 \end{pmatrix}=\begin{pmatrix} 3 \\ 4 \end{pmatrix}$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 3 ================= -->
+    <div class="soal-card" id="q3">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="title-text">Analisis Perkalian Dua Matriks</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Matriks</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait invers matriks</dd>
+          <dt>Indikator</dt><dd>Menganalisis hasil operasi perkalian dua matriks (4)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah pabrik minuman tradisional memproduksi tiga jenis minuman yaitu wedang jahe (WJ), beras kencur (BK), dan kunir asem (KA). Dalam proses produksinya, digunakan tiga bahan utama yaitu jahe (J) dalam gram, gula merah (GM) dalam gram, dan air (A) dalam mililiter.</p>
+        <p>Setiap botol minuman memerlukan bahan sebagai berikut:</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Jenis</th><th>J (gram)</th><th>GM (gram)</th><th>A (ml)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">Wedang Jahe (WJ)</td><td>20</td><td>15</td><td>50</td></tr>
+            <tr><td class="left">Beras Kencur (BK)</td><td>10</td><td>25</td><td>40</td></tr>
+            <tr><td class="left">Kunir Asem (KA)</td><td>12</td><td>8</td><td>$k$</td></tr>
+          </tbody>
+        </table>
+        <p>Pada suatu hari pabrik tersebut menerima pesanan sebagai berikut:</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Jenis Minuman</th><th>Jumlah Pesanan (botol)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">WJ</td><td>100</td></tr>
+            <tr><td class="left">BK</td><td>120</td></tr>
+            <tr><td class="left">KA</td><td>80</td></tr>
+          </tbody>
+        </table>
+        <p>Jumlah bahan baku yang digunakan dalam proses pembuatan setiap minuman adalah:</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Bahan</th><th>Total Terpakai</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">J</td><td>4360 gram</td></tr>
+            <tr><td class="left">GM</td><td>4960 gram</td></tr>
+            <tr><td class="left">A</td><td>13000 ml</td></tr>
+          </tbody>
+        </table>
+        <p>Banyak air yang dibutuhkan untuk memproduksi satu botol kunir asem adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-text">30 ml</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-text">35 ml</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-text">40 ml</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-text">45 ml</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-text">50 ml</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 4 ================= -->
+    <div class="soal-card" id="q4">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="title-text">Interpretasi Solusi Kontekstual dengan Operasi Matriks</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Matriks</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait operasi aljabar pada matriks</dd>
+          <dt>Indikator</dt><dd>Menginterpretasi solusi permasalahan kontekstual yang dihasilkan menggunakan operasi matriks (2)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang pemilik hotel mengelola 3 hotel yang berada pada kota yang berbeda. Hotel tersebut memiliki konsep dan tipe kamar yang sama yaitu Standard Room, Deluxe Room, dan Suite Room, dengan kapasitas dan harga per malam sebagai berikut.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 620 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ikon kapasitas kamar hotel">
+            <g transform="translate(40,20)">
+              <path d="M60 0 C27 0 0 26 0 58 c0 40 60 108 60 108 s60 -68 60 -108 C120 26 93 0 60 0 z" fill="#ffffff" stroke="#17202c" stroke-width="5"/>
+              <rect x="30" y="38" width="60" height="34" rx="5" fill="none" stroke="#17202c" stroke-width="5"/>
+              <rect x="42" y="26" width="36" height="16" rx="4" fill="none" stroke="#17202c" stroke-width="5"/>
+              <line x1="22" y1="72" x2="98" y2="72" stroke="#17202c" stroke-width="5" stroke-linecap="round"/>
+              <ellipse cx="60" cy="176" rx="66" ry="16" fill="none" stroke="#17202c" stroke-width="4"/>
+              <line x1="60" y1="166" x2="60" y2="150" stroke="#17202c" stroke-width="5"/>
+            </g>
+            <g transform="translate(330,18)">
+              <rect x="20" y="30" width="180" height="200" fill="#f0d999" stroke="#b99442" stroke-width="3"/>
+              <rect x="8" y="12" width="204" height="26" fill="#c9a24a" stroke="#b99442" stroke-width="3"/>
+              <rect x="0" y="38" width="220" height="12" fill="#b99442"/>
+              <rect x="0" y="108" width="220" height="10" fill="#b99442"/>
+              <rect x="0" y="178" width="220" height="10" fill="#b99442"/>
+              <rect x="44" y="0" width="132" height="30" rx="3" fill="#f7f0d4" stroke="#8a6f2e" stroke-width="3"/>
+              <text x="110" y="21" font-size="17" font-weight="bold" text-anchor="middle" fill="#5c4a1a" font-family="Arial">HOTEL</text>
+              <g fill="#bfe4f7" stroke="#2b2b2b" stroke-width="3">
+                <rect x="36" y="58" width="30" height="38"/><rect x="95" y="58" width="30" height="38"/><rect x="154" y="58" width="30" height="38"/>
+                <rect x="36" y="128" width="30" height="38"/><rect x="95" y="128" width="30" height="38"/><rect x="154" y="128" width="30" height="38"/>
+                <rect x="36" y="196" width="30" height="34"/><rect x="154" y="196" width="30" height="34"/>
+              </g>
+              <rect x="86" y="192" width="50" height="38" fill="#a8d8ef" stroke="#2b2b2b" stroke-width="3"/>
+              <line x1="111" y1="192" x2="111" y2="230" stroke="#2b2b2b" stroke-width="2"/>
+              <rect x="18" y="228" width="184" height="14" fill="#c9a24a" stroke="#b99442" stroke-width="2"/>
+            </g>
+          </svg>
+          <div class="caption">Kapasitas kamar hotel pada tiga kota berbeda</div>
+        </div>
+        <table class="data-tabel">
+          <caption>Tabel Kapasitas &amp; Harga Kamar</caption>
+          <thead>
+            <tr><th>Tipe Kamar</th><th>Hotel A</th><th>Hotel B</th><th>Hotel C</th><th>Harga (per malam)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">Standard Room</td><td>9</td><td>6</td><td>7</td><td>Rp 150.000</td></tr>
+            <tr><td class="left">Deluxe Room</td><td>6</td><td>7</td><td>5</td><td>Rp 500.000</td></tr>
+            <tr><td class="left">Suite Room</td><td>3</td><td>2</td><td>4</td><td>Rp 1.000.000</td></tr>
+          </tbody>
+        </table>
+        <p>Pemilik hotel akan melakukan perhitungan pendapatan yang diperoleh dari ketiga hotel tersebut. Bagaimana kondisi pendapatan ketiga hotel tersebut dalam 1 hari jika semua tipe kamar terisi penuh? <strong>Pilih pada semua jawaban benar!</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal4" value="1"><span class="option-text">Pendapatan Hotel A dan Hotel C sama besar.</span></label>
+        <label><input type="checkbox" name="soal4" value="2"><span class="option-text">Pendapatan Hotel B lebih besar daripada Hotel A.</span></label>
+        <label><input type="checkbox" name="soal4" value="3"><span class="option-text">Pendapatan paling besar diperoleh dari Hotel C.</span></label>
+        <label><input type="checkbox" name="soal4" value="4"><span class="option-text">Masing-masing hotel memiliki selisih pendapatan yang sama besar.</span></label>
+        <label><input type="checkbox" name="soal4" value="5"><span class="option-text">Pendapatan yang diperoleh dari ketiga hotel tersebut lebih dari Rp 20.000.000.</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 5 ================= -->
+    <div class="soal-card" id="q5">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="title-text">Pembuat Nol Fungsi Polinomial Berorde Tiga</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Polinomial</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait pemfaktoran polinomial dan suku sisa</dd>
+          <dt>Indikator</dt><dd>Menentukan nilai-nilai pembuat nol dari fungsi polinomial berorde tiga (5)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di manakah koordinat titik perpotongan grafik fungsi $f(x)=x^{3}+3x^{2}-10x-24$ terhadap sumbu X? <strong>Pilih pada semua jawaban benar!</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal5" value="1"><span class="option-text">$(-2,\ 0)$</span></label>
+        <label><input type="checkbox" name="soal5" value="2"><span class="option-text">$(-1,\ 0)$</span></label>
+        <label><input type="checkbox" name="soal5" value="3"><span class="option-text">$(3,\ 0)$</span></label>
+        <label><input type="checkbox" name="soal5" value="4"><span class="option-text">$(4,\ 0)$</span></label>
+        <label><input type="checkbox" name="soal5" value="5"><span class="option-text">$(5,\ 0)$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 6 ================= -->
+    <div class="soal-card" id="q6">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="title-text">Operasi Aljabar Dua Parameter pada Polinomial</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Polinomial</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait pemfaktoran polinomial dan suku sisa</dd>
+          <dt>Indikator</dt><dd>Menentukan hasil operasi aljabar dua parameter yang merupakan komponen dari bentuk polinomial dengan disertai informasi pembagi dan sisa hasil bagi (8)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Diketahui suku banyak $f(x)=x^{4}+ax^{3}+bx^{2}+x-6$ apabila dibagi oleh $x^{2}+x+1$ menghasilkan sisa $5x-1$. Nilai dari $a+b=\dots$</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">11</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">5</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">$-1$</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">$-5$</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">$-7$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 7 ================= -->
+    <div class="soal-card" id="q7">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="title-text">Perkalian Skalar dengan Polinomial</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Polinomial</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait operasi hitung polinomial</dd>
+          <dt>Indikator</dt><dd>Menentukan hasil perkalian skalar dengan polinomial yang tepat dalam konteks permasalahan sehari-hari (6)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah drum bahan bakar logam mengalami penambahan kapasitas volume saat terkena panas, yang dapat dinyatakan dalam fungsi berikut:</p>
+        <p>$$V(T)=0{,}05T^{3}+0{,}4T^{2}+20T$$</p>
+        <p>Dengan $T$ adalah suhu dalam derajat Celsius dan $V(T)$ adalah penambahan volume dalam liter. Apabila terdapat 10 drum dengan jenis dan ukuran yang sama, total penambahan volume dari drum-drum tersebut ketika terkena panas dengan suhu yang sama dapat dinyatakan dengan …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-text">$50T^{3}+40T^{2}+200T$</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-text">$50T^{3}+4T^{2}+200T$</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-text">$5T^{3}+4T^{2}+200T$</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-text">$0{,}5T^{3}+4T^{2}+200T$</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-text">$0{,}5T^{3}+0{,}4T^{2}+200T$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 8 ================= -->
+    <div class="soal-card" id="q8">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="title-text">Ukuran Dimensi Bangun Ruang dari Volume</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Polinomial</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait operasi hitung polinomial</dd>
+          <dt>Indikator</dt><dd>Menentukan ukuran dimensi bangun ruang yang diketahui volumenya (7)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah perusahaan menawarkan saham kepada pembeli. Perusahaan menyiapkan modal saham yang akan dijual dan dapat dinyatakan sebagai fungsi</p>
+        <p>$$f(x)=x^{3}-70x^{2}-600x+74.000$$</p>
+        <p>dengan nilai $f(x)$ dalam jutaan rupiah dan $x$ menyatakan banyak saham dalam satuan unit saham.</p>
+        <p>Apabila modal saham yang dimiliki perusahaan tersebut adalah 2 milyar (2.000 juta), tentukan <strong>mungkin atau tidak mungkin</strong> perusahaan dapat menjual sejumlah unit saham tersebut!</p>
+      </div>
+      <table class="data-tabel">
+        <thead>
+          <tr><th>Pernyataan</th><th>Mungkin</th><th>Tidak Mungkin</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left">Perusahaan dapat menjual 20 unit saham</td>
+            <td><input type="radio" name="soal8a" value="M"></td>
+            <td><input type="radio" name="soal8a" value="TM"></td>
+          </tr>
+          <tr>
+            <td class="left">Perusahaan dapat menjual 40 unit saham</td>
+            <td><input type="radio" name="soal8b" value="M"></td>
+            <td><input type="radio" name="soal8b" value="TM"></td>
+          </tr>
+          <tr>
+            <td class="left">Perusahaan dapat menjual 60 unit saham</td>
+            <td><input type="radio" name="soal8c" value="M"></td>
+            <td><input type="radio" name="soal8c" value="TM"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ================= SOAL 9 ================= -->
+    <div class="soal-card" id="q9">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="title-text">Interpretasi Model Pertumbuhan Eksponensial</span>
+        <span class="badge kategori">PG Kompleks — Kategori</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Fungsi</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait domain, kodomain, daerah hasil (range), dan grafik fungsi polinom, rasional, akar, eksponensial, logaritma, mutlak, trigonometri</dd>
+          <dt>Indikator</dt><dd>Menginterpretasikan model pertumbuhan bentuk eksponensial dalam konteks kehidupan sehari-hari (9)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Populasi kelinci di suatu pulau dimodelkan dengan fungsi eksponensial, yaitu:</p>
+        <p>$$K(t)=4\cdot 2^{t}$$</p>
+        <p>dengan $t$ menyatakan waktu dalam satuan tahun dan $K(t)$ menyatakan populasi dalam ribu ekor. Bagaimana interpretasi yang tepat mengenai model eksponensial populasi kelinci tersebut?</p>
+      </div>
+      <table class="data-tabel">
+        <thead>
+          <tr><th>Pernyataan</th><th>Benar</th><th>Salah</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left">Setiap 4 tahun populasi bertambah menjadi 4 kalinya</td>
+            <td><input type="radio" name="soal9a" value="B"></td>
+            <td><input type="radio" name="soal9a" value="S"></td>
+          </tr>
+          <tr>
+            <td class="left">Pada saat awal populasi kelinci berjumlah 4 ribu ekor</td>
+            <td><input type="radio" name="soal9b" value="B"></td>
+            <td><input type="radio" name="soal9b" value="S"></td>
+          </tr>
+          <tr>
+            <td class="left">Populasi mencapai 1 juta sebelum 20 tahun dari awal pengamatan</td>
+            <td><input type="radio" name="soal9c" value="B"></td>
+            <td><input type="radio" name="soal9c" value="S"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ================= SOAL 10 ================= -->
+    <div class="soal-card" id="q10">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="title-text">Nilai yang Memenuhi Syarat dari Grafik Fungsi Eksponensial</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Fungsi</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait domain, kodomain, daerah hasil (range), dan grafik fungsi polinom, rasional, akar, eksponensial, logaritma, mutlak, trigonometri</dd>
+          <dt>Indikator</dt><dd>Menentukan beberapa nilai yang memenuhi persyaratan tertentu dari grafik fungsi eksponensial dalam konteks permasalahan sehari-hari (10)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang peneliti lingkungan melakukan pengamatan terhadap pertumbuhan tanaman eceng gondok di beberapa danau sekitar wilayah X. Pengamatan dilakukan selama 3 tahun dan hasil menunjukkan bahwa pertumbuhan eceng gondok dapat dimodelkan dalam domain fungsi hasil.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafik pertumbuhan eceng gondok dan foto tanaman eceng gondok">
+            <line x1="70" y1="320" x2="430" y2="320" stroke="#333" stroke-width="2"/>
+            <line x1="70" y1="320" x2="70" y2="30" stroke="#333" stroke-width="2"/>
+            <polygon points="430,320 420,315 420,325" fill="#333"/>
+            <polygon points="70,30 65,40 75,40" fill="#333"/>
+            <g stroke="#dfe8f1" stroke-width="1">
+              <line x1="70" y1="120" x2="430" y2="120"/>
+              <line x1="70" y1="220" x2="430" y2="220"/>
+            </g>
+            <text x="62" y="124" font-size="13" text-anchor="end" fill="#333" font-family="Arial">490</text>
+            <text x="62" y="224" font-size="13" text-anchor="end" fill="#333" font-family="Arial">70</text>
+            <text x="62" y="324" font-size="13" text-anchor="end" fill="#333" font-family="Arial">10</text>
+            <g stroke="#e05b5b" stroke-width="1.8" stroke-dasharray="6 5">
+              <line x1="70" y1="120" x2="240" y2="120"/>
+              <line x1="240" y1="120" x2="240" y2="320"/>
+              <line x1="70" y1="220" x2="160" y2="220"/>
+              <line x1="160" y1="220" x2="160" y2="320"/>
+            </g>
+            <circle cx="240" cy="120" r="4.5" fill="#e05b5b"/>
+            <circle cx="160" cy="220" r="4.5" fill="#e05b5b"/>
+            <circle cx="70" cy="320" r="4.5" fill="#e05b5b"/>
+            <path d="M70 320 C 120 300, 140 240, 160 220 C 190 190, 215 145, 240 120 C 280 82, 340 50, 420 34" fill="none" stroke="#e05b5b" stroke-width="3"/>
+            <text x="160" y="340" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">1</text>
+            <text x="240" y="340" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">2</text>
+            <text x="250" y="366" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">Waktu (tahun)</text>
+            <text x="24" y="180" font-size="13" text-anchor="middle" fill="#333" font-family="Arial" transform="rotate(-90 24 180)">Luas Area yang Tertutup (m²)</text>
+            <rect x="460" y="40" width="270" height="200" rx="10" fill="#bfe3f5" stroke="#8bb9d4" stroke-width="2"/>
+            <ellipse cx="520" cy="120" rx="70" ry="26" fill="#4f9a3f" opacity="0.85"/>
+            <ellipse cx="600" cy="150" rx="80" ry="30" fill="#3f8a33" opacity="0.9"/>
+            <ellipse cx="560" cy="175" rx="90" ry="28" fill="#2f7a28" opacity="0.9"/>
+            <g fill="#c7a4e8">
+              <circle cx="500" cy="112" r="6"/><circle cx="536" cy="104" r="6"/>
+              <circle cx="586" cy="140" r="6"/><circle cx="622" cy="134" r="6"/>
+              <circle cx="548" cy="166" r="6"/><circle cx="610" cy="170" r="6"/>
+            </g>
+            <ellipse cx="500" cy="132" rx="34" ry="9" fill="#2f7a28" opacity="0.85"/>
+            <text x="595" y="268" font-size="14" text-anchor="middle" fill="#17202c" font-family="Arial" font-weight="bold">Tanaman Eceng Gondok</text>
+            <path d="M470 240 q40 30 90 6" stroke="#17202c" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <polygon points="470,240 486,236 480,254" fill="#17202c"/>
+          </svg>
+          <div class="caption">Grafik model pertumbuhan dan dokumentasi tanaman eceng gondok</div>
+        </div>
+        <p>Setelah 3 tahun pengamatan, peneliti mencatat banyak tanaman eceng gondok di beberapa wilayah perairan tersebut. Berikut data yang diperoleh:</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Wilayah Perairan</th><th>Luas Area yang Tertutupi Tanaman Eceng Gondok (m²)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">Danau A</td><td>15.000</td></tr>
+            <tr><td class="left">Danau B</td><td>16.500</td></tr>
+            <tr><td class="left">Danau C</td><td>17.000</td></tr>
+            <tr><td class="left">Danau D</td><td>17.500</td></tr>
+            <tr><td class="left">Danau E</td><td>18.000</td></tr>
+          </tbody>
+        </table>
+        <p>Berdasarkan data tersebut, wilayah perairan manakah dengan luas area yang tertutupi tanaman eceng gondok <strong>lebih dari 49 m² pada awal pengamatan</strong>? Pilihlah setiap jawaban benar! <em>Jawaban benar lebih dari satu.</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal10" value="A"><span class="option-text">Danau A</span></label>
+        <label><input type="checkbox" name="soal10" value="B"><span class="option-text">Danau B</span></label>
+        <label><input type="checkbox" name="soal10" value="C"><span class="option-text">Danau C</span></label>
+        <label><input type="checkbox" name="soal10" value="D"><span class="option-text">Danau D</span></label>
+        <label><input type="checkbox" name="soal10" value="E"><span class="option-text">Danau E</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 11 ================= -->
+    <div class="soal-card" id="q11">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="title-text">Karakteristik Model Fungsi Trigonometri</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Aljabar</dd>
+          <dt>Subelemen</dt><dd>Fungsi</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait domain, kodomain, daerah hasil (range), dan grafik fungsi polinom, rasional, akar, eksponensial, logaritma, mutlak, trigonometri</dd>
+          <dt>Indikator</dt><dd>Menyimpulkan karakteristik dari suatu model fungsi trigonometri dalam konteks permasalahan sehari-hari (11)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Grafik berikut menyatakan perubahan kedalaman air laut disebabkan teluk.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Grafik kedalaman air laut terhadap waktu">
+            <line x1="80" y1="250" x2="640" y2="250" stroke="#333" stroke-width="2"/>
+            <line x1="80" y1="250" x2="80" y2="20" stroke="#333" stroke-width="2"/>
+            <polygon points="640,250 630,245 630,255" fill="#333"/>
+            <polygon points="80,20 75,30 85,30" fill="#333"/>
+            <text x="68" y="28" font-size="14" text-anchor="end" fill="#333" font-family="Arial">y</text>
+            <text x="648" y="266" font-size="14" fill="#333" font-family="Arial">t</text>
+            <text x="300" y="46" font-size="17" fill="#17202c" font-family="Arial">y = a + b cos ( ⅙ π t )</text>
+            <g stroke="#e05b5b" stroke-width="1.6" stroke-dasharray="7 5">
+              <line x1="80" y1="90" x2="640" y2="90"/>
+              <line x1="80" y1="190" x2="640" y2="190"/>
+              <line x1="360" y1="190" x2="360" y2="250"/>
+              <line x1="640" y1="90" x2="640" y2="250"/>
+            </g>
+            <path d="M80 90 C 150 90, 220 190, 360 190 C 500 190, 570 90, 640 90" fill="none" stroke="#2b2b2b" stroke-width="2.6"/>
+            <circle cx="80" cy="90" r="5" fill="#3b6fd4"/>
+            <circle cx="360" cy="190" r="5" fill="#3b6fd4"/>
+            <circle cx="640" cy="90" r="5" fill="#3b6fd4"/>
+            <text x="72" y="84" font-size="14" text-anchor="end" fill="#17202c" font-family="Arial" font-weight="bold">14,3 meter</text>
+            <text x="72" y="196" font-size="14" text-anchor="end" fill="#17202c" font-family="Arial" font-weight="bold">10,3 meter</text>
+            <text x="360" y="272" font-size="14" text-anchor="middle" fill="#17202c" font-family="Arial" font-weight="bold">6</text>
+            <text x="640" y="272" font-size="14" text-anchor="middle" fill="#17202c" font-family="Arial" font-weight="bold">12</text>
+            <g stroke="#333" stroke-width="1.6">
+              <line x1="360" y1="250" x2="360" y2="256"/>
+              <line x1="640" y1="250" x2="640" y2="256"/>
+            </g>
+          </svg>
+          <div class="caption">Grafik kedalaman air laut di teluk selama 12 jam</div>
+        </div>
+        <p>Pada grafik tersebut, $y$ menyatakan kedalaman air laut dalam meter, $t$ dalam jam, serta $a$ dan $b$ adalah konstanta. Berkenaan dengan nilai $t$ pada grafik, nilai $t=6$ menyatakan 6 jam setelah pukul 00.00, aturan serupa untuk nilai $t$ lainnya.</p>
+        <p>Waktu saat kedalaman air laut mencapai 12,3 meter untuk <strong>ketiga kalinya</strong> setelah pukul 00.00 adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">3 jam</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">9 jam</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">10 jam</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">12 jam</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">15 jam</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 12 ================= -->
+    <div class="soal-card" id="q12">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="title-text">Vektor Diagonal pada Bangun Ruang Balok</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Vektor</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait vektor pada bidang dan ruang</dd>
+          <dt>Indikator</dt><dd>Menentukan vektor-vektor diagonal yang terdapat pada suatu ruang berbentuk balok (12)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Diketahui vektor $\vec{AB}=\begin{pmatrix} 2m \\ m+3 \end{pmatrix}$. Jika nilai $|\vec{AB}|=9$ satuan panjang, maka nilai $m$ yang memenuhi vektor $\vec{AB}$ adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">$-4$ atau $-3$</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">$-4$ atau $3$</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">$-3$ atau $4$</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">$3$ atau $4$</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">$4$ dan $3$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 13 ================= -->
+    <div class="soal-card" id="q13">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="title-text">Operasi Nilai Parameter Pembentuk Vektor</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Vektor</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait panjang dan operasi vektor</dd>
+          <dt>Indikator</dt><dd>Menentukan hasil operasi nilai-nilai parameter pembentuk vektor-vektor yang berelasi dalam bangun segiempat (13)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Diketahui trapesium sama kaki $ABCD$ dengan $AD=BC$ dan titik $A(0,0)$. Vektor-vektor posisi dari pembentuk trapesium adalah $\vec{AD}=\begin{pmatrix} 1 \\ 4 \end{pmatrix}$, $\vec{AB}=\begin{pmatrix} 6 \\ 0 \end{pmatrix}$, dan $\vec{BC}=\begin{pmatrix} a \\ b \end{pmatrix}$.</p>
+        <p>Nilai dari $a^{2}+2b=\dots$</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">5</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">7</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">9</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">10</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 14 ================= -->
+    <div class="soal-card" id="q14">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="title-text">Analisis Lintasan dengan Perbandingan Vektor</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Vektor</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait panjang dan operasi vektor</dd>
+          <dt>Indikator</dt><dd>Menganalisis lintasan yang panjang vektornya memenuhi kriteria tertentu menggunakan konsep perbandingan vektor (14)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah kereta api sedang melaju dengan kecepatan konstan pada sebuah lintasan lurus dari stasiun A sampai stasiun E. Diketahui koordinat stasiun A dan E (dalam km) berturut-turut adalah $(2,\ 3,\ 5)$ dan $(11,\ 6,\ 8)$.</p>
+        <p>Perhatikan gambar berikut yang menggambarkan waktu tempuh (dalam menit) kereta tersebut antar stasiun:</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 820 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram lintasan kereta api dari stasiun A sampai E">
+            <line x1="40" y1="34" x2="200" y2="34" stroke="#17202c" stroke-width="4"/>
+            <polygon points="206,34 190,26 190,42" fill="#17202c"/>
+            <text x="120" y="24" font-size="14" text-anchor="middle" fill="#17202c" font-family="Arial">Arah laju kereta</text>
+            <line x1="20" y1="170" x2="800" y2="170" stroke="#4a5a6a" stroke-width="4"/>
+            <g stroke="#8fa3b8" stroke-width="3" stroke-dasharray="14 10">
+              <line x1="20" y1="182" x2="800" y2="182"/>
+            </g>
+            <line x1="20" y1="196" x2="800" y2="196" stroke="#d9a441" stroke-width="5" stroke-dasharray="16 10"/>
+            <g id="trainicon">
+              <rect x="0" y="118" width="46" height="40" rx="8" fill="#3b8ed0" stroke="#1f5c8f" stroke-width="2"/>
+              <rect x="6" y="126" width="16" height="14" rx="3" fill="#cfeafb"/>
+              <rect x="26" y="126" width="14" height="14" rx="3" fill="#cfeafb"/>
+              <rect x="6" y="146" width="34" height="8" rx="3" fill="#1f5c8f"/>
+              <circle cx="12" cy="160" r="5" fill="#2b2b2b"/>
+              <circle cx="34" cy="160" r="5" fill="#2b2b2b"/>
+              <rect x="48" y="128" width="34" height="30" rx="6" fill="#8fc6e8" stroke="#1f5c8f" stroke-width="2"/>
+              <rect x="54" y="134" width="12" height="12" rx="2" fill="#ffffff"/>
+              <rect x="70" y="134" width="8" height="12" rx="2" fill="#ffffff"/>
+              <g fill="#dfe7ee">
+                <circle cx="4" cy="104" r="10"/><circle cx="18" cy="92" r="13"/><circle cx="34" cy="84" r="10"/>
+              </g>
+            </g>
+            <use href="#trainicon" x="30" y="0"/>
+            <text x="72" y="216" font-size="26" font-weight="bold" fill="#d64545" font-family="Arial">A</text>
+            <use href="#trainicon" x="180" y="0"/>
+            <text x="222" y="216" font-size="26" font-weight="bold" fill="#d64545" font-family="Arial">B</text>
+            <use href="#trainicon" x="340" y="0"/>
+            <text x="382" y="216" font-size="26" font-weight="bold" fill="#d64545" font-family="Arial">C</text>
+            <use href="#trainicon" x="500" y="0"/>
+            <text x="542" y="216" font-size="26" font-weight="bold" fill="#d64545" font-family="Arial">D</text>
+            <use href="#trainicon" x="660" y="0"/>
+            <text x="702" y="216" font-size="26" font-weight="bold" fill="#d64545" font-family="Arial">E</text>
+            <text x="150" y="216" font-size="15" fill="#17202c" font-family="Arial">5 menit</text>
+            <text x="310" y="216" font-size="15" fill="#17202c" font-family="Arial">3 menit</text>
+            <text x="470" y="216" font-size="15" fill="#17202c" font-family="Arial">2 menit</text>
+            <text x="630" y="216" font-size="15" fill="#17202c" font-family="Arial">3 menit</text>
+          </svg>
+          <div class="caption">Waktu tempuh kereta antar stasiun</div>
+        </div>
+        <p>Manakah stasiun-stasiun yang jaraknya kurang dari 3,5 km? <strong>Pilih semua jawaban benar!</strong> <em>Jawaban benar lebih dari satu.</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal14" value="AB"><span class="option-text">AB</span></label>
+        <label><input type="checkbox" name="soal14" value="BC"><span class="option-text">BC</span></label>
+        <label><input type="checkbox" name="soal14" value="CD"><span class="option-text">CD</span></label>
+        <label><input type="checkbox" name="soal14" value="DE"><span class="option-text">DE</span></label>
+        <label><input type="checkbox" name="soal14" value="CE"><span class="option-text">CE</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 15 ================= -->
+    <div class="soal-card" id="q15">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="title-text">Persamaan Lingkaran yang Sepusat</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Lingkaran</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait persamaan lingkaran dan persamaan garis singgung lingkaran</dd>
+          <dt>Indikator</dt><dd>Mengidentifikasi persamaan-persamaan lingkaran yang sepusat (15)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar lingkaran berikut:</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lingkaran A pada bidang koordinat">
+            <g stroke="#e2eaf3" stroke-width="1">
+              <line x1="60" y1="30" x2="60" y2="400"/>
+              <line x1="140" y1="30" x2="140" y2="400"/>
+              <line x1="220" y1="30" x2="220" y2="400"/>
+              <line x1="300" y1="30" x2="300" y2="400"/>
+              <line x1="380" y1="30" x2="380" y2="400"/>
+              <line x1="460" y1="30" x2="460" y2="400"/>
+              <line x1="30" y1="60" x2="470" y2="60"/>
+              <line x1="30" y1="140" x2="470" y2="140"/>
+              <line x1="30" y1="220" x2="470" y2="220"/>
+              <line x1="30" y1="300" x2="470" y2="300"/>
+              <line x1="30" y1="380" x2="470" y2="380"/>
+            </g>
+            <line x1="30" y1="380" x2="470" y2="380" stroke="#333" stroke-width="2"/>
+            <line x1="140" y1="20" x2="140" y2="410" stroke="#333" stroke-width="2"/>
+            <circle cx="220" cy="220" r="80" fill="none" stroke="#2b2b2b" stroke-width="3"/>
+            <line x1="163" y1="163" x2="277" y2="277" stroke="#2b2b2b" stroke-width="2.6"/>
+            <circle cx="163" cy="163" r="7" fill="#3b6fd4" stroke="#1f3f8a" stroke-width="2"/>
+            <circle cx="277" cy="277" r="7" fill="#3b6fd4" stroke="#1f3f8a" stroke-width="2"/>
+            <circle cx="220" cy="220" r="7" fill="#3b6fd4" stroke="#1f3f8a" stroke-width="2"/>
+            <text x="228" y="212" font-size="18" fill="#1f3f8a" font-family="Arial" font-style="italic">P</text>
+            <rect x="150" y="96" width="130" height="34" rx="6" fill="#ffffff" stroke="#9aa8b8" stroke-width="2"/>
+            <text x="215" y="119" font-size="17" text-anchor="middle" fill="#17202c" font-family="Arial">Lingkaran A</text>
+            <text x="132" y="400" font-size="14" fill="#333" font-family="Arial">-2</text>
+            <text x="212" y="400" font-size="14" fill="#333" font-family="Arial">0</text>
+            <text x="52" y="400" font-size="14" fill="#333" font-family="Arial">-4</text>
+            <text x="372" y="400" font-size="14" fill="#333" font-family="Arial">4</text>
+            <text x="452" y="400" font-size="14" fill="#333" font-family="Arial">6</text>
+            <text x="120" y="66" font-size="14" fill="#333" font-family="Arial">6</text>
+            <text x="120" y="146" font-size="14" fill="#333" font-family="Arial">4</text>
+            <text x="120" y="306" font-size="14" fill="#333" font-family="Arial">2</text>
+          </svg>
+          <div class="caption">Lingkaran A dengan diameter 4 satuan pada bidang koordinat</div>
+        </div>
+        <p>Diameter lingkaran di atas adalah 4 satuan. Persamaan lingkaran yang sepusat dengan lingkaran pada gambar di atas adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal15" value="A"><span class="option-text">$x^{2}+6x+y^{2}-8y+16=0$</span></label>
+        <label><input type="radio" name="soal15" value="B"><span class="option-text">$x^{2}-6x+y^{2}-8y+21=0$</span></label>
+        <label><input type="radio" name="soal15" value="C"><span class="option-text">$x^{2}+6x+y^{2}+8y+16=0$</span></label>
+        <label><input type="radio" name="soal15" value="D"><span class="option-text">$x^{2}-8x+y^{2}-6y+16=0$</span></label>
+        <label><input type="radio" name="soal15" value="E"><span class="option-text">$x^{2}+8x+y^{2}-6y+21=0$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 16 ================= -->
+    <div class="soal-card" id="q16">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="title-text">Koordinat Titik Singgung Lingkaran</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Lingkaran</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait persamaan lingkaran dan persamaan garis singgung lingkaran</dd>
+          <dt>Indikator</dt><dd>Menentukan titik-titik singgung lingkaran yang tegak lurus terhadap suatu garis (16)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar berikut!</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 780 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bidang koordinat dengan lingkaran berpusat di A(2,-3) dan garis melalui C(-1,0) dan D(0,2)">
+            <g stroke="#e6eef6" stroke-width="1">
+              <line x1="90" y1="20" x2="90" y2="460"/>
+              <line x1="160" y1="20" x2="160" y2="460"/>
+              <line x1="230" y1="20" x2="230" y2="460"/>
+              <line x1="300" y1="20" x2="300" y2="460"/>
+              <line x1="370" y1="20" x2="370" y2="460"/>
+              <line x1="440" y1="20" x2="440" y2="460"/>
+              <line x1="510" y1="20" x2="510" y2="460"/>
+              <line x1="580" y1="20" x2="580" y2="460"/>
+              <line x1="650" y1="20" x2="650" y2="460"/>
+            </g>
+            <g stroke="#e6eef6" stroke-width="1">
+              <line x1="20" y1="40" x2="760" y2="40"/>
+              <line x1="20" y1="110" x2="760" y2="110"/>
+              <line x1="20" y1="180" x2="760" y2="180"/>
+              <line x1="20" y1="250" x2="760" y2="250"/>
+              <line x1="20" y1="320" x2="760" y2="320"/>
+              <line x1="20" y1="390" x2="760" y2="390"/>
+              <line x1="20" y1="460" x2="760" y2="460"/>
+            </g>
+            <line x1="20" y1="180" x2="760" y2="180" stroke="#333" stroke-width="2"/>
+            <polygon points="762,180 748,174 748,186" fill="#333"/>
+            <polygon points="18,180 32,174 32,186" fill="#333"/>
+            <line x1="300" y1="470" x2="300" y2="16" stroke="#333" stroke-width="2"/>
+            <polygon points="300,14 294,28 306,28" fill="#333"/>
+            <text x="88" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">-4</text>
+            <text x="158" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">-3</text>
+            <text x="228" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">-2</text>
+            <text x="298" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">0</text>
+            <text x="368" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">1</text>
+            <text x="438" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">2</text>
+            <text x="508" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">3</text>
+            <text x="578" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">4</text>
+            <text x="648" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">5</text>
+            <text x="718" y="200" font-size="13" text-anchor="middle" fill="#333" font-family="Arial">6</text>
+            <text x="740" y="176" font-size="13" fill="#333" font-family="Arial">7</text>
+            <text x="312" y="46" font-size="13" fill="#333" font-family="Arial">2</text>
+            <text x="312" y="116" font-size="13" fill="#333" font-family="Arial">1</text>
+            <text x="312" y="256" font-size="13" fill="#333" font-family="Arial">-1</text>
+            <text x="312" y="326" font-size="13" fill="#333" font-family="Arial">-2</text>
+            <text x="312" y="396" font-size="13" fill="#333" font-family="Arial">-3</text>
+            <text x="312" y="466" font-size="13" fill="#333" font-family="Arial">-4</text>
+            <line x1="90" y1="460" x2="370" y2="-100" stroke="#2b2b2b" stroke-width="2.6"/>
+            <circle cx="440" cy="390" r="157" fill="none" stroke="#2b2b2b" stroke-width="2.8"/>
+            <g>
+              <circle cx="230" cy="180" r="6" fill="#17202c"/>
+              <text x="150" y="170" font-size="16" fill="#17202c" font-family="Arial">C = (-1, 0)</text>
+              <circle cx="300" cy="40" r="6" fill="#17202c"/>
+              <text x="312" y="34" font-size="16" fill="#17202c" font-family="Arial">D = (0, 2)</text>
+              <circle cx="440" cy="390" r="6" fill="#17202c"/>
+              <text x="452" y="396" font-size="16" fill="#17202c" font-family="Arial">A = (2, -3)</text>
+              <circle cx="510" cy="320" r="6" fill="#17202c"/>
+              <text x="522" y="316" font-size="16" fill="#17202c" font-family="Arial">B = (3, -1)</text>
+            </g>
+            <text x="360" y="290" font-size="17" fill="#17202c" font-family="Arial" font-style="italic">c</text>
+            <text x="700" y="150" font-size="16" fill="#17202c" font-family="Arial">l</text>
+          </svg>
+          <div class="caption">Lingkaran berpusat di A(2, −3) melalui B(3, −1) dan garis <em>l</em> melalui C(−1, 0) dan D(0, 2)</div>
+        </div>
+        <p>Tentukan semua koordinat titik singgung lingkaran dari garis-garis singgung lingkaran yang tegak lurus terhadap garis <em>l</em>.</p>
+        <p><strong>Klik pada setiap jawaban benar. Jawaban lebih dari satu.</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal16" value="1"><span class="option-text">$(3,\ 1)$</span></label>
+        <label><input type="checkbox" name="soal16" value="2"><span class="option-text">$(1,\ -5)$</span></label>
+        <label><input type="checkbox" name="soal16" value="3"><span class="option-text">$(-1,\ 5)$</span></label>
+        <label><input type="checkbox" name="soal16" value="4"><span class="option-text">$(3,\ -1)$</span></label>
+        <label><input type="checkbox" name="soal16" value="5"><span class="option-text">$(-3,\ -1)$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 17 ================= -->
+    <div class="soal-card" id="q17">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="title-text">Analisis Hubungan Luas Gabungan Bangun Datar</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Lingkaran</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait luas dan keliling daerah lingkaran atau bagian daerah lingkaran</dd>
+          <dt>Indikator</dt><dd>Menganalisis hubungan luas area dari suatu objek (gabungan beberapa bangun datar) untuk menyelesaikan masalah (17)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Suatu rumah makan terdapat gambar rambu lalu lintas. Gambarnya seperti gambar rambu lalu lintas balai pertolongan pertama namun tidak sama persis.</p>
+        <p>Biasanya rambu lalu lintas itu berfungsi untuk memberikan informasi mengenai lokasi pelayanan kesehatan terdekat seperti balai kesehatan, puskesmas, atau tempat pertolongan pertama jika terjadi keadaan darurat atau kecelakaan. Rumah makan ini mempunyai tanda rambu lalu lintas tersebut tujuannya jika perut pelanggan sedang kelaparan segera merapat ke rumah makan tersebut supaya mendapatkan pertolongan pertama.</p>
+        <p>Berikut gambar rambu lalu lintas balai pertolongan pertama di rumah makan tersebut.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 560 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Rambu lalu lintas balai pertolongan pertama berukuran 40 cm">
+            <defs>
+              <clipPath id="whitecircle">
+                <circle cx="270" cy="270" r="176"/>
+              </clipPath>
+            </defs>
+            <rect x="50" y="50" width="440" height="440" fill="#29a3e0"/>
+            <circle cx="270" cy="270" r="252" fill="#000000"/>
+            <circle cx="270" cy="270" r="176" fill="#ffffff"/>
+            <g clip-path="url(#whitecircle)">
+              <rect x="238" y="46" width="64" height="448" fill="#e02626"/>
+              <rect x="46" y="238" width="448" height="64" fill="#e02626"/>
+            </g>
+            <g stroke="#17202c" stroke-width="2.5">
+              <line x1="520" y1="50" x2="520" y2="490"/>
+              <line x1="512" y1="50" x2="528" y2="50"/>
+              <line x1="512" y1="490" x2="528" y2="490"/>
+            </g>
+            <text x="538" y="278" font-size="18" fill="#17202c" font-family="Arial">40 cm</text>
+            <g stroke="#17202c" stroke-width="2.5">
+              <line x1="50" y1="522" x2="490" y2="522"/>
+              <line x1="50" y1="514" x2="50" y2="530"/>
+              <line x1="490" y1="514" x2="490" y2="530"/>
+            </g>
+            <text x="160" y="212" font-size="19" fill="#17202c" font-family="Arial">10 cm</text>
+            <text x="330" y="212" font-size="19" fill="#17202c" font-family="Arial">10 cm</text>
+            <g stroke="#17202c" stroke-width="2" stroke-dasharray="6 4">
+              <line x1="216" y1="270" x2="324" y2="270"/>
+            </g>
+            <polygon points="216,270 226,265 226,275" fill="#17202c"/>
+            <polygon points="324,270 314,265 314,275" fill="#17202c"/>
+            <text x="270" y="258" font-size="18" text-anchor="middle" fill="#17202c" font-family="Arial">14 cm</text>
+          </svg>
+          <div class="caption">Rambu lalu lintas balai pertolongan pertama pada rumah makan</div>
+        </div>
+        <p>Pemilik rumah makan ingin membuat rambu tersebut dalam jumlah banyak untuk cabang yang baru dan cat yang dibeli dalam ukuran yang sama. Cat warna apakah yang lebih banyak digunakan dibandingkan cat warna hitam? <strong>Klik pada semua jawaban benar!</strong> <em>Jawaban lebih dari satu.</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal17" value="1"><span class="option-text">Setengah hitam dan biru</span></label>
+        <label><input type="checkbox" name="soal17" value="2"><span class="option-text">Setengah hitam dan merah</span></label>
+        <label><input type="checkbox" name="soal17" value="3"><span class="option-text">Setengah hitam dan putih</span></label>
+        <label><input type="checkbox" name="soal17" value="4"><span class="option-text">Biru dan putih</span></label>
+        <label><input type="checkbox" name="soal17" value="5"><span class="option-text">Biru dan merah</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 18 ================= -->
+    <div class="soal-card" id="q18">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="title-text">Kesesuaian Ukuran Objek Berdasarkan Konsep Lingkaran</span>
+        <span class="badge kategori">PG Kompleks — Kategori</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Lingkaran</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait luas dan keliling daerah lingkaran atau bagian daerah lingkaran</dd>
+          <dt>Indikator</dt><dd>Menentukan kesesuaian ukuran-ukuran objek berdasarkan konsep lingkaran dalam konteks permasalahan sehari-hari (18)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pak Baskara akan membuat daun pintu dengan ornamen kaca patri berbentuk bulat di tengahnya. Berikut ini adalah detail dari daun pintu yang akan dibuat.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 900 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Detail ornamen kaca patri pada daun pintu">
+            <g transform="translate(20,20)">
+              <rect x="0" y="0" width="220" height="440" fill="#e8eef4" stroke="#7a8a9a" stroke-width="4"/>
+              <g stroke="#9fb0c0" stroke-width="3" fill="#f4f9fd">
+                <rect x="14" y="14" width="192" height="90"/>
+                <rect x="14" y="118" width="192" height="90"/>
+                <rect x="14" y="336" width="192" height="90"/>
+              </g>
+              <g stroke="#b8c7d6" stroke-width="2" fill="none">
+                <line x1="14" y1="59" x2="206" y2="59"/>
+                <line x1="78" y1="14" x2="78" y2="104"/>
+                <line x1="142" y1="14" x2="142" y2="104"/>
+                <line x1="14" y1="163" x2="206" y2="163"/>
+                <line x1="78" y1="118" x2="78" y2="208"/>
+                <line x1="142" y1="118" x2="142" y2="208"/>
+                <line x1="14" y1="381" x2="206" y2="381"/>
+                <line x1="78" y1="336" x2="78" y2="426"/>
+                <line x1="142" y1="336" x2="142" y2="426"/>
+              </g>
+              <circle cx="110" cy="222" r="92" fill="#d92b3a" stroke="#a01e29" stroke-width="3"/>
+              <g transform="translate(110,222)">
+                <circle r="92" fill="#d92b3a"/>
+                <polygon points="0,0 -65,-65 65,-65" fill="#f2c14e"/>
+                <polygon points="0,0 65,-65 65,65" fill="#3f8a3f"/>
+                <polygon points="0,0 65,65 -65,65" fill="#f2c14e"/>
+                <polygon points="0,0 -65,65 -65,-65" fill="#3f8a3f"/>
+                <polygon points="0,0 -65,-65 65,-65 65,65 -65,65" fill="none" stroke="#ffffff" stroke-width="4"/>
+                <line x1="-65" y1="-65" x2="65" y2="65" stroke="#ffffff" stroke-width="4"/>
+                <line x1="65" y1="-65" x2="-65" y2="65" stroke="#ffffff" stroke-width="4"/>
+                <path d="M0,-92 A92,92 0 0,1 92,0 L65,0 A65,65 0 0,0 0,-65 Z" fill="#d92b3a"/>
+                <path d="M92,0 A92,92 0 0,1 0,92 L0,65 A65,65 0 0,0 65,0 Z" fill="#d92b3a"/>
+                <path d="M0,92 A92,92 0 0,1 -92,0 L-65,0 A65,65 0 0,0 0,65 Z" fill="#d92b3a"/>
+                <path d="M-92,0 A92,92 0 0,1 0,-92 L0,-65 A65,65 0 0,0 -65,0 Z" fill="#d92b3a"/>
+                <text x="-42" y="-52" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(-45 -42 -52)">Merah</text>
+                <text x="26" y="-52" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(45 26 -52)">Merah</text>
+                <text x="-52" y="60" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(45 -52 60)">Merah</text>
+                <text x="34" y="62" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(-45 34 62)">Merah</text>
+                <text x="-18" y="-18" font-size="14" fill="#1c3f1c" font-family="Arial">Hijau</text>
+                <text x="6" y="-18" font-size="14" fill="#5c4a1a" font-family="Arial">Kuning</text>
+                <text x="-20" y="32" font-size="14" fill="#5c4a1a" font-family="Arial">Kuning</text>
+                <text x="8" y="32" font-size="14" fill="#1c3f1c" font-family="Arial">Hijau</text>
+              </g>
+            </g>
+            <path d="M250 240 q40 -40 84 -40" stroke="#17202c" stroke-width="4" fill="none"/>
+            <polygon points="336,200 318,192 320,212" fill="#17202c"/>
+            <text x="470" y="42" font-size="21" font-weight="bold" fill="#17202c" font-family="Arial">Detail Ornamen Kaca Patri</text>
+            <g transform="translate(600,190)">
+              <circle r="118" fill="#d92b3a"/>
+              <circle r="86" fill="#ffffff"/>
+              <polygon points="0,0 -60,-60 60,-60" fill="#f2c14e"/>
+              <polygon points="0,0 60,-60 60,60" fill="#3f8a3f"/>
+              <polygon points="0,0 60,60 -60,60" fill="#f2c14e"/>
+              <polygon points="0,0 -60,60 -60,-60" fill="#3f8a3f"/>
+              <polygon points="0,0 -60,-60 60,-60 60,60 -60,60" fill="none" stroke="#ffffff" stroke-width="4"/>
+              <line x1="-60" y1="-60" x2="60" y2="60" stroke="#ffffff" stroke-width="4"/>
+              <line x1="60" y1="-60" x2="-60" y2="60" stroke="#ffffff" stroke-width="4"/>
+              <text x="-42" y="-84" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(-45 -42 -84)">Merah</text>
+              <text x="20" y="-84" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(45 20 -84)">Merah</text>
+              <text x="-58" y="100" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(45 -58 100)">Merah</text>
+              <text x="34" y="100" font-size="15" fill="#ffffff" font-family="Arial" transform="rotate(-45 34 100)">Merah</text>
+              <text x="-16" y="-16" font-size="13" fill="#1c3f1c" font-family="Arial">Hijau</text>
+              <text x="6" y="-16" font-size="13" fill="#5c4a1a" font-family="Arial">Kuning</text>
+              <text x="-20" y="30" font-size="13" fill="#5c4a1a" font-family="Arial">Kuning</text>
+              <text x="8" y="30" font-size="13" fill="#1c3f1c" font-family="Arial">Hijau</text>
+            </g>
+            <g stroke="#c9a227" stroke-width="2.5" fill="none">
+              <line x1="700" y1="96" x2="812" y2="70"/>
+            </g>
+            <polygon points="700,96 710,88 708,100" fill="#c9a227"/>
+            <text x="700" y="118" font-size="14" fill="#17202c" font-family="Arial">Luas 1 potong</text>
+            <text x="700" y="136" font-size="14" fill="#17202c" font-family="Arial">kaca merah</text>
+            <text x="700" y="154" font-size="14" fill="#17202c" font-family="Arial">= 456 cm²</text>
+            <text x="600" y="352" font-size="15" fill="#17202c" font-family="Arial">Gunakan pendekatan</text>
+            <text x="600" y="372" font-size="15" fill="#17202c" font-family="Arial">π = 3,14</text>
+            <g transform="translate(600,400)">
+              <circle cx="0" cy="30" r="62" fill="none" stroke="#17202c" stroke-width="3"/>
+              <line x1="-62" y1="30" x2="62" y2="30" stroke="#17202c" stroke-width="2.4"/>
+              <line x1="0" y1="-32" x2="0" y2="92" stroke="#17202c" stroke-width="2.4"/>
+              <line x1="-44" y1="-14" x2="44" y2="74" stroke="#17202c" stroke-width="2.4"/>
+              <line x1="44" y1="-14" x2="-44" y2="74" stroke="#17202c" stroke-width="2.4"/>
+              <text x="76" y="24" font-size="14" fill="#17202c" font-family="Arial">Kerangka ornamen</text>
+              <text x="76" y="44" font-size="14" fill="#17202c" font-family="Arial">terbuat dari logam</text>
+              <path d="M70 16 q-16 -4 -22 -14" stroke="#c9a227" stroke-width="2.5" fill="none"/>
+              <polygon points="48,2 56,6 52,12" fill="#c9a227"/>
+            </g>
+          </svg>
+          <div class="caption">Detail ornamen kaca patri pada daun pintu</div>
+        </div>
+        <p>Kerangka ornamen terbuat dari logam. Berfungsi untuk menempelkan potongan-potongan kaca patri. Pak Baskara sedang memilih logam yang dapat digunakan untuk membuat kerangka ornamen kaca patri. Beliau ingin memilih yang pas. Maksud <strong>pas</strong> di sini adalah: cukup untuk membuat kerangka dan sisanya tidak lebih dari 1 m. Berikut ini adalah jenis logam dan panjangnya yang dapat dipilih Pak Baskara untuk membuat kerangka ornamen.</p>
+        <table class="data-tabel">
+          <thead>
+            <tr><th>Jenis Logam</th><th>Logam A</th><th>Logam B</th><th>Logam C</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="left">Panjang satuan</td><td>4 m</td><td>5 m</td><td>6,5 m</td></tr>
+          </tbody>
+        </table>
+        <p>Tentukan apakah pilihan logam yang akan dibeli Pak Baskara berikut ini Pas atau Tidak Pas! Klik pada kolom yang sesuai!</p>
+        <p class="note">$\sqrt{2} \approx 1{,}4$</p>
+      </div>
+      <table class="data-tabel">
+        <thead>
+          <tr><th>Pilihan</th><th>Pas</th><th>Tidak Pas</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="left">Membeli 2 buah logam A</td>
+            <td><input type="radio" name="soal18a" value="P"></td>
+            <td><input type="radio" name="soal18a" value="TP"></td>
+          </tr>
+          <tr>
+            <td class="left">Membeli 1 buah logam B</td>
+            <td><input type="radio" name="soal18b" value="P"></td>
+            <td><input type="radio" name="soal18b" value="TP"></td>
+          </tr>
+          <tr>
+            <td class="left">Membeli 1 buah logam C</td>
+            <td><input type="radio" name="soal18c" value="P"></td>
+            <td><input type="radio" name="soal18c" value="TP"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- ================= SOAL 19 ================= -->
+    <div class="soal-card" id="q19">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="title-text">Komposisi Transformasi Geometri pada Garis</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Transformasi Geometri</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan transformasi geometri (translasi, refleksi, rotasi, dilatasi, serta komposisinya) dari bentuk geometris dan matriks transformasinya</dd>
+          <dt>Indikator</dt><dd>Menentukan hasil operasi dari dua parameter yang merupakan komponen pembentuk dua garis lurus disertai dengan informasi bayangan hasil dua kali transformasi geometri (19)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Apabila garis $ax+y-9=0$ dan $x+by+6=0$ dicerminkan terhadap garis $y=x$ kemudian dilanjutkan translasi $T=\begin{pmatrix}1\\-1\end{pmatrix}$, menghasilkan bayangan dengan persamaan berturut-turut $x+2y-8=0$ dan $2x-y-9=0$.</p>
+        <p>Nilai dari $2a-b=\dots$</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">$-6$</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">$-2$</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">$0$</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">$2$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 20 ================= -->
+    <div class="soal-card" id="q20">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="title-text">Transformasi Geometri pada Lingkaran</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Transformasi Geometri</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan transformasi geometri (translasi, refleksi, rotasi, dilatasi, serta komposisinya) dari bentuk geometris dan matriks transformasinya</dd>
+          <dt>Indikator</dt><dd>Menentukan transformasi geometri yang terjadi pada sebuah lingkaran dengan disertakan informasi bayangan hasil transformasi (20)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Lingkaran $L$ memiliki pusat di $(-5,\ 3)$ dan jari-jari 2. Lingkaran $L$ adalah bayangan dari $L'$ setelah dilakukan translasi $T$.</p>
+        <p>Lingkaran $L'$ dengan persamaan $(x+4)^{2}+(y-4)^{2}=16$ adalah bayangan dari $L$ setelah dilakukan dilatasi dengan pusat $O(0,\ 0)$ dengan faktor skala tertentu. Pernyataan yang benar mengenai translasi $T$ dan faktor skala dilatasi yang dilakukan adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal20" value="A"><span class="option-text">$T=\begin{pmatrix}3\\1\end{pmatrix}$ dan skala dilatasi 8</span></label>
+        <label><input type="radio" name="soal20" value="B"><span class="option-text">$T=\begin{pmatrix}3\\1\end{pmatrix}$ dan skala dilatasi 4</span></label>
+        <label><input type="radio" name="soal20" value="C"><span class="option-text">$T=\begin{pmatrix}3\\1\end{pmatrix}$ dan skala dilatasi 2</span></label>
+        <label><input type="radio" name="soal20" value="D"><span class="option-text">$T=\begin{pmatrix}1\\1\end{pmatrix}$ dan skala dilatasi 2</span></label>
+        <label><input type="radio" name="soal20" value="E"><span class="option-text">$T=\begin{pmatrix}1\\1\end{pmatrix}$ dan skala dilatasi 8</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 21 ================= -->
+    <div class="soal-card" id="q21">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="title-text">Titik pada Garis Hasil Rotasi</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Geometri dan Pengukuran</dd>
+          <dt>Subelemen</dt><dd>Transformasi Geometri</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan transformasi geometri (translasi, refleksi, rotasi, dilatasi, serta komposisinya) dari bentuk geometris dan matriks transformasinya</dd>
+          <dt>Indikator</dt><dd>Menentukan titik-titik yang terletak pada suatu garis dengan disertakan informasi bayangan garis tersebut hasil transformasi rotasi (21)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Garis 1 merupakan bayangan garis $3x+2y=6$ dirotasikan sejauh $90^{\circ}$ berlawanan arah jarum jam dengan pusat rotasi $(2,\ 0)$.</p>
+        <p>Manakah koordinat titik yang terletak pada garis 1? <strong>Pilihlah semua jawaban benar!</strong> <em>Jawaban benar lebih dari satu.</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal21" value="1"><span class="option-text">$(-3,\ -2)$</span></label>
+        <label><input type="checkbox" name="soal21" value="2"><span class="option-text">$(-2,\ -1)$</span></label>
+        <label><input type="checkbox" name="soal21" value="3"><span class="option-text">$(1,\ 2)$</span></label>
+        <label><input type="checkbox" name="soal21" value="4"><span class="option-text">$(2,\ 0)$</span></label>
+        <label><input type="checkbox" name="soal21" value="5"><span class="option-text">$(5,\ 2)$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 22 ================= -->
+    <div class="soal-card" id="q22">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="title-text">Limit Fungsi Aljabar Bentuk Pecahan Rasional</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Kalkulus</dd>
+          <dt>Subelemen</dt><dd>Limit</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait limit fungsi aljabar</dd>
+          <dt>Indikator</dt><dd>Menghitung nilai limit tentu fungsi aljabar dalam bentuk pecahan rasional (pangkat dua dan tiga) (22)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Nilai dari $\displaystyle\lim_{x\to 3}\frac{x^{3}-3x^{2}+2x+1}{5+3x-9x^{2}}=\dots$</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal22" value="A"><span class="option-text">$-\dfrac{7}{67}$</span></label>
+        <label><input type="radio" name="soal22" value="B"><span class="option-text">$-\dfrac{6}{67}$</span></label>
+        <label><input type="radio" name="soal22" value="C"><span class="option-text">$\dfrac{6}{76}$</span></label>
+        <label><input type="radio" name="soal22" value="D"><span class="option-text">$\dfrac{7}{67}$</span></label>
+        <label><input type="radio" name="soal22" value="E"><span class="option-text">$\dfrac{7}{76}$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 23 ================= -->
+    <div class="soal-card" id="q23">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="title-text">Limit Tak Hingga dalam Konteks Kehidupan Sehari-hari</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Kalkulus</dd>
+          <dt>Subelemen</dt><dd>Limit</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait limit fungsi aljabar</dd>
+          <dt>Indikator</dt><dd>Menentukan kecenderungan nilai tertentu menggunakan konsep limit tak tentu di ketakhinngaan dalam konteks kehidupan sehari-hari (23)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Roni, penjual nasi goreng, menjual dagangannya sebanyak $p$ porsi dan akan memperoleh keuntungan (dalam jutaan rupiah) yang dapat dinyatakan dengan fungsi</p>
+        <p>$$K(p)=\frac{9p^{2}+2p+10}{3p^{2}+3p+2}$$</p>
+        <p>Keuntungan yang akan diperoleh Roni, apabila dia menjual nasi goreng dengan porsi sangat banyak adalah …</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal23" value="A"><span class="option-text">Rp 2.000.000,00</span></label>
+        <label><input type="radio" name="soal23" value="B"><span class="option-text">Rp 3.000.000,00</span></label>
+        <label><input type="radio" name="soal23" value="C"><span class="option-text">Rp 5.000.000,00</span></label>
+        <label><input type="radio" name="soal23" value="D"><span class="option-text">Rp 9.000.000,00</span></label>
+        <label><input type="radio" name="soal23" value="E"><span class="option-text">Rp 10.000.000,00</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 24 ================= -->
+    <div class="soal-card" id="q24">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="title-text">Limit Rasio Luas Segitiga terhadap Setengah Lingkaran</span>
+        <span class="badge mcma">PG Kompleks — MCMA</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Kalkulus</dd>
+          <dt>Subelemen</dt><dd>Limit</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait limit fungsi trigonometri</dd>
+          <dt>Indikator</dt><dd>Menentukan nilai limit dari rasio luas segitiga dengan luas setengah lingkaran untuk nilai parameter mendekati suatu sudut dalam pi (24)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah setengah lingkaran dengan diameter $AB$ terletak pada segitiga sama kaki $ABC$ dan memiliki panjang $2\pi$, sehingga membentuk daerah berbentuk kerucut es krim seperti pada gambar berikut.</p>
+        <div class="gambar-wrapper">
+          <svg viewBox="0 0 520 480" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Setengah lingkaran pada segitiga sama kaki">
+            <path d="M90 190 A170,170 0 0,1 430 190 Z" fill="#eaf6ff" stroke="#3f7a3f" stroke-width="3"/>
+            <polygon points="90,190 430,190 260,430" fill="#fdf6e8" stroke="#3f7a3f" stroke-width="3"/>
+            <g stroke="#3b6fd4" stroke-width="4" stroke-linecap="round">
+              <line x1="150" y1="272" x2="166" y2="256"/>
+              <line x1="152" y1="286" x2="170" y2="268"/>
+            </g>
+            <g stroke="#3b6fd4" stroke-width="4" stroke-linecap="round">
+              <line x1="354" y1="272" x2="370" y2="256"/>
+              <line x1="350" y1="286" x2="368" y2="268"/>
+            </g>
+            <path d="M232 392 A40,40 0 0,1 288 392" fill="none" stroke="#3f7a3f" stroke-width="2.6"/>
+            <text x="258" y="382" font-size="20" fill="#17202c" font-family="Arial" font-style="italic">θ</text>
+            <circle cx="90" cy="190" r="6" fill="#17202c"/>
+            <circle cx="430" cy="190" r="6" fill="#17202c"/>
+            <circle cx="260" cy="430" r="6" fill="#17202c"/>
+            <text x="66" y="184" font-size="20" font-weight="bold" fill="#17202c" font-family="Arial">A</text>
+            <text x="436" y="184" font-size="20" font-weight="bold" fill="#17202c" font-family="Arial">B</text>
+            <text x="258" y="458" font-size="20" font-weight="bold" fill="#17202c" font-family="Arial">C</text>
+          </svg>
+          <div class="caption">Setengah lingkaran dengan diameter AB pada segitiga sama kaki ABC</div>
+        </div>
+        <p>Jika luas segitiga $ABC$ dinyatakan dengan $X$ dan luas setengah lingkaran dinyatakan dengan $Y$, berikut ini manakah pernyataan yang benar tentang nilai limitnya? <strong>Pilihlah semua jawaban benar!</strong> <em>Jawaban benar lebih dari satu.</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal24" value="1"><span class="option-text">Besar jari-jari mempengaruhi nilai limit</span></label>
+        <label><input type="checkbox" name="soal24" value="2"><span class="option-text">Besar sudut tidak mempengaruhi nilai limit</span></label>
+        <label><input type="checkbox" name="soal24" value="3"><span class="option-text">Nilai $\dfrac{X}{Y}$ selalu sama untuk berapapun $\theta$</span></label>
+        <label><input type="checkbox" name="soal24" value="4"><span class="option-text">$\displaystyle\lim_{\theta\to\pi}\frac{X}{Y}=\pi$</span></label>
+        <label><input type="checkbox" name="soal24" value="5"><span class="option-text">Jika $\theta=\pi$ maka $\dfrac{X}{Y}=0$</span></label>
+      </div>
+    </div>
+
+    <!-- ================= SOAL 25 ================= -->
+    <div class="soal-card" id="q25">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="title-text">Limit Fungsi Trigonometri</span>
+        <span class="badge">Pilihan Ganda</span>
+      </div>
+      <div class="info">
+        <dl>
+          <dt>Elemen</dt><dd>Kalkulus</dd>
+          <dt>Subelemen</dt><dd>Limit</dd>
+          <dt>Kompetensi</dt><dd>Kemampuan memahami, mengaplikasikan, dan bernalar yang lebih tinggi untuk menyelesaikan permasalahan terkait limit fungsi trigonometri</dd>
+          <dt>Indikator</dt><dd>Menentukan pasangan parameter pembentuk fungsi trigonometri yang memenuhi persamaan limit fungsi trigonometri tertentu (25)</dd>
+        </dl>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Nilai dari $\displaystyle\lim_{x\to 3}\frac{1-\cos(6x-18)}{(x-9x)\sin(6x-18)}=\dots$</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal25" value="A"><span class="option-text">$-\dfrac{3}{2}$</span></label>
+        <label><input type="radio" name="soal25" value="B"><span class="option-text">$-\dfrac{2}{3}$</span></label>
+        <label><input type="radio" name="soal25" value="C"><span class="option-text">$0$</span></label>
+        <label><input type="radio" name="soal25" value="D"><span class="option-text">$\dfrac{2}{3}$</span></label>
+        <label><input type="radio" name="soal25" value="E"><span class="option-text">$\dfrac{3}{2}$</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Matematika_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  
+  <div class="footer">
+    &copy; 2026 TKA Matematika Tingkat Lanjut — XII MIA · Aljabar · Geometri &amp; Pengukuran · Kalkulus
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN =====
+  // String  → Pilihan Ganda (radio)
+  // Array   → MCMA (checkbox, bandingkan set)
+  // Object  → Tabel kategori (radio per baris)
+  const kunciJawaban = {
+    soal1:  "E",
+    soal2:  "C",
+    soal3:  "C",
+    soal4:  ["3", "5"],
+    soal5:  ["1", "3"],
+    soal6:  "B",
+    soal7:  "C",
+    soal8:  { a: "TM", b: "M", c: "M" },
+    soal9:  { a: "S", b: "B", c: "S" },
+    soal10: ["C", "D", "E"],
+    soal11: "E",
+    soal12: "B",
+    soal13: "B",
+    soal14: ["BC", "CD", "DE"],
+    soal15: "A",
+    soal16: ["3", "4"],
+    soal17: ["2", "5"],
+    soal18: { a: "TP", b: "P", c: "TP" },
+    soal19: "C",
+    soal20: "C",
+    soal21: ["4", "5"],
+    soal22: "A",
+    soal23: "B",
+    soal24: ["5"],
+    soal25: "E"
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function () {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function () {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_matematika_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_matematika_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function (e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function (e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function () {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== HITUNG SKOR =====
+  function hitungBenar() {
+    let benar = 0;
+    let total = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (!kunci) continue;
+      total++;
+
+      if (typeof kunci === 'string') {
+        // Pilihan Ganda
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        // MCMA
+        const selected = Array.from(
+          document.querySelectorAll('input[name="' + key + '"]:checked')
+        ).map(cb => cb.value).sort();
+        const expected = [...kunci].sort();
+        if (JSON.stringify(selected) === JSON.stringify(expected)) benar++;
+
+      } else if (typeof kunci === 'object') {
+        // Tabel kategori
+        let allCorrect = true;
+        for (const sub in kunci) {
+          const subName = key + sub;
+          const sel = document.querySelector('input[name="' + subName + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) {
+            allCorrect = false;
+            break;
+          }
+        }
+        if (allCorrect) benar++;
+      }
+    }
+    return { benar, total };
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    const { benar, total } = hitungBenar();
+    benarGlobal = benar;
+    skorGlobal = total > 0 ? Math.round((benar / total) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + total;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Matematika_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Matematika_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function () {
+      setTimeout(function () {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Matematika_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

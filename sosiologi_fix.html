@@ -1,0 +1,1528 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Sosiologi SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #5c2d0b; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #5c2d0b; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #5c2d0b; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #5c2d0b, #a06030);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(92,45,11,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #5c2d0b;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #c4a88b; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #a06030;
+    box-shadow: 0 0 0 3px rgba(160,96,48,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #5c2d0b, #a06030);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(92,45,11,0.35);
+  }
+  .login-info-box {
+    background: #fdf6ee; border: 1px solid #e6d0b5;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #5c2d0b; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #fdf6ee; border: 2px solid #5c2d0b;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #5c2d0b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #5c2d0b; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .section-title {
+    background: #5c2d0b; color: #fff;
+    padding: 10px 20px; border-radius: 8px;
+    font-weight: 700; font-size: 1rem;
+    margin: 10px 0 20px; letter-spacing: 0.4px;
+    box-shadow: 0 4px 10px rgba(92,45,11,0.25);
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #5c2d0b;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #5c2d0b; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-tag {
+    background: #fdf6ee; color: #5c2d0b;
+    padding: 4px 12px; border-radius: 20px;
+    font-size: 0.78rem; font-weight: 600;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan ol, .soal-pertanyaan ul { margin-left: 20px; margin-top: 8px; }
+  .soal-pertanyaan li { margin-bottom: 4px; }
+  .gambar-wrapper { text-align: center; margin: 14px 0; }
+  .gambar-wrapper svg { margin: 0 auto; display: inline-block; max-width: 100%; height: auto; border-radius: 8px; }
+  .caption {
+    font-size: 0.8rem; color: #6a7a8a;
+    text-align: center; margin-top: 4px; font-style: italic;
+  }
+  .infografis-box {
+    background: linear-gradient(135deg, #e8f4f8, #f0f8ff);
+    border: 2px solid #a0c4d8; border-radius: 10px;
+    padding: 16px 20px; margin: 14px 0;
+  }
+  .infografis-box h4 {
+    color: #1a5a7a; margin-bottom: 10px; font-size: 1rem;
+    text-align: center; letter-spacing: 0.5px;
+  }
+  .infografis-item {
+    background: #fff; border-left: 4px solid #2874a6;
+    border-radius: 6px; padding: 10px 14px; margin-bottom: 8px;
+    font-size: 0.88rem; line-height: 1.6;
+  }
+  .infografis-item strong { color: #1a5a7a; }
+  .kategori-box {
+    background: #f8fafc; border: 1px dashed #c4a88b;
+    border-radius: 8px; padding: 10px 16px; margin: 12px 0;
+    font-size: 0.88rem; color: #33475b; line-height: 1.7;
+  }
+  .kategori-box strong { color: #5c2d0b; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #e0d5c8; background: #fdfaf7;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #fdf6ee; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #5c2d0b; }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e6d0b5;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; font-size: 0.92rem; line-height: 1.5; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .select-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .select-item {
+    display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .select-item .pernyataan { flex: 1; min-width: 200px; font-size: 0.92rem; }
+  .select-item select {
+    padding: 8px 12px; border-radius: 8px;
+    border: 1.5px solid #c4a88b; background: #fff;
+    font-family: inherit; font-size: 0.9rem; color: #1e2a3a;
+    cursor: pointer; outline: none; min-width: 130px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .select-item select:focus {
+    border-color: #a06030;
+    box-shadow: 0 0 0 3px rgba(160,96,48,0.15);
+  }
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 650px; font-size: 0.88rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #c4a88b; padding: 8px 12px; text-align: left;
+    vertical-align: top;
+  }
+  table.data-tabel th { background: #fdf6ee; color: #5c2d0b; text-align: center; }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #5c2d0b;
+  }
+  .result-card h2 {
+    text-align: center; color: #5c2d0b;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #fdf6ee;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #5c2d0b; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #5c2d0b;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none; word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .select-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Sosiologi</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN / IDENTITAS PESERTA ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">🌏</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII IPS 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="soal-tag">Sosiologi sebagai Ilmu</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dahulu, masyarakat desa hidup rukun dan saling membantu melalui kegiatan gotong royong, seperti membersihkan lingkungan bersama-sama. Namun, belakangan ini kegiatan tersebut mulai ditinggalkan. Banyak warga lebih memilih menyewa jasa kebersihan karena kesibukan pekerjaan masing-masing. Perubahan ini menimbulkan kekhawatiran di kalangan tokoh masyarakat karena dinilai dapat mengikis nilai kebersamaan yang menjadi ciri khas desa.</p>
+        <p>Apa makna perubahan perilaku masyarakat desa jika ditinjau dari sudut pandang sosiologi?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">Perubahan gaya hidup karena meningkatnya pendapatan masyarakat desa.</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">Pergeseran sistem ekonomi dari komunal menuju individualisme.</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">Perubahan nilai sosial yang memengaruhi interaksi antarwarga.</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">Penurunan semangat kerja kolektif karena pengaruh globalisasi.</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">Kecenderungan masyarakat dalam menyesuaikan diri dengan tren modern.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="soal-tag">Hubungan &amp; Gejala Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pandemi COVID-19 yang melanda dunia sejak awal tahun 2020 telah membawa perubahan dalam berbagai aspek kehidupan, termasuk cara kita berinteraksi dan menjaga hubungan sosial. Kebijakan jaga jarak atau <em>physical distancing</em> menjadi norma baru yang wajib dipatuhi, sementara aktivitas tatap muka, termasuk pembelajaran, beralih secara drastis menjadi daring.</p>
+        <p>Apa yang memungkinkan interaksi sosial tetap terjadi pada masa pandemi meskipun terdapat pembatasan tatap muka secara langsung?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-text">Individu memahami teknologi informasi.</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-text">Komunikasi tetap terjalin melalui media daring.</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-text">Semua pihak mengikuti aturan dengan taat.</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-text">Lingkungan sekitar menyediakan jaringan internet.</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-text">Siswa dan guru menggunakan handphone.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="soal-tag">Masyarakat Multikultural</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Nasionalisme sebagai masyarakat yang lahir di Indonesia muncul pertama kali setelah Indische Partij terbentuk pada 1912. Partai ini melibatkan segala etnis, termasuk Eropa dan peranakan Indo. Kemudian peranakan Indo melebur dengan momentum nasionalisme berikutnya, Sumpah Pemuda 1928. Sumpah Pemuda menjadi ajang persatuan antara peranakan Tionghoa, Arab, dan Indo untuk jati dirinya sebagai orang Indonesia. Peristiwa ini mempertemukan kalangan tersebut untuk mengkampanyekan persatuan. Berangsur-angsur setelah Sumpah Pemuda, berdirilah partai berbasis etnis yang mendukung nasionalisme. Kemudian pergerakan secara etnik perlahan pun melebur dengan kelompok nasionalisme lainnya. Tanpa sekat, dan bermuara pada kemerdekaan Indonesia.</p>
+        <p>Mengapa Sumpah Pemuda pada kasus tersebut bisa dikategorikan sebagai simbol multikulturalisme?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-text">Mencerminkan proses asimilasi nilai dan tujuan budaya-budaya yang berbeda demi menjaga identitas asli setiap etnik.</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-text">Mengakomodasi berbagai etnik dari latar belakang berbeda untuk mendukung penghapusan identitasnya menjadi Indonesia.</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-text">Terdapat dorongan untuk membangun partikularisme melalui partai-partai bernuansa etnik dalam meraih kemerdekaan.</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-text">Bersifat tidak eksklusif untuk satu kelompok etnik melainkan inklusif dan terbuka bagi semua etnik yang hidup di Indonesia.</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-text">Adanya bentuk tuntutan agar etnik yang bergabung turut serta menjadi bagian dari kelompok mayoritas.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="soal-tag">Bentuk Hubungan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di sebuah desa yang sedang berkembang, hidup dua kelompok masyarakat dengan latar belakang budaya dan kebiasaan yang berbeda, yaitu satu kelompok berasal dari penduduk asli desa dan kelompok lainnya berasal dari warga pendatang. Pada awalnya, hubungan antara kedua kelompok kerap diwarnai kesalahpahaman saat rapat desa, karena perbedaan cara pandang dan nilai-nilai budaya yang dianut. Kondisi ini menimbulkan ketegangan sosial yang menghambat pembangunan desa. Melihat hal ini, tokoh masyarakat menginisiasi kegiatan bersama seperti gotong royong, pelatihan kewirausahaan, dan dialog antarbudaya. Melalui proses ini, kedua kelompok mulai saling memahami, menghargai perbedaan, dan bekerja sama dalam pembangunan desa. Mereka juga sepakat untuk tetap mempertahankan budaya masing-masing, sambil merancang kegiatan budaya bersama yang melibatkan semua warga tanpa membedakan asal-usul.</p>
+        <p>Berdasarkan ilustrasi tersebut, bentuk hubungan sosial apakah yang akhirnya terwujud di antara kedua kelompok masyarakat di atas?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">Asimilasi, karena kedua kelompok membentuk budaya baru dengan menghilangkan perbedaan.</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">Kontravensi, karena terjadi perbedaan pandangan meskipun belum sampai pada konflik terbuka.</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">Koersi, karena kedua kelompok menyelesaikan konflik dengan dominasi kelompok yang lebih kuat.</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">Persaingan, karena masing-masing kelompok tetap mempertahankan identitas budaya secara tertutup.</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">Akomodasi, karena terdapat upaya meredakan ketegangan dengan kesepakatan bersama dan saling membantu.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="soal-tag">Gejala Sosial — Benar/Salah</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di salah satu kota besar, warga merasa resah karena sering terjadi penyerangan oleh sekelompok remaja bermotor. Para pelaku membawa senjata tajam. Aksi kekerasan ini umumnya berlangsung pada malam hari, terutama di kawasan Simpang Tiga, jalur utama yang sering dilalui warga ketika malam. Pihak kepolisian menyatakan bahwa insiden ini bukan yang pertama kali terjadi. Dalam dua bulan terakhir, telah terjadi lima kasus serupa dengan pola yang sama yaitu dilakukan oleh remaja dan menyasar warga yang sedang sendirian.</p>
+        <p>Mengapa peristiwa yang terjadi dalam ilustrasi tersebut dianggap sebagai gejala sosial? Tentukan <strong>Benar</strong> atau <strong>Salah</strong> pada setiap pernyataan berdasarkan isi teks!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Kasus tersebut merupakan gejala sosial dengan dampak keresahan dan menimbulkan ketakutan di masyarakat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal5a" value="B"> Benar</label>
+            <label><input type="radio" name="soal5a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Kasus ini termasuk gejala sosial akibat adanya penyimpangan perilaku dari norma sosial yang berlaku di masyarakat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal5b" value="B"> Benar</label>
+            <label><input type="radio" name="soal5b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Aksi kekerasan dalam kasus ini terjadi secara individu dan tidak berulang sama sekali sehingga bukan gejala sosial.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal5c" value="B"> Benar</label>
+            <label><input type="radio" name="soal5c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="soal-tag">Ragam Gejala Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan infografis tentang <strong>URBANISASI</strong> berikut ini!</p>
+        <div class="infografis-box">
+          <h4>URBANISASI</h4>
+          <p style="font-size:0.88rem; text-align:center; margin-bottom:10px;">Perpindahan dari wilayah jarang penduduk ke wilayah padat penduduk (urbanisasi) dapat diartikan sebagai suatu gejala suatu wilayah bertransformasi menjadi perkotaan.</p>
+          <p style="font-size:0.85rem; margin-bottom:10px;">Sayangnya, wilayah jarang penduduk tersebut biasanya adalah perdesaan yang sebenarnya memiliki potensi berikut:</p>
+          <div class="infografis-item"><strong>PUSAT PEMELIHARAAN KEANEKARAGAMAN HAYATI</strong><br>Masyarakat lokal melindungi tanah, air, dan kehidupan hewan serta tumbuhan dengan cara tidak merusak ekosistem melalui pelestarian kearifan lokal.</div>
+          <div class="infografis-item"><strong>PENGHASIL UTAMA PASOKAN PANGAN</strong><br>Banyak sumber daya alam yang berperan sebagai pemasok sumber pangan dan kebutuhan pokok dihasilkan di wilayah-wilayah perdesaan.</div>
+          <div class="infografis-item"><strong>PENGURANGAN DAMPAK LINGKUNGAN</strong><br>Lingkungan yang hijau menghasilkan banyak oksigen dan mengurangi risiko polusi udara global.</div>
+          <p style="font-size:0.82rem; text-align:center; margin-top:8px; font-weight:600; color:#1a5a7a;">Mari kita dukung pertanian berkelanjutan dan menjaga lingkungan untuk masa depan yang lebih baik.</p>
+        </div>
+        <p>Pemerintah desa membiarkan para penduduk melakukan urbanisasi. Jika hal tersebut terus terjadi, apa dampak negatif gejala sosial yang relevan berdasarkan kasus pada infografis?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">Pengangguran di wilayah pedesaan akan terus meningkat karena lapangan kerja semakin sempit.</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">Sumber-sumber hayati akan rusak karena pencemaran lingkungan akibat pembangunan yang masif.</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">Kerusakan lingkungan di perdesaan akibat alih fungsi lahan terjadi karena industrialisasi semakin pesat.</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">Kenaikan harga terjadi seiring penurunan pasokan pangan karena banyak lahan yang tidak tergarap.</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">Pemanasan global terus meningkat karena polusi udara di perkotaan tidak diimbangi dengan penghijauan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="soal-tag">Penelitian Sosial — Pilihan Ganda Kompleks (MCMA)</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan infografis tentang <strong>Pentingnya Keterlibatan Perempuan dalam Politik</strong> berikut ini!</p>
+        <div class="infografis-box">
+          <h4>PENTINGNYA KETERLIBATAN PEREMPUAN DALAM POLITIK</h4>
+          <div class="infografis-item"><strong>PARTAI POLITIK</strong><br>Perempuan yang berada di partai politik mampu menyuarakan isu kebijakan yang berpihak kepada perempuan melalui wakilnya yang duduk di parlemen. Mendorong perempuan menduduki jabatan penting di partai dan terpenuhinya minimal 30% kepengurusan perempuan.</div>
+          <div class="infografis-item"><strong>PARLEMEN</strong><br>Kehadiran perempuan dalam Parlemen dapat memperjuangkan kebijakan yang berpihak pada perempuan karena perempuanlah yang tahu akan kebutuhannya. Selain itu juga dapat menentukan kebijakan dalam peningkatan kesetaraan dan keadilan gender.</div>
+          <div class="infografis-item"><strong>YUDIKATIF</strong><br>Perempuan dalam Lembaga Yudikatif sebagai pelaksana kebijakan harus terus mendukung terlaksananya semua peraturan yang berpihak kepada perempuan. Selain itu juga dapat mengusulkan kebijakan-kebijakan perlindungan terhadap perempuan.</div>
+        </div>
+        <p>Penelitian ini bertujuan untuk memahami bagaimana keterlibatan perempuan dalam partai politik. Peneliti ingin melihat apakah perempuan benar-benar memiliki kesempatan dan mampu mengambil peran penting di dalamnya. Fokus peneliti adalah mengamati sejauh mana perempuan terlibat sebagai anggota biasa, pengurus partai, atau sebagai calon wakil rakyat dalam pemilihan umum. Dengan ini, peneliti berharap bisa mengetahui posisi perempuan dalam struktur partai dan kontribusi mereka terhadap aktivitas politik. Penelitian ini penting untuk melihat kesetaraan gender dalam dunia politik.</p>
+        <p>Manakah pernyataan yang menunjukkan tujuan penelitian kualitatif studi kasus dari permasalahan sosial tersebut? <strong>Pilih LEBIH DARI SATU jawaban benar!</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal7" value="A"><span class="option-text">Untuk mengidentifikasi kesempatan dan peran yang dapat diambil perempuan dalam aktivitas politik di partai.</span></label>
+        <label><input type="checkbox" name="soal7" value="B"><span class="option-text">Untuk memahami kontribusi spesifik perempuan terhadap dinamika dan keputusan politik di dalam partai.</span></label>
+        <label><input type="checkbox" name="soal7" value="C"><span class="option-text">Untuk menganalisis korelasi antara tingkat keterlibatan perempuan dengan eksistensi partai politik.</span></label>
+        <label><input type="checkbox" name="soal7" value="D"><span class="option-text">Untuk mengetahui sejauh mana kesetaraan gender terwujud dalam struktur dan praktik partai politik.</span></label>
+        <label><input type="checkbox" name="soal7" value="E"><span class="option-text">Untuk menentukan pengaruh keterlibatan perempuan terhadap pengambilan keputusan yang berpihak pada perempuan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="soal-tag">Penelitian Sosial — Langkah Penelitian</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berikut merupakan langkah-langkah penelitian sosial yang akan dilakukan peneliti:</p>
+        <ol>
+          <li>Mengumpulkan data melalui wawancara, observasi, dan dokumentasi.</li>
+          <li>Menentukan landasan teori dan konsep yang relevan.</li>
+          <li>Mengolah dan menganalisis data hasil penelitian.</li>
+          <li>Menyusun latar belakang penelitian berdasarkan data resmi.</li>
+          <li>Menarik kesimpulan dan memberikan rekomendasi kebijakan.</li>
+        </ol>
+        <p>Manakah urutan langkah-langkah penelitian yang termasuk tahapan pelaksanaan penelitian sosial?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-text">Mengumpulkan data melalui wawancara, observasi, dan dokumentasi dan Menentukan landasan teori dan konsep yang relevan.</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-text">Mengumpulkan data melalui wawancara, observasi, dan dokumentasi dan Mengolah dan menganalisis data hasil penelitian.</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-text">Mengumpulkan data melalui wawancara, observasi, dan dokumentasi dan Menarik kesimpulan dan memberikan rekomendasi kebijakan.</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-text">Menentukan landasan teori dan konsep yang relevan dan Menyusun latar belakang penelitian berdasarkan data resmi.</span></label>
+        <label><input type="radio" name="soal8" value="E"><span class="option-text">Menyusun latar belakang penelitian berdasarkan data resmi dan Menarik kesimpulan dan memberikan rekomendasi kebijakan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="soal-tag">Penelitian Sosial — Metode Penelitian</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Penggunaan media sosial yang sangat banyak digemari oleh remaja menimbulkan kekhawatiran dapat mempengaruhi perilaku dan moral mereka. Kenakalan remaja yang makin rumit sering dihubungkan dengan interaksi mereka dengan konten online tertentu. Sehingga seorang peneliti melakukan penelitian pada remaja usia 13–18 tahun yang sering memakai media sosial. Peneliti tersebut mengumpulkan data dengan menyebarkan kuesioner online kepada 150 remaja. Kuesioner ini mempunyai dua bagian utama yaitu satu untuk mengukur seberapa sering dan bagaimana mereka menggunakan media sosial, dan bagian lainnya untuk mengukur tingkat kenakalan remaja berdasarkan pengalaman dan pandangan mereka sendiri.</p>
+        <p>Manakah pernyataan yang menunjukkan metode penelitian yang sesuai dengan teknik pengumpulan data yang dilakukan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-text">Penelitian eksperimen dengan teknik penentuan sampel stratified sampling karena penelitian ini membandingkan pada kelompok pengguna media sosial maupun yang tidak dari berbagai kalangan yang berbeda tingkatan.</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-text">Penelitian eksploratif dengan teknik penentuan sampel cluster samping berdasarkan wilayah untuk mengeksplorasi fenomena penggunaan media sosial dapat mempengaruhi moral remaja.</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-text">Penelitian kuantitatif dengan teknik penentuan sampel simple random sampling berdasarkan rentang usia yang diambil secara acak untuk menganalisis pengaruh penggunaan media sosial terhadap tingkat kenakalan remaja.</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-text">Penelitian lapangan dengan teknik penentuan sampel area sampling berdasarkan area tertentu untuk mengobservasi fenomena penggunaan media sosial terhadap tingkat kenakalan remaja.</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-text">Penelitian kualitatif dengan teknik penentuan sampel purposive sampling dengan menentukan kriteria tertentu untuk memahami dampak yang ditimbulkan dari fenomena penggunaan media sosial pada remaja.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="soal-tag">Penelitian Sosial — MCMA</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Penelitian ini bertujuan untuk menelaah secara komprehensif fenomena meningkatnya jumlah pengemis anak di ruang publik. Fokus utama diarahkan pada identifikasi faktor-faktor penyebab anak-anak berada di jalanan, seperti kondisi kemiskinan, keterbatasan akses terhadap pendidikan, serta eksploitasi oleh pihak tertentu. Penelitian ini juga mengeksplorasi dampak sosial dan psikologis yang dialami anak-anak tersebut, termasuk hilangnya masa kanak-kanak, kerentanan terhadap tindak kekerasan, dan munculnya stigma sosial. Teknik pengumpulan data yang digunakan meliputi observasi partisipatif, wawancara mendalam, dan kajian pustaka. Temuan dari penelitian ini diharapkan dapat memberikan kontribusi dalam pengembangan ilmu sosial, menjadi dasar pemecahan permasalahan sosial, serta meningkatkan kapasitas dan kompetensi peneliti.</p>
+        <p>Pernyataan manakah yang paling tepat menggambarkan kontribusi penelitian sosial dalam menyelesaikan permasalahan berdasarkan ilustrasi tersebut? <strong>Pilih LEBIH DARI SATU jawaban benar!</strong></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal10" value="A"><span class="option-text">Menambah wawasan tentang dampak fisik, psikologis maupun sosial yang dialami oleh pengemis di bawah umur.</span></label>
+        <label><input type="checkbox" name="soal10" value="B"><span class="option-text">Memberikan solusi atau saran kepada pemerintah untuk dapat dijadikan sebagai dasar pengambilan kebijakan.</span></label>
+        <label><input type="checkbox" name="soal10" value="C"><span class="option-text">Menjadi referensi utama bagi penelitian selanjutnya dan memberikan manfaat bagi para pembaca.</span></label>
+        <label><input type="checkbox" name="soal10" value="D"><span class="option-text">Meningkatkan kesadaran masyarakat tentang kompleksitas dan bahaya pengemis di bawah umur.</span></label>
+        <label><input type="checkbox" name="soal10" value="E"><span class="option-text">Mengurangi tingkat kekerasan dan eksploitasi di jalanan pada anak di bawah umur.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="soal-tag">Penelitian Sosial — Grafik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan grafik di bawah ini!</p>
+        <div class="gambar-wrapper">
+          <svg width="500" height="280" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="500" height="280" fill="#fafcff" rx="6"/>
+            <text x="250" y="25" text-anchor="middle" font-size="13" font-weight="bold" fill="#333">Tingkat Partisipasi Komunitas dalam Kegiatan Lingkungan per Jenis Kegiatan</text>
+            <line x1="140" y1="50" x2="140" y2="230" stroke="#333" stroke-width="1.5"/>
+            <line x1="140" y1="230" x2="460" y2="230" stroke="#333" stroke-width="1.5"/>
+            <!-- gridlines -->
+            <line x1="200" y1="50" x2="200" y2="230" stroke="#ddd" stroke-width="1"/>
+            <line x1="260" y1="50" x2="260" y2="230" stroke="#ddd" stroke-width="1"/>
+            <line x1="320" y1="50" x2="320" y2="230" stroke="#ddd" stroke-width="1"/>
+            <line x1="380" y1="50" x2="380" y2="230" stroke="#ddd" stroke-width="1"/>
+            <line x1="440" y1="50" x2="440" y2="230" stroke="#ddd" stroke-width="1"/>
+            <!-- x labels -->
+            <text x="200" y="248" text-anchor="middle" font-size="11" fill="#333">0</text>
+            <text x="260" y="248" text-anchor="middle" font-size="11" fill="#333">20</text>
+            <text x="320" y="248" text-anchor="middle" font-size="11" fill="#333">40</text>
+            <text x="380" y="248" text-anchor="middle" font-size="11" fill="#333">60</text>
+            <text x="440" y="248" text-anchor="middle" font-size="11" fill="#333">80</text>
+            <text x="480" y="248" text-anchor="middle" font-size="11" fill="#333">100</text>
+            <!-- y labels -->
+            <text x="130" y="85" text-anchor="end" font-size="11" fill="#333">Bersih Sungai</text>
+            <text x="130" y="145" text-anchor="end" font-size="11" fill="#333">Penanaman Pohon</text>
+            <text x="130" y="205" text-anchor="end" font-size="11" fill="#333">Daur Ulang Sampah</text>
+            <!-- bars -->
+            <rect x="140" y="70" width="320" height="30" fill="#2874a6" rx="3"/>
+            <text x="470" y="90" font-size="11" fill="#2874a6" font-weight="bold">120</text>
+            <rect x="140" y="130" width="213" height="30" fill="#2874a6" rx="3"/>
+            <text x="363" y="150" font-size="11" fill="#2874a6" font-weight="bold">80</text>
+            <rect x="140" y="190" width="133" height="30" fill="#2874a6" rx="3"/>
+            <text x="283" y="210" font-size="11" fill="#2874a6" font-weight="bold">50</text>
+            <!-- legend -->
+            <rect x="200" y="262" width="12" height="12" fill="#2874a6"/>
+            <text x="218" y="272" font-size="11" fill="#333">Jumlah</text>
+          </svg>
+          <div class="caption">Grafik Tingkat Partisipasi Komunitas dalam Kegiatan Lingkungan per Jenis Kegiatan</div>
+        </div>
+        <p>Berdasarkan grafik hasil penelitian di atas, penjelasan manakah yang paling tepat mengenai pola partisipasi komunitas dalam kegiatan lingkungan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">Semua jenis kegiatan lingkungan memiliki tingkat partisipasi yang seragam dan tinggi.</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">Kegiatan bersih sungai adalah yang paling populer dan menarik partisipasi komunitas terbanyak.</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">Masyarakat cenderung tidak tertarik pada kegiatan lingkungan yang bersifat fisik seperti penanaman pohon.</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">Daur ulang sampah merupakan kegiatan yang paling sukses dalam menarik jumlah peserta terbanyak.</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">Tidak ada perbedaan yang signifikan antara partisipasi dalam penanaman pohon dan daur ulang sampah.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="soal-tag">Kelompok Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di sebuah sekolah, sekelompok siswa membentuk komunitas bernama "Green Youth Club" yang fokus pada isu lingkungan. Mereka memulai dengan saling berbagi informasi tentang daur ulang dan pengelolaan sampah organik, lalu rutin melakukan kegiatan seperti membersihkan taman sekolah, membuat kompos, dan menyosialisasikan gaya hidup ramah lingkungan. Anggota komunitas ini berasal dari berbagai kelas dan latar belakang, namun mereka merasa memiliki tujuan bersama dan saling mendukung dalam kegiatan yang dijalankan. Jika dikaji dari konsep kelompok sosial, bagaimana proses terbentuknya komunitas Green Youth Club tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">Komunitas terbentuk secara spontan tanpa adanya kesamaan visi dan nilai.</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">"Green Youth Club" termasuk kelompok semu karena hanya berkumpul sesekali.</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">Kelompok tersebut terbentuk karena interaksi sosial yang berkelanjutan dan tujuan bersama.</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">Komunitas itu dibentuk secara paksa oleh sekolah sehingga tidak mencerminkan kelompok sosial.</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">Kelompok ini bukan kelompok sosial karena anggotanya berasal dari kelas yang berbeda.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="soal-tag">Penelitian Sosial — Rancangan Penelitian</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan hasil penelitian berikut!</p>
+        <p style="font-weight:600; margin:10px 0 6px; font-size:0.92rem;">Tabel Persepsi, hambatan, dan harapan publik mengenai pelayanan pemerintah</p>
+        <table class="data-tabel">
+          <tr><th>Tema Utama</th><th>Subtema</th><th>Kutipan Informan</th></tr>
+          <tr>
+            <td rowspan="2"><strong>Persepsi Pelayanan Publik</strong></td>
+            <td>Ketepatan waktu</td>
+            <td>"Saya sudah datang pagi-pagi, tapi tetap saja harus menunggu lama." – Informan 1</td>
+          </tr>
+          <tr>
+            <td>Keramahan petugas</td>
+            <td>"Petugasnya sebenarnya ramah, tapi kadang terkesan terburu-buru." – Informan 3</td>
+          </tr>
+          <tr>
+            <td rowspan="2"><strong>Hambatan dalam Pelayanan</strong></td>
+            <td>Sistem antrean manual</td>
+            <td>"Kalau antrean masih tulis tangan begini, gampang diserobot." – Informan 4</td>
+          </tr>
+          <tr>
+            <td>Kurangnya petunjuk informasi</td>
+            <td>"Saya bingung harus ke loket mana dulu. Tidak ada papan petunjuk." – Informan 9</td>
+          </tr>
+          <tr>
+            <td rowspan="2"><strong>Harapan Masyarakat</strong></td>
+            <td>Digitalisasi pelayanan</td>
+            <td>"Kalau bisa, dibuat sistem online biar enggak perlu antre lama di sini." – Informan 10</td>
+          </tr>
+          <tr>
+            <td>Pelatihan SDM</td>
+            <td>"Petugasnya perlu pelatihan biar lebih cepat dan akurat saat melayani." – Informan 7</td>
+          </tr>
+        </table>
+        <p>Bagaimana langkah-langkah penelitian yang tepat agar peneliti bisa menghasilkan sajian data tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">Peneliti membuat panduan wawancara yang diturunkan dari rumusan masalah penelitian, lalu melakukan pengumpulan data, mengecek kelengkapan jawaban, mengidentifikasi hasil jawaban, lalu mengelompokkannya dalam kategori yang sama.</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">Peneliti membuat daftar pertanyaan tertutup, mengujicobakannya dalam kelompok kecil, mengecek kelengkapan jawaban, mengelompokkan jawaban dalam tema tertentu, lalu menyimpulkan jawaban setiap responden.</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">Peneliti membuat kuesioner dengan jenis pertanyaan campuran, lalu melakukan pengumpulan data, mengecek kelengkapan jawaban, mengklasifikasi jawaban setiap responden, lalu melakukan penyajian data.</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">Peneliti merumuskan pertanyaan-pertanyaan pokok dari judul penelitian, lalu membuat panduan wawancara, melakukan uji coba terbatas, melakukan pengumpulan data, mengecek kelengkapan data, lalu penyajian data.</span></label>
+        <label><input type="radio" name="soal13" value="E"><span class="option-text">Peneliti merumuskan indikator dari variabel, lalu menurunkan indikator menjadi butir pertanyaan, melakukan uji coba terbatas, melakukan pengumpulan data, mengecek kelengkapan data, lalu penyajian data.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="soal-tag">Konflik Sosial — Bentuk Konflik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di beberapa kota di Indonesia mulai banyak terjadi konflik antara kelompok pedagang pasar tradisional dan pengelola pusat perbelanjaan modern/mal yang baru dibangun. Para pedagang pasar tradisional merasa dirugikan karena kehadiran mal tersebut mengakibatkan menurunnya jumlah pembeli di pasar tradisional. Mereka menganggap bahwa pembangunan pusat perbelanjaan tidak memperhatikan keberlangsungan ekonomi masyarakat kecil. Sementara itu, pihak pengelola mal merasa bahwa pembangunan tersebut sah dan merupakan bentuk kemajuan ekonomi kota. Ketegangan makin meningkat setelah terjadi aksi demonstrasi yang diwarnai kericuhan. Pemerintah kota mencoba meredam konflik dengan memediasi kedua belah pihak namun hingga kini belum tercapai kesepakatan yang memuaskan semua pihak. Konflik ini menjadi sorotan media dan memunculkan berbagai reaksi dari masyarakat luas.</p>
+        <p>Apa bentuk konflik sosial yang terjadi berdasarkan ilustrasi tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal14" value="A"><span class="option-text">Konflik antar kelas sosial karena terjadi benturan antara pedagang tradisional dan pedagang di mal.</span></label>
+        <label><input type="radio" name="soal14" value="B"><span class="option-text">Konflik antarkelompok kepentingan karena adanya perbedaan kepentingan ekonomi yang berbeda.</span></label>
+        <label><input type="radio" name="soal14" value="C"><span class="option-text">Konflik politik antar institusi dalam hal ini kelompok pedagang di mal ingin mengalahkan pedagang pasar tradisional.</span></label>
+        <label><input type="radio" name="soal14" value="D"><span class="option-text">Konflik budaya akibat perubahan nilai dimana pedagang pasar tradisional kehilangan pelanggan sejak adanya mal.</span></label>
+        <label><input type="radio" name="soal14" value="E"><span class="option-text">Konflik antarpribadi karena perbedaan individu yang terjadi diantara para pedagang tradisional kepada pedagang di mal.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="soal-tag">Konflik Sosial — Penanganan Konflik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pada suatu daerah terjadi ketegangan antara komunitas adat dengan perusahaan perkebunan sawit. Konflik ini bermula dari klaim terhadap hak kepemilikan lahan. Perusahaan berpegang pada izin yang mereka miliki, sementara komunitas adat merasa terabaikan. Konflik ini mengakibatkan terjadinya bentrokan fisik dan pemblokiran jalan oleh warga yang mengakibatkan aktivitas distribusi hasil perkebunan sawit menjadi terhambat. Mediasi awal dalam rangka penyelesaian konflik yang terjadi sudah dilakukan tetapi gagal total dan bahkan memperparah ketegangan dan ketidakpercayaan antara kedua belah pihak (komunitas adat dan pihak perusahaan perkebunan sawit). Situasi yang terjadi ini berada pada titik kritis dan memerlukan intervensi yang lebih kuat.</p>
+        <p>Bagaimana strategi yang tepat untuk mencapai kedamaian yang berkelanjutan antara komunitas adat dan perusahaan perkebunan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal15" value="A"><span class="option-text">Memulai kembali negosiasi antara manajemen perusahaan dan perwakilan komunitas adat tanpa melibatkan campur tangan pihak ketiga yang netral.</span></label>
+        <label><input type="radio" name="soal15" value="B"><span class="option-text">Melakukan dialog multi-pihak yang melibatkan pemerintah, akademisi, dan organisasi non pemerintah untuk membangun pemahaman bersama.</span></label>
+        <label><input type="radio" name="soal15" value="C"><span class="option-text">Melakukan arbitrase dengan menunjuk pihak ketiga yang independen dan memiliki kewenangan untuk membuat keputusan mengikat secara hukum.</span></label>
+        <label><input type="radio" name="soal15" value="D"><span class="option-text">Mengembangkan program kemitraan usaha bersama antara kedua belah pihak dengan sistem pembagian keuntungan yang dibagi secara adil.</span></label>
+        <label><input type="radio" name="soal15" value="E"><span class="option-text">Membentuk forum musyawarah desa yang difasilitasi oleh tokoh masyarakat setempat untuk mencari solusi terbaik yang berbasis kearifan lokal.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="soal-tag">Konflik Sosial — Penyebab Konflik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan ilustrasi berikut!</p>
+        <div class="gambar-wrapper">
+          <svg width="500" height="280" viewBox="0 0 500 280" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="500" height="280" fill="#fafcff" rx="6"/>
+            <!-- Hills background -->
+            <path d="M0 120 Q80 60 160 100 Q240 50 320 90 Q400 40 500 100 L500 200 L0 200 Z" fill="#a8d5a8"/>
+            <path d="M0 150 Q120 110 220 140 Q320 100 420 130 Q460 120 500 140 L500 220 L0 220 Z" fill="#7fc47f"/>
+            <!-- Trees -->
+            <circle cx="60" cy="130" r="18" fill="#2e7d32"/>
+            <rect x="57" y="145" width="6" height="20" fill="#5d4037"/>
+            <circle cx="440" cy="120" r="22" fill="#2e7d32"/>
+            <rect x="437" y="138" width="6" height="22" fill="#5d4037"/>
+            <circle cx="470" cy="130" r="16" fill="#388e3c"/>
+            <rect x="467" y="143" width="5" height="18" fill="#5d4037"/>
+            <!-- Houses -->
+            <rect x="200" y="130" width="40" height="30" fill="#d7a86e"/>
+            <polygon points="195,130 220,110 245,130" fill="#b71c1c"/>
+            <rect x="215" y="145" width="10" height="15" fill="#5d4037"/>
+            <rect x="260" y="135" width="35" height="25" fill="#d7a86e"/>
+            <polygon points="255,135 277,118 300,135" fill="#b71c1c"/>
+            <rect x="272" y="148" width="8" height="12" fill="#5d4037"/>
+            <rect x="330" y="140" width="30" height="22" fill="#d7a86e"/>
+            <polygon points="325,140 345,125 365,140" fill="#b71c1c"/>
+            <!-- Road / ground -->
+            <rect x="0" y="180" width="500" height="100" fill="#c8a060"/>
+            <!-- Bulldozer -->
+            <rect x="20" y="190" width="80" height="40" fill="#f0a020" stroke="#8a5a10" stroke-width="2"/>
+            <rect x="100" y="200" width="40" height="30" fill="#e08a00" stroke="#8a5a10" stroke-width="2"/>
+            <polygon points="100,230 140,230 150,260 90,260" fill="#a06a10" stroke="#5a3a08" stroke-width="2"/>
+            <circle cx="45" cy="240" r="15" fill="#333" stroke="#666" stroke-width="3"/>
+            <circle cx="95" cy="240" r="15" fill="#333" stroke="#666" stroke-width="3"/>
+            <rect x="60" y="180" width="25" height="15" fill="#d0d0d0" stroke="#888" stroke-width="1"/>
+            <!-- Police line -->
+            <rect x="160" y="200" width="280" height="12" fill="#333"/>
+            <g fill="#666">
+              <circle cx="180" cy="188" r="8"/><rect x="172" y="196" width="16" height="20"/>
+              <circle cx="220" cy="188" r="8"/><rect x="212" y="196" width="16" height="20"/>
+              <circle cx="260" cy="188" r="8"/><rect x="252" y="196" width="16" height="20"/>
+              <circle cx="300" cy="188" r="8"/><rect x="292" y="196" width="16" height="20"/>
+              <circle cx="340" cy="188" r="8"/><rect x="332" y="196" width="16" height="20"/>
+              <circle cx="380" cy="188" r="8"/><rect x="372" y="196" width="16" height="20"/>
+              <circle cx="420" cy="188" r="8"/><rect x="412" y="196" width="16" height="20"/>
+            </g>
+            <text x="300" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">POLISI</text>
+            <!-- Protesters with signs -->
+            <g>
+              <circle cx="200" cy="150" r="8" fill="#f5cba7"/><rect x="194" y="158" width="12" height="20" fill="#e74c3c"/>
+              <rect x="195" y="130" width="3" height="22" fill="#5d4037"/>
+              <rect x="185" y="120" width="35" height="15" fill="#fff" stroke="#333" stroke-width="1"/>
+              <text x="202" y="131" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TOLAK</text>
+              <text x="202" y="138" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TAMBANG</text>
+            </g>
+            <g>
+              <circle cx="250" cy="150" r="8" fill="#f5cba7"/><rect x="244" y="158" width="12" height="20" fill="#f39c12"/>
+              <rect x="245" y="130" width="3" height="22" fill="#5d4037"/>
+              <rect x="235" y="120" width="35" height="15" fill="#fff" stroke="#333" stroke-width="1"/>
+              <text x="252" y="131" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TOLAK</text>
+              <text x="252" y="138" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TAMBANG</text>
+            </g>
+            <g>
+              <circle cx="310" cy="150" r="8" fill="#f5cba7"/><rect x="304" y="158" width="12" height="20" fill="#27ae60"/>
+              <rect x="305" y="130" width="3" height="22" fill="#5d4037"/>
+              <rect x="295" y="120" width="35" height="15" fill="#fff" stroke="#333" stroke-width="1"/>
+              <text x="312" y="131" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TOLAK</text>
+              <text x="312" y="138" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TAMBANG</text>
+            </g>
+            <g>
+              <circle cx="360" cy="150" r="8" fill="#f5cba7"/><rect x="354" y="158" width="12" height="20" fill="#8e44ad"/>
+              <rect x="355" y="130" width="3" height="22" fill="#5d4037"/>
+              <rect x="345" y="120" width="35" height="15" fill="#fff" stroke="#333" stroke-width="1"/>
+              <text x="362" y="131" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TOLAK</text>
+              <text x="362" y="138" text-anchor="middle" font-size="6" font-weight="bold" fill="#c0392b">TAMBANG</text>
+            </g>
+          </svg>
+          <div class="caption">Ilustrasi aksi penolakan tambang oleh masyarakat adat</div>
+        </div>
+        <p>Di Desa Tanjung Harapan, sebuah perusahaan tambang mulai beroperasi setelah mendapatkan izin dari pemerintah daerah. Perusahaan tersebut membuka lahan secara besar-besaran, termasuk wilayah hutan adat yang selama ini dikelola secara turun-temurun oleh masyarakat lokal. Masyarakat adat menolak keberadaan tambang karena merasa tidak dilibatkan dalam proses perizinan dan khawatir kehilangan sumber penghidupan. Dalam beberapa bulan terakhir, terjadi aksi protes yang berujung pada bentrokan antara warga dan aparat keamanan.</p>
+        <p>Berdasarkan ilustrasi tersebut, apa penyebab utama terjadinya konflik sosial di Desa Tanjung Harapan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal16" value="A"><span class="option-text">Pemerintah daerah tidak mampu mengelola hasil tambang dengan baik.</span></label>
+        <label><input type="radio" name="soal16" value="B"><span class="option-text">Perusahaan tidak memberikan pelatihan kerja kepada masyarakat sekitar.</span></label>
+        <label><input type="radio" name="soal16" value="C"><span class="option-text">Masyarakat adat tidak memiliki pengetahuan tentang kegiatan pertambangan modern.</span></label>
+        <label><input type="radio" name="soal16" value="D"><span class="option-text">Kurangnya komunikasi dan partisipasi masyarakat dalam proses pengambilan keputusan.</span></label>
+        <label><input type="radio" name="soal16" value="E"><span class="option-text">Terjadi benturan kepentingan antara perusahaan dan hak masyarakat adat atas lahan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="soal-tag">Konflik Sosial — Upaya Perdamaian</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Konflik mulai terjadi ketika proyek pabrik yang didukung pemerintah lokal mulai dibangun di tanah yang secara tradisional menghidupi petani lokal. Petani mengatakan bahwa mereka tidak diberi informasi dan mengkhawatirkan nasib mereka akibat hilangnya mata pencaharian. Protes petani akhirnya viral di media sosial dan akhirnya mendapatkan perhatian dari pemerintah. Pemerintah lokal mengundang pihak petani dan pabrik untuk duduk bersama berdialog dengan fasilitasi tim perdamaian. Kesepakatan akhirnya terwujud dalam bentuk kompensasi, dibangunnya zona penyangga pertanian dan dilibatkannya warga (petani) dalam pengawasan proyek.</p>
+        <p>Berdasarkan ilustrasi tersebut, apa cara yang paling efektif untuk meredakan konflik dan menciptakan harmoni sosial?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal17" value="A"><span class="option-text">Memindahkan lahan pertanian ke lokasi lain tanpa perundingan.</span></label>
+        <label><input type="radio" name="soal17" value="B"><span class="option-text">Melakukan dialog untuk menciptakan kesepakatan yang inklusif.</span></label>
+        <label><input type="radio" name="soal17" value="C"><span class="option-text">Menawarkan bagi hasil saham kepada petani tanpa jaminan tanah.</span></label>
+        <label><input type="radio" name="soal17" value="D"><span class="option-text">Menekan protes dengan melakukan mobilisasi aparat keamanan.</span></label>
+        <label><input type="radio" name="soal17" value="E"><span class="option-text">Melanjutkan konstruksi tanpa mempertimbangkan keberatan warga.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="soal-tag">Kelompok Sosial — Kategori</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan infografis <strong>JENIS-JENIS KELOMPOK SOSIAL DI SEKITAR KITA</strong> berikut!</p>
+        <div class="gambar-wrapper">
+          <svg width="520" height="260" viewBox="0 0 520 260" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="520" height="260" fill="#fafcff" rx="6"/>
+            <!-- Kelompok Primer -->
+            <rect x="10" y="10" width="245" height="115" fill="#fff" stroke="#1a3a6a" stroke-width="2" rx="6"/>
+            <rect x="10" y="10" width="245" height="25" fill="#1a3a6a" rx="4"/>
+            <text x="132" y="27" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">KELOMPOK PRIMER</text>
+            <text x="132" y="55" text-anchor="middle" font-size="9" fill="#333">Hubungan dekat dan bersifat personal,</text>
+            <text x="132" y="68" text-anchor="middle" font-size="9" fill="#333">seperti keluarga atau sahabat</text>
+            <!-- simple family -->
+            <circle cx="80" cy="95" r="10" fill="#f5cba7"/><rect x="74" y="105" width="12" height="15" fill="#e67e22"/>
+            <circle cx="115" cy="98" r="8" fill="#f5cba7"/><rect x="110" y="106" width="10" height="12" fill="#f1c40f"/>
+            <circle cx="145" cy="95" r="9" fill="#f5cba7"/><rect x="140" y="104" width="10" height="14" fill="#e74c3c"/>
+            <circle cx="175" cy="98" r="8" fill="#f5cba7"/><rect x="170" y="106" width="10" height="12" fill="#27ae60"/>
+            <!-- Kelompok Sekunder -->
+            <rect x="265" y="10" width="245" height="115" fill="#fff" stroke="#1a3a6a" stroke-width="2" rx="6"/>
+            <rect x="265" y="10" width="245" height="25" fill="#1a3a6a" rx="4"/>
+            <text x="387" y="27" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">KELOMPOK SEKUNDER</text>
+            <text x="387" y="55" text-anchor="middle" font-size="9" fill="#333">Interaksi lebih formal dan berorientasi</text>
+            <text x="387" y="68" text-anchor="middle" font-size="9" fill="#333">pada tujuan tertentu, seperti organisasi sekolah</text>
+            <!-- students with laptop -->
+            <rect x="290" y="90" width="40" height="25" fill="#5dade2" rx="3"/>
+            <circle cx="330" cy="88" r="9" fill="#f5cba7"/><rect x="324" y="97" width="12" height="15" fill="#f1c40f"/>
+            <circle cx="365" cy="85" r="9" fill="#f5cba7"/><rect x="359" y="94" width="12" height="15" fill="#27ae60"/>
+            <circle cx="400" cy="88" r="9" fill="#f5cba7"/><rect x="394" y="97" width="12" height="15" fill="#e74c3c"/>
+            <circle cx="435" cy="88" r="9" fill="#f5cba7"/><rect x="429" y="97" width="12" height="15" fill="#8e44ad"/>
+            <!-- Kelompok Formal -->
+            <rect x="10" y="135" width="245" height="115" fill="#fff" stroke="#1a3a6a" stroke-width="2" rx="6"/>
+            <rect x="10" y="135" width="245" height="25" fill="#1a3a6a" rx="4"/>
+            <text x="132" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">KELOMPOK FORMAL</text>
+            <text x="132" y="180" text-anchor="middle" font-size="9" fill="#333">Memiliki struktur, aturan,</text>
+            <text x="132" y="193" text-anchor="middle" font-size="9" fill="#333">dan keanggotaan resmi</text>
+            <!-- scouts -->
+            <g>
+              <rect x="55" y="210" width="22" height="30" fill="#8b5a2b"/>
+              <circle cx="66" cy="200" r="9" fill="#f5cba7"/>
+              <rect x="57" y="195" width="18" height="7" fill="#6b4226"/>
+              <polygon points="66,203 60,215 72,215" fill="#e74c3c"/>
+            </g>
+            <g>
+              <rect x="100" y="210" width="22" height="30" fill="#8b5a2b"/>
+              <circle cx="111" cy="200" r="9" fill="#f5cba7"/>
+              <rect x="102" y="195" width="18" height="7" fill="#6b4226"/>
+              <polygon points="111,203 105,215 117,215" fill="#e74c3c"/>
+            </g>
+            <g>
+              <rect x="145" y="210" width="22" height="30" fill="#8b5a2b"/>
+              <circle cx="156" cy="200" r="9" fill="#f5cba7"/>
+              <rect x="147" y="195" width="18" height="7" fill="#6b4226"/>
+              <polygon points="156,203 150,215 162,215" fill="#e74c3c"/>
+            </g>
+            <!-- Kelompok Informal -->
+            <rect x="265" y="135" width="245" height="115" fill="#fff" stroke="#1a3a6a" stroke-width="2" rx="6"/>
+            <rect x="265" y="135" width="245" height="25" fill="#1a3a6a" rx="4"/>
+            <text x="387" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">KELOMPOK INFORMAL</text>
+            <text x="387" y="180" text-anchor="middle" font-size="9" fill="#333">Terbentuk secara spontan tanpa aturan resmi,</text>
+            <text x="387" y="193" text-anchor="middle" font-size="9" fill="#333">seperti teman bermain</text>
+            <!-- friends sitting -->
+            <circle cx="310" cy="215" r="10" fill="#f5cba7"/><rect x="304" y="225" width="12" height="18" fill="#f1c40f"/>
+            <circle cx="350" cy="218" r="10" fill="#f5cba7"/><rect x="344" y="228" width="12" height="18" fill="#27ae60"/>
+            <circle cx="390" cy="213" r="10" fill="#f5cba7"/><rect x="384" y="223" width="12" height="18" fill="#e74c3c"/>
+            <circle cx="430" cy="218" r="10" fill="#f5cba7"/><rect x="424" y="228" width="12" height="18" fill="#2980b9"/>
+          </svg>
+          <div class="caption">Infografis jenis-jenis kelompok sosial</div>
+        </div>
+        <p>Manakah pernyataan yang paling tepat menunjukkan perbedaan kelompok sosial pada infografis tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal18" value="A"><span class="option-text">Keluarga menunjukkan kelompok informal yang terbentuk secara spontan dan alami dari interaksi sosial yang terjadi karena adanya kesamaan minat, hobi, atau tujuan.</span></label>
+        <label><input type="radio" name="soal18" value="B"><span class="option-text">Kelompok belajar menunjukkan kelompok primer yang ditandai oleh adanya hubungan yang sangat erat, personal, intim, dan interaksi tatap muka yang sering.</span></label>
+        <label><input type="radio" name="soal18" value="C"><span class="option-text">Organisasi pramuka menunjukkan kelompok primer yang ditandai dengan adanya hubungan yang sangat erat, personal, intim, dan interaksi tatap muka yang sering.</span></label>
+        <label><input type="radio" name="soal18" value="D"><span class="option-text">Teman bermain menunjukkan kelompok formal yang dibentuk secara sengaja dan terencana dengan tujuan serta struktur yang jelas dan memiliki aturan yang tertulis.</span></label>
+        <label><input type="radio" name="soal18" value="E"><span class="option-text">Organisasi OSIS menunjukkan kelompok sekunder yang dicirikan oleh hubungan yang lebih formal, impersonal, dan berdasarkan tujuan atau kepentingan tertentu.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="soal-tag">Ketidaksetaraan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di Kelurahan Maju Jaya, warga terdiri dari beragam kelompok sosial seperti penduduk asli, pendatang dari kota, serta etnis minoritas. Dalam kegiatan pembangunan balai warga, kelompok penduduk asli selalu diundang dalam rapat musyawarah, sementara kelompok lain jarang dilibatkan. Kelompok pendatang dan etnis minoritas juga kesulitan memperoleh informasi tentang kegiatan warga karena akses informasi hanya beredar di lingkaran tertentu. Akibatnya, kelompok yang tidak terlibat merasa tersisih dan mulai muncul perasaan tidak dihargai. Ketegangan mulai terlihat ketika beberapa warga menyuarakan ketidakpuasan dalam forum daring lokal. Situasi ini menimbulkan saling curiga, bahkan muncul komentar negatif antar kelompok. Dalam masyarakat majemuk seperti ini, praktik ketidaksetaraan sosial dalam partisipasi dapat menjadi awal dari konflik yang lebih besar.</p>
+        <p>Manakah pernyataan yang menjadi pemicu awal terjadinya ketegangan antara kelompok pendatang dan etnis minoritas?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">Ketidakadilan dalam pengambilan keputusan musyawarah membentuk jarak sosial antar kelompok dan menurunkan rasa dihargai.</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">Kesenjangan dalam akses informasi memperkuat stigma sosial dan mendorong eksklusi kelompok minoritas.</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">Dominasi kelompok mayoritas memperlemah solidaritas sosial dan merenggangkan relasi antar kelompok masyarakat.</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">Ketimpangan dalam hak partisipasi membentuk jurang sosial, menurunkan rasa saling percaya antar kelompok.</span></label>
+        <label><input type="radio" name="soal19" value="E"><span class="option-text">Ketidaksetaraan dalam pembagian peran memperkuat stratifikasi sosial dan menghambat mobilitas kelompok.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="soal-tag">Dampak Ketidaksetaraan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah studi di Kota Bahari menunjukkan bahwa ketimpangan pendapatan antara kelompok kaya dan miskin semakin lebar dalam 10 tahun terakhir. Akses terhadap fasilitas pendidikan, kesehatan, dan pekerjaan berkualitas lebih mudah diperoleh oleh kelompok masyarakat atas. Sementara itu, masyarakat miskin harus bergantung pada layanan publik yang terbatas dan sering kali berkualitas rendah. Ketidakpuasan mulai muncul di media sosial dan ruang publik. Beberapa kelompok masyarakat melakukan aksi protes untuk menuntut keadilan sosial.</p>
+        <p>Apakah dampak sosial yang mungkin terjadi akibat adanya ketidakpuasan masyarakat miskin terhadap layanan publik?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal20" value="A"><span class="option-text">Menimbulkan aksi protes masyarakat miskin untuk menyuarakan pendapat.</span></label>
+        <label><input type="radio" name="soal20" value="B"><span class="option-text">Menimbulkan kerentanan kelompok miskin akibat terbatasnya akses terhadap fasilitas publik.</span></label>
+        <label><input type="radio" name="soal20" value="C"><span class="option-text">Menimbulkan ketidaksetaraan yang membuat kelompok miskin semakin terhambat dan merasa tidak adil.</span></label>
+        <label><input type="radio" name="soal20" value="D"><span class="option-text">Menimbulkan rendahnya partisipasi masyarakat miskin dalam proses pengambilan keputusan publik.</span></label>
+        <label><input type="radio" name="soal20" value="E"><span class="option-text">Menimbulkan kebijakan pemerintah yang diarahkan untuk memperbaiki layanan publik di wilayah miskin.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="soal-tag">Prinsip Kesetaraan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pemerintah Kota Madani membuka program beasiswa bagi pelajar SMA yang berasal dari keluarga kurang mampu. Program ini tidak hanya berdasarkan nilai akademik, tetapi juga mempertimbangkan latar belakang ekonomi dan akses pendidikan siswa. Selain itu, fasilitas transportasi gratis diberikan khusus bagi siswa dari daerah terpencil untuk memudahkan mereka bersekolah.</p>
+        <p>Berdasarkan ilustrasi di atas, bagaimana prinsip kesetaraan sosial diterapkan dalam pelayanan publik?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal21" value="A"><span class="option-text">Kesetaraan kesempatan, karena siswa diberi peluang yang setara untuk maju.</span></label>
+        <label><input type="radio" name="soal21" value="B"><span class="option-text">Kesetaraan budaya, karena pemerintah menghormati adat dan kebiasaan lokal.</span></label>
+        <label><input type="radio" name="soal21" value="C"><span class="option-text">Kesetaraan ekonomi, karena pemerintah memberikan bantuan kepada semua warga.</span></label>
+        <label><input type="radio" name="soal21" value="D"><span class="option-text">Kesetaraan hukum, karena semua siswa diperlakukan sama tanpa melihat latar belakang.</span></label>
+        <label><input type="radio" name="soal21" value="E"><span class="option-text">Kesetaraan politik, karena semua siswa mendapat hak suara dalam menentukan program.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="soal-tag">Dinamika Permasalahan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di sebuah kawasan pinggiran perkotaan yang padat penduduk, banyak keluarga hidup tanpa memiliki akses ke air bersih, sanitasi dan jaringan listrik yang stabil. Di kawasan ini banyak orang tua yang bekerja di sektor informal dengan pendapatan tidak teratur. Anak-anak di daerah ini sering putus sekolah karena mendukung ekonomi orang tuanya. Penduduknya merasa terasing dari perkembangan kota dan tidak banyak menerima dukungan dari program pemerintah. Hal ini menunjukkan adanya ketimpangan sosial dan hal tersebut pada akhirnya berkontribusi pada meningkatnya kemiskinan, layanan publik yang terbatas dan rendahnya literasi.</p>
+        <p>Mengapa ketimpangan sosial dapat meningkatkan angka kemiskinan pada masyarakat perkotaan pada kasus tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal22" value="A"><span class="option-text">Tradisi budaya yang memprioritaskan pendidikan formal daripada informal, sehingga mengabaikan keterampilan hidup yang relevan dengan kondisi masyarakat.</span></label>
+        <label><input type="radio" name="soal22" value="B"><span class="option-text">Penolakan kelompok marginal untuk direlokasi ke lingkungan yang lebih sehat, yang menyebabkan mereka tetap tinggal di wilayah tanpa akses layanan dasar.</span></label>
+        <label><input type="radio" name="soal22" value="C"><span class="option-text">Kurangnya motivasi warga untuk memperbaiki kehidupan mereka sendiri karena tidak adanya bentuk pengangguran yang nyata di wilayah masyarakat berada.</span></label>
+        <label><input type="radio" name="soal22" value="D"><span class="option-text">Akses yang tidak merata terhadap layanan dasar dan ketidakberpihakan kebijakan yang menyebabkan warga terpinggirkan dan tidak mendapat layanan memadai.</span></label>
+        <label><input type="radio" name="soal22" value="E"><span class="option-text">Perencanaan keuangan buruk dan tingkat konsumsi yang tidak berimbang menyebabkan pendapatan dari sektor informal sulit mencukupi kebutuhan dasar.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="soal-tag">Globalisasi &amp; Ketimpangan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Globalisasi mendorong pertumbuhan ekonomi di negara-negara berkembang terutama di sektor industri dan jasa. Namun, pembangunan seringkali tidak merata dan terpusat di kota-kota besar. Padahal, akses terhadap pendidikan dan teknologi sebelumnya memang sudah banyak terpusat di wilayah kota. Meskipun hal ini tampak menguntungkan, perusahaan multinasional yang masuk ke negara berkembang sebenarnya diuntungkan karena bisa membayar upah rendah kepada pekerja lokal. Sebagian bahkan tidak memberikan hak-hak yang adil seperti pekerja dari negara asal mereka. Sayangnya, hal ini sering dianggap lazim demi mendorong perekonomian negara dan menyerap tenaga kerja tinggi.</p>
+        <p>Mengapa globalisasi pada kasus tersebut dapat menimbulkan kesenjangan sosial?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal23" value="A"><span class="option-text">Kesenjangan sosial pada kasus muncul karena pertumbuhan ekonomi Indonesia yang lambat dibandingkan negara lain.</span></label>
+        <label><input type="radio" name="soal23" value="B"><span class="option-text">Kesenjangan sosial pada kasus terjadi karena adanya alienasi/keterasingan pekerja dari produk yang dihasilkannya.</span></label>
+        <label><input type="radio" name="soal23" value="C"><span class="option-text">Kesenjangan sosial pada kasus terjadi karena kurangnya perencanaan dan peran pemerintah dalam pembangunan ekonomi.</span></label>
+        <label><input type="radio" name="soal23" value="D"><span class="option-text">Kesenjangan sosial pada kasus terjadi karena industrialisasi merupakan perubahan sosial dampaknya tidak bisa diprediksi.</span></label>
+        <label><input type="radio" name="soal23" value="E"><span class="option-text">Kesenjangan sosial pada kasus terjadi karena tidak adanya kesadaran dari pekerja untuk memperjuangkan keadilan sosial.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="soal-tag">Globalisasi &amp; Perubahan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Desa Wirausaha yang dahulu mengandalkan pertanian tradisional kini mulai berubah. Sejak adanya akses internet dan media sosial, banyak pemuda desa membuka toko daring untuk menjual produk kerajinan tangan ke luar negeri. Selain itu, beberapa keluarga mengadopsi gaya hidup konsumtif dan mulai meninggalkan tradisi gotong royong. Bahasa asing juga mulai sering digunakan dalam pergaulan anak muda.</p>
+        <p>Apa bentuk dampak globalisasi yang paling menonjol terhadap kehidupan ekonomi masyarakat?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal24" value="A"><span class="option-text">Globalisasi menyebabkan desa kembali pada ekonomi subsisten dan lokal.</span></label>
+        <label><input type="radio" name="soal24" value="B"><span class="option-text">Globalisasi menyebabkan masyarakat menolak transaksi dengan pihak luar.</span></label>
+        <label><input type="radio" name="soal24" value="C"><span class="option-text">Globalisasi menyebabkan peningkatan aktivitas jual beli melalui platform digital.</span></label>
+        <label><input type="radio" name="soal24" value="D"><span class="option-text">Globalisasi menyebabkan seluruh hasil kerajinan digunakan untuk kebutuhan pribadi.</span></label>
+        <label><input type="radio" name="soal24" value="E"><span class="option-text">Globalisasi menyebabkan masyarakat berhenti memproduksi barang tradisional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="soal-tag">Globalisasi &amp; Pendidikan Digital</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di sebuah sekolah menengah, para murid mengikuti program pembelajaran berbasis teknologi digital. Setiap siswa dibekali gawai untuk mengakses materi pembelajaran dari rumah maupun di sekolah. Guru memanfaatkan platform pembelajaran daring yang memungkinkan diskusi kelas berlangsung secara virtual. Selain itu, siswa juga diperkenalkan pada tren budaya global melalui media sosial, seperti gaya hidup sehat, komunitas kreatif, hingga diskusi lintas negara tentang isu sosial. Seiring waktu, cara siswa berinteraksi, belajar, dan memandang dunia mengalami perubahan yang nyata, termasuk dalam cara mereka menanggapi keberagaman dan beradaptasi dengan perkembangan zaman.</p>
+        <p>Bagaimana keterlibatan masyarakat dalam aktivitas berbasis digital merefleksikan konsekuensi sosial yang diakibatkan oleh arus globalisasi?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal25" value="A"><span class="option-text">Teknologi memperluas akses ruang belajar karena siswa belajar dari jejaring global, mencerminkan pendidikan yang kolaboratif.</span></label>
+        <label><input type="radio" name="soal25" value="B"><span class="option-text">Teknologi memudahkan akses nilai baru karena siswa terbiasa informasi global, mencerminkan pola pikir masyarakat yang terbuka.</span></label>
+        <label><input type="radio" name="soal25" value="C"><span class="option-text">Teknologi meningkatkan refleksi terhadap perbedaan karena siswa berdiskusi lintas latar, mencerminkan tumbuhnya toleransi sosial.</span></label>
+        <label><input type="radio" name="soal25" value="D"><span class="option-text">Teknologi mendorong partisipasi budaya digital karena siswa aktif di media sosial, mencerminkan pergeseran ekspresi masyarakat.</span></label>
+        <label><input type="radio" name="soal25" value="E"><span class="option-text">Teknologi memperkuat interaksi lintas budaya karena berinteraksi dengan komunitas global, mencerminkan luasnya wawasan global.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 26 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">26</span>
+        <span class="soal-tag">Dampak Perubahan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Kampung Cempaka dulunya merupakan permukiman padat dengan kegiatan sosial yang tinggi. Warga sering mengadakan kerja bakti, arisan RT, dan kegiatan keagamaan bersama. Namun, sejak banyak rumah dijual dan dibeli oleh pendatang dari luar daerah, suasana sosial berubah. Warga baru lebih tertutup, tidak aktif dalam kegiatan warga, dan lebih memilih berinteraksi melalui media sosial. Meskipun kawasan menjadi lebih bersih dan tertata, namun hubungan antarwarga melemah.</p>
+        <p>Apa dampak jangka panjang dari pola interaksi sosial yang mulai berubah di Kampung Cempaka?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal26" value="A"><span class="option-text">Kesadaran kolektif dalam menjaga lingkungan mulai melemah secara bertahap.</span></label>
+        <label><input type="radio" name="soal26" value="B"><span class="option-text">Partisipasi warga dalam kegiatan rutin mengalami penurunan yang tidak disadari.</span></label>
+        <label><input type="radio" name="soal26" value="C"><span class="option-text">Rasa memiliki terhadap komunitas perlahan terkikis karena kurangnya keterlibatan.</span></label>
+        <label><input type="radio" name="soal26" value="D"><span class="option-text">Kegiatan sosial berubah bentuk tanpa memperkuat hubungan antarwarga.</span></label>
+        <label><input type="radio" name="soal26" value="E"><span class="option-text">Norma sosial tetap bertahan meskipun jumlah interaksi warga semakin terbatas.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 27 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">27</span>
+        <span class="soal-tag">Masalah Sosial Akibat Globalisasi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan ilustrasi berikut!</p>
+        <div class="gambar-wrapper">
+          <svg width="420" height="200" viewBox="0 0 420 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="420" height="200" fill="#fafcff" rx="6"/>
+            <!-- phone -->
+            <rect x="140" y="30" width="140" height="150" rx="12" fill="#1a3a6a" stroke="#0d2340" stroke-width="2"/>
+            <rect x="150" y="42" width="120" height="120" rx="4" fill="#e8f4f8"/>
+            <text x="210" y="90" text-anchor="middle" font-size="28" font-weight="bold" fill="#c0392b">HOAX</text>
+            <rect x="170" y="110" width="80" height="25" rx="12" fill="#e74c3c"/>
+            <text x="210" y="127" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">SHARE</text>
+            <!-- hand -->
+            <path d="M280 160 Q290 140 310 130 Q320 125 325 130 L320 145 Q310 160 290 170 Z" fill="#f5cba7" stroke="#d4a373" stroke-width="1.5"/>
+            <!-- speech bubbles -->
+            <ellipse cx="70" cy="60" rx="40" ry="25" fill="#fff" stroke="#333" stroke-width="1.5"/>
+            <polygon points="70,85 55,95 65,82" fill="#fff" stroke="#333" stroke-width="1.5"/>
+            <rect x="50" y="50" width="40" height="3" fill="#333"/>
+            <rect x="50" y="58" width="30" height="3" fill="#333"/>
+            <rect x="50" y="66" width="35" height="3" fill="#333"/>
+            <ellipse cx="350" cy="60" rx="45" ry="25" fill="#fff" stroke="#333" stroke-width="1.5"/>
+            <polygon points="350,85 365,95 355,82" fill="#fff" stroke="#333" stroke-width="1.5"/>
+            <circle cx="335" cy="60" r="3" fill="#333"/>
+            <circle cx="350" cy="60" r="3" fill="#333"/>
+            <circle cx="365" cy="60" r="3" fill="#333"/>
+            <!-- camera icon -->
+            <rect x="55" y="10" width="30" height="22" rx="3" fill="none" stroke="#333" stroke-width="2"/>
+            <rect x="60" y="5" width="20" height="6" fill="none" stroke="#333" stroke-width="1.5"/>
+            <circle cx="70" cy="21" r="6" fill="none" stroke="#333" stroke-width="2"/>
+          </svg>
+          <div class="caption">Ilustrasi penyebaran hoaks melalui media sosial</div>
+        </div>
+        <p>Di era digital saat ini, media sosial menjadi salah satu sumber utama informasi bagi masyarakat. Namun, tidak semua informasi yang tersebar dapat dipertanggungjawabkan. Baru-baru ini, di sebuah kota kecil, beredar pesan berantai di aplikasi pengirim pesan yang menyebutkan akan terjadi gempa besar dan mengimbau warga untuk segera mengungsi. Informasi tersebut ternyata tidak berasal dari lembaga resmi dan terbukti hoaks. Akibatnya, banyak warga panik, meninggalkan rumah, bahkan terjadi penjarahan di beberapa toko. Situasi ini menunjukkan bagaimana penyebaran informasi yang tidak benar bisa menimbulkan kepanikan massal dan merusak tatanan sosial masyarakat. Mengapa masalah sosial dalam ilustrasi tersebut merupakan dampak dari globalisasi?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal27" value="A"><span class="option-text">Globalisasi memfasilitasi peningkatan interaksi dan relasi sosial secara tatap muka yang intens antarvarga.</span></label>
+        <label><input type="radio" name="soal27" value="B"><span class="option-text">Globalisasi mendorong kembalinya nilai-nilai tradisional dan kearifan lokal yang mampu menyaring informasi.</span></label>
+        <label><input type="radio" name="soal27" value="C"><span class="option-text">Globalisasi menyebabkan homogenitas budaya sehingga masyarakat lebih mudah percaya pada satu jenis informasi.</span></label>
+        <label><input type="radio" name="soal27" value="D"><span class="option-text">Globalisasi memungkinkan penyebaran informasi, termasuk hoaks, secara cepat dan masif melintasi batas geografis.</span></label>
+        <label><input type="radio" name="soal27" value="E"><span class="option-text">Globalisasi menekankan pentingnya peran lembaga formal dalam mengontrol setiap bentuk komunikasi masyarakat.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 28 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">28</span>
+        <span class="soal-tag">Sikap Kritis terhadap Globalisasi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dalam dua tahun terakhir, banyak siswa di sebuah SMA mulai meninggalkan kebiasaan menggunakan bahasa daerah dalam percakapan sehari-hari. Mereka lebih sering menggunakan istilah dalam bahasa Inggris yang dipopulerkan melalui media sosial, film, dan budaya pop barat. Selain itu, pakaian adat mulai jarang dipakai, bahkan saat acara sekolah. Sebagian siswa merasa budaya lokal sudah ketinggalan zaman dan tidak menarik untuk ditampilkan.</p>
+        <p>Sikap manakah yang paling sesuai untuk membangun kesadaran siswa agar tetap menghargai budaya daerah tanpa menolak budaya luar?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal28" value="A"><span class="option-text">Mendorong siswa untuk lebih sering menampilkan budaya lokal dalam kegiatan sekolah yang bersifat terbuka.</span></label>
+        <label><input type="radio" name="soal28" value="B"><span class="option-text">Mengarahkan siswa untuk menekankan unsur-unsur lokal dalam proyek yang menampilkan identitas global.</span></label>
+        <label><input type="radio" name="soal28" value="C"><span class="option-text">Menanamkan rasa bangga terhadap budaya lokal sambil tetap membuka ruang eksplorasi budaya luar.</span></label>
+        <label><input type="radio" name="soal28" value="D"><span class="option-text">Menyediakan platform yang memfasilitasi siswa dalam menggabungkan nilai-nilai lokal dan global secara kreatif.</span></label>
+        <label><input type="radio" name="soal28" value="E"><span class="option-text">Mengutamakan nilai-nilai budaya daerah dalam seluruh bentuk kegiatan tanpa menghilangkan pengaruh luar sepenuhnya.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 29 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">29</span>
+        <span class="soal-tag">Rekomendasi Kritis Globalisasi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Indonesia, China, India, Pakistan, Bangladesh, dan Nigeria menyumbang 75% dari total beban polusi udara global karena tingkat polusi udara yang tinggi dan jumlah populasi yang besar. Udara yang berisi partikel halus (PM 2.5) berpotensi mengurangi usia hidup rata-rata warga Indonesia hingga 1,4 tahun dibandingkan jika kualitas udara di Indonesia memenuhi standar WHO, yakni 5 µg/m³. Pencemaran udara oleh pelaku industri menjadi sorotan karena berkontribusi tinggi terhadap polusi udara. Selain itu, beberapa pihak juga berencana menggugat pemerintah karena dinilai belum optimal dalam mengatasi masalah polusi udara. Hal ini tidak mengherankan karena beberapa negara juga masih belum memiliki data yang lengkap berupa hasil riset maupun alat untuk memonitor dan mengukur kualitas udara.</p>
+        <p>Apa rekomendasi yang paling tepat diberikan kepada institusi pendidikan tinggi agar bisa berkontribusi dalam mengatasi masalah tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal29" value="A"><span class="option-text">Mendampingi masyarakat menuntut pemerintah menggratiskan pengobatan untuk penyakit gangguan pernafasan.</span></label>
+        <label><input type="radio" name="soal29" value="B"><span class="option-text">Menjalin kerja sama dengan negara-negara maju agar berinvestasi di sektor industri dengan konsep energi terbarukan.</span></label>
+        <label><input type="radio" name="soal29" value="C"><span class="option-text">Membangun pusat riset yang berkonsentrasi pada lingkungan agar menghasilkan strategi dan pembangunan berkelanjutan.</span></label>
+        <label><input type="radio" name="soal29" value="D"><span class="option-text">Menjalin kerja sama dengan berbagai pihak untuk membuat program penanaman sejuta pohon di wilayah hutan gundul.</span></label>
+        <label><input type="radio" name="soal29" value="E"><span class="option-text">Mengembangkan program pengabdian kepada masyarakat untuk memberikan edukasi cara mengelola limbah rumah tangga.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 30 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">30</span>
+        <span class="soal-tag">Penguatan Budaya Lokal</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Masuknya budaya asing ke Indonesia yang dipercepat oleh arus globalisasi dan teknologi membawa pengaruh besar, baik secara positif maupun negatif. Di satu sisi, budaya asing memperluas wawasan, memperkenalkan inovasi, dan memperkaya kebudayaan lokal. Namun, di sisi lain, pengaruh ini juga dapat mengikis nilai-nilai tradisional, memicu perubahan gaya hidup yang bertentangan dengan norma masyarakat, serta menimbulkan ketimpangan sosial. Desa Trunyan di Bali memiliki tradisi pemakaman unik: jenazah tidak dikubur atau dibakar, melainkan diletakkan di atas tanah dan dibiarkan membusuk secara alami. Tradisi ini menarik minat wisatawan, baik domestik maupun mancanegara. Namun, meningkatnya kunjungan wisatawan memunculkan tantangan baru seperti meningkatnya volume sampah, degradasi lingkungan, dan komersialisasi budaya yang berisiko mengubah makna spiritual dari tradisi tersebut.</p>
+        <p>Apa rekomendasi paling strategis yang bisa dilakukan pemuda Desa Trunyan untuk menjaga nilai budaya di tengah arus globalisasi?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal30" value="A"><span class="option-text">Mengampanyekan gaya hidup lokal melalui media sosial dengan pendekatan visual modern.</span></label>
+        <label><input type="radio" name="soal30" value="B"><span class="option-text">Meningkatkan daya tarik ekonomi dari tradisi dengan memperluas pasar souvenir khas pemakaman.</span></label>
+        <label><input type="radio" name="soal30" value="C"><span class="option-text">Menjadi pemandu wisata profesional agar bisa menjelaskan budaya secara sistematis dan netral.</span></label>
+        <label><input type="radio" name="soal30" value="D"><span class="option-text">Meningkatkan penggunaan bahasa asing dalam promosi budaya agar lebih diterima wisatawan asing.</span></label>
+        <label><input type="radio" name="soal30" value="E"><span class="option-text">Membuat festival tahunan dengan atraksi budaya yang diatur oleh sponsor dan pihak swasta.</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 30</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Sosiologi_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Sosiologi SMA/MA/SMK
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 30 =====
+  // string  -> pilihan ganda biasa (radio)
+  // object  -> benar/salah (radio, semua sub harus benar)
+  // array   -> pilihan ganda kompleks (checkbox, harus tepat semua)
+  const kunciJawaban = {
+    soal1:  "C",
+    soal2:  "B",
+    soal3:  "D",
+    soal4:  "E",
+    soal5:  { a: "B", b: "B", c: "S" },
+    soal6:  "D",
+    soal7:  ["A", "B", "D", "E"],
+    soal8:  "B",
+    soal9:  "C",
+    soal10: ["A", "B", "C", "D"],
+    soal11: "B",
+    soal12: "C",
+    soal13: "A",
+    soal14: "B",
+    soal15: "B",
+    soal16: "D",
+    soal17: "B",
+    soal18: "E",
+    soal19: "B",
+    soal20: "A",
+    soal21: "A",
+    soal22: "D",
+    soal23: "C",
+    soal24: "C",
+    soal25: "B",
+    soal26: "C",
+    soal27: "D",
+    soal28: "C",
+    soal29: "C",
+    soal30: "A"
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+  const TOTAL_SOAL = 30;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_sosiologi_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_sosiologi_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    let benar = 0;
+    let totalSoalDinilai = 0;
+
+    for (let i = 1; i <= TOTAL_SOAL; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (kunci === null || kunci === undefined) continue;
+      totalSoalDinilai++;
+
+      if (typeof kunci === 'string') {
+        // Pilihan ganda biasa
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        // Pilihan ganda kompleks (checkbox) — harus tepat semua
+        const checked = Array.from(
+          document.querySelectorAll('input[name="' + key + '"]:checked')
+        ).map(el => el.value).sort();
+        const kunciSorted = [...kunci].sort();
+        if (checked.length === kunciSorted.length &&
+            checked.every((v, idx) => v === kunciSorted[idx])) {
+          benar++;
+        }
+
+      } else if (typeof kunci === 'object') {
+        // Benar/Salah (radio) — semua sub harus benar
+        const subKeys = Object.keys(kunci);
+        let subBenar = true;
+        subKeys.forEach(sub => {
+          const sel = document.querySelector('input[name="' + key + sub + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) subBenar = false;
+        });
+        if (subBenar) benar++;
+      }
+    }
+
+    benarGlobal = benar;
+    skorGlobal = totalSoalDinilai > 0 ? Math.round((benar / totalSoalDinilai) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + totalSoalDinilai;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Sosiologi_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE (FOLDER TUJUAN) =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+
+    // Tampilkan panduan
+    document.getElementById('drive-info').classList.add('show');
+
+    // 1. Otomatis unduh PDF terlebih dahulu
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Sosiologi_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      // 2. Setelah PDF terunduh, buka folder Google Drive tujuan
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Sosiologi_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

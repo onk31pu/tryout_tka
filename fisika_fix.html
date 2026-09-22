@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Fisika SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 3px rgba(40,116,166,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,59,92,0.35);
+  }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan svg {
+    max-width: 100%; height: auto; margin: 12px 0;
+    border-radius: 8px; border: 1px solid #e0e8f0; display: block;
+  }
+  .gambar-wrapper { text-align: center; margin: 14px 0; }
+  .gambar-wrapper svg { margin: 0 auto; display: inline-block; }
+  .caption {
+    font-size: 0.8rem; color: #6a7a8a;
+    text-align: center; margin-top: 4px; font-style: italic;
+  }
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 550px; font-size: 0.9rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #b0c4d8; padding: 8px 12px; text-align: center;
+  }
+  table.data-tabel th { background: #eef4fa; color: #0b3b5c; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"] { margin-top: 4px; accent-color: #0b3b5c; }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .math-block {
+    background: #f8fafc; padding: 12px 18px; border-radius: 8px;
+    margin: 10px 0; overflow-x: auto;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    font-size: 1.05rem; border-left: 3px solid #0b3b5c;
+  }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b3b5c;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol {
+    margin-left: 18px; margin-top: 6px;
+  }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Fisika</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN / IDENTITAS PESERTA ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">⚛️</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII MIPA 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span>Gerak Parabola</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dua orang mencoba cara yang berbeda untuk menembak sasaran pada titik C. Orang pertama menggunakan bola A dan diletakkan di tepi meja. Orang kedua menggunakan bola B yang berada di lantai. Bola A dan B kemudian dihentakkan secara bersamaan pada arah mendatar (g = 10 m·s⁻² dan gesekan diabaikan).</p>
+        <div class="gambar-wrapper">
+          <svg width="500" height="250" viewBox="0 0 500 250" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="500" height="250" fill="#fafcff" rx="6"/>
+            <rect x="50" y="100" width="180" height="12" fill="#888" stroke="#555" stroke-width="1.5"/>
+            <rect x="80" y="112" width="12" height="70" fill="#888"/>
+            <rect x="180" y="112" width="12" height="70" fill="#888"/>
+            <line x1="20" y1="182" x2="480" y2="182" stroke="#555" stroke-width="2"/>
+            <circle cx="140" cy="90" r="10" fill="#aed6f1" stroke="#2874a6" stroke-width="1.5"/>
+            <text x="140" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="#2874a6">A</text>
+            <line x1="150" y1="90" x2="200" y2="90" stroke="#333" stroke-width="1.5"/>
+            <polygon points="200,90 192,86 192,94" fill="#333"/>
+            <text x="210" y="85" font-size="12" fill="#333">v₁ = 30 m·s⁻¹</text>
+            <circle cx="200" cy="172" r="10" fill="#f9e79f" stroke="#b7950b" stroke-width="1.5"/>
+            <text x="200" y="162" text-anchor="middle" font-size="14" font-weight="bold" fill="#b7950b">B</text>
+            <line x1="210" y1="172" x2="250" y2="172" stroke="#333" stroke-width="1.5"/>
+            <polygon points="250,172 242,168 242,176" fill="#333"/>
+            <text x="260" y="167" font-size="12" fill="#333">v₂</text>
+            <circle cx="400" cy="182" r="5" fill="#c0392b"/>
+            <text x="400" y="200" text-anchor="middle" font-size="14" font-weight="bold" fill="#c0392b">C</text>
+            <path d="M150 90 Q280 20 400 182" stroke="#c0392b" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+            <line x1="230" y1="210" x2="400" y2="210" stroke="#333" stroke-width="1"/>
+            <line x1="230" y1="205" x2="230" y2="215" stroke="#333" stroke-width="1"/>
+            <line x1="400" y1="205" x2="400" y2="215" stroke="#333" stroke-width="1"/>
+            <text x="315" y="225" text-anchor="middle" font-size="12" fill="#333">x = 12 m</text>
+            <line x1="30" y1="100" x2="30" y2="182" stroke="#333" stroke-width="1"/>
+            <line x1="25" y1="100" x2="35" y2="100" stroke="#333" stroke-width="1"/>
+            <line x1="25" y1="182" x2="35" y2="182" stroke="#333" stroke-width="1"/>
+            <text x="15" y="145" text-anchor="middle" font-size="12" fill="#333">y</text>
+          </svg>
+          <div class="caption">Ilustrasi dua bola menuju sasaran C</div>
+        </div>
+        <p>Ternyata kedua bola sampai dan mengenai sasaran di titik C secara bersamaan. Apa saja kondisi awal yang dapat menyebabkan hal tersebut? Keterangan: Gesekan antara bola dengan lantai, permukaan meja, maupun udara diabaikan.</p>
+        <p>Berdasarkan informasi di atas, tentukan untuk setiap kondisi yang diberikan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Massa bola A dan bola B sama.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal1a" value="B"> Benar</label>
+            <label><input type="radio" name="soal1a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Posisi bola A saat itu adalah 0,8 m di atas tanah.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal1b" value="B"> Benar</label>
+            <label><input type="radio" name="soal1b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Bola B dihentakkan dengan kecepatan awal sebesar 10 m·s⁻¹.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal1c" value="B"> Benar</label>
+            <label><input type="radio" name="soal1c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span>Gerak Melingkar</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah meja pembuat perkakas keramik dapat berputar secara horizontal terhadap titik tengah dan di atas meja tersebut terdapat sebuah beban seperti pada gambar.</p>
+        <div class="gambar-wrapper">
+          <svg width="380" height="240" viewBox="0 0 380 240" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="380" height="240" fill="#fafcff" rx="6"/>
+            <ellipse cx="190" cy="130" rx="150" ry="45" fill="#d5e8f0" stroke="#2c3e50" stroke-width="2"/>
+            <ellipse cx="190" cy="120" rx="150" ry="45" fill="#e8f4fa" stroke="#2c3e50" stroke-width="2"/>
+            <rect x="175" y="165" width="30" height="50" fill="#888"/>
+            <polygon points="175,215 205,215 190,240" fill="#666"/>
+            <circle cx="290" cy="115" r="12" fill="#c0392b" stroke="#7a1f1f" stroke-width="1.5"/>
+            <line x1="190" y1="115" x2="278" y2="115" stroke="#333" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <polygon points="278,115 270,111 270,119" fill="#333"/>
+            <polygon points="190,115 198,111 198,119" fill="#333"/>
+            <text x="234" y="108" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">R</text>
+            <path d="M140 60 Q160 40 180 60" stroke="#333" stroke-width="2" fill="none"/>
+            <polygon points="180,60 174,56 174,64" fill="#333"/>
+            <text x="160" y="50" font-size="16" font-weight="bold" fill="#333">ω</text>
+          </svg>
+          <div class="caption">Meja berputar dengan beban pada jarak R dari pusat</div>
+        </div>
+        <p>Meja berputar dengan kecepatan sudut 4 rad·s⁻¹ dan koefisien gesekan statis antara beban dan permukaan meja 0,48 (percepatan gravitasi bumi g = 10 m·s⁻²). Di manakah beban dapat diletakkan agar beban tersebut tidak terlempar dari meja?</p>
+        <p>Berdasarkan informasi di atas tentukan apakah setiap jarak berikut (nilai R) tersebut dihitung dari pusat meja, <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) 8 cm</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal2a" value="B"> Benar</label>
+            <label><input type="radio" name="soal2a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) 16 cm</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal2b" value="B"> Benar</label>
+            <label><input type="radio" name="soal2b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) 24 cm</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal2c" value="B"> Benar</label>
+            <label><input type="radio" name="soal2c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) 30 cm</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal2d" value="B"> Benar</label>
+            <label><input type="radio" name="soal2d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) 40 cm</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal2e" value="B"> Benar</label>
+            <label><input type="radio" name="soal2e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span>Tumbukan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar peristiwa tumbukan antara mobil boks dan mobil sedan berikut ini.</p>
+        <div class="gambar-wrapper">
+          <svg width="500" height="180" viewBox="0 0 500 180" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="500" height="180" fill="#fafcff" rx="6"/>
+            <text x="250" y="20" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">(a) Sebelum tumbukan</text>
+            <rect x="30" y="40" width="120" height="50" fill="#ddd" stroke="#555" stroke-width="1.5"/>
+            <rect x="150" y="55" width="40" height="35" fill="#bbb" stroke="#555" stroke-width="1.5"/>
+            <circle cx="60" cy="95" r="10" fill="#333"/>
+            <circle cx="110" cy="95" r="10" fill="#333"/>
+            <circle cx="170" cy="95" r="10" fill="#333"/>
+            <text x="100" y="35" font-size="12" fill="#333">m₁</text>
+            <line x1="190" y1="55" x2="240" y2="55" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="240,55 232,51 232,59" fill="#c0392b"/>
+            <text x="245" y="50" font-size="12" fill="#c0392b">v₁</text>
+            <rect x="330" y="55" width="100" height="30" rx="8" fill="#e74c3c" stroke="#7a1f1f" stroke-width="1.5"/>
+            <circle cx="350" cy="90" r="10" fill="#333"/>
+            <circle cx="410" cy="90" r="10" fill="#333"/>
+            <text x="380" y="45" font-size="12" fill="#333">m₂</text>
+            <line x1="330" y1="45" x2="280" y2="45" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="280,45 288,41 288,49" fill="#c0392b"/>
+            <text x="275" y="40" font-size="12" fill="#c0392b">v₂</text>
+            <text x="250" y="130" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">(b) Sesudah tumbukan</text>
+            <rect x="30" y="140" width="120" height="25" fill="#ddd" stroke="#555" stroke-width="1.5"/>
+            <rect x="150" y="145" width="40" height="20" fill="#bbb" stroke="#555" stroke-width="1.5"/>
+            <rect x="190" y="145" width="80" height="20" rx="6" fill="#e74c3c" stroke="#7a1f1f" stroke-width="1.5"/>
+            <circle cx="60" cy="168" r="8" fill="#333"/>
+            <circle cx="110" cy="168" r="8" fill="#333"/>
+            <circle cx="170" cy="168" r="8" fill="#333"/>
+            <circle cx="230" cy="168" r="8" fill="#333"/>
+            <line x1="280" y1="150" x2="330" y2="150" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="330,150 322,146 322,154" fill="#c0392b"/>
+            <text x="335" y="145" font-size="12" fill="#c0392b">v'</text>
+          </svg>
+          <div class="caption">Tumbukan antara mobil boks dan sedan</div>
+        </div>
+        <p>Setelah bertumbukan, kedua mobil bergerak menjadi satu dalam keadaan mobil boks mendorong mobil sedan.</p>
+        <p>Apa sajakah kondisi yang terpenuhi saat proses maupun setelah tumbukan? Berdasarkan informasi di atas, tentukan apakah setiap kondisi berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Setelah tumbukan, kecepatan kedua mobil itu sama besar.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal3a" value="B"> Benar</label>
+            <label><input type="radio" name="soal3a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Momentum kedua mobil sebelum tumbukan lebih besar daripada sesudah tumbukan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal3b" value="B"> Benar</label>
+            <label><input type="radio" name="soal3b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Koefisien restitusi tumbukan bernilai nol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal3c" value="B"> Benar</label>
+            <label><input type="radio" name="soal3c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span>Efek Doppler</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang pengendara motor (PM) mengendarai motornya dengan kecepatan tertentu berada pada satu garis lurus dengan mobil ambulans (MA) yang saat itu membunyikan sirine dengan frekuensi tertentu yang juga bergerak dengan kecepatan tertentu. Saat itu nilai kecepatan gerak PM lebih kecil dari MA.</p>
+        <p>Pada kondisi apa sajakah pengendara motor akan mendengar bunyi sirine ambulans dengan frekuensi bunyi lebih besar dari kondisi awalnya? Berdasarkan informasi di atas, tentukan apakah setiap kondisi berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) PM bergerak mendekati MA, MA bergerak mendekati PM.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4a" value="B"> Benar</label>
+            <label><input type="radio" name="soal4a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) PM bergerak menjauhi MA, MA bergerak mendekati PM.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4b" value="B"> Benar</label>
+            <label><input type="radio" name="soal4b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) PM diam, MA bergerak mendekati PM.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4c" value="B"> Benar</label>
+            <label><input type="radio" name="soal4c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) PM bergerak mendekati MA, MA bergerak menjauhi PM.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4d" value="B"> Benar</label>
+            <label><input type="radio" name="soal4d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) PM bergerak menjauhi MA, MA diam.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4e" value="B"> Benar</label>
+            <label><input type="radio" name="soal4e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span>Cermin Cembung</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar berikut!</p>
+        <div class="gambar-wrapper">
+          <svg width="500" height="220" viewBox="0 0 500 220" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="500" height="220" fill="#fafcff" rx="6"/>
+            <line x1="250" y1="20" x2="250" y2="200" stroke="#333" stroke-width="2"/>
+            <path d="M250 20 Q220 110 250 200" stroke="#333" stroke-width="3" fill="none"/>
+            <circle cx="80" cy="90" r="15" fill="#333"/>
+            <rect x="70" y="105" width="20" height="50" fill="#333"/>
+            <line x1="70" y1="130" x2="50" y2="150" stroke="#333" stroke-width="3"/>
+            <line x1="90" y1="130" x2="110" y2="150" stroke="#333" stroke-width="3"/>
+            <text x="80" y="180" text-anchor="middle" font-size="14" fill="#333">Siswa</text>
+            <circle cx="370" cy="140" r="8" fill="#888"/>
+            <rect x="364" y="148" width="12" height="25" fill="#888"/>
+            <text x="370" y="190" text-anchor="middle" font-size="12" fill="#888">Bayangan F maya</text>
+            <line x1="80" y1="90" x2="250" y2="60" stroke="#2874a6" stroke-width="1.5"/>
+            <line x1="250" y1="60" x2="370" y2="140" stroke="#2874a6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="80" y1="90" x2="250" y2="140" stroke="#2874a6" stroke-width="1.5"/>
+            <line x1="250" y1="140" x2="370" y2="140" stroke="#2874a6" stroke-width="1.5" stroke-dasharray="5,3"/>
+            <line x1="80" y1="210" x2="250" y2="210" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+            <text x="165" y="225" text-anchor="middle" font-size="12" fill="#333">48 cm</text>
+            <line x1="250" y1="210" x2="370" y2="210" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+            <text x="310" y="225" text-anchor="middle" font-size="12" fill="#333">16 cm</text>
+          </svg>
+          <div class="caption">Siswa di depan cermin cembung dan bayangannya</div>
+        </div>
+        <p>Seorang siswa yang tingginya 160 cm berdiri di depan cermin cembung yang mempunyai jarak fokus 16 cm. Dia mengamati bayangan dirinya dalam cermin cembung. Dia melangkah mundur menjauhi cermin sejauh 16 cm, dia kembali melihat bayangan dirinya di cermin.</p>
+        <p>Perbandingan tinggi bayangan sebelum dan sesudah siswa tersebut bergeser adalah....</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-text">1 : 2</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-text">2 : 3</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-text">3 : 4</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-text">4 : 5</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-text">5 : 4</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span>Hukum Coulomb</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di sebuah laboratorium fisika, dua benda kecil bermuatan listrik diletakkan di atas meja isolator. Peneliti dapat mengatur jarak antara kedua benda menggunakan penggeser, lalu mengukur gaya listrik yang timbul dengan sensor gaya digital.</p>
+        <p>Hasil percobaan kemudian ditampilkan dalam grafik hubungan antara gaya listrik (F) terhadap jarak antar kedua benda (R) berikut ini:</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="250" fill="#fafcff" rx="6"/>
+            <line x1="60" y1="210" x2="360" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="210" x2="60" y2="30" stroke="#333" stroke-width="1.5"/>
+            <polygon points="360,210 352,206 352,214" fill="#333"/>
+            <polygon points="60,30 56,38 64,38" fill="#333"/>
+            <text x="340" y="230" font-size="12" fill="#333">R (cm)</text>
+            <text x="30" y="30" font-size="12" fill="#333">F (N)</text>
+            <path d="M80 60 Q120 100 160 130 Q220 170 300 190" stroke="#c0392b" stroke-width="2.5" fill="none"/>
+            <line x1="60" y1="120" x2="180" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="45" y="124" font-size="11" fill="#333" text-anchor="end">20</text>
+            <line x1="180" y1="120" x2="180" y2="210" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="180" y="228" font-size="11" fill="#333" text-anchor="middle">3</text>
+          </svg>
+          <div class="caption">Grafik gaya listrik (F) terhadap jarak (R)</div>
+        </div>
+        <p>Diketahui bahwa muatan pada benda pertama selalu dua kali lebih besar daripada muatan pada benda kedua dan percobaan dilakukan di udara (anggap sama dengan ruang hampa), dengan konstanta Coulomb k = 9×10⁹ Nm²·C⁻². Berapakah besar masing-masing muatan listrik tersebut?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-text">q₁ = 0,1×10⁻⁶ C; q₂ = 0,2×10⁻⁶ C</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-text">q₁ = 0,2×10⁻⁶ C; q₂ = 0,1×10⁻⁶ C</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-text">q₁ = 1,0×10⁻⁶ C; q₂ = 0,5×10⁻⁶ C</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-text">q₁ = 2,0×10⁻⁶ C; q₂ = 1,0×10⁻⁶ C</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-text">q₁ = 3,0×10⁻⁶ C; q₂ = 1,5×10⁻⁶ C</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span>Rangkaian Listrik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Suatu rangkaian listrik lampu warna-warni menggunakan lampu dengan resistansi tertulis pada bagian lampu.</p>
+        <div class="gambar-wrapper">
+          <svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="300" height="200" fill="#fafcff" rx="6"/>
+            <rect x="40" y="40" width="220" height="120" fill="none" stroke="#333" stroke-width="2"/>
+            <circle cx="80" cy="40" r="20" fill="#e74c3c" stroke="#333" stroke-width="1.5"/>
+            <text x="80" y="45" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">15</text>
+            <rect x="70" y="60" width="20" height="10" fill="#aaa"/>
+            <circle cx="260" cy="100" r="20" fill="#a9dfbf" stroke="#333" stroke-width="1.5"/>
+            <text x="260" y="105" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">5</text>
+            <rect x="250" y="80" width="20" height="10" fill="#aaa"/>
+            <circle cx="180" cy="160" r="20" fill="#85c1e9" stroke="#333" stroke-width="1.5"/>
+            <text x="180" y="165" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">10</text>
+            <rect x="170" y="140" width="20" height="10" fill="#aaa"/>
+            <line x1="150" y1="40" x2="150" y2="60" stroke="#333" stroke-width="2"/>
+            <line x1="145" y1="60" x2="155" y2="60" stroke="#333" stroke-width="2"/>
+            <line x1="145" y1="65" x2="155" y2="65" stroke="#333" stroke-width="2"/>
+            <text x="160" y="55" font-size="12" fill="#333">ε₁ = 4 V</text>
+            <line x1="40" y1="140" x2="40" y2="160" stroke="#333" stroke-width="2"/>
+            <line x1="35" y1="140" x2="45" y2="140" stroke="#333" stroke-width="2"/>
+            <line x1="35" y1="145" x2="45" y2="145" stroke="#333" stroke-width="2"/>
+            <text x="10" y="155" font-size="12" fill="#333">2 V</text>
+          </svg>
+          <div class="caption">Rangkaian listrik dengan tiga lampu</div>
+        </div>
+        <p>Jika lampu diganti dengan lampu berwarna kuning dengan resistansi 7 Ω, apakah yang terjadi dengan rangkaian lampu sekarang? Tentukan apakah <strong>Lebih Besar</strong>, <strong>Lebih Kecil</strong>, atau <strong>Tetap</strong> untuk setiap besaran fisis pada rangkaian.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Resistansi pengganti rangkaian.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal7a" value="LB"> Lebih Besar</label>
+            <label><input type="radio" name="soal7a" value="LK"> Lebih Kecil</label>
+            <label><input type="radio" name="soal7a" value="T"> Tetap</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Kuat arus yang mengalir pada rangkaian.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal7b" value="LB"> Lebih Besar</label>
+            <label><input type="radio" name="soal7b" value="LK"> Lebih Kecil</label>
+            <label><input type="radio" name="soal7b" value="T"> Tetap</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Daya yang bekerja pada lampu.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal7c" value="LB"> Lebih Besar</label>
+            <label><input type="radio" name="soal7c" value="LK"> Lebih Kecil</label>
+            <label><input type="radio" name="soal7c" value="T"> Tetap</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span>Tekanan Hidrostatis</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar pipa U berikut ini!</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="280" viewBox="0 0 400 280" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="280" fill="#fafcff" rx="6"/>
+            <path d="M80 40 L80 200 Q80 240 200 240 Q320 240 320 200 L320 40" stroke="#333" stroke-width="3" fill="none"/>
+            <rect x="83" y="140" width="74" height="100" fill="#85c1e9" opacity="0.6"/>
+            <rect x="243" y="140" width="74" height="100" fill="#85c1e9" opacity="0.6"/>
+            <path d="M83 140 L83 200 Q83 237 200 237 Q317 237 317 200 L317 140" fill="#85c1e9" opacity="0.6"/>
+            <rect x="83" y="60" width="74" height="80" fill="#27ae60" opacity="0.7"/>
+            <text x="120" y="100" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">A</text>
+            <text x="120" y="50" text-anchor="middle" font-size="12" fill="#333">Zat cair X</text>
+            <text x="60" y="140" font-size="12" fill="#333" text-anchor="end">h₁</text>
+            <text x="60" y="180" font-size="12" fill="#333" text-anchor="end">ρ_A</text>
+            <text x="340" y="170" font-size="12" fill="#333">h₂</text>
+            <text x="340" y="190" font-size="12" fill="#333">ρ_B</text>
+            <text x="200" y="260" text-anchor="middle" font-size="14" font-weight="bold" fill="#333">B</text>
+            <line x1="80" y1="140" x2="320" y2="140" stroke="#333" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="200" y="135" text-anchor="middle" font-size="12" fill="#333">air</text>
+          </svg>
+          <div class="caption">Pipa U berisi air dan zat cair X</div>
+        </div>
+        <p>Pipa U mula-mula diisi dengan air yang massa jenisnya 1.000 kg·m⁻³ kemudian pada salah satu ujung pipa dituangkan zat cair X. Zat cair X tidak bercampur dengan air dan interaksi seluruh zat cair dengan dinding pipa U diabaikan.</p>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span>Gaya Angkat Pesawat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sayap suatu pesawat terbang mainan mempunyai luas 10 m² dan udara yang mengalir horizontal melalui sayap pesawat terbang sehingga kecepatan di bagian atas sayap pesawat 40 m·s⁻¹ dan bagian bawah sayap 30 m·s⁻¹.</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="200" fill="#fafcff" rx="6"/>
+            <path d="M100 120 Q200 80 300 120 L280 140 L120 140 Z" fill="#aed6f1" stroke="#2874a6" stroke-width="2"/>
+            <ellipse cx="200" cy="100" rx="40" ry="15" fill="#d5e8f0" stroke="#2874a6" stroke-width="1.5"/>
+            <line x1="200" y1="80" x2="200" y2="30" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="200,30 196,38 204,38" fill="#c0392b"/>
+            <text x="210" y="40" font-size="12" fill="#c0392b">Gaya Angkat</text>
+            <line x1="200" y1="140" x2="200" y2="180" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="200,180 196,172 204,172" fill="#c0392b"/>
+            <text x="210" y="175" font-size="12" fill="#c0392b">Gaya Berat</text>
+            <line x1="320" y1="120" x2="360" y2="120" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="360,120 352,116 352,124" fill="#c0392b"/>
+            <text x="330" y="110" font-size="12" fill="#c0392b">Gaya Dorong</text>
+            <line x1="80" y1="120" x2="40" y2="120" stroke="#c0392b" stroke-width="2"/>
+            <polygon points="40,120 48,116 48,124" fill="#c0392b"/>
+            <text x="30" y="110" font-size="12" fill="#c0392b">Gaya Hambat</text>
+          </svg>
+          <div class="caption">Gaya-gaya pada pesawat terbang</div>
+        </div>
+        <p>Massa jenis udara pada saat itu sebesar 1,29 kg·m⁻³, maka besarnya gaya angkat pesawat terbang adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-text">4.515 N</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-text">3.000 N</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-text">1.515 N</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-text">515 N</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-text">0 N</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span>Hukum Archimedes</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Balok P yang memiliki volume 200 cm³ terapung di atas suatu zat cair (ρ_c = 1,3 g·cm⁻³) dengan ½ bagian balok muncul di atas permukaan zat cair seperti gambar. Balok P kemudian diikat dengan balok Q menggunakan tali yang massanya diabaikan dan dimasukkan ke dalam zat cair yang sama.</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="200" fill="#fafcff" rx="6"/>
+            <rect x="20" y="100" width="360" height="80" fill="#85c1e9" opacity="0.5"/>
+            <line x1="20" y1="100" x2="380" y2="100" stroke="#2874a6" stroke-width="1.5"/>
+            <rect x="120" y="50" width="80" height="80" fill="#aed6f1" stroke="#2874a6" stroke-width="1.5"/>
+            <text x="160" y="95" text-anchor="middle" font-size="18" font-weight="bold" fill="#2874a6">P</text>
+            <text x="160" y="45" text-anchor="middle" font-size="11" fill="#333">½ muncul</text>
+            <rect x="240" y="60" width="60" height="50" fill="#aed6f1" stroke="#2874a6" stroke-width="1.5"/>
+            <text x="270" y="90" text-anchor="middle" font-size="16" font-weight="bold" fill="#2874a6">P</text>
+            <rect x="250" y="30" width="40" height="30" fill="#f9e79f" stroke="#b7950b" stroke-width="1.5"/>
+            <text x="270" y="50" text-anchor="middle" font-size="14" font-weight="bold" fill="#b7950b">Q</text>
+            <text x="160" y="180" text-anchor="middle" font-size="12" fill="#333">Zat cair ρ = 1,3 g/cm³</text>
+          </svg>
+          <div class="caption">Balok P terapung dan balok P+Q di dalam zat cair</div>
+        </div>
+        <p>Massa jenis balok Q = 3,9 g·cm⁻³, massa balok Q yang dibutuhkan agar balok gabungan melayang di dalam zat cair tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal10" value="A"><span class="option-text">50 g</span></label>
+        <label><input type="radio" name="soal10" value="B"><span class="option-text">130 g</span></label>
+        <label><input type="radio" name="soal10" value="C"><span class="option-text">195 g</span></label>
+        <label><input type="radio" name="soal10" value="D"><span class="option-text">395 g</span></label>
+        <label><input type="radio" name="soal10" value="E"><span class="option-text">520 g</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span>Kinematika</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pada suatu percobaan, kecepatan sebuah benda diamati selama 4 sekon dan tabel berikut menunjukkan data kecepatan benda tersebut.</p>
+        <table class="data-tabel">
+          <tr><th>Waktu (s)</th><th>Kecepatan (m·s⁻¹)</th></tr>
+          <tr><td>0</td><td>0</td></tr>
+          <tr><td>1</td><td>2</td></tr>
+          <tr><td>2</td><td>4</td></tr>
+          <tr><td>3</td><td>6</td></tr>
+          <tr><td>4</td><td>8</td></tr>
+        </table>
+        <p>Jika gerak benda tersebut disajikan ke dalam grafik berbagai besaran terhadap waktu, maka tentukan apakah setiap grafik berikut <strong>Tepat</strong> atau <strong>Tidak Tepat</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Grafik kecepatan (v) terhadap waktu (t) berbentuk garis lurus naik dari 0 hingga 8 m/s.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal11a" value="T"> Tepat</label>
+            <label><input type="radio" name="soal11a" value="TT"> Tidak Tepat</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Grafik percepatan (a) terhadap waktu (t) bernilai konstan 2 m/s².</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal11b" value="T"> Tepat</label>
+            <label><input type="radio" name="soal11b" value="TT"> Tidak Tepat</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Grafik jarak (s) terhadap waktu (t) berbentuk garis lurus naik dari 0 hingga 16 m.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal11c" value="T"> Tepat</label>
+            <label><input type="radio" name="soal11c" value="TT"> Tidak Tepat</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Grafik perpindahan (Δs) terhadap waktu (t) berbentuk garis lurus naik dari 0 hingga 16 m.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal11d" value="T"> Tepat</label>
+            <label><input type="radio" name="soal11d" value="TT"> Tidak Tepat</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span>Keseimbangan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang pemain sirkus berjalan di atas seutas tali sambil memegang tongkat panjang yang ujung-ujungnya terkulai ke bawah. Gambar berikut ini memperlihatkan situasi tersebut.</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="250" fill="#fafcff" rx="6"/>
+            <path d="M0 0 L200 100 L400 0 Z" fill="#c0392b" opacity="0.3"/>
+            <path d="M20 150 Q200 180 380 150" stroke="#333" stroke-width="2" fill="none"/>
+            <circle cx="200" cy="100" r="15" fill="#f5cba7"/>
+            <rect x="190" y="115" width="20" height="40" fill="#e67e22"/>
+            <line x1="190" y1="130" x2="160" y2="120" stroke="#333" stroke-width="3"/>
+            <line x1="210" y1="130" x2="240" y2="120" stroke="#333" stroke-width="3"/>
+            <line x1="140" y1="120" x2="260" y2="120" stroke="#27ae60" stroke-width="4"/>
+            <line x1="140" y1="120" x2="130" y2="140" stroke="#27ae60" stroke-width="4"/>
+            <line x1="260" y1="120" x2="270" y2="140" stroke="#27ae60" stroke-width="4"/>
+            <text x="200" y="220" text-anchor="middle" font-size="12" fill="#333">Pemain sirkus di atas tali</text>
+          </svg>
+          <div class="caption">Pemain sirkus menjaga keseimbangan dengan tongkat</div>
+        </div>
+        <p>Tongkat panjang yang terkulai ke bawah membantu pemain sirkus menjaga keseimbangan karena tongkat…</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">memperbesar gaya berat sehingga pergerakan ke samping menjadi lebih lambat.</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">menyebabkan pusat massa sistem berada di bawah titik tumpu yang membuat sistem seimbang.</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">memperbesar gaya gesek antara kaki dan tali sehingga orang dapat bertahan lebih lama di tali.</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">menarik tubuh ke bawah sehingga tubuh pemain sirkus tidak mudah terangkat.</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">menambah gaya dorong ke depan agar pemain sirkus dapat lebih mudah dan cepat berjalan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span>Hukum Bernoulli</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pada botol semprotan parfum, udara dituipkan cepat ke atas lubang tabung sempit yang tersambung ke cairan parfum.</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="200" fill="#fafcff" rx="6"/>
+            <rect x="120" y="80" width="80" height="100" rx="10" fill="#d5e8f0" stroke="#2874a6" stroke-width="2"/>
+            <rect x="130" y="100" width="60" height="60" fill="#f5b041" opacity="0.7"/>
+            <text x="160" y="140" text-anchor="middle" font-size="12" fill="#333">Parfum</text>
+            <rect x="140" y="60" width="40" height="20" fill="#aaa" stroke="#555" stroke-width="1.5"/>
+            <rect x="155" y="40" width="10" height="20" fill="#aaa" stroke="#555" stroke-width="1"/>
+            <path d="M165 40 L250 40" stroke="#333" stroke-width="3" fill="none"/>
+            <path d="M250 40 L280 40" stroke="#333" stroke-width="3" fill="none"/>
+            <ellipse cx="340" cy="40" rx="30" ry="20" fill="#888" stroke="#333" stroke-width="2"/>
+            <text x="340" y="45" text-anchor="middle" font-size="12" fill="#fff">Udara</text>
+            <path d="M280 35 L320 20" stroke="#85c1e9" stroke-width="1" stroke-dasharray="3,2"/>
+            <path d="M280 40 L320 40" stroke="#85c1e9" stroke-width="1" stroke-dasharray="3,2"/>
+            <path d="M280 45 L320 60" stroke="#85c1e9" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="310" y="15" font-size="10" fill="#2874a6">Semburan</text>
+          </svg>
+          <div class="caption">Botol semprotan parfum</div>
+        </div>
+        <p>Mana sajakah penjelasan yang benar mengenai cara kerja alat tersebut? Berdasarkan informasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Udara yang mengalir cepat di atas permukaan parfum menyebabkan tekanan di tempat itu bertambah besar.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal13a" value="B"> Benar</label>
+            <label><input type="radio" name="soal13a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Tekanan di permukaan cairan parfum menjadi lebih tinggi daripada tekanan di atasnya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal13b" value="B"> Benar</label>
+            <label><input type="radio" name="soal13b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Cairan parfum terdorong naik ke atas karena faktor tekanan udara luar.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal13c" value="B"> Benar</label>
+            <label><input type="radio" name="soal13c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Volume cairan yang berada di dalam botol parfum mempengaruhi aliran parfum.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal13d" value="B"> Benar</label>
+            <label><input type="radio" name="soal13d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) Alat ini memanfaatkan hukum Pascal dalam proses penyemprotannya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal13e" value="B"> Benar</label>
+            <label><input type="radio" name="soal13e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span>Pembiasan Cahaya</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang pemanah sedang mengikuti lomba menombak ikan di kolam dangkal. Ilusi yang dialaminya seperti tampak pada gambar berikut:</p>
+        <div class="gambar-wrapper">
+          <svg width="450" height="250" viewBox="0 0 450 250" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="450" height="250" fill="#fafcff" rx="6"/>
+            <rect x="0" y="100" width="450" height="150" fill="#85c1e9" opacity="0.4"/>
+            <line x1="0" y1="100" x2="450" y2="100" stroke="#2874a6" stroke-width="2"/>
+            <text x="10" y="95" font-size="12" fill="#2874a6">Permukaan air</text>
+            <circle cx="50" cy="50" r="12" fill="#333"/>
+            <line x1="50" y1="62" x2="50" y2="90" stroke="#333" stroke-width="3"/>
+            <line x1="50" y1="70" x2="80" y2="60" stroke="#333" stroke-width="3"/>
+            <text x="50" y="30" text-anchor="middle" font-size="12" fill="#333">Pemanah</text>
+            <line x1="350" y1="200" x2="150" y2="100" stroke="#c0392b" stroke-width="1.5"/>
+            <line x1="150" y1="100" x2="80" y2="60" stroke="#c0392b" stroke-width="1.5"/>
+            <line x1="150" y1="100" x2="150" y2="200" stroke="#333" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="155" y="190" font-size="11" fill="#333">Normal</text>
+            <path d="M150 120 A20 20 0 0 0 170 100" fill="none" stroke="#333" stroke-width="1"/>
+            <text x="165" y="115" font-size="11" fill="#333">60°</text>
+            <ellipse cx="350" cy="200" rx="30" ry="15" fill="#f5b041" stroke="#b7950b" stroke-width="1.5"/>
+            <circle cx="360" cy="195" r="3" fill="#333"/>
+            <polygon points="380,200 395,190 395,210" fill="#b7950b"/>
+            <text x="350" y="230" text-anchor="middle" font-size="12" fill="#333">Ikan</text>
+            <ellipse cx="300" cy="160" rx="25" ry="12" fill="#f5b041" opacity="0.4" stroke="#b7950b" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="300" y="150" text-anchor="middle" font-size="11" fill="#888">Bayangan ikan</text>
+            <line x1="50" y1="70" x2="120" y2="150" stroke="#333" stroke-width="1.5" stroke-dasharray="4,2"/>
+            <text x="90" y="140" font-size="11" fill="#333">Bidikan</text>
+          </svg>
+          <div class="caption">Ilustrasi pembiasan cahaya pada ikan di kolam</div>
+        </div>
+        <p>Sinar cahaya dari ikan menuju mata pemanah membentuk sudut 60° terhadap garis normal (garis tegak lurus permukaan air). Berdasarkan pengalamannya, pemanah tersebut tidak membidik langsung ke arah ikan yang terlihat, melainkan membidik ke posisi yang lebih rendah supaya anak panahnya tepat mengenai ikan. (Indeks bias air = 4/3, indeks bias udara = 1)</p>
+        <p>Berdasarkan pemahamanmu tentang pembiasan cahaya, evaluasilah pernyataan yang dilakukan oleh pemanah berikut ini! Tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Strategi pemanah membidik lebih rendah dari posisi ikan yang terlihat merupakan strategi yang tepat berdasarkan prinsip pembiasan cahaya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal14a" value="B"> Benar</label>
+            <label><input type="radio" name="soal14a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Penambahan kecepatan saat melempar tombak dapat meminimalisir kesalahan bidikan yang terjadi akibat pembiasan cahaya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal14b" value="B"> Benar</label>
+            <label><input type="radio" name="soal14b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Semakin besar sudut pengamatan pemanah terhadap garis normal, semakin besar pula perbedaan antara posisi ikan yang terlihat dengan posisi ikan yang sebenarnya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal14c" value="B"> Benar</label>
+            <label><input type="radio" name="soal14c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span>Mesin Carnot</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pada eksperimen termodinamika sebuah mesin Carnot beroperasi antara reservoir suhu tinggi 800 K dan reservoir suhu rendah 480 K. Seorang peneliti ingin mengganti mesin tersebut dengan mesin Carnot yang memiliki efisiensi lebih tinggi agar proses eksperimen menjadi lebih efektif. Mesin Carnot mana saja yang dapat digunakan sebagai pengganti mesin Carnot semula? Berdasarkan informasi di atas, tentukan apakah setiap mesin Carnot yang memenuhi berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Suhu tinggi 600 K dan suhu rendah 480 K.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15a" value="B"> Benar</label>
+            <label><input type="radio" name="soal15a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Suhu tinggi 800 K dan suhu rendah 400 K.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15b" value="B"> Benar</label>
+            <label><input type="radio" name="soal15b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Suhu tinggi 900 K dan suhu rendah 500 K.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15c" value="B"> Benar</label>
+            <label><input type="radio" name="soal15c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Suhu tinggi 900 K dan suhu rendah 600 K.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15d" value="B"> Benar</label>
+            <label><input type="radio" name="soal15d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) Suhu tinggi 1.000 K dan suhu rendah 600 K.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal15e" value="B"> Benar</label>
+            <label><input type="radio" name="soal15e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span>Medan Listrik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah perusahaan elektronik sedang mengembangkan mesin fotokopi generasi baru yang menggunakan teknologi transfer toner elektrostatis yang lebih efisien. Dalam sistem ini, partikel toner bermuatan negatif q = 1×10⁻⁷ C dipindahkan dari drum ke kertas melalui medan listrik yang dihasilkan oleh dua pelat sejajar. Spesifikasi teknis mesin fotokopi tersebut menunjukkan bahwa:</p>
+        <ol>
+          <li>Jarak antara pelat transfer dan drum adalah 2 mm</li>
+          <li>Beda potensial yang tersedia adalah 200 V</li>
+          <li>Agar proses transfer toner berjalan optimal, gaya listrik minimum yang diperlukan untuk memindahkan partikel toner adalah 0,01 N</li>
+        </ol>
+        <p>Tim sedang menguji prototipe mesin fotokopi ini di laboratorium pengujian. Mereka menemukan bahwa pada beberapa kondisi, hasil cetakan menunjukkan kualitas yang buruk dengan banyak area yang tidak tercetak dengan baik.</p>
+        <p>Berdasarkan informasi di atas, tentukan apakah setiap pernyataan analisis berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Jika jarak antar pelat dikurangi menjadi 1,5 mm dengan beda potensial tetap, gaya listrik pada partikel toner akan meningkat sehingga memenuhi syarat fungsional.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal16a" value="B"> Benar</label>
+            <label><input type="radio" name="soal16a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Untuk mempertahankan jarak antar pelat tetap 2 mm, beda potensial minimal yang diperlukan agar mesin berfungsi optimal adalah 100 V.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal16b" value="B"> Benar</label>
+            <label><input type="radio" name="soal16b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Jika muatan partikel toner ditingkatkan menjadi 2×10⁻⁷ C, mesin fotokopi akan berfungsi dengan baik tanpa perlu mengubah parameter lainnya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal16c" value="B"> Benar</label>
+            <label><input type="radio" name="soal16c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span>Pengukuran Jangka Sorong</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Siswa SMA mengukur diameter sebuah bola bekel secara berulang sehingga diperoleh data sebagai berikut. Semua pengukuran dilakukan dengan jangka sorong. Berikut hasil pengukuran yang telah dilakukan.</p>
+        <div class="gambar-wrapper">
+          <svg width="500" height="130" viewBox="0 0 500 130" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="500" height="130" fill="#fafcff" rx="6"/>
+            <line x1="50" y1="60" x2="450" y2="60" stroke="#333" stroke-width="2"/>
+            <g stroke="#333" stroke-width="1">
+              <line x1="80" y1="50" x2="80" y2="70"/><text x="80" y="85" text-anchor="middle" font-size="10" fill="#333">1</text>
+              <line x1="130" y1="50" x2="130" y2="70"/><text x="130" y="85" text-anchor="middle" font-size="10" fill="#333">1,5</text>
+              <line x1="180" y1="50" x2="180" y2="70"/><text x="180" y="85" text-anchor="middle" font-size="10" fill="#333">2</text>
+              <line x1="230" y1="50" x2="230" y2="70"/><text x="230" y="85" text-anchor="middle" font-size="10" fill="#333">2,5</text>
+              <line x1="280" y1="50" x2="280" y2="70"/><text x="280" y="85" text-anchor="middle" font-size="10" fill="#333">3</text>
+              <line x1="330" y1="50" x2="330" y2="70"/><text x="330" y="85" text-anchor="middle" font-size="10" fill="#333">3,5</text>
+            </g>
+            <line x1="50" y1="100" x2="300" y2="100" stroke="#c0392b" stroke-width="2"/>
+            <g stroke="#c0392b" stroke-width="1">
+              <line x1="60" y1="95" x2="60" y2="105"/><text x="60" y="115" text-anchor="middle" font-size="9" fill="#c0392b">0</text>
+              <line x1="80" y1="95" x2="80" y2="105"/><text x="80" y="115" text-anchor="middle" font-size="9" fill="#c0392b">2</text>
+              <line x1="100" y1="95" x2="100" y2="105"/><text x="100" y="115" text-anchor="middle" font-size="9" fill="#c0392b">4</text>
+              <line x1="120" y1="95" x2="120" y2="105"/><text x="120" y="115" text-anchor="middle" font-size="9" fill="#c0392b">6</text>
+              <line x1="140" y1="95" x2="140" y2="105"/><text x="140" y="115" text-anchor="middle" font-size="9" fill="#c0392b">8</text>
+              <line x1="160" y1="95" x2="160" y2="105"/><text x="160" y="115" text-anchor="middle" font-size="9" fill="#c0392b">10</text>
+            </g>
+            <text x="250" y="25" text-anchor="middle" font-size="12" fill="#333">Contoh tampilan jangka sorong</text>
+          </svg>
+          <div class="caption">Ilustrasi jangka sorong (skala utama dan nonius)</div>
+        </div>
+        <p>Pernyataan berikut yang sesuai dengan pengukuran diameter bola bekel tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal17" value="A"><span class="option-text">Data yang dihasilkan dapat dipercaya karena pengukuran dilakukan lebih dari satu kali.</span></label>
+        <label><input type="radio" name="soal17" value="B"><span class="option-text">Terdapat hasil pembacaan yang tidak sesuai dengan tampilan jangka sorong sehingga data tidak dapat dipercaya.</span></label>
+        <label><input type="radio" name="soal17" value="C"><span class="option-text">Hasil pengukuran berbeda-beda seperti yang ditunjukkan pada gambar merupakan kewajaran karena bola bekel elastis.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span>Impuls dan Momentum</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar berikut!</p>
+        <div class="gambar-wrapper">
+          <svg width="350" height="250" viewBox="0 0 350 250" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="350" height="250" fill="#fafcff" rx="6"/>
+            <circle cx="100" cy="80" r="20" fill="#f5cba7"/>
+            <rect x="85" y="100" width="30" height="60" fill="#e67e22"/>
+            <line x1="85" y1="120" x2="60" y2="100" stroke="#333" stroke-width="3"/>
+            <line x1="115" y1="120" x2="140" y2="100" stroke="#333" stroke-width="3"/>
+            <circle cx="250" cy="80" r="20" fill="#fff" stroke="#333" stroke-width="2"/>
+            <line x1="270" y1="80" x2="310" y2="80" stroke="#333" stroke-width="2" stroke-dasharray="5,3"/>
+            <polygon points="310,80 302,76 302,84" fill="#333"/>
+            <text x="290" y="70" font-size="12" fill="#333">v</text>
+            <line x1="140" y1="100" x2="160" y2="90" stroke="#333" stroke-width="2"/>
+            <text x="150" y="85" font-size="10" fill="#333">tarik</text>
+          </svg>
+          <div class="caption">Penjaga gawang menangkap bola</div>
+        </div>
+        <p>Seorang penjaga gawang menangkap bola yang bergerak sangat cepat dengan cara menarik tangannya sedikit ke belakang saat menangkap bola. Berdasarkan informasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong> tujuan penjaga gawang tersebut menarik tangannya ke belakang.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Memperlama waktu kontak dengan bola.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18a" value="B"> Benar</label>
+            <label><input type="radio" name="soal18a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Memperkecil gaya yang dirasakan tangan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18b" value="B"> Benar</label>
+            <label><input type="radio" name="soal18b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Memperkecil impuls yang diterima bola.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18c" value="B"> Benar</label>
+            <label><input type="radio" name="soal18c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Memperbesar kecepatan bola.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18d" value="B"> Benar</label>
+            <label><input type="radio" name="soal18d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) Memperkecil tekanan yang diberikan tangan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18e" value="B"> Benar</label>
+            <label><input type="radio" name="soal18e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span>Pemuaian</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah bola logam hanya dapat melewati cincin logam jika keduanya berada pada suhu ruang. Gambarnya seperti tampak berikut:</p>
+        <div class="gambar-wrapper">
+          <svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="350" height="200" fill="#fafcff" rx="6"/>
+            <circle cx="100" cy="80" r="30" fill="#a9dfbf" stroke="#1e8449" stroke-width="2"/>
+            <line x1="100" y1="50" x2="100" y2="110" stroke="#1e8449" stroke-width="1"/>
+            <circle cx="250" cy="80" r="40" fill="none" stroke="#888" stroke-width="12"/>
+            <circle cx="250" cy="80" r="34" fill="#fafcff"/>
+            <rect x="235" y="140" width="30" height="40" fill="#f5b041" stroke="#b7950b" stroke-width="1.5"/>
+            <path d="M250 140 Q255 120 250 110 Q245 120 250 140" fill="#e74c3c"/>
+            <text x="250" y="195" text-anchor="middle" font-size="11" fill="#333">Lilin</text>
+            <text x="100" y="160" text-anchor="middle" font-size="12" fill="#333">Bola logam</text>
+            <text x="250" y="40" text-anchor="middle" font-size="12" fill="#333">Cincin logam</text>
+          </svg>
+          <div class="caption">Bola logam dan cincin logam</div>
+        </div>
+        <p>Suatu saat Dita memanaskan bola, bola tidak lagi dapat melewati cincin. Dita kemudian melakukan percobaan baru: ia memanaskan cincin tanpa memanaskan bola. Ia ingin mengetahui apa yang akan terjadi terhadap ukuran lubang cincin. Apa yang akan terjadi terhadap ukuran lubang cincin ketika suhu cincin dinaikkan?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">ukuran lubang berkurang karena cincin mengembang ke arah luar dan menutup lubang.</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">ukuran lubang berkurang karena pemuaian membuat cincin menjadi tebal dan padat.</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">ukuran lubang tetap sama karena hanya bagian luar cincin yang mengembang.</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">ukuran lubang bertambah dan memungkinkan bola kembali bisa melewati cincin.</span></label>
+        <label><input type="radio" name="soal19" value="E"><span class="option-text">ukuran lubang bertambah tetapi cincin akan kehilangan bentuk bundarnya.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span>Listrik Dinamis</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dua kelompok siswa melakukan pengamatan di dua rumah berbeda selama 10 hari untuk mengamati dan menganalisis penggunaan listriknya. Berikut data hasil pengamatan.</p>
+        <table class="data-tabel">
+          <tr><th>Keterangan</th><th>Rumah A</th><th>Rumah B</th></tr>
+          <tr><td>Jenis Lampu</td><td>LED</td><td>Pijar</td></tr>
+          <tr><td>Daya Lampu</td><td>10 watt</td><td>10 watt</td></tr>
+          <tr><td>Jumlah Lampu</td><td>10</td><td>6</td></tr>
+          <tr><td>Rangkaian Lampu</td><td>Paralel</td><td>Seri</td></tr>
+          <tr><td>Durasi Menyala per Hari</td><td>5 Jam</td><td>8 Jam</td></tr>
+          <tr><td>Resistensi Kabel</td><td>0,5 Ω per lampu</td><td>0,5 Ω per lampu</td></tr>
+        </table>
+        <p>Diketahui tegangan listrik: 220 V. Setelah penelitian selesai, tim memperoleh data bahwa energi listrik yang terukur pada rumah B jauh lebih rendah dari yang diperkirakan, sementara pencahayaan yang dihasilkan juga tidak optimal.</p>
+        <p>Rekomendasi strategi yang tepat untuk optimalisasi penerangan di rumah B sesuai dengan hasil pengamatan tersebut adalah.... Berdasarkan informasi di atas, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Rumah B sebaiknya mengganti lampu pijar dengan LED tanpa mengubah rangkaian seri.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20a" value="B"> Benar</label>
+            <label><input type="radio" name="soal20a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Mengubah rangkaian lampu di rumah B dari seri menjadi paralel akan meningkatkan intensitas cahaya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20b" value="B"> Benar</label>
+            <label><input type="radio" name="soal20b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Masalah rumah B dapat diatasi dengan menambahkan resistor untuk menstabilkan tegangan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20c" value="B"> Benar</label>
+            <label><input type="radio" name="soal20c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Rumah B sebaiknya mengganti lampu dengan daya yang lebih tinggi tanpa mengubah rangkaian seri.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20d" value="B"> Benar</label>
+            <label><input type="radio" name="soal20d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) Rumah B perlu mengganti rangkaian menjadi paralel agar setiap lampu menerima tegangan penuh dan bekerja secara optimal.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20e" value="B"> Benar</label>
+            <label><input type="radio" name="soal20e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span>Mikrometer Sekrup</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang siswa melakukan pengukuran diameter sebuah kelereng kecil menggunakan mikrometer sekrup dan mendapatkan hasil seperti pada gambar di bawah ini.</p>
+        <div class="gambar-wrapper">
+          <svg width="450" height="150" viewBox="0 0 450 150" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="450" height="150" fill="#fafcff" rx="6"/>
+            <line x1="50" y1="70" x2="300" y2="70" stroke="#333" stroke-width="2"/>
+            <g stroke="#333" stroke-width="1">
+              <line x1="80" y1="60" x2="80" y2="80"/><text x="80" y="95" text-anchor="middle" font-size="10" fill="#333">0</text>
+              <line x1="130" y1="60" x2="130" y2="80"/><text x="130" y="95" text-anchor="middle" font-size="10" fill="#333">5</text>
+              <line x1="180" y1="60" x2="180" y2="80"/><text x="180" y="95" text-anchor="middle" font-size="10" fill="#333">10</text>
+              <line x1="230" y1="60" x2="230" y2="80"/><text x="230" y="95" text-anchor="middle" font-size="10" fill="#333">15</text>
+            </g>
+            <line x1="300" y1="20" x2="300" y2="120" stroke="#c0392b" stroke-width="2"/>
+            <g stroke="#c0392b" stroke-width="1">
+              <line x1="295" y1="30" x2="305" y2="30"/><text x="310" y="34" font-size="9" fill="#c0392b">0</text>
+              <line x1="295" y1="50" x2="305" y2="50"/><text x="310" y="54" font-size="9" fill="#c0392b">5</text>
+              <line x1="295" y1="70" x2="305" y2="70"/><text x="310" y="74" font-size="9" fill="#c0392b">10</text>
+              <line x1="295" y1="90" x2="305" y2="90"/><text x="310" y="94" font-size="9" fill="#c0392b">15</text>
+            </g>
+            <text x="220" y="140" text-anchor="middle" font-size="12" fill="#333">Skala utama (mm) dan skala nonius</text>
+            <line x1="230" y1="70" x2="230" y2="120" stroke="#888" stroke-width="1" stroke-dasharray="3,2"/>
+            <text x="230" y="135" text-anchor="middle" font-size="10" fill="#888">skala utama = 8,5 mm</text>
+            <text x="300" y="110" text-anchor="middle" font-size="10" fill="#888">nonius = 0,13 mm</text>
+          </svg>
+          <div class="caption">Contoh pembacaan mikrometer sekrup</div>
+        </div>
+        <p>Siswa tersebut kemudian menulis laporan hasil pengukuran dengan beberapa pernyataan analisis. Berdasarkan informasi di atas, tentukan apakah setiap pernyataan analisis yang dibuat oleh siswa berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Hasil pembacaan skala utama adalah 8,5 mm, dan skala nonius yang berimpit adalah 0,13 mm.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21a" value="B"> Benar</label>
+            <label><input type="radio" name="soal21a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Diameter kelereng yang terukur adalah 8,63±0,005 mm, yang menunjukkan ketidakpastian pengukuran.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21b" value="B"> Benar</label>
+            <label><input type="radio" name="soal21b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Jika massa kelereng adalah 2,40 g, maka massa jenis kelereng berdasarkan aturan angka penting adalah 1,2 g/cm³.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21c" value="B"> Benar</label>
+            <label><input type="radio" name="soal21c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span>Grafik v-t</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Grafik berikut menunjukkan hubungan antara kecepatan (v) dan waktu (t) dari sebuah mobil yang bergerak lurus.</p>
+        <div class="gambar-wrapper">
+          <svg width="400" height="250" viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="400" height="250" fill="#fafcff" rx="6"/>
+            <line x1="60" y1="210" x2="360" y2="210" stroke="#333" stroke-width="1.5"/>
+            <line x1="60" y1="210" x2="60" y2="30" stroke="#333" stroke-width="1.5"/>
+            <polygon points="360,210 352,206 352,214" fill="#333"/>
+            <polygon points="60,30 56,38 64,38" fill="#333"/>
+            <text x="340" y="230" font-size="12" fill="#333">t (sekon)</text>
+            <text x="30" y="30" font-size="12" fill="#333">v (m/s)</text>
+            <line x1="60" y1="210" x2="140" y2="110" stroke="#c0392b" stroke-width="2.5"/>
+            <line x1="140" y1="110" x2="220" y2="110" stroke="#c0392b" stroke-width="2.5"/>
+            <line x1="220" y1="110" x2="300" y2="210" stroke="#c0392b" stroke-width="2.5"/>
+            <line x1="60" y1="110" x2="140" y2="110" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="45" y="114" font-size="11" fill="#333" text-anchor="end">10</text>
+            <line x1="140" y1="110" x2="140" y2="210" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="140" y="228" font-size="11" fill="#333" text-anchor="middle">4</text>
+            <line x1="220" y1="110" x2="220" y2="210" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="220" y="228" font-size="11" fill="#333" text-anchor="middle">6</text>
+            <line x1="300" y1="210" x2="300" y2="210" stroke="#888" stroke-width="1" stroke-dasharray="5,3"/>
+            <text x="300" y="228" font-size="11" fill="#333" text-anchor="middle">8</text>
+          </svg>
+          <div class="caption">Grafik kecepatan terhadap waktu</div>
+        </div>
+        <p>Jarak total yang ditempuh mobil dari t = 0 s hingga t = 6 s adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal22" value="A"><span class="option-text">20 m</span></label>
+        <label><input type="radio" name="soal22" value="B"><span class="option-text">25 m</span></label>
+        <label><input type="radio" name="soal22" value="C"><span class="option-text">30 m</span></label>
+        <label><input type="radio" name="soal22" value="D"><span class="option-text">35 m</span></label>
+        <label><input type="radio" name="soal22" value="E"><span class="option-text">40 m</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span>Hukum Newton</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seseorang dengan massa 60 kg berada di dalam lift yang sedang bergerak ke bawah dengan percepatan 2 m/s². Jika percepatan gravitasi bumi adalah 10 m/s², maka gaya normal (desakan kaki orang pada lantai lift) yang dialami orang tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal23" value="A"><span class="option-text">480 N</span></label>
+        <label><input type="radio" name="soal23" value="B"><span class="option-text">540 N</span></label>
+        <label><input type="radio" name="soal23" value="C"><span class="option-text">600 N</span></label>
+        <label><input type="radio" name="soal23" value="D"><span class="option-text">660 N</span></label>
+        <label><input type="radio" name="soal23" value="E"><span class="option-text">720 N</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span>Tumbukan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah bola bermassa 2 kg bergerak dengan kecepatan 10 m/s menumbuk bola lain bermassa 3 kg yang sedang diam. Setelah tumbukan, kedua bola bergerak bersama-sama. Kecepatan kedua bola setelah tumbukan adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal24" value="A"><span class="option-text">2 m/s</span></label>
+        <label><input type="radio" name="soal24" value="B"><span class="option-text">4 m/s</span></label>
+        <label><input type="radio" name="soal24" value="C"><span class="option-text">5 m/s</span></label>
+        <label><input type="radio" name="soal24" value="D"><span class="option-text">6 m/s</span></label>
+        <label><input type="radio" name="soal24" value="E"><span class="option-text">8 m/s</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span>Gerak Parabola</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan gambar berikut:</p>
+        <div class="gambar-wrapper">
+          <svg width="450" height="200" viewBox="0 0 450 200" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0" y="0" width="450" height="200" fill="#fafcff" rx="6"/>
+            <rect x="30" y="120" width="80" height="20" rx="5" fill="#555"/>
+            <rect x="50" y="100" width="40" height="20" fill="#888"/>
+            <circle cx="70" cy="140" r="20" fill="#444"/>
+            <line x1="70" y1="140" x2="70" y2="160" stroke="#333" stroke-width="3"/>
+            <path d="M110 110 Q200 20 350 110" stroke="#333" stroke-width="2" fill="none" stroke-dasharray="6,3"/>
+            <line x1="110" y1="110" x2="180" y2="110" stroke="#333" stroke-width="1"/>
+            <path d="M130 110 A20 20 0 0 0 140 95" fill="none" stroke="#333" stroke-width="1"/>
+            <text x="140" y="105" font-size="12" fill="#333">45°</text>
+            <circle cx="230" cy="50" r="5" fill="#c0392b"/>
+            <text x="230" y="40" text-anchor="middle" font-size="11" fill="#c0392b">Titik tertinggi</text>
+            <line x1="110" y1="180" x2="350" y2="180" stroke="#333" stroke-width="1" stroke-dasharray="4,2"/>
+            <text x="230" y="195" text-anchor="middle" font-size="12" fill="#333">x</text>
+          </svg>
+          <div class="caption">Meriam menembakkan proyektil dengan sudut elevasi 45°</div>
+        </div>
+        <p>Sebuah meriam menembakkan proyektil dengan sudut elevasi 45° terhadap horizontal. Anggaplah gesekan udara diabaikan.</p>
+        <p>Ketika proyektil mencapai titik tertinggi dalam lintasannya, tentukan apakah setiap pernyataan berikut <strong>Benar</strong> atau <strong>Salah</strong>.</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Kecepatan total proyektil adalah nol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25a" value="B"> Benar</label>
+            <label><input type="radio" name="soal25a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Komponen kecepatan vertikal (v_y) proyektil adalah nol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25b" value="B"> Benar</label>
+            <label><input type="radio" name="soal25b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Percepatan total proyektil adalah nol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25c" value="B"> Benar</label>
+            <label><input type="radio" name="soal25c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Komponen kecepatan horizontal (v_x) proyektil sama dengan komponen kecepatan horizontal awalnya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25d" value="B"> Benar</label>
+            <label><input type="radio" name="soal25d" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">5) Gaya gravitasi yang bekerja pada proyektil adalah nol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25e" value="B"> Benar</label>
+            <label><input type="radio" name="soal25e" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Fisika_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Fisika SMA/MA/SMK
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  const kunciJawaban = {
+    soal1:  { a: "S", b: "B", c: "S" },
+    soal2:  { a: "B", b: "B", c: "B", d: "S", e: "S" },
+    soal3:  { a: "B", b: "S", c: "B" },
+    soal4:  { a: "B", b: "B", c: "B", d: "B", e: "S" },
+    soal5:  "B",
+    soal6:  "C",
+    soal7:  { a: "LK", b: "LB", c: "LB" },
+    soal8:  null,
+    soal9:  "A",
+    soal10: "B",
+    soal11: { a: "T", b: "T", c: "TT", d: "TT" },
+    soal12: "B",
+    soal13: { a: "S", b: "B", c: "B", d: "B", e: "S" },
+    soal14: { a: "B", b: "S", c: "B" },
+    soal15: { a: "S", b: "B", c: "B", d: "S", e: "B" },
+    soal16: { a: "B", b: "S", c: "B" },
+    soal17: "B",
+    soal18: { a: "B", b: "B", c: "S", d: "S", e: "B" },
+    soal19: "D",
+    soal20: { a: "S", b: "B", c: "S", d: "S", e: "B" },
+    soal21: { a: "B", b: "B", c: "B" },
+    soal22: "C",
+    soal23: "A",
+    soal24: "B",
+    soal25: { a: "S", b: "B", c: "S", d: "B", e: "S" }
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_fisika_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_fisika_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    let benar = 0;
+    let totalSoalDinilai = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (kunci === null) continue;
+      totalSoalDinilai++;
+
+      if (typeof kunci === 'string') {
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+      } else if (typeof kunci === 'object') {
+        const subKeys = Object.keys(kunci);
+        let subBenar = true;
+        subKeys.forEach(sub => {
+          const sel = document.querySelector('input[name="' + key + sub + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) subBenar = false;
+        });
+        if (subBenar) benar++;
+      }
+    }
+
+    benarGlobal = benar;
+    skorGlobal = totalSoalDinilai > 0 ? Math.round((benar / totalSoalDinilai) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + totalSoalDinilai;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Fisika_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE (FOLDER TUJUAN) =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+
+    // Tampilkan panduan
+    document.getElementById('drive-info').classList.add('show');
+
+    // 1. Otomatis unduh PDF terlebih dahulu
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Fisika_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      // 2. Setelah PDF terunduh, buka folder Google Drive tujuan
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Fisika_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          // Buka folder Google Drive spesifik (bukan my-drive)
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

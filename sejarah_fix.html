@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Sejarah SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #5c3a0b; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #6a5a4a;
+    margin-bottom: 30px; border-bottom: 2px solid #5c3a0b; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #5c3a0b; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #5c3a0b, #a67c2e);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(92,58,11,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #5c3a0b;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #8a7a6a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #d8c4a8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #a67c2e;
+    box-shadow: 0 0 0 3px rgba(166,124,46,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #5c3a0b, #a67c2e);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(92,58,11,0.35);
+  }
+  .login-info-box {
+    background: #faf5ec; border: 1px solid #e8d9c0;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #6a5a4a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #5c3a0b; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #faf5ec; border: 2px solid #5c3a0b;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #5c3a0b;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #5c3a0b; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #5c3a0b;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #5c3a0b; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin-bottom: 10px; }
+  .soal-pertanyaan ol, .soal-pertanyaan ul { margin-left: 22px; margin-bottom: 10px; }
+  .soal-pertanyaan li { margin-bottom: 4px; }
+  .kutipan {
+    background: #faf5ec; border-left: 4px solid #a67c2e;
+    padding: 12px 16px; border-radius: 6px; margin: 12px 0;
+    font-style: italic; color: #4a3a2a;
+  }
+  .kutipan p { margin-bottom: 6px; }
+  .stimulus {
+    background: #f8fafc; border-left: 3px solid #a67c2e;
+    padding: 12px 16px; border-radius: 6px; margin-bottom: 14px;
+    font-style: italic; color: #34495e;
+  }
+  .instruction {
+    background: #fff8e1; border: 1px solid #f0d98a;
+    padding: 8px 14px; border-radius: 6px; margin-bottom: 12px;
+    font-size: 0.9rem; font-weight: 600; color: #8a6d00;
+  }
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 700px; font-size: 0.9rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #d8c4a8; padding: 8px 12px; text-align: left;
+  }
+  table.data-tabel th { background: #faf5ec; color: #5c3a0b; text-align: center; }
+  table.data-tabel td.center { text-align: center; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #e0d0b8; background: #fdfcf9;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #faf5ec; }
+  .pilihan label:has(input:checked) { background: #f0e6d6; border-color: #a67c2e; }
+  .pilihan input[type="radio"], .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #5c3a0b; }
+  .pilihan .option-text { flex: 1; }
+  .cb-group { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .cb-group label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #e0d0b8; background: #fdfcf9;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .cb-group label:hover { background: #faf5ec; }
+  .cb-group label:has(input:checked) { background: #f0e6d6; border-color: #a67c2e; }
+  .cb-group input[type="checkbox"] { margin-top: 4px; accent-color: #5c3a0b; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #fdfcf9; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e8d9c0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .tf-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+  .tf-table th, .tf-table td {
+    border: 1px solid #d8c4a8; padding: 10px 12px; font-size: 0.9rem;
+  }
+  .tf-table th { background: #faf5ec; color: #5c3a0b; text-align: center; }
+  .tf-table td.center { text-align: center; white-space: nowrap; }
+  .tf-table label { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; margin: 0 4px; }
+  .tf-table input { accent-color: #5c3a0b; }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #5c3a0b;
+  }
+  .result-card h2 {
+    text-align: center; color: #5c3a0b;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #faf5ec;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #fdfcf9;
+    border: 2px dashed #5c3a0b; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #5c3a0b;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol {
+    margin-left: 18px; margin-top: 6px;
+  }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none;
+    word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #8a7a6a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+    .tf-table th, .tf-table td { padding: 6px 8px; font-size: 0.8rem; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Sejarah</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN / IDENTITAS PESERTA ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">🏛️</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII IPS 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>60 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">60:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span>Sejarah sebagai Seni — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Perhatikan dua kutipan berikut mengenai peristiwa Proklamasi Kemerdekaan RI:</p>
+        <div class="kutipan">
+          <p><strong>Kutipan 1:</strong> "Pukul 10.00 WIB, 17 Agustus 1945, Soekarno membacakan naskah proklamasi di depan kediamannya."</p>
+          <p><strong>Kutipan 2:</strong> "Di bawah terik mentari pagi yang menyinari halaman rumah di Pegangsaan Timur, suara lantang Soekarno menggetarkan udara, mengukir sejarah baru bagi bangsa yang telah lama merindukan kebebasan."</p>
+        </div>
+        <p>Berdasarkan kedua kutipan tersebut, kutipan 2 menunjukkan penulisan sejarah sebagai...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">A. Peristiwa</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">B. Ilmu</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">C. Seni</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">D. Kisah</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">E. Fakta</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span>Berpikir Diakronik — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="instruction">Manakah pernyataan berikut yang tepat menggambarkan konsep berpikir diakronik dalam sejarah? <em>Jawaban benar lebih dari satu.</em></div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal2" value="A"><span class="option-text">A. Memandang peristiwa secara memanjang dalam dimensi waktu</span></label>
+        <label><input type="checkbox" name="soal2" value="B"><span class="option-text">B. Mengkaji satu peristiwa secara mendalam pada satu titik waktu tertentu</span></label>
+        <label><input type="checkbox" name="soal2" value="C"><span class="option-text">C. Menekankan proses dan tahapan perkembangan peristiwa</span></label>
+        <label><input type="checkbox" name="soal2" value="D"><span class="option-text">D. Membandingkan berbagai aspek kehidupan dalam satu masa yang sama</span></label>
+        <label><input type="checkbox" name="soal2" value="E"><span class="option-text">E. Fokus pada urutan kronologis terjadinya peristiwa</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span>Sumber Sejarah — Tepat / Tidak Tepat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Dalam penelitian sejarah, sumber dibedakan menjadi sumber primer, sekunder, benda, tertulis, dan lisan.
+        </div>
+        <div class="instruction">Pilihlah <strong>Tepat</strong> atau <strong>Tidak Tepat</strong> pada pernyataan berikut!</div>
+      </div>
+      <table class="tf-table">
+        <tr><th style="width:40px;">#</th><th>Pernyataan</th><th style="width:70px;">Tepat</th><th style="width:90px;">Tidak Tepat</th></tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Prasasti Yupa merupakan sumber primer karena dibuat sezaman dengan peristiwa yang terjadi</td>
+          <td class="center"><label><input type="radio" name="soal3a" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal3a" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Buku teks sejarah yang ditulis 100 tahun setelah peristiwa termasuk sumber primer</td>
+          <td class="center"><label><input type="radio" name="soal3b" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal3b" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">C</td>
+          <td>Sumber lisan dapat digunakan sebagai sumber sejarah meskipun rawan bias subjektivitas</td>
+          <td class="center"><label><input type="radio" name="soal3c" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal3c" value="TT"> TT</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span>Metode Penelitian Sejarah — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Seorang peneliti menemukan dua naskah kuno yang mengisahkan peristiwa yang sama namun dengan detail waktu yang berbeda. Sebelum menggunakan salah satu naskah sebagai rujukan utama, peneliti tersebut menelusuri asal-usul kertas, tinta, gaya tulisan, dan membandingkan isi kedua naskah dengan sumber lain yang sezaman.
+        </div>
+        <p>Langkah yang dilakukan peneliti tersebut merupakan bagian dari tahap ... dalam metode penelitian sejarah, yang bertujuan untuk...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-text">A. Heuristik — mengumpulkan sumber sebanyak-banyaknya</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-text">B. Verifikasi/Kritik — menguji keaslian dan kredibilitas sumber</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-text">C. Interpretasi — memberi makna terhadap fakta yang ditemukan</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-text">D. Historiografi — menyusun kisah sejarah secara tertulis</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-text">E. Periodisasi — membagi peristiwa berdasarkan babak waktu</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span>Teori Brahmana — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Teori Brahmana menyatakan bahwa kaum pendeta berperan besar dalam penyebaran agama Hindu ke Nusantara karena hanya merekalah yang menguasai kitab suci Weda dan berwenang memimpin upacara keagamaan. Namun, para ahli mempertanyakan teori ini karena menurut ajaran Hindu ortodoks, kaum Brahmana memiliki pantangan menyeberangi lautan.
+        </div>
+        <p>Kelemahan utama Teori Brahmana yang diuraikan dalam wacana tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-text">A. Kaum Brahmana tidak menguasai bahasa Sanskerta</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-text">B. Kaum Brahmana terikat pantangan menyeberangi lautan sehingga sulit menjelaskan kehadiran mereka di Nusantara</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-text">C. Kaum Brahmana tidak memiliki hubungan dengan kerajaan-kerajaan Nusantara</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-text">D. Tidak ditemukan prasasti berbahasa Sanskerta di Nusantara</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-text">E. Kaum Brahmana hanya berdagang, bukan menyebarkan agama</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span>Kerajaan Sriwijaya — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="instruction">Manakah faktor-faktor berikut yang mendukung Sriwijaya berkembang menjadi kerajaan maritim besar? <em>Jawaban benar lebih dari satu.</em></div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal6" value="A"><span class="option-text">A. Letak strategis di jalur perdagangan Selat Malaka</span></label>
+        <label><input type="checkbox" name="soal6" value="B"><span class="option-text">B. Menguasai pelabuhan-pelabuhan penting sebagai pusat transit dagang</span></label>
+        <label><input type="checkbox" name="soal6" value="C"><span class="option-text">C. Mengandalkan pertanian padi di pedalaman sebagai basis utama ekonomi</span></label>
+        <label><input type="checkbox" name="soal6" value="D"><span class="option-text">D. Memiliki armada laut yang kuat untuk mengamankan jalur pelayaran</span></label>
+        <label><input type="checkbox" name="soal6" value="E"><span class="option-text">E. Berpusat di dataran tinggi yang jauh dari akses laut</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span>Kesultanan Demak — Tepat / Tidak Tepat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Kesultanan Demak dikenal sebagai kerajaan Islam pertama di pesisir utara Jawa.
+        </div>
+        <div class="instruction">Pilihlah <strong>Tepat</strong> atau <strong>Tidak Tepat</strong>!</div>
+      </div>
+      <table class="tf-table">
+        <tr><th style="width:40px;">#</th><th>Pernyataan</th><th style="width:70px;">Tepat</th><th style="width:90px;">Tidak Tepat</th></tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Demak berperan sebagai penerus kekuatan politik dan ekonomi Majapahit di pesisir utara Jawa</td>
+          <td class="center"><label><input type="radio" name="soal7a" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal7a" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Demak didirikan dan pertama kali diperintah oleh Sultan Agung</td>
+          <td class="center"><label><input type="radio" name="soal7b" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal7b" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">C</td>
+          <td>Masjid Agung Demak menjadi salah satu pusat penyebaran Islam di tanah Jawa</td>
+          <td class="center"><label><input type="radio" name="soal7c" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal7c" value="TT"> TT</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span>Islamisasi melalui Perkawinan — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Di banyak daerah pesisir, penyebaran Islam berlangsung relatif damai dan cepat diterima masyarakat. Salah satu faktor pentingnya adalah pernikahan antara pedagang muslim dengan perempuan bangsawan atau anak saudagar setempat, yang kemudian melahirkan keturunan muslim dan memperluas jaringan kekerabatan dengan penguasa lokal.
+        </div>
+        <p>Wacana tersebut menunjukkan bahwa saluran islamisasi melalui perkawinan efektif mempercepat penyebaran Islam karena...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-text">A. Menghasilkan generasi muslim baru sekaligus memperkuat hubungan sosial-politik dengan elite lokal</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-text">B. Tidak memerlukan persetujuan penguasa setempat</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-text">C. Hanya melibatkan kalangan bawah tanpa pengaruh terhadap struktur sosial</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-text">D. Berlangsung secara paksaan terhadap penduduk pribumi</span></label>
+        <label><input type="radio" name="soal8" value="E"><span class="option-text">E. Tidak berkaitan dengan penyebaran budaya Islam</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span>3G dan VOC — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Kedatangan bangsa Eropa ke Nusantara pada abad ke-16 didorong oleh semangat 3G: Gold, Glory, dan Gospel. Semangat mencari kekayaan (Gold) inilah yang kemudian mendorong Belanda membentuk VOC dan menerapkan sistem monopoli perdagangan rempah-rempah.
+        </div>
+        <p>Berdasarkan wacana tersebut, hubungan sebab-akibat yang tepat antara motif kedatangan bangsa Eropa dengan kebijakan VOC adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-text">A. Semangat Gospel mendorong VOC menerapkan hak oktroi</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-text">B. Semangat Glory mendorong VOC membangun benteng-benteng pertahanan semata</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-text">C. Semangat Gold mendorong VOC menerapkan monopoli dagang melalui hak-hak istimewa (oktroi)</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-text">D. Semangat 3G tidak berkaitan dengan kebijakan ekonomi VOC</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-text">E. Semangat Gold hanya berlaku bagi pedagang Portugis, bukan VOC</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span>Tokoh Perlawanan VOC — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="instruction">Manakah tokoh berikut yang memimpin perlawanan bersenjata terhadap VOC/Belanda pada abad ke-17 hingga ke-19? <em>Jawaban benar lebih dari satu.</em></div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal10" value="A"><span class="option-text">A. Sultan Ageng Tirtayasa</span></label>
+        <label><input type="checkbox" name="soal10" value="B"><span class="option-text">B. Pangeran Diponegoro</span></label>
+        <label><input type="checkbox" name="soal10" value="C"><span class="option-text">C. Soekarno</span></label>
+        <label><input type="checkbox" name="soal10" value="D"><span class="option-text">D. Sultan Hasanuddin</span></label>
+        <label><input type="checkbox" name="soal10" value="E"><span class="option-text">E. Mohammad Hatta</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span>Perang Diponegoro — Tepat / Tidak Tepat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Perang Diponegoro (1825–1830) merupakan salah satu perlawanan terbesar terhadap Belanda di Jawa.
+        </div>
+        <div class="instruction">Pilihlah <strong>Tepat</strong> atau <strong>Tidak Tepat</strong>!</div>
+      </div>
+      <table class="tf-table">
+        <tr><th style="width:40px;">#</th><th>Pernyataan</th><th style="width:70px;">Tepat</th><th style="width:90px;">Tidak Tepat</th></tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Perang dipicu oleh pemasangan patok jalan oleh Belanda di atas tanah leluhur Diponegoro</td>
+          <td class="center"><label><input type="radio" name="soal11a" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal11a" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Perang berakhir dengan kemenangan penuh pihak Diponegoro dan pengusiran Belanda dari Jawa</td>
+          <td class="center"><label><input type="radio" name="soal11b" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal11b" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">C</td>
+          <td>Setelah perang, Belanda menerapkan Sistem Tanam Paksa (Cultuurstelsel) untuk menutup kerugian akibat perang</td>
+          <td class="center"><label><input type="radio" name="soal11c" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal11c" value="TT"> TT</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span>Perang Padri — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Dalam Perang Padri, Belanda menghadapi kesulitan mengalahkan kaum Padri yang menguasai medan pegunungan Sumatra Barat. Untuk mengatasinya, Belanda membangun serangkaian benteng pertahanan yang saling terhubung sembari terus mendesak wilayah kekuasaan kaum Padri secara bertahap.
+        </div>
+        <p>Strategi yang diterapkan Belanda tersebut dikenal dengan istilah ... dan bertujuan untuk...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal12" value="A"><span class="option-text">A. Sistem Benteng Stelsel — mempersempit ruang gerak dan wilayah kekuasaan lawan secara bertahap</span></label>
+        <label><input type="radio" name="soal12" value="B"><span class="option-text">B. Sistem Tanam Paksa — memaksa rakyat menanam komoditas ekspor</span></label>
+        <label><input type="radio" name="soal12" value="C"><span class="option-text">C. Politik Devide et Impera — mengadu domba antarkelompok masyarakat</span></label>
+        <label><input type="radio" name="soal12" value="D"><span class="option-text">D. Sistem Sewa Tanah — mengambil alih kepemilikan tanah rakyat</span></label>
+        <label><input type="radio" name="soal12" value="E"><span class="option-text">E. Politik Etis — memberikan pendidikan bagi penduduk pribumi</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span>Pergerakan Nasional — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Lahirnya pergerakan nasional Indonesia awal abad ke-20 dipengaruhi oleh faktor dari dalam negeri, seperti penderitaan akibat kolonialisme dan kenangan kejayaan masa lalu, serta faktor dari luar negeri, seperti kemenangan Jepang atas Rusia (1905) dan berkembangnya paham nasionalisme di Asia.
+        </div>
+        <p>Berdasarkan wacana tersebut, manakah pasangan faktor internal dan eksternal yang tepat sebagai pendorong pergerakan nasional?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">A. Internal: politik etis Belanda; Eksternal: penderitaan rakyat akibat kolonialisme</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">B. Internal: kenangan kejayaan Sriwijaya-Majapahit; Eksternal: kemenangan Jepang atas Rusia</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">C. Internal: kemenangan Jepang atas Rusia; Eksternal: politik etis Belanda</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">D. Internal: masuknya paham nasionalisme India; Eksternal: berdirinya Budi Utomo</span></label>
+        <label><input type="radio" name="soal13" value="E"><span class="option-text">E. Faktor internal dan eksternal tidak dapat dibedakan dalam konteks ini</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span>Organisasi Pergerakan — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="instruction">Manakah organisasi berikut yang lahir pada masa pergerakan nasional (awal abad ke-20)? <em>Jawaban benar lebih dari satu.</em></div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal14" value="A"><span class="option-text">A. Budi Utomo</span></label>
+        <label><input type="checkbox" name="soal14" value="B"><span class="option-text">B. Sarekat Islam</span></label>
+        <label><input type="checkbox" name="soal14" value="C"><span class="option-text">C. VOC</span></label>
+        <label><input type="checkbox" name="soal14" value="D"><span class="option-text">D. Indische Partij</span></label>
+        <label><input type="checkbox" name="soal14" value="E"><span class="option-text">E. Kompeni Belanda</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span>Proklamasi Kemerdekaan — Tepat / Tidak Tepat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Proklamasi Kemerdekaan RI 17 Agustus 1945 didahului oleh serangkaian peristiwa penting.
+        </div>
+        <div class="instruction">Pilihlah <strong>Tepat</strong> atau <strong>Tidak Tepat</strong>!</div>
+      </div>
+      <table class="tf-table">
+        <tr><th style="width:40px;">#</th><th>Pernyataan</th><th style="width:70px;">Tepat</th><th style="width:90px;">Tidak Tepat</th></tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Peristiwa Rengasdengklok terjadi karena golongan muda mendesak Soekarno-Hatta segera memproklamasikan kemerdekaan tanpa menunggu PPKI</td>
+          <td class="center"><label><input type="radio" name="soal15a" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal15a" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Naskah proklamasi dirumuskan di rumah Laksamana Maeda oleh Soekarno, Hatta, dan Ahmad Soebardjo</td>
+          <td class="center"><label><input type="radio" name="soal15b" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal15b" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">C</td>
+          <td>Teks proklamasi diketik oleh Sayuti Melik menggunakan mesin tik pribadi milik Ahmad Soebardjo</td>
+          <td class="center"><label><input type="radio" name="soal15c" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal15c" value="TT"> TT</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span>Sumpah Pemuda — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Sebelum tahun 1928, organisasi pergerakan nasional umumnya masih bersifat kedaerahan, seperti Jong Java, Jong Sumatranen Bond, dan Jong Celebes. Melalui Kongres Pemuda II, organisasi-organisasi tersebut menyatukan tekad dalam ikrar bersama yang menegaskan satu tanah air, satu bangsa, dan satu bahasa.
+        </div>
+        <p>Dampak paling signifikan dari Sumpah Pemuda terhadap pergerakan nasional, berdasarkan wacana tersebut, adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal16" value="A"><span class="option-text">A. Mengakhiri seluruh organisasi kedaerahan secara paksa</span></label>
+        <label><input type="radio" name="soal16" value="B"><span class="option-text">B. Mengubah orientasi perjuangan dari bersifat kedaerahan menjadi bersifat nasional dan bersatu</span></label>
+        <label><input type="radio" name="soal16" value="C"><span class="option-text">C. Menetapkan Indonesia sebagai negara merdeka</span></label>
+        <label><input type="radio" name="soal16" value="D"><span class="option-text">D. Membentuk pemerintahan sementara Indonesia</span></label>
+        <label><input type="radio" name="soal16" value="E"><span class="option-text">E. Menyatakan perang terhadap pemerintah kolonial</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span>Pertempuran Surabaya — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Setelah insiden perobekan bendera di Hotel Yamato, Sekutu mengeluarkan ultimatum agar rakyat Surabaya menyerahkan senjata. Rakyat menolak dan pertempuran besar pun pecah pada 10 November 1945, menewaskan ribuan pejuang namun berhasil menunjukkan tekad rakyat mempertahankan kemerdekaan kepada dunia internasional.
+        </div>
+        <p>Dampak penting Pertempuran Surabaya terhadap perjuangan mempertahankan kemerdekaan, sebagaimana tersirat dalam wacana tersebut, adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal17" value="A"><span class="option-text">A. Memaksa Belanda segera mengakui kedaulatan RI</span></label>
+        <label><input type="radio" name="soal17" value="B"><span class="option-text">B. Membuktikan kepada dunia internasional tekad rakyat Indonesia mempertahankan kemerdekaan meski menghadapi kekuatan Sekutu</span></label>
+        <label><input type="radio" name="soal17" value="C"><span class="option-text">C. Mengakhiri seluruh perlawanan bersenjata di Jawa</span></label>
+        <label><input type="radio" name="soal17" value="D"><span class="option-text">D. Menyebabkan pemindahan ibu kota RI ke Yogyakarta</span></label>
+        <label><input type="radio" name="soal17" value="E"><span class="option-text">E. Mendorong Belanda melancarkan Agresi Militer I</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span>Perjanjian Indonesia-Belanda — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="instruction">Manakah yang termasuk perjanjian/perundingan antara Indonesia dan Belanda pada masa revolusi kemerdekaan (1945–1949)? <em>Jawaban benar lebih dari satu.</em></div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal18" value="A"><span class="option-text">A. Perjanjian Linggarjati</span></label>
+        <label><input type="checkbox" name="soal18" value="B"><span class="option-text">B. Perjanjian Renville</span></label>
+        <label><input type="checkbox" name="soal18" value="C"><span class="option-text">C. Perjanjian Bongaya</span></label>
+        <label><input type="checkbox" name="soal18" value="D"><span class="option-text">D. Konferensi Meja Bundar (KMB)</span></label>
+        <label><input type="checkbox" name="soal18" value="E"><span class="option-text">E. Perjanjian Giyanti</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span>Demokrasi Pasca-Kemerdekaan — Tepat / Tidak Tepat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Indonesia mengalami dua fase demokrasi pasca-kemerdekaan sebelum masa Orde Baru.
+        </div>
+        <div class="instruction">Pilihlah <strong>Tepat</strong> atau <strong>Tidak Tepat</strong>!</div>
+      </div>
+      <table class="tf-table">
+        <tr><th style="width:40px;">#</th><th>Pernyataan</th><th style="width:70px;">Tepat</th><th style="width:90px;">Tidak Tepat</th></tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Pada masa Demokrasi Liberal (1950–1959), Indonesia menerapkan sistem multipartai dengan kabinet yang sering berganti</td>
+          <td class="center"><label><input type="radio" name="soal19a" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal19a" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Dekret Presiden 5 Juli 1959 menandai berakhirnya Demokrasi Liberal dan dimulainya Demokrasi Terpimpin</td>
+          <td class="center"><label><input type="radio" name="soal19b" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal19b" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">C</td>
+          <td>Pada masa Demokrasi Terpimpin, kekuasaan lembaga legislatif lebih dominan dibandingkan kekuasaan Presiden</td>
+          <td class="center"><label><input type="radio" name="soal19c" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal19c" value="TT"> TT</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span>Politik Luar Negeri Demokrasi Terpimpin — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pada tahun 1965, Indonesia menarik diri dari keanggotaan PBB sebagai bentuk protes atas terpilihnya Malaysia sebagai anggota tidak tetap Dewan Keamanan PBB, di tengah memanasnya konfrontasi Indonesia-Malaysia akibat kebijakan "Ganyang Malaysia".
+        </div>
+        <p>Keputusan Indonesia keluar dari PBB tersebut mencerminkan corak politik luar negeri pada masa Demokrasi Terpimpin yang cenderung...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal20" value="A"><span class="option-text">A. Netral aktif tanpa keberpihakan</span></label>
+        <label><input type="radio" name="soal20" value="B"><span class="option-text">B. Konfrontatif dan menonjolkan kepemimpinan Indonesia di kawasan (poros Jakarta-Peking)</span></label>
+        <label><input type="radio" name="soal20" value="C"><span class="option-text">C. Mengutamakan kerja sama ekonomi dengan Blok Barat</span></label>
+        <label><input type="radio" name="soal20" value="D"><span class="option-text">D. Berfokus pada penyelesaian sengketa Papua melalui PBB</span></label>
+        <label><input type="radio" name="soal20" value="E"><span class="option-text">E. Non-blok tanpa konflik dengan negara tetangga</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span>Supersemar — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Melalui Supersemar (11 Maret 1966), Soeharto memperoleh mandat untuk memulihkan keamanan dan ketertiban negara. Mandat ini kemudian digunakan sebagai dasar untuk membubarkan PKI, membersihkan kabinet dari unsur yang dianggap terlibat G30S, dan secara bertahap mengambil alih kendali pemerintahan hingga MPRS mengangkat Soeharto sebagai presiden pada 1968.
+        </div>
+        <p>Berdasarkan wacana tersebut, implikasi dari penggunaan Supersemar terhadap peta kekuasaan politik Indonesia adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal21" value="A"><span class="option-text">A. Soeharto langsung diangkat sebagai presiden pada tahun 1966</span></label>
+        <label><input type="radio" name="soal21" value="B"><span class="option-text">B. Supersemar menjadi dasar legal bertahap bagi Soeharto untuk mengonsolidasikan kekuasaan hingga menggantikan Soekarno</span></label>
+        <label><input type="radio" name="soal21" value="C"><span class="option-text">C. Supersemar hanya berlaku untuk urusan militer dan tidak berdampak politik</span></label>
+        <label><input type="radio" name="soal21" value="D"><span class="option-text">D. Soekarno tetap memegang kendali penuh pemerintahan setelah Supersemar</span></label>
+        <label><input type="radio" name="soal21" value="E"><span class="option-text">E. Supersemar menyebabkan pembubaran MPRS</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span>Kebijakan Orde Baru — Pilihan Ganda Kompleks</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="instruction">Manakah yang termasuk kebijakan atau ciri pemerintahan Orde Baru? <em>Jawaban benar lebih dari satu.</em></div>
+      </div>
+      <div class="cb-group">
+        <label><input type="checkbox" name="soal22" value="A"><span class="option-text">A. Pelaksanaan Pembangunan Lima Tahun (Pelita)</span></label>
+        <label><input type="checkbox" name="soal22" value="B"><span class="option-text">B. Penerapan konsep Dwifungsi ABRI</span></label>
+        <label><input type="checkbox" name="soal22" value="C"><span class="option-text">C. Kebebasan pers yang sangat terbuka tanpa pembatasan</span></label>
+        <label><input type="checkbox" name="soal22" value="D"><span class="option-text">D. Pemilu rutin diselenggarakan dengan dominasi Golkar</span></label>
+        <label><input type="checkbox" name="soal22" value="E"><span class="option-text">E. Penerapan sistem multipartai bebas sejak awal pemerintahan</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span>Reformasi 1998 — Tepat / Tidak Tepat</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Tahun 1998 menjadi titik balik penting dalam sejarah politik Indonesia.
+        </div>
+        <div class="instruction">Pilihlah <strong>Tepat</strong> atau <strong>Tidak Tepat</strong>!</div>
+      </div>
+      <table class="tf-table">
+        <tr><th style="width:40px;">#</th><th>Pernyataan</th><th style="width:70px;">Tepat</th><th style="width:90px;">Tidak Tepat</th></tr>
+        <tr>
+          <td class="center">A</td>
+          <td>Krisis moneter 1997–1998 menjadi salah satu pemicu utama runtuhnya kepercayaan terhadap pemerintahan Orde Baru</td>
+          <td class="center"><label><input type="radio" name="soal23a" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal23a" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">B</td>
+          <td>Soeharto mengundurkan diri dari jabatan presiden pada 21 Mei 1998 setelah desakan mahasiswa dan berbagai elemen masyarakat</td>
+          <td class="center"><label><input type="radio" name="soal23b" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal23b" value="TT"> TT</label></td>
+        </tr>
+        <tr>
+          <td class="center">C</td>
+          <td>Setelah Soeharto mundur, jabatan presiden langsung digantikan oleh Megawati Soekarnoputri</td>
+          <td class="center"><label><input type="radio" name="soal23c" value="T"> T</label></td>
+          <td class="center"><label><input type="radio" name="soal23c" value="TT"> TT</label></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span>Masa Jabatan Presiden — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Salah satu tuntutan utama gerakan reformasi 1998 adalah menghapus kekuasaan yang terpusat pada satu individu dalam waktu lama. Untuk mewujudkannya, amandemen UUD 1945 menetapkan pembatasan masa jabatan presiden.
+        </div>
+        <p>Ketentuan yang dihasilkan dari agenda reformasi tersebut adalah presiden dan wakil presiden dapat menjabat maksimal...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal24" value="A"><span class="option-text">A. 1 kali masa jabatan</span></label>
+        <label><input type="radio" name="soal24" value="B"><span class="option-text">B. 2 kali masa jabatan, masing-masing 5 tahun</span></label>
+        <label><input type="radio" name="soal24" value="C"><span class="option-text">C. 3 kali masa jabatan</span></label>
+        <label><input type="radio" name="soal24" value="D"><span class="option-text">D. Tidak dibatasi selama didukung MPR</span></label>
+        <label><input type="radio" name="soal24" value="E"><span class="option-text">E. 10 tahun tanpa periode</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span>Sistem Pemerintahan Reformasi — Pilihan Ganda</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <div class="stimulus">
+          Pada masa Orde Baru, presiden dipilih oleh MPR dan kepala daerah ditunjuk berdasarkan restu pemerintah pusat. Setelah reformasi, terjadi perubahan mendasar dalam mekanisme pemilihan pemimpin di berbagai tingkatan.
+        </div>
+        <p>Perubahan mendasar sistem pemerintahan pada era Reformasi dibandingkan Orde Baru, berdasarkan wacana tersebut, adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal25" value="A"><span class="option-text">A. Presiden dan kepala daerah dipilih langsung oleh rakyat melalui pemilihan umum</span></label>
+        <label><input type="radio" name="soal25" value="B"><span class="option-text">B. Partai politik dibatasi hanya tiga partai</span></label>
+        <label><input type="radio" name="soal25" value="C"><span class="option-text">C. Pers dikontrol penuh oleh pemerintah</span></label>
+        <label><input type="radio" name="soal25" value="D"><span class="option-text">D. Presiden dipilih oleh MPR seumur hidup</span></label>
+        <label><input type="radio" name="soal25" value="E"><span class="option-text">E. Otonomi daerah dihapuskan</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Sejarah_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Sejarah SMA/MA/SMK
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  // string   = PG biasa (satu jawaban)
+  // array    = PG kompleks (checklist; semua kunci harus dipilih, tidak lebih)
+  // object   = Tepat/Tidak Tepat (semua sub harus tepat)
+  const kunciJawaban = {
+    soal1:  "C",
+    soal2:  ["A", "C", "E"],
+    soal3:  { a: "T", b: "TT", c: "T" },
+    soal4:  "B",
+    soal5:  "B",
+    soal6:  ["A", "B", "D"],
+    soal7:  { a: "T", b: "TT", c: "T" },
+    soal8:  "A",
+    soal9:  "C",
+    soal10: ["A", "B", "D"],
+    soal11: { a: "T", b: "TT", c: "T" },
+    soal12: "A",
+    soal13: "B",
+    soal14: ["A", "B", "D"],
+    soal15: { a: "T", b: "T", c: "TT" },
+    soal16: "B",
+    soal17: "B",
+    soal18: ["A", "B", "D"],
+    soal19: { a: "T", b: "T", c: "TT" },
+    soal20: "B",
+    soal21: "B",
+    soal22: ["A", "B", "D"],
+    soal23: { a: "T", b: "T", c: "TT" },
+    soal24: "B",
+    soal25: "A"
+  };
+
+  let timerInterval;
+  let totalTime = 60 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_sejarah_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_sejarah_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== FUNGSI PENILAIAN PER SOAL =====
+  function nilaiSoal(key, kunci) {
+    if (kunci === null || kunci === undefined) return null;
+
+    // PG biasa (string)
+    if (typeof kunci === 'string') {
+      const sel = document.querySelector('input[name="' + key + '"]:checked');
+      return (sel && sel.value === kunci) ? 1 : 0;
+    }
+
+    // PG kompleks (array) — semua kunci harus dipilih, tidak lebih, tidak kurang
+    if (Array.isArray(kunci)) {
+      const sel = Array.from(document.querySelectorAll('input[name="' + key + '"]:checked')).map(el => el.value);
+      if (sel.length !== kunci.length) return 0;
+      return kunci.every(k => sel.includes(k)) ? 1 : 0;
+    }
+
+    // Tepat / Tidak Tepat (object) — semua sub-jawaban harus tepat
+    if (typeof kunci === 'object') {
+      const subKeys = Object.keys(kunci);
+      for (const sub of subKeys) {
+        const sel = document.querySelector('input[name="' + key + sub + '"]:checked');
+        if (!sel || sel.value !== kunci[sub]) return 0;
+      }
+      return 1;
+    }
+
+    return 0;
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    let benar = 0;
+    let totalSoalDinilai = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (kunci === null || kunci === undefined) continue;
+      totalSoalDinilai++;
+      const hasil = nilaiSoal(key, kunci);
+      if (hasil === 1) benar++;
+    }
+
+    benarGlobal = benar;
+    skorGlobal = totalSoalDinilai > 0 ? Math.round((benar / totalSoalDinilai) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + totalSoalDinilai;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Sejarah_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE (FOLDER TUJUAN) =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Sejarah_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Sejarah_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

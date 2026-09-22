@@ -1,0 +1,1319 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Antropologi SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 3px rgba(40,116,166,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,59,92,0.35);
+  }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .section-banner {
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border-radius: 10px;
+    padding: 16px 22px; margin: 35px 0 25px;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.25);
+  }
+  .section-banner h3 { font-size: 1.05rem; margin-bottom: 6px; letter-spacing: 0.4px; }
+  .section-banner p { font-size: 0.85rem; opacity: 0.92; line-height: 1.5; }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-tag {
+    background: #eef4fa; color: #0b3b5c;
+    font-size: 0.75rem; font-weight: 700;
+    padding: 4px 10px; border-radius: 20px;
+    border: 1px solid #cfe0ee; letter-spacing: 0.3px;
+  }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; text-align: justify; }
+  .soal-pertanyaan p { margin-bottom: 10px; }
+  .soal-pertanyaan ol, .soal-pertanyaan ul { margin: 8px 0 8px 22px; }
+  .soal-pertanyaan li { margin-bottom: 4px; }
+  .soal-pertanyaan em { color: #0b3b5c; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #0b3b5c; flex-shrink: 0; }
+  .pilihan .option-key {
+    font-weight: 700; color: #0b3b5c; flex-shrink: 0; min-width: 18px;
+  }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; line-height: 1.5; font-size: 0.95rem; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.88rem; cursor: pointer; white-space: nowrap;
+  }
+  .tf-item .opsi input { accent-color: #0b3b5c; }
+  .catatan {
+    background: #fff8e1; border-left: 4px solid #f39c12;
+    padding: 10px 14px; border-radius: 6px;
+    font-size: 0.85rem; color: #7a5b00; margin-top: 12px; line-height: 1.6;
+  }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem; gap: 10px;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b3b5c;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none; word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.25rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Antropologi</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026</div>
+
+  <!-- ============ HALAMAN LOGIN / IDENTITAS PESERTA ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">🏛️</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII F 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>90 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">90:00</span></div>
+    </div>
+
+    <!-- ============================= BAGIAN I ============================= -->
+    <div class="section-banner">
+      <h3>BAGIAN I — PILIHAN GANDA (NOMOR 1 S/D 9)</h3>
+      <p>Petunjuk: Pilihlah SATU jawaban yang paling tepat (A, B, C, D, atau E).</p>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="soal-tag">Perubahan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Masyarakat adat Katiku Luku di Sumba telah lama menerapkan sistem pertanian tradisional berbasis kalender adat <em>Marapu</em>. Namun, akibat intensifikasi program pemetaan lahan digital dan penetrasi pasar komoditas skala nasional, generasi muda setempat mulai beralih menanam tanaman monokultur ekspor dan mengabaikan ritual penanaman kolektif. Peneliti antropologi menemukan bahwa transisi ini memicu krisis legitimasi kepemimpinan adat serta meretaknya solidaritas konsumsi bersama (<em>commensality</em>).</p>
+        <p>Berdasarkan ilustrasi di atas, analisis krisis sosial-budaya tersebut menunjukkan implikasi dari perubahan sosial yang bersifat...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-key">A.</span><span class="option-text">Akulturasi yang menghasilkan sintesis nilai-nilai budaya lokal dan modern secara seimbang.</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-key">B.</span><span class="option-text">Dekonstruksi kebudayaan akibat masuknya mekanisasi pertanian yang mempermudah kerja fisik.</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-key">C.</span><span class="option-text">Perubahan struktural di mana komersialisasi ekonomi mengdisrupsi ikatan sosial dan kelembagaan adat tradisional.</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-key">D.</span><span class="option-text">Asimilasi sempurna yang mengeliminasi kebudayaan asli tanpa menimbulkan gejolak sosial internal.</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-key">E.</span><span class="option-text">Difusi kebudayaan yang hanya memperkaya ranah material tanpa mengubah tatanan nilai normatif.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="soal-tag">Antropologi Hukum</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di kawasan pedalaman NTT, tradisi tutur oral mengenai silsilah keluarga dan pemilikan tanah suku (<em>Tana Ukan</em>) disampaikan secara turun-temurun oleh pemangku adat (<em>Tua Teno</em>). Namun, saat terjadi sengketa lahan pembangunan fasilitas umum, pemerintah daerah menuntut bukti tertulis berupa sertifikat kepemilikan tanah legal-formal.</p>
+        <p>Jika dianalisis berdasarkan prinsip antropologi hukum dan tradisi lisan, kelemahan mendasar yang dialami masyarakat adat dalam mempertahankan haknya adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal2" value="A"><span class="option-key">A.</span><span class="option-text">Tradisi lisan tidak memiliki nilai kebenaran sejarah sama sekali karena selalu mengalami modifikasi emosional.</span></label>
+        <label><input type="radio" name="soal2" value="B"><span class="option-key">B.</span><span class="option-text">Positivisme hukum negara sering kali mengabaikan keabsahan sistem hukum adat yang tersimpan dalam ingatan kolektif turunan lisan.</span></label>
+        <label><input type="radio" name="soal2" value="C"><span class="option-key">C.</span><span class="option-text">Masyarakat adat tidak memahami pentingnya kepemilikan tanah untuk pembangunan ekonomi daerah.</span></label>
+        <label><input type="radio" name="soal2" value="D"><span class="option-key">D.</span><span class="option-text">Pemangku adat sengaja menyembunyikan dokumen tertulis asli demi keuntungan pribadi suku.</span></label>
+        <label><input type="radio" name="soal2" value="E"><span class="option-key">E.</span><span class="option-text">Tradisi lisan hanya berfungsi sebagai hiburan kesenian dan tidak memiliki daya atur hukum internal.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="soal-tag">Antropologi Ekologi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Masyarakat pesisir di Desa Y memiliki tradisi lisan berupa nyanyian mitologis (<em>Sasi Laut</em>) yang melarang penangkapan ikan dan teripang di wilayah terumbu karang tertentu selama bulan-bulan tertentu. Jika larangan ini dilanggar, masyarakat percaya dewata laut akan murka dan membawa petaka. Secara antropologis-ekologis, keberadaan tradisi lisan ini berfungsi sebagai...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-key">A.</span><span class="option-text">Alat legitimasi kekuasaan elite lokal untuk menguasai komoditas perikanan desa.</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-key">B.</span><span class="option-text">Bentuk ketertinggalan berpikir irasional yang menghambat modernisasi ekonomi nelayan.</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-key">C.</span><span class="option-text">Mekanisme konservasi lingkungan berbasis kearifan lokal untuk pemulihan ekosistem laut (<em>spawning ground</em>).</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-key">D.</span><span class="option-text">Hambatan bagi masuknya investor asing dalam mengelola potensi perikanan industri.</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-key">E.</span><span class="option-text">Strategi politik identitas untuk membatasi akses warga luar terhadap pasar tradisional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="soal-tag">Solidaritas Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Masuknya jaringan internet dan platform perdagangan digital ke pedesaan agraris telah mengubah pola produksi pertanian. Pemuda desa kini lebih tertarik menjadi <em>content creator</em> dan pengusaha <em>e-commerce</em> dibandingkan menggarap sawah secara gotong royong. Dampak antropologi utama dari perubahan sosial ini terhadap struktur kekerabatan desa adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal4" value="A"><span class="option-key">A.</span><span class="option-text">Menguatnya solidaritas mekanik akibat meluasnya komunikasi serentak via media sosial.</span></label>
+        <label><input type="radio" name="soal4" value="B"><span class="option-key">B.</span><span class="option-text">Pergeseran dari solidaritas mekanik yang berbasis ikatan komunal menuju solidaritas organik yang berpatokan pada spesialisasi kerja dan kepentingan ekonomi individual.</span></label>
+        <label><input type="radio" name="soal4" value="C"><span class="option-key">C.</span><span class="option-text">Hilangnya seluruh bentuk interaksi sosial antarkeluarga karena peralihan ke dunia maya.</span></label>
+        <label><input type="radio" name="soal4" value="D"><span class="option-key">D.</span><span class="option-text">Penguatan sistem kekerabatan <em>extended family</em> karena bisnis daring dikelola bersama klan.</span></label>
+        <label><input type="radio" name="soal4" value="E"><span class="option-key">E.</span><span class="option-text">Kembalinya pola produksi subsisten karena pemuda menolak seluruh teknologi modern.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="soal-tag">Aliran Antropologi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dalam mengkaji fenomena sengketa tanah ulayat, Antropologi Sosial (tradisi Inggris/Britania) dan Antropologi Budaya (tradisi Amerika Serikat) memiliki fokus kajian yang berbeda. Perbedaan mendasar analisis kedua aliran tersebut terletak pada...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-key">A.</span><span class="option-text">Antropologi Sosial berfokus pada struktur hubungan sosial dan lembaga kekuasaan, sedangkan Antropologi Budaya berfokus pada sistem simbol, nilai, dan makna yang dihayati masyarakat.</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-key">B.</span><span class="option-text">Antropologi Sosial menekankan kajian arkeologi masa lalu, sedangkan Antropologi Budaya menekankan linguistik modern.</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-key">C.</span><span class="option-text">Antropologi Sosial hanya meneliti masyarakat perkotaan, sedangkan Antropologi Budaya meneliti masyarakat terisolasi.</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-key">D.</span><span class="option-text">Antropologi Sosial mengabaikan hukum adat, sedangkan Antropologi Budaya fokus pada hukum positif negara.</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-key">E.</span><span class="option-text">Antropologi Sosial bersifat kualitatif murni, sedangkan Antropologi Budaya menggunakan statistik kuantitatif.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="soal-tag">Netnografi &amp; Etika</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di era digital, antropologi kini banyak mengadopsi metode <em>Netnografi</em> (etnografi dunia maya) untuk meneliti perilaku komunitas gim <em>online</em>. Tantangan etis paling krusial yang dihadapi peneliti saat melakukan observasi partisipatif dalam forum daring tanpa mengganggu interaksi alami adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal6" value="A"><span class="option-key">A.</span><span class="option-text">Tingginya biaya riset lapangan dibandingkan dengan penelitian etnografi konvensional.</span></label>
+        <label><input type="radio" name="soal6" value="B"><span class="option-key">B.</span><span class="option-text">Dilema antara kewajiban memberikan <em>informed consent</em> (persetujuan terbuka) dengan risiko pergeseran perilaku alami para anggota forum (<em>Hawthorne effect</em>).</span></label>
+        <label><input type="radio" name="soal6" value="C"><span class="option-key">C.</span><span class="option-text">Ketidakmampuan peneliti dalam mengoperasikan perangkat lunak gim modern.</span></label>
+        <label><input type="radio" name="soal6" value="D"><span class="option-key">D.</span><span class="option-text">Sulitnya menerjemahkan bahasa daerah ke dalam bahasa internasional.</span></label>
+        <label><input type="radio" name="soal6" value="E"><span class="option-key">E.</span><span class="option-text">Kebijakan pemerintah yang melarang penggunaan internet untuk tujuan akademik.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="soal-tag">Multikulturalisme</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Di sebuah kota industri baru, terjadi ketegangan antara suku asli dan pendatang akibat persaingan lapangan kerja. Pemerintah daerah merencanakan program reintegrasi sosial. Berdasarkan perspektif kebhinnekaan, langkah yang paling sesuai dengan prinsip <em>multikulturalisme kritis</em> adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-key">A.</span><span class="option-text">Memulangkan seluruh pendatang ke daerah asal demi menjaga stabilitas keamanan lokal.</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-key">B.</span><span class="option-text">Memaksa pendatang untuk menghilangkan seluruh identitas budayanya dan melebur penuh ke budaya lokal (<em>asimilasi paksa</em>).</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-key">C.</span><span class="option-text">Membangun ruang dialog publik interseksional dan kebijakan alokasi ekonomi yang adil tanpa diskriminasi latar belakang etnis.</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-key">D.</span><span class="option-text">Mengisolasi pemukiman pendatang dan suku asli dalam wilayah pemukiman yang terpisah secara ketat.</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-key">E.</span><span class="option-text">Mengabaikan ketegangan dan menyerahkan sepenuhnya pada mekanisme pasar bebas.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="soal-tag">Perubahan Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pemerintah merencanakan pembangunan kawasan industri di wilayah hutan adat. Meskipun teknologi perindustrian berkembang sangat cepat, regulasi adat dan hukum formal perlindungan masyarakat adat lambat menyesuaikan diri, sehingga menimbulkan eksploitasi lahan berlebihan dan marjinalisasi warga lokal. Fenomena ini dalam antropologi perubahan sosial dikenal sebagai...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal8" value="A"><span class="option-key">A.</span><span class="option-text"><em>Cultural Relativism</em> (Relativisme Budaya)</span></label>
+        <label><input type="radio" name="soal8" value="B"><span class="option-key">B.</span><span class="option-text"><em>Cultural Lag</em> (Ketertinggalan Budaya)</span></label>
+        <label><input type="radio" name="soal8" value="C"><span class="option-key">C.</span><span class="option-text"><em>Cultural Shock</em> (Guncangan Budaya)</span></label>
+        <label><input type="radio" name="soal8" value="D"><span class="option-key">D.</span><span class="option-text"><em>Cultural Universal</em> (Keberadaan Budaya Semesta)</span></label>
+        <label><input type="radio" name="soal8" value="E"><span class="option-key">E.</span><span class="option-text"><em>Cultural Diffusion</em> (Difusi Budaya)</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="soal-tag">Tradisi Lisan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Banyak tradisi lisan seperti cerita rakyat dan folklore di Indonesia berada di ambang kepunahan karena penuturnya semakin berkurang dan generasi muda lebih tertarik pada konten media digital modern. Sebagai seorang pelajar yang kritis, konsep revitalisasi tradisi lisan yang paling efektif dan berperspektif ke depan adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-key">A.</span><span class="option-text">Melarang generasi muda mengonsumsi media digital agar fokus mendengarkan cerita tutur tua-tua adat.</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-key">B.</span><span class="option-text">Mengubah narasi tradisi lisan menjadi konten digital interaktif (seperti gim, animasi, dan komik web) tanpa menghilangkan nilai intrinsiknya.</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-key">C.</span><span class="option-text">Menjadikan tradisi lisan sebagai rahasia tertutup yang tidak boleh dipublikasikan di luar suku.</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-key">D.</span><span class="option-text">Menulis seluruh tradisi lisan dalam buku perpustakaan tanpa perlu dituturkan kembali.</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-key">E.</span><span class="option-text">Mengganti narasi lokal dengan dongeng dari negara luar yang lebih modern.</span></label>
+      </div>
+    </div>
+
+    <!-- ============================= BAGIAN II ============================= -->
+    <div class="section-banner">
+      <h3>BAGIAN II — PILIHAN GANDA KOMPLEKS (NOMOR 10 S/D 17)</h3>
+      <p>Petunjuk: Pilihlah LEBIH DARI SATU pilihan jawaban yang benar! (Jawaban benar dapat berjumlah 2, 3, atau lebih). Jawaban dinilai benar apabila seluruh pilihan tepat dan tidak ada pilihan yang salah.</p>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="soal-tag">Discovery &amp; Invention</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Sebuah suku pedalaman terisolasi mengalami tingkat perubahan teknologi yang sangat lambat. Berdasarkan analisis antropologis, faktor-faktor internal dan eksternal yang dapat menahan (<em>penghambat</em>) atau memicu (<em>pendorong</em>) terjadinya penemuan baru (<em>discovery/invention</em>) pada masyarakat tersebut adalah... (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal10" value="A"><span class="option-key">A.</span><span class="option-text">Sikap tertutup terhadap pembaharuan (<em>isolation</em>) membatasi kontak dan difusi budaya.</span></label>
+        <label><input type="checkbox" name="soal10" value="B"><span class="option-key">B.</span><span class="option-text">Adanya rasa takut akan terjadinya kegoyahan pada integrasi kebudayaan (<em>vested interest</em>).</span></label>
+        <label><input type="checkbox" name="soal10" value="C"><span class="option-key">C.</span><span class="option-text">Kontak yang intensif dengan kebudayaan lain secara damai mempercepat adopsi teknologi.</span></label>
+        <label><input type="checkbox" name="soal10" value="D"><span class="option-key">D.</span><span class="option-text">Homogenitas nilai kebudayaan yang kaku selalu mempercepat terciptanya variasi teknologi baru.</span></label>
+        <label><input type="checkbox" name="soal10" value="E"><span class="option-key">E.</span><span class="option-text">Sistem pendidikan yang berorientasi pada pemikiran kritis dan terbuka terhadap perubahan.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="soal-tag">Teori Fungsionalisme</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Teori Fungsionalisme dalam antropologi dikembangkan oleh Bronislaw Malinowski dan A.R. Radcliffe-Brown dengan penekanan yang berbeda. Manakah dari pernyataan berikut yang secara akurat menjelaskan perbedaan atau persamaan konsep fungsionalisme kedua tokoh tersebut? (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal11" value="A"><span class="option-key">A.</span><span class="option-text">Malinowski menekankan bahwa kebudayaan berfungsi untuk memenuhi kebutuhan biologis dan psikologis individu.</span></label>
+        <label><input type="checkbox" name="soal11" value="B"><span class="option-key">B.</span><span class="option-text">Radcliffe-Brown mengembangkan Fungsionalisme-Struktural yang menekankan kontribusi pranata sosial dalam menjaga keutuhan struktur masyarakat.</span></label>
+        <label><input type="checkbox" name="soal11" value="C"><span class="option-key">C.</span><span class="option-text">Kedua tokoh sepakat bahwa budaya bersifat statis dan tidak pernah mengalami pergeseran fungsi.</span></label>
+        <label><input type="checkbox" name="soal11" value="D"><span class="option-key">D.</span><span class="option-text">Malinowski mengabaikan metode studi lapangan dan hanya mengandalkan literatur sejarah.</span></label>
+        <label><input type="checkbox" name="soal11" value="E"><span class="option-key">E.</span><span class="option-text">Keduanya memandang ritual keagamaan memiliki fungsi sosial tertentu dalam menciptakan kohesi atau ketenangan jiwa.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="soal-tag">Metode Etnografi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Seorang peneliti sedang menyusun desain riset etnografi holistik mengenai kehidupan masyarakat nelayan tradisional. Agar data kualitatif yang diperoleh memiliki derajat keabsahan dan kedalaman yang tinggi, teknik pengumpulan data kualitatif yang WAJIB digabungkan oleh peneliti adalah... (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal12" value="A"><span class="option-key">A.</span><span class="option-text">Observasi partisipatif (<em>participant observation</em>) dengan tinggal bersama masyarakat lokal.</span></label>
+        <label><input type="checkbox" name="soal12" value="B"><span class="option-key">B.</span><span class="option-text">Wawancara mendalam (<em>in-depth interview</em>) dengan informan kunci (<em>key informant</em>).</span></label>
+        <label><input type="checkbox" name="soal12" value="C"><span class="option-key">C.</span><span class="option-text">Penyebaran kuesioner tertutup secara massal tanpa adanya interaksi tatap muka.</span></label>
+        <label><input type="checkbox" name="soal12" value="D"><span class="option-key">D.</span><span class="option-text">Studi dokumen sejarah dan catatan etnografis terdahulu mengenai wilayah tersebut.</span></label>
+        <label><input type="checkbox" name="soal12" value="E"><span class="option-key">E.</span><span class="option-text">Eksperimen laboratorium dengan mengisolasi variabel sosial masyarakat.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="soal-tag">Kearifan Lokal</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Dalam masyarakat adat Minangkabau, tradisi lisan dalam bentuk peribahasa, ungkapan adat, dan pantun (<em>pasambahan</em>) digunakan dalam proses musyawarah adat. Fungsi sosial-kultural utama dari tradisi lisan ini adalah... (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal13" value="A"><span class="option-key">A.</span><span class="option-text">Sebagai media penyampaian kritik sosial dan resolusi konflik tanpa merusak hubungan antar-individu.</span></label>
+        <label><input type="checkbox" name="soal13" value="B"><span class="option-key">B.</span><span class="option-text">Sebagai sarana pewarisan nilai-nilai etika dan moral dari satu generasi ke generasi berikutnya.</span></label>
+        <label><input type="checkbox" name="soal13" value="C"><span class="option-key">C.</span><span class="option-text">Sebagai komoditas komersial murni untuk menarik wisatawan mancanegara.</span></label>
+        <label><input type="checkbox" name="soal13" value="D"><span class="option-key">D.</span><span class="option-text">Sebagai sarana memperkuat rasa solidaritas dan identitas komunal suku.</span></label>
+        <label><input type="checkbox" name="soal13" value="E"><span class="option-key">E.</span><span class="option-text">Sebagai pengganti penuh sistem hukum pidana positif nasional.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="soal-tag">Interseksi Sosial</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Struktur sosial masyarakat multikultural dapat mengalami konsolidasi atau interseksi. Manakah fenomena di bawah ini yang menunjukkan bentuk <em>interseksi sosial</em> yang berpotensi meredam konflik antaretnis? (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal14" value="A"><span class="option-key">A.</span><span class="option-text">Pertemuan keanggotaan dalam koperasi tani yang terdiri dari petani Suku A dan Suku B.</span></label>
+        <label><input type="checkbox" name="soal14" value="B"><span class="option-key">B.</span><span class="option-text">Pemukiman eksklusif yang hanya boleh dihuni oleh warga beretnis dan beragama sama.</span></label>
+        <label><input type="checkbox" name="soal14" value="C"><span class="option-key">C.</span><span class="option-text">Asosiasi pedagang pasar tradisional yang anggotanya berasal dari berbagai latar belakang agama dan etnis.</span></label>
+        <label><input type="checkbox" name="soal14" value="D"><span class="option-key">D.</span><span class="option-text">Pengelompokan partai politik yang mewajibkan seluruh anggotanya memiliki latar belakang ras tunggal.</span></label>
+        <label><input type="checkbox" name="soal14" value="E"><span class="option-key">E.</span><span class="option-text">Kegiatan olahraga persatuan daerah yang melibatkan atlet dari beragam suku bangsa.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="soal-tag">Komodifikasi Budaya</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Komersialisasi dan pariwisata budaya sering kali memicu fenomena <em>komodifikasi budaya</em>, di mana ritual keagamaan adat dipaketkan menjadi pertunjukan wisata komersial. Dampak kritis antropologis dari komodifikasi budaya ini antara lain... (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal15" value="A"><span class="option-key">A.</span><span class="option-text">Potensi pergeseran makna ritual dari sakral (<em>spiritual</em>) menjadi profan (<em>komersialisasi/tontonan</em>).</span></label>
+        <label><input type="checkbox" name="soal15" value="B"><span class="option-key">B.</span><span class="option-text">Peningkatan pendapatan ekonomi bagi masyarakat lokal pengelola pariwisata.</span></label>
+        <label><input type="checkbox" name="soal15" value="C"><span class="option-key">C.</span><span class="option-text">Risiko penyederhanaan (<em>distorsi</em>) tahapan ritual demi menyesuaikan durasi wisatawan.</span></label>
+        <label><input type="checkbox" name="soal15" value="D"><span class="option-key">D.</span><span class="option-text">Terjaminnya keaslian ritual tanpa ada perubahan sedikit pun selamanya.</span></label>
+        <label><input type="checkbox" name="soal15" value="E"><span class="option-key">E.</span><span class="option-text">Timbulnya ketergantungan ekonomi lokal pada industri pariwisata global.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="soal-tag">Sapir-Whorf</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Bahasa dan sistem simbol merupakan bagian inti dari kajian antropologi budaya. Menurut hipotesis Sapir-Whorf (<em>Relativitas Linguistik</em>), hubungan antara bahasa, budaya, dan pola pikir manusia adalah... (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal16" value="A"><span class="option-key">A.</span><span class="option-text">Struktur bahasa yang digunakan seseorang mempengaruhi cara pandangnya terhadap dunia di sekitarnya (<em>worldview</em>).</span></label>
+        <label><input type="checkbox" name="soal16" value="B"><span class="option-key">B.</span><span class="option-text">Kekayaan kosa kata lokal mengenai lingkungan (misalnya jenis-jenis hujan atau beras) mencerminkan adaptasi ekologis masyarakat tersebut.</span></label>
+        <label><input type="checkbox" name="soal16" value="C"><span class="option-key">C.</span><span class="option-text">Semua bahasa di dunia memiliki kosa kata yang persis sama dalam mengategorikan warna dan rasa.</span></label>
+        <label><input type="checkbox" name="soal16" value="D"><span class="option-key">D.</span><span class="option-text">Bahasa hanyalah alat komunikasi netral dan tidak berkaitan dengan nilai-nilai budaya.</span></label>
+        <label><input type="checkbox" name="soal16" value="E"><span class="option-key">E.</span><span class="option-text">Perbedaan bahasa dapat menyebabkan perbedaan persepsi kategorisasi sosial antarbudaya.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="soal-tag">Triangulasi</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Untuk menjaga keabsahan (<em>trustworthiness</em>) dan menghindari kebiasan data dalam laporan etnografi, peneliti melakukan teknik <em>Triangulasi</em>. Tindakan yang tergolong dalam prosedur triangulasi data adalah... (Pilih jawaban-jawaban yang BENAR!)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal17" value="A"><span class="option-key">A.</span><span class="option-text">Membandingkan data hasil observasi dengan hasil wawancara dari berbagai informan yang berbeda.</span></label>
+        <label><input type="checkbox" name="soal17" value="B"><span class="option-key">B.</span><span class="option-text">Menggunakan beberapa teori antropologi yang berbeda untuk menganalisis satu temuan fenomena yang sama.</span></label>
+        <label><input type="checkbox" name="soal17" value="C"><span class="option-key">C.</span><span class="option-text">Membuang seluruh data yang bertentangan dengan hipotesis awal peneliti secara sepihak.</span></label>
+        <label><input type="checkbox" name="soal17" value="D"><span class="option-key">D.</span><span class="option-text">Melakukan pengecekan kembali (<em>member check</em>) kepada warga lokal untuk mengonfirmasi kebenaran interpretasi riset.</span></label>
+        <label><input type="checkbox" name="soal17" value="E"><span class="option-key">E.</span><span class="option-text">Mengganti lokasi penelitian setiap hari tanpa melakukan konfirmasi data sebelumnya.</span></label>
+      </div>
+    </div>
+
+    <!-- ============================= BAGIAN III ============================= -->
+    <div class="section-banner">
+      <h3>BAGIAN III — PILIHAN GANDA KATEGORI (NOMOR 18 S/D 25)</h3>
+      <p>Petunjuk: Tentukan kategori BENAR (B) atau SALAH (S) untuk setiap pernyataan di bawah ini berdasarkan analisis antropologis!</p>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="soal-tag">Hukum Adat vs Hukum Positif</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah pernyataan-pernyataan terkait komparasi sistem hukum adat (kearifan lokal) dan hukum positif negara di bawah ini:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Hukum adat cenderung mengutamakan pemulihan keseimbangan sosial (<em>restorative justice</em>) dibanding hukuman fisik penjara.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18a" value="B"> Benar</label>
+            <label><input type="radio" name="soal18a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Hukum positif selalu lebih efektif menyelesaikan sengketa lahan adat karena bersifat tertulis dan berlaku nasional tanpa terkecuali.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18b" value="B"> Benar</label>
+            <label><input type="radio" name="soal18b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Sanksi adat seperti diasingkan dari desa memiliki daya cegah psikologis sosial yang sangat kuat pada masyarakat komunal.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18c" value="B"> Benar</label>
+            <label><input type="radio" name="soal18c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Kearifan lokal tidak dapat diintegrasikan dengan peraturan daerah formal karena dasarnya yang bersifat mistis.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal18d" value="B"> Benar</label>
+            <label><input type="radio" name="soal18d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="soal-tag">Relativisme vs Etnosentrisme</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah penerapan konsep <em>Relativisme Budaya</em> versus <em>Etnosentrisme</em> dalam dinamika masyarakat majemuk:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Relativisme budaya menuntut peneliti memahami tradisi unik suatu suku berdasarkan standar nilai kebudayaan suku itu sendiri.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal19a" value="B"> Benar</label>
+            <label><input type="radio" name="soal19a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Etnosentrisme merupakan pandangan yang menganggap kebudayaan kelompok sendiri paling unggul dan mengukur budaya lain dengan standar budayanya.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal19b" value="B"> Benar</label>
+            <label><input type="radio" name="soal19b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Sikap relativisme budaya yang ekstrem dapat memicu pembenaran terhadap praktik-praktik yang melanggar Hak Asasi Manusia universal.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal19c" value="B"> Benar</label>
+            <label><input type="radio" name="soal19c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Primordialisme selalu bersifat positif dan tidak pernah menjadi pemicu timbulnya prasangka etnis (<em>prejudice</em>).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal19d" value="B"> Benar</label>
+            <label><input type="radio" name="soal19d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="soal-tag">Interaksi Budaya</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah bentuk-bentuk proses interaksi budaya dan perubahan sosial di bawah ini:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Akulturasi terjadi ketika dua kebudayaan bertemu dan saling mempengaruhi tanpa menghilangkan kepribadian/identitas asli budaya tersebut.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20a" value="B"> Benar</label>
+            <label><input type="radio" name="soal20a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Asimilasi ditandai dengan berkurangnya perbedaan antar-kelompok dan terbentuknya kebudayaan baru yang benar-benar menyatu.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20b" value="B"> Benar</label>
+            <label><input type="radio" name="soal20b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Amalgamasi merupakan proses peleburan dua kebudayaan yang hanya terjadi melalui jalur perdagangan tanpa perkawinan campur.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20c" value="B"> Benar</label>
+            <label><input type="radio" name="soal20c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) <em>Cultural Shock</em> terjadi ketika seseorang mampu beradaptasi secara langsung tanpa hambatan di lingkungan budaya baru.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20d" value="B"> Benar</label>
+            <label><input type="radio" name="soal20d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="soal-tag">Evolusi Kebudayaan</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan kebenaran analisis terhadap teori Evolusi Kebudayaan klasik (Edward B. Tylor &amp; L.H. Morgan):</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Teori Evolusi Unilinear mengasumsikan bahwa seluruh kebudayaan manusia berkembang melewati tahapan yang sama: <em>Savagery</em> → <em>Barbarism</em> → <em>Civilization</em>.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21a" value="B"> Benar</label>
+            <label><input type="radio" name="soal21a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) E.B. Tylor mendefinisikan kebudayaan sebagai kesatuan kompleks yang mencakup pengetahuan, kepercayaan, seni, moral, hukum, dan kebiasaan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21b" value="B"> Benar</label>
+            <label><input type="radio" name="soal21b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Teori Evolusi Klasik dipuji karena sangat bebas dari bias etnosentrisme Eropa abad ke-19.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21c" value="B"> Benar</label>
+            <label><input type="radio" name="soal21c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Konsep <em>survivals</em> mengacu pada sisa-sisa kebiasaan adat masa lalu yang tetap bertahan pada masyarakat modern.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal21d" value="B"> Benar</label>
+            <label><input type="radio" name="soal21d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="soal-tag">Emik &amp; Etik</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah penggunaan pendekatan <em>Emik</em> dan <em>Etik</em> dalam metodologi riset etnografi:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Pendekatan <em>Emik</em> berusaha mendeskripsikan fenomena budaya berdasarkan sudut pandang, kategori, dan pemaknaan dari warga lokal sendiri.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal22a" value="B"> Benar</label>
+            <label><input type="radio" name="soal22a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Pendekatan <em>Etik</em> menggunakan kerangka konseptual, kategori, dan teori ilmiah obyektif dari sudut pandang pengamat/peneliti luar.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal22b" value="B"> Benar</label>
+            <label><input type="radio" name="soal22b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Laporan etnografi yang baik hanya boleh menggunakan pendekatan etik dan menghapus seluruh pandangan emik warga lokal.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal22c" value="B"> Benar</label>
+            <label><input type="radio" name="soal22c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Peneliti yang berada pada posisi <em>going native</em> terlalu larut dalam sudut pandang emik sehingga berisiko kehilangan netralitas akademis.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal22d" value="B"> Benar</label>
+            <label><input type="radio" name="soal22d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="soal-tag">Keanekaragaman Budaya</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah model pengelolaan keanekaragaman budaya dalam suatu negara:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Konsep <em>Melting Pot</em> bertujuan menuntut seluruh budaya minoritas melebur total hingga membentuk satu kebudayaan tunggal yang dominan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal23a" value="B"> Benar</label>
+            <label><input type="radio" name="soal23a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Konsep <em>Salad Bowl</em> (Pluralisme Kebudayaan) mengakui dan menghargai keberadaan tiap identitas budaya tanpa memaksakan peleburan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal23b" value="B"> Benar</label>
+            <label><input type="radio" name="soal23b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Slogan "Bhinneka Tunggal Ika" di Indonesia secara esensial lebih sejalan dengan prinsip <em>Salad Bowl</em> dibanding <em>Melting Pot</em>.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal23c" value="B"> Benar</label>
+            <label><input type="radio" name="soal23c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Masyarakat multikultural yang harmonis hanya dapat dicapai dengan cara melarang ekspresi simbol keagamaan di ruang publik.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal23d" value="B"> Benar</label>
+            <label><input type="radio" name="soal23d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="soal-tag">HKI &amp; Kearifan Lokal</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah isu etika kepemilikan dan Hak Kekayaan Intelektual (HKI) atas kearifan lokal berikut:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Praktik <em>Biopiracy</em> terjadi ketika perusahaan farmasi asing mematenkan tanaman obat tradisional suku lokal tanpa izin dan kompensasi adil.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24a" value="B"> Benar</label>
+            <label><input type="radio" name="soal24a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Pengetahuan tradisional bersifat komunal dan diwariskan turun-temurun, sehingga sulit dilindungi oleh sistem paten individu standar.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24b" value="B"> Benar</label>
+            <label><input type="radio" name="soal24b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Pendaftaran <em>Indikasi Geografis</em> merupakan salah satu instrumen hukum formal untuk melindungi produk berbasis kearifan lokal.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24c" value="B"> Benar</label>
+            <label><input type="radio" name="soal24c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Merek dagang luar negeri berhak mengklaim tarian tradisional sebagai milik pribadi tanpa persetujuan komunal masyarakat adat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24d" value="B"> Benar</label>
+            <label><input type="radio" name="soal24d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="soal-tag">Masyarakat Tradisional → Urban</span>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Analisislah dampak pergeseran masyarakat tradisional menuju masyarakat modern urban:</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Perubahan sosial yang cepat tanpa diimbangi norma baru yang stabil dapat memicu kondisi <em>Anomie</em> (kekacauan tanpa norma).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25a" value="B"> Benar</label>
+            <label><input type="radio" name="soal25a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Proses urbanisasi selalu memperkuat ikatan kekerabatan <em>extended family</em> di perkotaan.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25b" value="B"> Benar</label>
+            <label><input type="radio" name="soal25b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Pergeseran nilai gotong royong menjadi hubungan kerja berbasis kontrak uang merupakan indikator sekularisasi dan rasionalisasi sosial.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25c" value="B"> Benar</label>
+            <label><input type="radio" name="soal25c" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">4) Modernisasi selalu berujung pada hilangnya seluruh tradisi lokal tanpa sisa di setiap lapisan masyarakat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal25d" value="B"> Benar</label>
+            <label><input type="radio" name="soal25d" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Mata Pelajaran:</strong></span>
+      <span>Antropologi (Level 3)</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Antropologi_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Antropologi SMA/MA/SMK — Level 3 (Penalaran)
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  // Bentuk string  -> Pilihan Ganda biasa (soal 1-9)
+  // Bentuk array   -> Pilihan Ganda Kompleks / jawaban lebih dari satu (soal 10-17)
+  // Bentuk object  -> Pilihan Ganda Kategori Benar/Salah (soal 18-25)
+  const kunciJawaban = {
+    soal1:  "C",
+    soal2:  "B",
+    soal3:  "C",
+    soal4:  "B",
+    soal5:  "A",
+    soal6:  "B",
+    soal7:  "C",
+    soal8:  "B",
+    soal9:  "B",
+    soal10: ["A", "B", "C", "E"],
+    soal11: ["A", "B", "E"],
+    soal12: ["A", "B", "D"],
+    soal13: ["A", "B", "D"],
+    soal14: ["A", "C", "E"],
+    soal15: ["A", "B", "C", "E"],
+    soal16: ["A", "B", "E"],
+    soal17: ["A", "B", "D"],
+    soal18: { a: "B", b: "S", c: "B", d: "S" },
+    soal19: { a: "B", b: "B", c: "B", d: "S" },
+    soal20: { a: "B", b: "B", c: "S", d: "S" },
+    soal21: { a: "B", b: "B", c: "S", d: "B" },
+    soal22: { a: "B", b: "B", c: "S", d: "B" },
+    soal23: { a: "B", b: "B", c: "B", d: "S" },
+    soal24: { a: "B", b: "B", c: "B", d: "S" },
+    soal25: { a: "B", b: "S", c: "B", d: "S" }
+  };
+
+  const TOTAL_SOAL = 25;
+
+  let timerInterval;
+  let totalTime = 90 * 60;   // 90 menit
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_antro_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_antro_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+
+    const belumDijawab = [];
+    for (let i = 1; i <= TOTAL_SOAL; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      let terisi = false;
+      if (typeof kunci === 'string') {
+        terisi = !!document.querySelector('input[name="' + key + '"]:checked');
+      } else if (Array.isArray(kunci)) {
+        terisi = document.querySelectorAll('input[name="' + key + '"]:checked').length > 0;
+      } else if (kunci && typeof kunci === 'object') {
+        terisi = Object.keys(kunci).every(sub =>
+          !!document.querySelector('input[name="' + key + sub + '"]:checked')
+        );
+      }
+      if (!terisi) belumDijawab.push(i);
+    }
+
+    if (belumDijawab.length > 0) {
+      const lanjut = confirm(
+        "⚠️ PERHATIAN!\n\nMasih ada " + belumDijawab.length + " soal yang belum dijawab lengkap:\n" +
+        "Nomor: " + belumDijawab.join(", ") + "\n\n" +
+        "Soal yang tidak dijawab akan dinilai salah.\n\n" +
+        "Yakin ingin mengumpulkan sekarang?"
+      );
+      if (!lanjut) return;
+    } else {
+      const yakin = confirm("✅ Semua soal telah dijawab.\n\nKumpulkan dan selesaikan tes sekarang?");
+      if (!yakin) return;
+    }
+
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    let benar = 0;
+    let totalSoalDinilai = 0;
+
+    for (let i = 1; i <= TOTAL_SOAL; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (kunci === null || kunci === undefined) continue;
+      totalSoalDinilai++;
+
+      if (typeof kunci === 'string') {
+        // Pilihan ganda biasa
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        // Pilihan ganda kompleks (harus tepat semua, tanpa kelebihan/kekurangan)
+        const checked = Array.from(document.querySelectorAll('input[name="' + key + '"]:checked'))
+                             .map(el => el.value).sort().join(",");
+        const kunciSorted = kunci.slice().sort().join(",");
+        if (checked === kunciSorted && checked !== "") benar++;
+
+      } else if (typeof kunci === 'object') {
+        // Pilihan ganda kategori Benar/Salah -> satu nomor dianggap benar bila SELURUH sub-pernyataan tepat
+        const subKeys = Object.keys(kunci);
+        let subBenar = true;
+        subKeys.forEach(sub => {
+          const sel = document.querySelector('input[name="' + key + sub + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) subBenar = false;
+        });
+        if (subBenar) benar++;
+      }
+    }
+
+    benarGlobal = benar;
+    skorGlobal = totalSoalDinilai > 0 ? Math.round((benar / totalSoalDinilai) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + totalSoalDinilai;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Antropologi_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE (FOLDER TUJUAN) =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Antropologi_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Antropologi_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>

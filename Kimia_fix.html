@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soal TKA Kimia SMA 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f0f2f5; padding: 30px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { text-align: center; font-size: 1.8rem; margin-bottom: 10px; color: #0b3b5c; }
+  .subtitle {
+    text-align: center; font-size: 1rem; color: #4a5a6a;
+    margin-bottom: 30px; border-bottom: 2px solid #0b3b5c; padding-bottom: 15px;
+  }
+  .identity-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+    padding: 36px 32px; max-width: 480px; margin: 40px auto;
+    border-top: 6px solid #0b3b5c; animation: slideUp 0.5s ease;
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .identity-card .logo-login {
+    width: 70px; height: 70px; border-radius: 50%;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    margin: 0 auto 16px;
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 2rem; font-weight: 700;
+    box-shadow: 0 6px 18px rgba(11,59,92,0.35);
+  }
+  .identity-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 6px; font-size: 1.4rem;
+  }
+  .login-subtitle {
+    text-align: center; color: #6a7a8a;
+    font-size: 0.85rem; margin-bottom: 24px;
+  }
+  .form-group { margin-bottom: 16px; }
+  .form-group label {
+    display: block; font-weight: 600;
+    margin-bottom: 6px; color: #1e2a3a; font-size: 0.9rem;
+  }
+  .form-group input {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #b0c4d8; border-radius: 8px;
+    font-size: 0.95rem; outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .form-group input:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 3px rgba(40,116,166,0.15);
+  }
+  .form-group input.error { border-color: #e74c3c; background: #fdf2f1; }
+  .error-msg {
+    color: #e74c3c; font-size: 0.78rem;
+    margin-top: 4px; display: none;
+  }
+  .error-msg.show { display: block; }
+  .btn-submit {
+    width: 100%; padding: 13px;
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700; cursor: pointer;
+    margin-top: 10px; letter-spacing: 0.3px;
+    transition: transform 0.15s, box-shadow 0.2s;
+    font-family: inherit;
+  }
+  .btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(11,59,92,0.35);
+  }
+  .login-info-box {
+    background: #eef4fa; border: 1px solid #d0e0ee;
+    border-radius: 8px; padding: 12px 14px;
+    font-size: 0.8rem; color: #4a5a6a;
+    line-height: 1.6; margin-top: 18px;
+  }
+  .login-info-box strong { color: #0b3b5c; }
+  .sticky-top-bar {
+    position: sticky; top: 10px; z-index: 1000;
+    background: #eef4fa; border: 2px solid #0b3b5c;
+    border-radius: 8px; padding: 12px 20px;
+    margin-bottom: 25px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 10px;
+    font-size: 0.9rem; color: #0b3b5c;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .timer-box {
+    background: #0b3b5c; color: #fff;
+    padding: 6px 14px; border-radius: 20px;
+    font-weight: bold; font-size: 1rem;
+  }
+  .soal-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 25px 30px; margin-bottom: 30px; border-left: 6px solid #0b3b5c;
+  }
+  .soal-header {
+    display: flex; align-items: center; gap: 12px; margin-bottom: 18px;
+    flex-wrap: wrap;
+  }
+  .nomor-soal {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px; border-radius: 50%;
+    background: #0b3b5c; color: #fff; font-weight: 700;
+    font-size: 1.1rem; flex-shrink: 0;
+  }
+  .soal-header .title-text { font-weight: 700; color: #0b3b5c; font-size: 1rem; }
+  .badge {
+    display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.06em;
+    text-transform: uppercase; padding: 3px 10px; border-radius: 6px;
+    background: #eaf1fb; color: #1a5fb4; vertical-align: middle; margin-left: 6px;
+  }
+  .badge.mcma { background: #fdf1e3; color: #b96a10; }
+  .badge.kategori { background: #e8f6ee; color: #1d7a4c; }
+  .soal-pertanyaan { font-size: 1rem; line-height: 1.7; margin-bottom: 15px; }
+  .soal-pertanyaan p { margin: 0 0 10px; }
+  .soal-pertanyaan svg {
+    max-width: 100%; height: auto; margin: 12px 0;
+    border-radius: 8px; border: 1px solid #e0e8f0; display: block;
+  }
+  .gambar-wrapper { text-align: center; margin: 14px 0; }
+  .gambar-wrapper svg { margin: 0 auto; display: inline-block; }
+  .caption {
+    font-size: 0.8rem; color: #6a7a8a;
+    text-align: center; margin-top: 4px; font-style: italic;
+  }
+  table.data-tabel {
+    border-collapse: collapse; margin: 12px auto;
+    width: 100%; max-width: 620px; font-size: 0.9rem;
+  }
+  table.data-tabel th, table.data-tabel td {
+    border: 1px solid #b0c4d8; padding: 8px 12px; text-align: center;
+  }
+  table.data-tabel th { background: #eef4fa; color: #0b3b5c; }
+  table.data-tabel td.left { text-align: left; }
+  .pilihan { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; }
+  .pilihan label {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 14px; border-radius: 8px;
+    border: 1px solid #d8e2ec; background: #fafcfe;
+    cursor: pointer; transition: background 0.2s;
+    font-size: 0.95rem; line-height: 1.5;
+  }
+  .pilihan label:hover { background: #eef4fa; }
+  .pilihan input[type="radio"],
+  .pilihan input[type="checkbox"] { margin-top: 4px; accent-color: #0b3b5c; flex-shrink: 0; }
+  .pilihan .option-text { flex: 1; }
+  .tf-group { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
+  .tf-item {
+    display: flex; align-items: center; gap: 15px; flex-wrap: wrap;
+    background: #f8fafc; padding: 10px 15px; border-radius: 8px;
+    border: 1px solid #e0e8f0;
+  }
+  .tf-item .pernyataan { flex: 1; min-width: 200px; font-size: 0.95rem; }
+  .tf-item .opsi { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .tf-item .opsi label {
+    display: flex; align-items: center; gap: 4px;
+    font-size: 0.9rem; cursor: pointer;
+  }
+  .tf-item .opsi input[type="radio"] { accent-color: #0b3b5c; }
+  .wacana-box {
+    background: #f0f7ff; border-left: 4px solid #2874a6;
+    padding: 12px 16px; border-radius: 6px; margin-bottom: 14px;
+    font-size: 0.93rem; line-height: 1.65;
+  }
+  .wacana-box strong { color: #0b3b5c; }
+  .math-block {
+    background: #f8fafc; padding: 12px 18px; border-radius: 8px;
+    margin: 10px 0; overflow-x: auto;
+    font-family: 'Cambria Math', 'Times New Roman', serif;
+    font-size: 1.05rem; border-left: 3px solid #0b3b5c;
+  }
+  .result-card {
+    background: #fff; border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 30px; max-width: 600px;
+    margin: 40px auto; border-top: 6px solid #0b3b5c;
+  }
+  .result-card h2 {
+    text-align: center; color: #0b3b5c;
+    margin-bottom: 20px; font-size: 1.4rem;
+  }
+  .result-item {
+    display: flex; justify-content: space-between;
+    padding: 10px 0; border-bottom: 1px solid #eef4fa;
+    font-size: 0.95rem;
+  }
+  .score-badge {
+    text-align: center; background: #f8fafc;
+    border: 2px dashed #0b3b5c; border-radius: 10px;
+    padding: 20px; margin: 20px 0;
+  }
+  .score-badge .score-val {
+    font-size: 3rem; font-weight: bold; color: #0b3b5c;
+  }
+  .score-badge .predikat-val {
+    font-size: 1.1rem; font-weight: bold;
+    color: #27ae60; margin-top: 5px;
+  }
+  .btn-finish {
+    width: 100%; padding: 14px;
+    background: #27ae60; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 1rem; font-weight: 700;
+    cursor: pointer; margin-top: 15px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-finish:hover { background: #219150; }
+  .btn-action {
+    width: 100%; padding: 13px; color: #fff;
+    border: none; border-radius: 8px;
+    font-size: 0.95rem; font-weight: 600;
+    cursor: pointer; margin-top: 10px;
+    transition: background 0.2s; font-family: inherit;
+  }
+  .btn-pdf { background: #e74c3c; }
+  .btn-pdf:hover { background: #c0392b; }
+  .btn-drive { background: #0f9d58; }
+  .btn-drive:hover { background: #0b7a44; }
+  .drive-info {
+    background: #e6f4ea; border: 1px solid #a8d5b5;
+    border-radius: 8px; padding: 12px 14px;
+    margin-top: 12px; font-size: 0.82rem;
+    color: #1a5a3a; line-height: 1.6;
+    display: none;
+  }
+  .drive-info.show { display: block; }
+  .drive-info ol { margin-left: 18px; margin-top: 6px; }
+  .drive-info a {
+    color: #0b7a44; font-weight: 600;
+    text-decoration: none; word-break: break-all;
+  }
+  .drive-info a:hover { text-decoration: underline; }
+  .footer {
+    text-align: center; padding: 20px;
+    font-size: 0.85rem; color: #7a8a9a;
+  }
+  @media (max-width: 600px) {
+    .soal-card { padding: 18px 16px; }
+    h1 { font-size: 1.3rem; }
+    .tf-item { flex-direction: column; align-items: flex-start; }
+    .sticky-top-bar { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .identity-card { padding: 28px 22px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Soal TKA Kimia</h1>
+  <div class="subtitle">SMA/MA/SMK Tahun 2026 — Level HOTS</div>
+
+  <!-- ============ HALAMAN LOGIN ============ -->
+  <div id="halaman-identitas" class="identity-card">
+    <div class="logo-login">⚗️</div>
+    <h2>Login Peserta Ujian</h2>
+    <p class="login-subtitle">Masukkan data diri Anda untuk memulai ujian</p>
+
+    <form id="form-identitas" autocomplete="off" novalidate>
+      <div class="form-group">
+        <label for="nama">Nama Lengkap <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nama" placeholder="Contoh: Ahmad Fauzi" required>
+        <div class="error-msg" id="err-nama">Nama lengkap minimal 3 karakter dan hanya huruf.</div>
+      </div>
+      <div class="form-group">
+        <label for="kelas">Kelas / Jurusan <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="kelas" placeholder="Contoh: XII MIPA 1" required>
+        <div class="error-msg" id="err-kelas">Kelas wajib diisi (minimal 2 karakter).</div>
+      </div>
+      <div class="form-group">
+        <label for="nis">NIS / NISN <span style="color:#e74c3c">*</span></label>
+        <input type="text" id="nis" inputmode="numeric" placeholder="Contoh: 12345678" required>
+        <div class="error-msg" id="err-nis">NIS/NISN harus berupa angka (4–20 digit).</div>
+      </div>
+      <button type="submit" class="btn-submit">🚀 Mulai Mengerjakan Soal</button>
+    </form>
+
+    <div class="login-info-box">
+      <strong>ℹ️ Informasi:</strong><br>
+      • Setiap siswa hanya dapat mengerjakan maksimal <strong>3 kali</strong>.<br>
+      • Waktu ujian <strong>120 menit</strong>.<br>
+      • Dilarang berpindah tab / keluar halaman selama ujian.<br>
+      • Dilarang klik kanan, copy-paste, dan membuka inspect element.
+    </div>
+  </div>
+
+  <!-- ============ CONTAINER SOAL ============ -->
+  <div id="halaman-soal" style="display: none;">
+    <div class="sticky-top-bar">
+      <div>
+        <strong>Nama:</strong> <span id="display-nama">-</span> |
+        <strong>Kelas:</strong> <span id="display-kelas">-</span> |
+        <strong>NIS:</strong> <span id="display-nis">-</span>
+      </div>
+      <div class="timer-box">Sisa Waktu: <span id="timer">120:00</span></div>
+    </div>
+
+    <!-- ============ SOAL 1 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">1</span>
+        <span class="title-text">Struktur Atom &amp; Sifat Periodik</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: SINTESIS UNSUR SUPERBERAT DAN TREN ENERGI IONISASI</strong><br>
+        Tim fisikawan nuklir berhasil mengidentifikasi isotop dari unsur superberat buatan X dengan nomor atom 118 (Oganesson, Og). Unsur ini terletak pada periode 7 dan Golongan 18 (Gas Mulia). Namun, perhitungan kimia kuantum relativistik menunjukkan bahwa efek relativistik kuat pada elektron lintasan dalam menyebabkan orbital 7p terbelah menjadi sub-kulit 7p<sub>1/2</sub> dan 7p<sub>3/2</sub>. Akibatnya, afinitas elektron dan energi ionisasi unsur X menunjukkan anomali dibandingkan gas mulia di atasnya (Rn, Xe, Kr).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan konfigurasi elektron stabil dan efek kuantum relativistik pada unsur X (Z = 118), manakah deret empat bilangan kuantum yang <strong>MUNGKIN</strong> dimiliki oleh elektron valensi dengan tingkat energi tertinggi pada keadaan dasar?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal1" value="A"><span class="option-text">n = 7, l = 1, m = +1, s = +1/2</span></label>
+        <label><input type="radio" name="soal1" value="B"><span class="option-text">n = 7, l = 0, m = 0, s = −1/2</span></label>
+        <label><input type="radio" name="soal1" value="C"><span class="option-text">n = 6, l = 2, m = −2, s = +1/2</span></label>
+        <label><input type="radio" name="soal1" value="D"><span class="option-text">n = 5, l = 3, m = +2, s = −1/2</span></label>
+        <label><input type="radio" name="soal1" value="E"><span class="option-text">n = 7, l = 2, m = 0, s = +1/2</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 2 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">2</span>
+        <span class="title-text">Ikatan Kimia, Geometri &amp; Kepolaran</span>
+        <span class="badge mcma">PG Kompleks</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: ANALISIS MOLEKUL XENON FLUORIDA DAN INTERAKSI ANTARMOLEKUL</strong><br>
+        Senyawa xenon tetrafluorida (XeF<sub>4</sub>) dan belerang tetrafluorida (SF<sub>4</sub>) sama-sama memiliki empat atom fluorin yang terikat pada atom pusat. Namun, sifat fisika seperti titik didih, momen dipol, dan geometri molekul keduanya sangat berbeda akibat perbedaan pasangan elektron bebas (PEB) pada atom pusat.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan teori VSEPR dan Hibridisasi, pilih <strong>SEMUA</strong> pernyataan yang <strong>BENAR</strong> di bawah ini! <em>(Pilihan lebih dari satu)</em></p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal2" value="A"><span class="option-text">Molekul XeF<sub>4</sub> bergeometri segi empat pasang (square planar) dengan hibridisasi sp<sup>3</sup>d<sup>2</sup> dan bersifat nonpolar.</span></label>
+        <label><input type="checkbox" name="soal2" value="B"><span class="option-text">Molekul SF<sub>4</sub> memiliki geometri molekul jungkat-jungkit (see-saw) dengan hibridisasi sp<sup>3</sup>d dan bersifat polar.</span></label>
+        <label><input type="checkbox" name="soal2" value="C"><span class="option-text">Momen dipol molekul XeF<sub>4</sub> bernilai nol (µ = 0) karena simetri vektor dipol ikatan dan PEB yang saling meniadakan.</span></label>
+        <label><input type="checkbox" name="soal2" value="D"><span class="option-text">Interaksi utama antarmolekul SF<sub>4</sub> cair adalah gaya dispersi London semata.</span></label>
+        <label><input type="checkbox" name="soal2" value="E"><span class="option-text">Sudut ikatan F–S–F aksial pada SF<sub>4</sub> tepat 180° tanpa ada distorsi dari PEB.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 3 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">3</span>
+        <span class="title-text">Stoikiometri &amp; Pereaksi Pembatas</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: EKSTRAKSI LOGAM TITANIUM DARI BIJIH ILMENIT</strong><br>
+        Titanium diekstrak dari bijih ilmenit melalui proses Kroll yang melibatkan reaksi titanium(IV) klorida cair dengan logam magnesium cair pada suhu tinggi:
+        <div class="math-block">TiCl<sub>4</sub>(g) + 2 Mg(l) → Ti(s) + 2 MgCl<sub>2</sub>(l)</div>
+        Dalam sebuah reaktor industri, sebanyak 189,8 kg TiCl<sub>4</sub> (M<sub>r</sub> = 189,8 g/mol) direaksikan dengan 36,5 kg logam Mg (A<sub>r</sub> = 24,3 g/mol). Setelah reaksi selesai, diperoleh murni 38,32 kg logam Titanium (A<sub>r</sub> = 47,9 g/mol).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan data eksperimen di atas, persentase hasil (rendemen/yield) dari reaksi ekstraksi Titanium tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal3" value="A"><span class="option-text">75,0%</span></label>
+        <label><input type="radio" name="soal3" value="B"><span class="option-text">80,0%</span></label>
+        <label><input type="radio" name="soal3" value="C"><span class="option-text">85,0%</span></label>
+        <label><input type="radio" name="soal3" value="D"><span class="option-text">90,0%</span></label>
+        <label><input type="radio" name="soal3" value="E"><span class="option-text">95,5%</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 4 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">4</span>
+        <span class="title-text">Larutan &amp; Titrasi Redoks</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: TITRASI PERMANGANOMETRI PADA ANALISIS KADAR BESI DALAM SUPLEMEN</strong><br>
+        Sebanyak 2,50 gram sampel tablet suplemen penambah darah yang mengandung FeSO<sub>4</sub> dilarutkan dalam asam sulfat encer hingga volumenya 250 mL. Sebanyak 25,0 mL alikout larutan tersebut dititrasi dengan larutan standar KMnO<sub>4</sub> 0,020 M dalam suasana asam. Reaksi redoks yang terjadi:
+        <div class="math-block">5 Fe<sup>2+</sup> + MnO<sub>4</sub><sup>−</sup> + 8 H<sup>+</sup> → 5 Fe<sup>3+</sup> + Mn<sup>2+</sup> + 4 H<sub>2</sub>O</div>
+        Titik akhir titrasi dicapai saat penambahan larutan KMnO<sub>4</sub> mencapai rata-rata 15,00 mL. (A<sub>r</sub> Fe = 56, S = 32, O = 16)
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan apakah pernyataan berikut <strong>BENAR (B)</strong> atau <strong>SALAH (S)</strong>!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Jumlah mol MnO<sub>4</sub><sup>−</sup> yang bereaksi pada titrasi alikout adalah 3,0 × 10<sup>−4</sup> mol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4a" value="B"> Benar</label>
+            <label><input type="radio" name="soal4a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Jumlah mol Fe<sup>2+</sup> dalam 250 mL larutan sampel awal adalah 1,5 × 10<sup>−2</sup> mol.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4b" value="B"> Benar</label>
+            <label><input type="radio" name="soal4b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Kadar massa FeSO<sub>4</sub> dalam tablet suplemen tersebut adalah sebesar 91,2%.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal4c" value="B"> Benar</label>
+            <label><input type="radio" name="soal4c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 5 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">5</span>
+        <span class="title-text">Asam-Basa &amp; Larutan Penyangga</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: FISIOLOGI SISTEM PENYANGGA DARAH (ASIDOSIS METABOLIK)</strong><br>
+        Sistem penyangga utama dalam plasma darah manusia adalah pasangan asam karbonat/bikarbonat (H<sub>2</sub>CO<sub>3</sub>/HCO<sub>3</sub><sup>−</sup>). Nilai pKa efektif untuk H<sub>2</sub>CO<sub>3</sub> pada suhu tubuh (37°C) adalah 6,10. Dalam kondisi fisiologis normal, pH darah dijaga konstan pada 7,40. Seorang pasien mengalami kelelahan ekstrem dan menunjukkan gejala asidosis metabolik dengan pH darah turun menjadi 7,10.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berapakah rasio konsentrasi [HCO<sub>3</sub><sup>−</sup>] / [H<sub>2</sub>CO<sub>3</sub>] dalam darah pasien tersebut saat mengalami asidosis dibandingkan dengan kondisi normal?</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal5" value="A"><span class="option-text">Rasio normal = 20 : 1; Rasio asidosis = 10 : 1</span></label>
+        <label><input type="radio" name="soal5" value="B"><span class="option-text">Rasio normal = 10 : 1; Rasio asidosis = 5 : 1</span></label>
+        <label><input type="radio" name="soal5" value="C"><span class="option-text">Rasio normal = 20 : 1; Rasio asidosis = 5 : 1</span></label>
+        <label><input type="radio" name="soal5" value="D"><span class="option-text">Rasio normal = 15 : 1; Rasio asidosis = 7,5 : 1</span></label>
+        <label><input type="radio" name="soal5" value="E"><span class="option-text">Rasio normal = 25 : 1; Rasio asidosis = 12,5 : 1</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 6 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">6</span>
+        <span class="title-text">Termokimia &amp; Hukum Hess</span>
+        <span class="badge mcma">PG Kompleks</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: PENENTUAN ENTALPI PEMBENTUKAN STANDAR ASETILENA (C<sub>2</sub>H<sub>2</sub>)</strong><br>
+        Gas asetilena (C<sub>2</sub>H<sub>2</sub>) digunakan dalam pengelasan logam karena menghasilkan suhu pembakaran yang sangat tinggi. Diketahui data perubahan entalpi standar berikut:
+        <div class="math-block">
+          1. C(s) + O<sub>2</sub>(g) → CO<sub>2</sub>(g) &nbsp;&nbsp; ΔH° = −393,5 kJ/mol<br>
+          2. H<sub>2</sub>(g) + ½ O<sub>2</sub>(g) → H<sub>2</sub>O(l) &nbsp;&nbsp; ΔH° = −285,8 kJ/mol<br>
+          3. 2 C<sub>2</sub>H<sub>2</sub>(g) + 5 O<sub>2</sub>(g) → 4 CO<sub>2</sub>(g) + 2 H<sub>2</sub>O(l) &nbsp;&nbsp; ΔH° = −2598,8 kJ/mol
+        </div>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan hukum Hess dan data termokimia di atas, pilih <strong>SEMUA</strong> pernyataan yang <strong>BENAR</strong>!</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal6" value="A"><span class="option-text">Pembakaran 1 mol gas asetilena melepaskan kalor sebesar 1299,4 kJ.</span></label>
+        <label><input type="checkbox" name="soal6" value="B"><span class="option-text">Entalpi pembentukan standar (ΔH<sub>f</sub>°) gas asetilena bernilai endotermik sebesar +226,6 kJ/mol.</span></label>
+        <label><input type="checkbox" name="soal6" value="C"><span class="option-text">Reaksi pembentukan asetilena dari unsurnya menyerap energi dari lingkungan.</span></label>
+        <label><input type="checkbox" name="soal6" value="D"><span class="option-text">Jika air yang dihasilkan dalam reaksi berbentuk uap (H<sub>2</sub>O(g)), nilai pembakaran asetilena akan menjadi lebih eksotermik (lebih negatif).</span></label>
+        <label><input type="checkbox" name="soal6" value="E"><span class="option-text">Kalor pembentukan CO<sub>2</sub>(g) sama dengan kalor pembakaran standar atom karbon C(s).</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 7 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">7</span>
+        <span class="title-text">Laju Reaksi &amp; Orde Reaksi</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: KINETIKA REAKSI OKSIDA NITRAT DAN KLORIN</strong><br>
+        Reaksi fase gas: 2 NO(g) + Cl<sub>2</sub>(g) → 2 NOCl(g) dipelajari pada suhu 25°C. Data laju awal reaksi (v<sub>0</sub>) diperoleh dari beberapa variasi konsentrasi awal reaktan:
+        <table class="data-tabel">
+          <tr><th>Percobaan</th><th>[NO] awal (M)</th><th>[Cl<sub>2</sub>] awal (M)</th><th>Laju Awal, v<sub>0</sub> (M/detik)</th></tr>
+          <tr><td>1</td><td>0,10</td><td>0,10</td><td>1,8 × 10<sup>−3</sup></td></tr>
+          <tr><td>2</td><td>0,10</td><td>0,20</td><td>3,6 × 10<sup>−3</sup></td></tr>
+          <tr><td>3</td><td>0,20</td><td>0,10</td><td>7,2 × 10<sup>−3</sup></td></tr>
+          <tr><td>4</td><td>0,30</td><td>0,30</td><td>x</td></tr>
+        </table>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan data eksperimen kinetika di atas, nilai konstanta laju reaksi (k) beserta satuan dan nilai x pada percobaan 4 yang tepat adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal7" value="A"><span class="option-text">k = 1,8 M<sup>−2</sup>s<sup>−1</sup> dan x = 4,86 × 10<sup>−2</sup> M/s</span></label>
+        <label><input type="radio" name="soal7" value="B"><span class="option-text">k = 1,8 M<sup>−1</sup>s<sup>−1</sup> dan x = 1,62 × 10<sup>−2</sup> M/s</span></label>
+        <label><input type="radio" name="soal7" value="C"><span class="option-text">k = 0,18 M<sup>−2</sup>s<sup>−1</sup> dan x = 4,86 × 10<sup>−2</sup> M/s</span></label>
+        <label><input type="radio" name="soal7" value="D"><span class="option-text">k = 1,8 M<sup>−2</sup>s<sup>−1</sup> dan x = 1,62 × 10<sup>−2</sup> M/s</span></label>
+        <label><input type="radio" name="soal7" value="E"><span class="option-text">k = 18 M<sup>−2</sup>s<sup>−1</sup> dan x = 0,486 M/s</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 8 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">8</span>
+        <span class="title-text">Kesetimbangan Kimia &amp; Pergeseran Le Chatelier</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: SINTESIS AMONIA PROSES HABER-BOSCH</strong><br>
+        Sintesis amonia berlangsung menurut reaksi kesetimbangan:
+        <div class="math-block">N<sub>2</sub>(g) + 3 H<sub>2</sub>(g) ⇌ 2 NH<sub>3</sub>(g) &nbsp;&nbsp; ΔH = −92,4 kJ</div>
+        Dalam wadah tertutup 2,0 Liter pada suhu 400°C, campuran kesetimbangan mengandung 0,4 mol N<sub>2</sub>, 0,6 mol H<sub>2</sub>, dan 0,8 mol NH<sub>3</sub>.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan apakah pernyataan mengenai sistem kesetimbangan tersebut <strong>BENAR (B)</strong> atau <strong>SALAH (S)</strong>!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Nilai tetapan kesetimbangan konsentrasi (K<sub>c</sub>) pada suhu 400°C adalah 11,85 M<sup>−2</sup>.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal8a" value="B"> Benar</label>
+            <label><input type="radio" name="soal8a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Peningkatan tekanan total wadah dengan cara memperkecil volume sistem akan menggeser kesetimbangan ke arah produk (NH<sub>3</sub>).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal8b" value="B"> Benar</label>
+            <label><input type="radio" name="soal8b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Peningkatan suhu operasi akan meningkatkan nilai K<sub>c</sub> dan menambah persentase hasil amonia.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal8c" value="B"> Benar</label>
+            <label><input type="radio" name="soal8c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 9 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">9</span>
+        <span class="title-text">Sifat Koligatif Larutan Elektrolit</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: TEKANAN OSMOTIK CAIRAN INTRAVENA DAN DERAJAT IONISASI</strong><br>
+        Suatu larutan dibuat dengan melarutkan 14,2 gram garam kalsium klorida anhidrat (CaCl<sub>2</sub>, M<sub>r</sub> = 111 g/mol) ke dalam air hingga volume larutan menjadi 500 mL pada suhu 27°C (300 K). Di laboratorium, diukur tekanan osmotik larutan tersebut sebesar 14,76 atm. (R = 0,082 L·atm/mol·K).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan data hasil pengukuran tersebut, derajat ionisasi (α) dari garam CaCl<sub>2</sub> dalam larutan adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal9" value="A"><span class="option-text">0,60</span></label>
+        <label><input type="radio" name="soal9" value="B"><span class="option-text">0,70</span></label>
+        <label><input type="radio" name="soal9" value="C"><span class="option-text">0,80</span></label>
+        <label><input type="radio" name="soal9" value="D"><span class="option-text">0,90</span></label>
+        <label><input type="radio" name="soal9" value="E"><span class="option-text">1,00</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 10 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">10</span>
+        <span class="title-text">Sel Volta Non-Standar (Persamaan Nernst)</span>
+        <span class="badge mcma">PG Kompleks</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: DESAIN SEL VOLTA NON-STANDAR KOPER-SENG</strong><br>
+        Disusun suatu sel Volta dengan elektroda Seng (Zn) yang dicelupkan ke dalam larutan ZnSO<sub>4</sub> 0,01 M dan elektroda Tembaga (Cu) yang dicelupkan ke dalam larutan CuSO<sub>4</sub> 1,0 M pada suhu 25°C. Diketahui potensial reduksi standar:
+        <div class="math-block">E° Zn<sup>2+</sup>/Zn = −0,76 V &nbsp;|&nbsp; E° Cu<sup>2+</sup>/Cu = +0,34 V</div>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Berdasarkan prinsip elektrokimia dan Persamaan Nernst, pilih <strong>SEMUA</strong> pernyataan yang <strong>BENAR</strong>!</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal10" value="A"><span class="option-text">Potensial sel standar (E°<sub>sel</sub>) kondisi standar adalah +1,10 Volt.</span></label>
+        <label><input type="checkbox" name="soal10" value="B"><span class="option-text">Potensial sel non-standar (E<sub>sel</sub>) pada kondisi konsentrasi di atas adalah +1,159 Volt.</span></label>
+        <label><input type="checkbox" name="soal10" value="C"><span class="option-text">Elektroda Zn bertindak sebagai Anoda (terjadi oksidasi) dan massa elektroda Zn akan berkurang seiring berjalannya reaksi.</span></label>
+        <label><input type="checkbox" name="soal10" value="D"><span class="option-text">Mengencerkan larutan CuSO<sub>4</sub> akan meningkatkan potensial sel yang dihasilkan.</span></label>
+        <label><input type="checkbox" name="soal10" value="E"><span class="option-text">Elektron mengalir melalui kawat penghantar dari elektroda Tembaga ke elektroda Seng.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 11 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">11</span>
+        <span class="title-text">Hidrokarbon &amp; Isomerisme Senyawa Karbon</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: ISOMER ALKOHOL DAN ETER TERKONFIRMASI EKSPERIMEN</strong><br>
+        Suatu senyawa organik A dengan rumus molekul C<sub>4</sub>H<sub>10</sub>O tidak bereaksi dengan logam natrium dan tidak bereaksi dengan pereaksi Lucas. Namun, jika senyawa A direspons dengan pemanasan HI pekat berlebih, menghasilkan alkil halida tunggal yaitu tert-butil iodida.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Struktur molekul dan nama IUPAC senyawa A tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal11" value="A"><span class="option-text">1-butanol</span></label>
+        <label><input type="radio" name="soal11" value="B"><span class="option-text">2-butanol</span></label>
+        <label><input type="radio" name="soal11" value="C"><span class="option-text">2-metil-2-propanol</span></label>
+        <label><input type="radio" name="soal11" value="D"><span class="option-text">metoksi propana</span></label>
+        <label><input type="radio" name="soal11" value="E"><span class="option-text">2-metoksi-2-metilpropana (tert-butil metil eter)</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 12 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">12</span>
+        <span class="title-text">Benzena &amp; Makromolekul</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: KARAKTERISASI BIO-MOLEKUL DAN TURUNAN BENZENA</strong><br>
+        Dalam uji analisis kualitatif sampel makromolekul dan senyawa aromatik di laboratorium, diperoleh data eksperimen berikut:
+        <ul style="margin:8px 0 0 18px;">
+          <li><strong>Sampel I (Protein):</strong> Menghasilkan warna ungu pada uji Biuret dan cincin kuning-oranye pada uji Xanthoproteat.</li>
+          <li><strong>Sampel II (Turunan Benzena):</strong> Bereaksi dengan asam nitrat/asam sulfat pekat membentuk trinitrotoluena (TNT).</li>
+          <li><strong>Sampel III (Polimer):</strong> Merupakan hasil polimerisasi kondensasi antara asam tereftalat dan etilena glikol (Dacron).</li>
+        </ul>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan apakah pernyataan analisis laboratorium berikut <strong>BENAR (B)</strong> atau <strong>SALAH (S)</strong>!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Sampel I mengandung ikatan peptida dan asam amino yang memiliki cincin benzena (seperti tirosin/fenilalanin).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal12a" value="B"> Benar</label>
+            <label><input type="radio" name="soal12a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Prekursor pembentukan TNT pada Sampel II adalah fenol melalui reaksi substitusi elektrofilik.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal12b" value="B"> Benar</label>
+            <label><input type="radio" name="soal12b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Polimerisasi kondensasi pada Sampel III melepaskan molekul kecil berupa H<sub>2</sub>O.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal12c" value="B"> Benar</label>
+            <label><input type="radio" name="soal12c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 13 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">13</span>
+        <span class="title-text">Konfigurasi Elektron &amp; Bilangan Kuantum</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: SIFAT MAGNETIK KOMPLEKS LOGAM TRANSISI</strong><br>
+        Ion logam transisi M<sup>3+</sup> memiliki konfigurasi elektron terluar berakhir pada orbital 3d<sup>5</sup>. Diketahui nomor atom unsur M adalah 26 (Besi, Fe). Logam Besi dapat membentuk kompleks spin tinggi atau spin rendah tergantung pada kekuatan medan ligan yang terikat.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Empat bilangan kuantum untuk elektron terakhir dari atom netral M pada keadaan dasar (ground state) adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal13" value="A"><span class="option-text">n = 3, l = 2, m = −2, s = −1/2</span></label>
+        <label><input type="radio" name="soal13" value="B"><span class="option-text">n = 4, l = 0, m = 0, s = −1/2</span></label>
+        <label><input type="radio" name="soal13" value="C"><span class="option-text">n = 3, l = 2, m = +2, s = +1/2</span></label>
+        <label><input type="radio" name="soal13" value="D"><span class="option-text">n = 4, l = 1, m = −1, s = +1/2</span></label>
+        <label><input type="radio" name="soal13" value="E"><span class="option-text">n = 3, l = 1, m = 0, s = −1/2</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 14 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">14</span>
+        <span class="title-text">Gaya Antarmolekul &amp; Titik Didih</span>
+        <span class="badge mcma">PG Kompleks</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: ANOMALI TITIK DIDIH HIDRIDA GOLONGAN 15, 16, DAN 17</strong><br>
+        Grafik titik didih senyawa hidrida Golongan 15 (NH<sub>3</sub>, PH<sub>3</sub>, AsH<sub>3</sub>, SbH<sub>3</sub>) dan Golongan 16 (H<sub>2</sub>O, H<sub>2</sub>S, H<sub>2</sub>Se, H<sub>2</sub>Te) menunjukkan tren yang unik. Senyawa H<sub>2</sub>O dan NH<sub>3</sub> memiliki titik didih jauh lebih tinggi daripada anggota golongannya yang lebih berat.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pilih <strong>SEMUA</strong> faktor penyebab anomali sifat fisika tersebut yang <strong>BENAR</strong>!</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal14" value="A"><span class="option-text">Pembentukan ikatan hidrogen intermolekul yang kuat antara atom elektronegatif tinggi (N, O, F) dan H.</span></label>
+        <label><input type="checkbox" name="soal14" value="B"><span class="option-text">H<sub>2</sub>O membentuk jejaring ikatan hidrogen 3D tetrahedral di mana setiap molekul rata-rata membentuk 4 ikatan hidrogen.</span></label>
+        <label><input type="checkbox" name="soal14" value="C"><span class="option-text">Dari H<sub>2</sub>S ke H<sub>2</sub>Te, kenaikan titik didih disebabkan oleh peningkatan kekuatan gaya dispersi London akibat bertambahnya ukuran awan elektron.</span></label>
+        <label><input type="checkbox" name="soal14" value="D"><span class="option-text">Molekul PH<sub>3</sub> memiliki ikatan hidrogen yang lebih kuat daripada NH<sub>3</sub>.</span></label>
+        <label><input type="checkbox" name="soal14" value="E"><span class="option-text">Sifat polaritas ikatan O–H jauh lebih rendah dibandingkan ikatan S–H.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 15 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">15</span>
+        <span class="title-text">Hidrokarbon: Pembakaran &amp; Analisis Elemental</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: PENENTUAN RUMUS EMPIRIS DAN MOLEKUL SENYAWA BAHAN BAKAR</strong><br>
+        Pembakaran sempurna 2,30 gram suatu senyawa organik cair yang mengandung karbon, hidrogen, dan oksigen menghasilkan 4,40 gram CO<sub>2</sub> (M<sub>r</sub> = 44) dan 2,70 gram H<sub>2</sub>O (M<sub>r</sub> = 18). Pada pengukuran rapat massa uap, 1,15 gram senyawa tersebut dalam wujud gas menempati volume 560 mL pada kondisi STP (0°C, 1 atm).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Rumus molekul dari senyawa organik tersebut adalah... (A<sub>r</sub> C=12, H=1, O=16)</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal15" value="A"><span class="option-text">CH<sub>4</sub>O</span></label>
+        <label><input type="radio" name="soal15" value="B"><span class="option-text">C<sub>2</sub>H<sub>6</sub>O</span></label>
+        <label><input type="radio" name="soal15" value="C"><span class="option-text">C<sub>3</sub>H<sub>8</sub>O</span></label>
+        <label><input type="radio" name="soal15" value="D"><span class="option-text">C<sub>2</sub>H<sub>4</sub>O<sub>2</sub></span></label>
+        <label><input type="radio" name="soal15" value="E"><span class="option-text">C<sub>4</sub>H<sub>10</sub>O</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 16 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">16</span>
+        <span class="title-text">pH Larutan Garam (Hidrolisis)</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: pH LARUTAN GARAM AMONIUM FLUORIDA</strong><br>
+        Garam NH<sub>4</sub>F dilarutkan dalam air pada suhu 25°C. Diketahui tetapan ionisasi asam fluorida K<sub>a</sub>(HF) = 6,8 × 10<sup>−4</sup> dan tetapan ionisasi basa amonia K<sub>b</sub>(NH<sub>3</sub>) = 1,8 × 10<sup>−5</sup>. Tetapan kesetimbangan air K<sub>w</sub> = 1,0 × 10<sup>−14</sup>.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan apakah pernyataan berikut <strong>BENAR (B)</strong> atau <strong>SALAH (S)</strong>!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Garam NH<sub>4</sub>F mengalami hidrolisis total (kation dan anion bereaksi dengan air).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal16a" value="B"> Benar</label>
+            <label><input type="radio" name="soal16a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Larutan NH<sub>4</sub>F bersifat asam (pH &lt; 7) karena nilai K<sub>a</sub> &gt; K<sub>b</sub>.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal16b" value="B"> Benar</label>
+            <label><input type="radio" name="soal16b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) pH larutan garam yang berasal dari asam lemah dan basa lemah sangat bergantung pada konsentrasi mula-mula garam tersebut.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal16c" value="B"> Benar</label>
+            <label><input type="radio" name="soal16c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 17 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">17</span>
+        <span class="title-text">K<sub>sp</sub> &amp; Efek Ion Sejenis</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: KELARUTAN PERAK KROMAT DALAM LARUTAN NATRIUM KROMAT</strong><br>
+        Hasil kali kelarutan (K<sub>sp</sub>) dari Perak Kromat (Ag<sub>2</sub>CrO<sub>4</sub>) dalam air murni adalah 1,1 × 10<sup>−12</sup> pada 25°C. Sebanyak Ag<sub>2</sub>CrO<sub>4</sub> dilarutkan ke dalam larutan Na<sub>2</sub>CrO<sub>4</sub> 0,10 M.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Kelarutan molar (s) dari Ag<sub>2</sub>CrO<sub>4</sub> dalam larutan Na<sub>2</sub>CrO<sub>4</sub> 0,10 M tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal17" value="A"><span class="option-text">1,66 × 10<sup>−6</sup> M</span></label>
+        <label><input type="radio" name="soal17" value="B"><span class="option-text">3,32 × 10<sup>−6</sup> M</span></label>
+        <label><input type="radio" name="soal17" value="C"><span class="option-text">1,10 × 10<sup>−11</sup> M</span></label>
+        <label><input type="radio" name="soal17" value="D"><span class="option-text">6,50 × 10<sup>−5</sup> M</span></label>
+        <label><input type="radio" name="soal17" value="E"><span class="option-text">5,50 × 10<sup>−6</sup> M</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 18 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">18</span>
+        <span class="title-text">Kinetika Kimia: Persamaan Arrhenius</span>
+        <span class="badge mcma">PG Kompleks</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: PENGARUH SUHU DAN ENERGI AKTIVASI PADA LAJU REAKSI</strong><br>
+        Suatu reaksi dekomposisi termal memiliki energi aktivasi (E<sub>a</sub>) sebesar 52,0 kJ/mol. Laju reaksi diukur pada dua suhu yang berbeda. Pada suhu 300 K, tetapan laju reaksinya adalah k<sub>1</sub>. Reaksi dipanaskan hingga suhunya naik menjadi 310 K. (R = 8,314 J/mol·K).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pilih <strong>SEMUA</strong> pernyataan yang <strong>BENAR</strong> terkait eksperimen ini!</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal18" value="A"><span class="option-text">Rasio tetapan laju reaksi k<sub>2</sub>/k<sub>1</sub> mendekati nilai 2,0 (laju meningkat sekitar 2 kali lipat).</span></label>
+        <label><input type="checkbox" name="soal18" value="B"><span class="option-text">Peningkatan suhu meningkatkan fraksi molekul yang memiliki energi kinetik melampaui energi aktivasi (E<sub>a</sub>).</span></label>
+        <label><input type="checkbox" name="soal18" value="C"><span class="option-text">Penambahan katalisator akan menurunkan nilai E<sub>a</sub> dan mengubah jalur reaksi dengan laju yang lebih cepat.</span></label>
+        <label><input type="checkbox" name="soal18" value="D"><span class="option-text">Katalisator akan menggeser posisi kesetimbangan reaksi ke arah produk.</span></label>
+        <label><input type="checkbox" name="soal18" value="E"><span class="option-text">Energi aktivasi reaksi balik (reverse reaction) selalu sama dengan energi aktivasi reaksi maju.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 19 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">19</span>
+        <span class="title-text">Kesetimbangan Gas K<sub>p</sub></span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: KESETIMBANGAN DISOSIASI DINITROGEN TETRAOKSIDA</strong><br>
+        Gas N<sub>2</sub>O<sub>4</sub> terdisosiasi sebagian menjadi gas NO<sub>2</sub> menurut reaksi:
+        <div class="math-block">N<sub>2</sub>O<sub>4</sub>(g) ⇌ 2 NO<sub>2</sub>(g)</div>
+        Dalam wadah tertutup pada suhu tertentu, dimasukkan gas N<sub>2</sub>O<sub>4</sub> murni dengan tekanan awal 1,0 atm. Pada keadaan setimbang, tekanan total sistem diukur sebesar 1,2 atm.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Nilai tetapan kesetimbangan tekanan (K<sub>p</sub>) untuk reaksi disosiasi tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal19" value="A"><span class="option-text">0,10 atm</span></label>
+        <label><input type="radio" name="soal19" value="B"><span class="option-text">0,20 atm</span></label>
+        <label><input type="radio" name="soal19" value="C"><span class="option-text">0,40 atm</span></label>
+        <label><input type="radio" name="soal19" value="D"><span class="option-text">0,80 atm</span></label>
+        <label><input type="radio" name="soal19" value="E"><span class="option-text">1,00 atm</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 20 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">20</span>
+        <span class="title-text">Elektrolisis &amp; Hukum Faraday</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: LAPIS LISTRIK (ELECTROPLATING) SENDOK TEMBAGA DENGAN PERAK</strong><br>
+        Proses penyepuhan sendok besi dengan logam perak dilakukan melalui elektrolisis larutan AgNO<sub>3</sub> menggunakan arus listrik sebesar 5,0 Ampere selama 965 detik. Elektroda yang digunakan adalah perak murni sebagai anoda dan sendok besi sebagai katoda. (A<sub>r</sub> Ag = 108, 1 Faraday = 96.500 C/mol).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan apakah pernyataan berikut <strong>BENAR (B)</strong> atau <strong>SALAH (S)</strong>!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Jumlah muatan listrik yang mengalir dalam sel elektrolisis adalah 4.825 Coulomb (0,05 Faraday).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20a" value="B"> Benar</label>
+            <label><input type="radio" name="soal20a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Massa logam perak yang melapisi sendok besi di katoda adalah sebesar 5,40 gram.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20b" value="B"> Benar</label>
+            <label><input type="radio" name="soal20b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Di anoda terjadi reaksi reduksi ion perak menjadi logam perak.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal20c" value="B"> Benar</label>
+            <label><input type="radio" name="soal20c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 21 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">21</span>
+        <span class="title-text">Gugus Fungsi Karbon &amp; Reaksi Identifikasi</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: UJI BEDAKAN ALDEHID DAN KETON</strong><br>
+        Suatu senyawa organik X dengan rumus molekul C<sub>3</sub>H<sub>6</sub>O diuji di laboratorium:
+        <ol style="margin:8px 0 0 18px;">
+          <li>Mereduksi pereaksi Tollens membentuk cermin perak di dinding tabung reaksi.</li>
+          <li>Dioksidasi dengan KMnO<sub>4</sub> menghasilkan asam propanoat.</li>
+          <li>Direduksi dengan H<sub>2</sub> menggunakan katalis Ni menghasilkan senyawa Y.</li>
+        </ol>
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Senyawa X dan produk reduksinya Y secara berturut-turut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal21" value="A"><span class="option-text">Propanal dan 1-propanol</span></label>
+        <label><input type="radio" name="soal21" value="B"><span class="option-text">Propanon dan 2-propanol</span></label>
+        <label><input type="radio" name="soal21" value="C"><span class="option-text">Propanal dan 2-propanol</span></label>
+        <label><input type="radio" name="soal21" value="D"><span class="option-text">Propanon dan 1-propanol</span></label>
+        <label><input type="radio" name="soal21" value="E"><span class="option-text">Asam propanoat dan propanal</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 22 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">22</span>
+        <span class="title-text">Benzena &amp; Reaksi Substitusi Elektrofilik</span>
+        <span class="badge mcma">PG Kompleks</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: PENGARAH ORTO/PARA DAN META PADA NITRASI TURUNAN BENZENA</strong><br>
+        Reaksi substitusi elektrofilik kedua pada benzena dipengaruhi oleh gugus fungsi yang sudah terikat sebelumnya. Gugus pengaktif cincin umumnya mengarahkan substituen baru ke posisi <em>orto</em> dan <em>para</em>, sedangkan gugus deaktif mengarahkan ke posisi <em>meta</em>.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Pilih <strong>SEMUA</strong> pernyataan yang <strong>BENAR</strong> mengenai reaktivitas substitusi benzena!</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="checkbox" name="soal22" value="A"><span class="option-text">Nitrasi pada Anilina (–NH<sub>2</sub>) atau Fenol (–OH) berlangsung lebih cepat daripada benzena karena gugus tersebut mendonasikan elektron ke cincin.</span></label>
+        <label><input type="checkbox" name="soal22" value="B"><span class="option-text">Nitrasi pada Nitrobenzena (–NO<sub>2</sub>) menghasilkan produk utama m-dinitrobenzena.</span></label>
+        <label><input type="checkbox" name="soal22" value="C"><span class="option-text">Gugus halogen (–Cl, –Br) bersifat deaktif namun mengarahkan substituen baru ke posisi orto/para.</span></label>
+        <label><input type="checkbox" name="soal22" value="D"><span class="option-text">Toluena (–CH<sub>3</sub>) bereaksi lebih lambat daripada benzena murni pada reaksi brominasi.</span></label>
+        <label><input type="checkbox" name="soal22" value="E"><span class="option-text">Gugus karboksilat (–COOH) merupakan pengarah orto/para yang kuat.</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 23 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">23</span>
+        <span class="title-text">Biomolekul: Karbohidrat &amp; Struktur Proyeksi Haworth</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: HIDROLISIS DISAKARIDA DAN GULA PEREDUKSI</strong><br>
+        Suatu disakarida non-pereduksi Z terdiri dari gabungan monomer D-glukosa dan D-fruktosa yang terikat melalui ikatan glikosida α-1,2. Ketika disakarida Z dihidrolisis oleh enzim invertase, dihasilkan campuran ekuimolar dari kedua monosakarida tersebut yang memutar bidang polarisasi ke arah kiri (levorotatori).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Disakarida Z yang dimaksud dalam wacana tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal23" value="A"><span class="option-text">Maltosa</span></label>
+        <label><input type="radio" name="soal23" value="B"><span class="option-text">Laktosa</span></label>
+        <label><input type="radio" name="soal23" value="C"><span class="option-text">Sakarosa (Sukrosa)</span></label>
+        <label><input type="radio" name="soal23" value="D"><span class="option-text">Selobiosa</span></label>
+        <label><input type="radio" name="soal23" value="E"><span class="option-text">Amilosa</span></label>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 24 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">24</span>
+        <span class="title-text">Lemak/Minyak &amp; Saponifikasi</span>
+        <span class="badge kategori">PG Kategori</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: ANGKA PENYABUNAN DAN DERAJAT KETIDAKJENUHAN MINYAK</strong><br>
+        Trigliserida M merupakan ester triasilgliserol yang dibuat dari penyebaran asam stearat (C<sub>17</sub>H<sub>35</sub>COOH, asam lemak jenuh) dan asam oleat (C<sub>17</sub>H<sub>33</sub>COOH, asam lemak tak jenuh). Reaksi saponifikasi 1 mol trigliserida dengan larutan KOH menghasilkan gliserol dan garam kalium karboksilat (sabun).
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Tentukan apakah pernyataan berikut <strong>BENAR (B)</strong> atau <strong>SALAH (S)</strong>!</p>
+      </div>
+      <div class="tf-group">
+        <div class="tf-item">
+          <span class="pernyataan">1) Untuk menyabunkan 1 mol trigliserida secara sempurna dibutuhkan tepat 3 mol KOH.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24a" value="B"> Benar</label>
+            <label><input type="radio" name="soal24a" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">2) Minyak yang kaya akan kandungan asam oleat dapat diadisi oleh gas hidrogen (H<sub>2</sub>) membentuk lemak padat (margarin).</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24b" value="B"> Benar</label>
+            <label><input type="radio" name="soal24b" value="S"> Salah</label>
+          </div>
+        </div>
+        <div class="tf-item">
+          <span class="pernyataan">3) Uji adisi iodium (I<sub>2</sub>) pada asam stearat akan menghilangkan warna cokelat kemerahan iodium dengan cepat.</span>
+          <div class="opsi">
+            <label><input type="radio" name="soal24c" value="B"> Benar</label>
+            <label><input type="radio" name="soal24c" value="S"> Salah</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ SOAL 25 ============ -->
+    <div class="soal-card">
+      <div class="soal-header">
+        <span class="nomor-soal">25</span>
+        <span class="title-text">Penurunan Titik Beku (Sifat Koligatif)</span>
+        <span class="badge">PG Regular</span>
+      </div>
+      <div class="wacana-box">
+        <strong>WACANA: PENENTUAN MASSA MOLEKUL RELATIF ZAT NON-VOLATIL</strong><br>
+        Sebanyak 4,50 gram suatu senyawa organik nonelektrolit dilarutkan ke dalam 100 gram benzena murni. Titik beku benzena murni adalah 5,50°C dan tetapan penurunan titik beku molal benzena (K<sub>f</sub>) adalah 5,12 °C/m. Di laboratorium, larutan tersebut membeku pada suhu 4,22°C.
+      </div>
+      <div class="soal-pertanyaan">
+        <p>Massa molekul relatif (M<sub>r</sub>) dari senyawa organik nonelektrolit tersebut adalah...</p>
+      </div>
+      <div class="pilihan">
+        <label><input type="radio" name="soal25" value="A"><span class="option-text">90 g/mol</span></label>
+        <label><input type="radio" name="soal25" value="B"><span class="option-text">120 g/mol</span></label>
+        <label><input type="radio" name="soal25" value="C"><span class="option-text">180 g/mol</span></label>
+        <label><input type="radio" name="soal25" value="D"><span class="option-text">240 g/mol</span></label>
+        <label><input type="radio" name="soal25" value="E"><span class="option-text">342 g/mol</span></label>
+      </div>
+    </div>
+
+    <button type="button" class="btn-finish" onclick="submitTes()">✅ Kumpulkan dan Selesaikan Tes</button>
+  </div>
+
+  <!-- ============ HALAMAN HASIL TES ============ -->
+  <div id="halaman-hasil" class="result-card" style="display: none;">
+    <h2>📊 Hasil Tes Peserta</h2>
+
+    <div class="result-item">
+      <span><strong>Nama Peserta:</strong></span>
+      <span id="res-nama">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>Kelas / Jurusan:</strong></span>
+      <span id="res-kelas">-</span>
+    </div>
+    <div class="result-item">
+      <span><strong>NIS / NISN:</strong></span>
+      <span id="res-nis">-</span>
+    </div>
+
+    <div class="score-badge">
+      <div>SKOR AKHIR</div>
+      <div class="score-val" id="res-skor">0</div>
+      <div class="predikat-val" id="res-predikat">Predikat: -</div>
+    </div>
+
+    <div class="result-item">
+      <span>Jumlah Jawaban Benar:</span>
+      <span id="res-benar">0 / 25</span>
+    </div>
+
+    <button type="button" class="btn-action btn-pdf" onclick="unduhPDF()">📄 Unduh Hasil ke PDF</button>
+    <button type="button" class="btn-action btn-drive" onclick="kirimKeDrive()">☁️ Kirim ke Google Drive</button>
+
+    <div class="drive-info" id="drive-info">
+      <strong>📌 Cara mengunggah ke Google Drive:</strong>
+      <ol>
+        <li>File PDF hasil ujian <strong>otomatis terunduh</strong> ke perangkat Anda.</li>
+        <li>Tab Google Drive (folder tujuan) akan terbuka. Jika tidak, kunjungi link berikut:<br>
+          <a href="https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O" target="_blank" rel="noopener">
+            https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O
+          </a>
+        </li>
+        <li>Klik tombol <strong>+ Baru</strong> → <strong>Unggah file</strong>.</li>
+        <li>Pilih file PDF yang baru saja diunduh (nama file: <em>Hasil_TKA_Kimia_[NIS].pdf</em>).</li>
+        <li>File akan tersimpan di folder Google Drive yang telah ditentukan.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="footer">
+    &copy; 2026 TKA Kimia SMA/MA/SMK — Level HOTS
+  </div>
+</div>
+
+<script>
+  // ===== KONFIGURASI FOLDER GOOGLE DRIVE TUJUAN =====
+  const DRIVE_FOLDER_URL = "https://drive.google.com/drive/folders/1NaDHiJIkGLNG0AAVVGxpnnn-l-N32_2O";
+
+  // ===== KUNCI JAWABAN SOAL 1 - 25 =====
+  const kunciJawaban = {
+    soal1:  "A",
+    soal2:  ["A", "B", "C"],
+    soal3:  "B",
+    soal4:  { a: "B", b: "B", c: "B" },
+    soal5:  "A",
+    soal6:  ["A", "B", "C", "E"],
+    soal7:  "A",
+    soal8:  { a: "S", b: "B", c: "S" },
+    soal9:  "B",
+    soal10: ["A", "B", "C"],
+    soal11: "E",
+    soal12: { a: "B", b: "S", c: "B" },
+    soal13: "A",
+    soal14: ["A", "B", "C"],
+    soal15: "B",
+    soal16: { a: "B", b: "B", c: "S" },
+    soal17: "A",
+    soal18: ["A", "B", "C"],
+    soal19: "B",
+    soal20: { a: "B", b: "B", c: "S" },
+    soal21: "A",
+    soal22: ["A", "B", "C"],
+    soal23: "C",
+    soal24: { a: "B", b: "B", c: "S" },
+    soal25: "C"
+  };
+
+  let timerInterval;
+  let totalTime = 120 * 60;
+  let skorGlobal = 0;
+  let benarGlobal = 0;
+  let violationCount = 0;
+  let ujianAktif = false;
+  const MAKS_PERCOBAAN = 3;
+
+  const inputNama = document.getElementById('nama');
+  const inputKelas = document.getElementById('kelas');
+  const inputNis = document.getElementById('nis');
+
+  inputNis.addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+  inputNama.addEventListener('input', function() {
+    this.value = this.value.replace(/[^a-zA-Z\s.,'\-]/g, '');
+  });
+
+  // ===== HANDLE SUBMIT LOGIN =====
+  document.getElementById('form-identitas').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    document.querySelectorAll('.error-msg').forEach(el => el.classList.remove('show'));
+    document.querySelectorAll('.form-group input').forEach(el => el.classList.remove('error'));
+
+    const nama = inputNama.value.trim();
+    const kelas = inputKelas.value.trim();
+    const nis = inputNis.value.trim();
+    let valid = true;
+
+    if (nama.length < 3 || !/^[a-zA-Z\s.,'\-]+$/.test(nama)) {
+      document.getElementById('err-nama').classList.add('show');
+      inputNama.classList.add('error');
+      valid = false;
+    }
+    if (kelas.length < 2) {
+      document.getElementById('err-kelas').classList.add('show');
+      inputKelas.classList.add('error');
+      valid = false;
+    }
+    if (!/^\d{4,20}$/.test(nis)) {
+      document.getElementById('err-nis').classList.add('show');
+      inputNis.classList.add('error');
+      valid = false;
+    }
+    if (!valid) return;
+
+    const attemptKey = 'tka_kimia_attempts_' + nis;
+    const currentAttempts = parseInt(localStorage.getItem(attemptKey)) || 0;
+
+    if (currentAttempts >= MAKS_PERCOBAAN) {
+      alert("❌ Maaf, NIS/NISN " + nis + " telah mencapai batas maksimal pengerjaan (" + MAKS_PERCOBAAN + " kali).\n\nAnda tidak dapat mengerjakan tes ini lagi.");
+      return;
+    }
+
+    const konfirmasi = confirm(
+      "📋 KONFIRMASI DATA PESERTA\n\n" +
+      "Nama    : " + nama + "\n" +
+      "Kelas   : " + kelas + "\n" +
+      "NIS/NISN: " + nis + "\n\n" +
+      "Percobaan ke-" + (currentAttempts + 1) + " dari " + MAKS_PERCOBAAN + "\n\n" +
+      "Pastikan data sudah benar. Mulai ujian sekarang?"
+    );
+    if (!konfirmasi) return;
+
+    localStorage.setItem(attemptKey, currentAttempts + 1);
+    localStorage.setItem('tka_kimia_last_user', JSON.stringify({ nama, kelas, nis }));
+
+    document.getElementById('display-nama').textContent = nama;
+    document.getElementById('display-kelas').textContent = kelas;
+    document.getElementById('display-nis').textContent = nis;
+
+    document.getElementById('halaman-identitas').style.display = 'none';
+    document.getElementById('halaman-soal').style.display = 'block';
+
+    ujianAktif = true;
+    window.scrollTo(0, 0);
+    startTimer();
+    initAntiCheat();
+  });
+
+  // ===== ANTI-CURANG =====
+  function initAntiCheat() {
+    document.addEventListener('visibilitychange', function() {
+      if (document.hidden && ujianAktif) {
+        violationCount++;
+        alert("⚠️ PERINGATAN KECURANGAN (" + violationCount + "/3):\nAnda terdeteksi keluar dari halaman ujian atau berpindah tab!\n\nJika melanggar hingga 3 kali, ujian akan otomatis dikumpulkan.");
+        if (violationCount >= 3) {
+          alert("❌ Anda telah melanggar aturan ujian sebanyak 3 kali.\nUjian otomatis diselesaikan.");
+          submitTes();
+        }
+      }
+    });
+    document.addEventListener('contextmenu', function(e) {
+      if (ujianAktif) {
+        e.preventDefault();
+        alert("🚫 Klik kanan dinonaktifkan selama ujian berlangsung.");
+      }
+    });
+    document.addEventListener('keydown', function(e) {
+      if (!ujianAktif) return;
+      if (
+        e.keyCode === 123 ||
+        (e.ctrlKey && e.shiftKey && (e.keyCode === 73 || e.keyCode === 74)) ||
+        (e.ctrlKey && e.keyCode === 85) ||
+        (e.ctrlKey && (e.keyCode === 67 || e.keyCode === 86 || e.keyCode === 88))
+      ) {
+        e.preventDefault();
+        alert("🚫 Aksi ini dilarang selama ujian!");
+      }
+    });
+  }
+
+  // ===== TIMER =====
+  function startTimer() {
+    timerInterval = setInterval(function() {
+      if (totalTime <= 0) {
+        clearInterval(timerInterval);
+        alert("⏰ Waktu ujian telah habis!");
+        submitTes();
+        return;
+      }
+      totalTime--;
+      const minutes = Math.floor(totalTime / 60);
+      const seconds = totalTime % 60;
+      document.getElementById('timer').textContent =
+        String(minutes).padStart(2, '0') + ":" + String(seconds).padStart(2, '0');
+    }, 1000);
+  }
+
+  // ===== HITUNG SKOR =====
+  function hitungBenar() {
+    let benar = 0;
+    let total = 0;
+
+    for (let i = 1; i <= 25; i++) {
+      const key = 'soal' + i;
+      const kunci = kunciJawaban[key];
+      if (!kunci) continue;
+      total++;
+
+      if (typeof kunci === 'string') {
+        const selected = document.querySelector('input[name="' + key + '"]:checked');
+        if (selected && selected.value === kunci) benar++;
+
+      } else if (Array.isArray(kunci)) {
+        const selected = Array.from(
+          document.querySelectorAll('input[name="' + key + '"]:checked')
+        ).map(cb => cb.value).sort();
+        const expected = [...kunci].sort();
+        if (JSON.stringify(selected) === JSON.stringify(expected)) benar++;
+
+      } else if (typeof kunci === 'object') {
+        let allCorrect = true;
+        for (const sub in kunci) {
+          const subName = key + sub;
+          const sel = document.querySelector('input[name="' + subName + '"]:checked');
+          if (!sel || sel.value !== kunci[sub]) {
+            allCorrect = false;
+            break;
+          }
+        }
+        if (allCorrect) benar++;
+      }
+    }
+    return { benar, total };
+  }
+
+  // ===== SUBMIT TES =====
+  function submitTes() {
+    if (!ujianAktif) return;
+    ujianAktif = false;
+    clearInterval(timerInterval);
+
+    const nama = document.getElementById('display-nama').textContent;
+    const kelas = document.getElementById('display-kelas').textContent;
+    const nis = document.getElementById('display-nis').textContent;
+
+    const { benar, total } = hitungBenar();
+    benarGlobal = benar;
+    skorGlobal = total > 0 ? Math.round((benar / total) * 100) : 0;
+
+    let predikat = "Kurang";
+    if (skorGlobal >= 85) predikat = "Sangat Baik";
+    else if (skorGlobal >= 70) predikat = "Baik";
+    else if (skorGlobal >= 55) predikat = "Cukup";
+
+    document.getElementById('res-nama').textContent = nama;
+    document.getElementById('res-kelas').textContent = kelas;
+    document.getElementById('res-nis').textContent = nis;
+    document.getElementById('res-skor').textContent = skorGlobal;
+    document.getElementById('res-benar').textContent = benarGlobal + " / " + total;
+    document.getElementById('res-predikat').textContent = "Predikat: " + predikat;
+
+    document.getElementById('halaman-soal').style.display = 'none';
+    document.getElementById('halaman-hasil').style.display = 'block';
+    window.scrollTo(0, 0);
+  }
+
+  // ===== UNDUH PDF =====
+  function unduhPDF() {
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Kimia_' + document.getElementById('res-nis').textContent + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+    html2pdf().from(element).set(opt).save();
+  }
+
+  // ===== KIRIM KE GOOGLE DRIVE =====
+  function kirimKeDrive() {
+    const nis = document.getElementById('res-nis').textContent;
+    document.getElementById('drive-info').classList.add('show');
+
+    const element = document.getElementById('halaman-hasil');
+    const opt = {
+      margin: 10,
+      filename: 'Hasil_TKA_Kimia_' + nis + '.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(element).set(opt).save().then(function() {
+      setTimeout(function() {
+        const konfirmasiDrive = confirm(
+          "✅ File PDF hasil ujian telah diunduh ke perangkat Anda.\n\n" +
+          "Sekarang folder Google Drive tujuan akan terbuka.\n\n" +
+          "Langkah selanjutnya:\n" +
+          "1. Klik tombol '+ Baru' di Google Drive\n" +
+          "2. Pilih 'Unggah file'\n" +
+          "3. Pilih file: Hasil_TKA_Kimia_" + nis + ".pdf\n" +
+          "4. File akan tersimpan di folder tujuan.\n\n" +
+          "Klik OK untuk membuka folder Google Drive."
+        );
+
+        if (konfirmasiDrive) {
+          window.open(DRIVE_FOLDER_URL, "_blank");
+        }
+      }, 800);
+    });
+  }
+</script>
+</body>
+</html>
