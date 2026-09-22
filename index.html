@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TKA SMA 2026 — Menu Pilihan Mata Pelajaran</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #eef2f7 0%, #dde7f3 100%);
+    min-height: 100vh; padding: 40px 15px; color: #1e2a3a;
+  }
+  .container { max-width: 1100px; margin: 0 auto; }
+
+  /* ===== HEADER ===== */
+  header.doc {
+    background: linear-gradient(135deg, #0b3b5c, #2874a6 55%, #4a9fd8);
+    color: #fff; border-radius: 18px; padding: 40px 34px;
+    box-shadow: 0 14px 40px rgba(20, 60, 120, 0.28);
+    margin-bottom: 30px; text-align: center; position: relative; overflow: hidden;
+  }
+  header.doc::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15), transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(255,255,255,0.10), transparent 55%);
+  }
+  header.doc .eyebrow {
+    display: inline-block; font-size: 12px; letter-spacing: 0.2em;
+    text-transform: uppercase; background: rgba(255,255,255,0.18);
+    padding: 7px 16px; border-radius: 999px; margin-bottom: 16px;
+    font-weight: 600; position: relative;
+  }
+  header.doc h1 {
+    font-size: clamp(24px, 4vw, 34px); margin-bottom: 10px;
+    line-height: 1.25; position: relative; font-weight: 800;
+  }
+  header.doc p {
+    font-size: 15px; opacity: 0.92; max-width: 640px;
+    margin: 0 auto; line-height: 1.6; position: relative;
+  }
+  header.doc .meta {
+    margin-top: 22px; display: flex; flex-wrap: wrap;
+    gap: 10px; justify-content: center; position: relative;
+  }
+  header.doc .meta span {
+    background: rgba(255,255,255,0.16);
+    border: 1px solid rgba(255,255,255,0.24);
+    padding: 6px 14px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 600;
+  }
+
+  /* ===== SECTION TITLE ===== */
+  .section-title {
+    display: flex; align-items: center; gap: 12px;
+    font-size: 15px; font-weight: 700; color: #0b3b5c;
+    margin: 34px 0 18px; letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .section-title::before {
+    content: ''; width: 5px; height: 22px; border-radius: 3px;
+    background: linear-gradient(180deg, #0b3b5c, #2874a6);
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 2px;
+    background: linear-gradient(90deg, #cfe0ee, transparent);
+    border-radius: 2px;
+  }
+
+  /* ===== GRID ===== */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  /* ===== CARD ===== */
+  .card {
+    background: #fff; border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(20, 60, 120, 0.10);
+    padding: 22px 22px 20px;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column;
+    border-top: 5px solid #0b3b5c;
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    position: relative; overflow: hidden;
+    cursor: pointer;
+  }
+  .card::after {
+    content: ''; position: absolute;
+    right: -40px; bottom: -40px; width: 130px; height: 130px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(40,116,166,0.06), transparent 70%);
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(20, 60, 120, 0.20);
+  }
+  .card:hover::after { transform: scale(1.4); }
+
+  .card .lock-badge {
+    position: absolute; top: 14px; right: 14px;
+    font-size: 0.68rem; font-weight: 700;
+    color: #8a6d00; background: #fdf3d8;
+    padding: 4px 9px; border-radius: 999px;
+    border: 1px solid #f0dc9a;
+    display: flex; align-items: center; gap: 4px;
+  }
+
+  .card .icon {
+    width: 54px; height: 54px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.7rem; margin-bottom: 14px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  }
+  .card h3 {
+    font-size: 1.08rem; font-weight: 700; color: #0b3b5c;
+    margin-bottom: 6px; line-height: 1.35;
+  }
+  .card .desc {
+    font-size: 0.85rem; color: #5c6c80; line-height: 1.55;
+    flex: 1; margin-bottom: 14px;
+  }
+  .card .footer-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding-top: 12px; border-top: 1px dashed #d8e2ec;
+    font-size: 0.78rem; color: #6a7a8a;
+  }
+  .card .footer-row .count {
+    background: #eef4fa; color: #0b3b5c;
+    padding: 4px 10px; border-radius: 20px;
+    font-weight: 700; font-size: 0.72rem;
+  }
+  .card .footer-row .arrow {
+    font-weight: 700; color: #2874a6; font-size: 0.9rem;
+    transition: transform 0.2s;
+  }
+  .card:hover .footer-row .arrow { transform: translateX(4px); }
+
+  /* ===== COLOR VARIANTS ===== */
+  .card.c-ekonomi     { border-top-color: #0b3b5c; } .c-ekonomi .icon     { background: #e7f0f8; color: #0b3b5c; }
+  .card.c-antro       { border-top-color: #7d3c98; } .c-antro .icon       { background: #f3e8fa; color: #7d3c98; }
+  .card.c-geo         { border-top-color: #1e8449; } .c-geo .icon         { background: #e6f6ec; color: #1e8449; }
+  .card.c-ing         { border-top-color: #b9770e; } .c-ing .icon         { background: #fdf3e3; color: #b9770e; }
+  .card.c-indo        { border-top-color: #c0392b; } .c-indo .icon        { background: #fdecea; color: #c0392b; }
+  .card.c-kimia       { border-top-color: #117a8b; } .c-kimia .icon       { background: #e0f4f8; color: #117a8b; }
+  .card.c-matematika  { border-top-color: #1a5fb4; } .c-matematika .icon  { background: #e7effb; color: #1a5fb4; }
+  .card.c-sejarah     { border-top-color: #8b5a2b; } .c-sejarah .icon     { background: #f7efe5; color: #8b5a2b; }
+  .card.c-ppkn        { border-top-color: #2874a6; } .c-ppkn .icon        { background: #e7f1f8; color: #2874a6; }
+  .card.c-sosiologi   { border-top-color: #a06030; } .c-sosiologi .icon   { background: #f9ede3; color: #a06030; }
+  .card.c-biologi     { border-top-color: #1e8449; } .c-biologi .icon     { background: #e6f6ec; color: #1e8449; }
+  .card.c-fisika      { border-top-color: #2c3e50; } .c-fisika .icon      { background: #eaeef2; color: #2c3e50; }
+
+  /* ===== INFO BOX ===== */
+  .info-box {
+    background: #fff; border-left: 5px solid #f39c12;
+    border-radius: 12px; padding: 18px 22px; margin-top: 34px;
+    box-shadow: 0 4px 14px rgba(20, 60, 120, 0.08);
+    font-size: 0.87rem; color: #4a5a6a; line-height: 1.7;
+  }
+  .info-box strong { color: #8a6d00; }
+  .info-box ul { margin: 8px 0 0 20px; }
+  .info-box li { margin-bottom: 4px; }
+
+  /* ===== FOOTER ===== */
+  .footer {
+    text-align: center; padding: 34px 20px 12px;
+    font-size: 0.82rem; color: #7a8a9a; line-height: 1.7;
+  }
+  .footer strong { color: #0b3b5c; }
+
+  /* ============================================================
+     ===== MODAL TOKEN =====
+     ============================================================ */
+  .modal-backdrop {
+    position: fixed; inset: 0;
+    background: rgba(8, 25, 45, 0.55);
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; visibility: hidden;
+    transition: opacity 0.28s ease, visibility 0.28s;
+    z-index: 1000;
+  }
+  .modal-backdrop.show { opacity: 1; visibility: visible; }
+
+  .modal {
+    background: #fff; border-radius: 20px;
+    width: 100%; max-width: 430px;
+    padding: 34px 30px 24px;
+    box-shadow: 0 24px 60px rgba(8, 25, 45, 0.38);
+    text-align: center; position: relative;
+    transform: translateY(22px) scale(0.95);
+    transition: transform 0.34s cubic-bezier(0.2, 0.9, 0.3, 1.25);
+    overflow: hidden;
+  }
+  .modal-backdrop.show .modal { transform: translateY(0) scale(1); }
+  .modal::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 5px; background: linear-gradient(90deg, #0b3b5c, #2874a6, #4a9fd8);
+  }
+  .modal.success::before { background: linear-gradient(90deg, #1e8449, #27ae60); }
+
+  .modal-close {
+    position: absolute; top: 12px; right: 12px;
+    width: 32px; height: 32px; border-radius: 50%;
+    border: none; background: #eef2f7; color: #5c6c80;
+    font-size: 1.2rem; line-height: 1; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s, color 0.2s;
+  }
+  .modal-close:hover { background: #dde7f3; color: #0b3b5c; }
+
+  .modal-icon {
+    width: 68px; height: 68px; margin: 4px auto 14px;
+    border-radius: 20px; font-size: 2rem;
+    display: flex; align-items: center; justify-content: center;
+    background: linear-gradient(135deg, #e7f0f8, #d3e6f5);
+    color: #0b3b5c;
+    box-shadow: 0 8px 22px rgba(20, 60, 120, 0.16);
+    transition: all 0.3s ease;
+  }
+  .modal.success .modal-icon {
+    background: linear-gradient(135deg, #d6f3e2, #a8e6c4);
+    color: #1e8449;
+    transform: scale(1.06);
+  }
+
+  .modal h2 {
+    font-size: 1.22rem; font-weight: 800;
+    color: #0b3b5c; margin-bottom: 8px;
+  }
+  .modal .modal-sub {
+    font-size: 0.86rem; color: #5c6c80; line-height: 1.55;
+    margin-bottom: 4px;
+  }
+  .modal .modal-sub strong { color: #0b3b5c; }
+
+  .token-input-wrap { margin: 22px 0 6px; }
+
+  #tokenInput {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 1.45rem;
+    font-weight: 800;
+    letter-spacing: 0.55em;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px solid #d8e2ec;
+    border-radius: 14px;
+    outline: none;
+    font-family: 'Courier New', ui-monospace, monospace;
+    color: #0b3b5c;
+    background: #f8fbfe;
+    transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+    text-indent: 0.55em;
+  }
+  #tokenInput::placeholder {
+    color: #c2ceda; letter-spacing: 0.55em; text-indent: 0.55em;
+  }
+  #tokenInput:focus {
+    border-color: #2874a6;
+    box-shadow: 0 0 0 4px rgba(40, 116, 166, 0.15);
+    background: #fff;
+  }
+  #tokenInput.error {
+    border-color: #c0392b;
+    box-shadow: 0 0 0 4px rgba(192, 57, 43, 0.12);
+    animation: shake 0.4s;
+  }
+  @keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-7px); }
+    75% { transform: translateX(7px); }
+  }
+
+  .modal-error {
+    min-height: 20px;
+    font-size: 0.8rem; font-weight: 600;
+    color: #c0392b; margin-bottom: 6px;
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .modal-error.show { opacity: 1; }
+
+  .modal-actions {
+    display: flex; gap: 10px; margin-top: 6px;
+  }
+  .btn {
+    flex: 1; padding: 13px 16px; border-radius: 12px;
+    font-size: 0.9rem; font-weight: 700; cursor: pointer;
+    border: none; font-family: inherit;
+    transition: transform 0.15s, box-shadow 0.2s, background 0.2s;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-ghost {
+    background: #eef2f7; color: #5c6c80;
+  }
+  .btn-ghost:hover { background: #dde7f3; color: #0b3b5c; }
+  .btn-primary {
+    background: linear-gradient(135deg, #0b3b5c, #2874a6);
+    color: #fff; flex: 1.5;
+    box-shadow: 0 6px 16px rgba(20, 60, 120, 0.28);
+  }
+  .btn-primary:hover {
+    box-shadow: 0 10px 24px rgba(20, 60, 120, 0.38);
+  }
+  .btn-primary:disabled {
+    opacity: 0.7; cursor: wait;
+  }
+
+  .modal-hint {
+    margin-top: 16px; font-size: 0.72rem;
+    color: #97a5b3; letter-spacing: 0.02em;
+    display: flex; align-items: center; justify-content: center; gap: 6px;
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 24px 12px; }
+    header.doc { padding: 28px 20px; border-radius: 14px; }
+    .grid { grid-template-columns: 1fr; gap: 14px; }
+    .card { padding: 18px; }
+    .modal { padding: 28px 22px 20px; border-radius: 16px; }
+    #tokenInput { font-size: 1.2rem; letter-spacing: 0.4em; text-indent: 0.4em; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ============ HEADER ============ -->
+  <header class="doc">
+    <span class="eyebrow">Tes Kemampuan Akademik · Tahun 2026</span>
+    <h1>TKA SMA/MA/SMK 2026</h1>
+    <p>Pilih salah satu mata pelajaran di bawah ini untuk memulai ujian. Cukup <strong>satu token harian</strong> untuk seluruh mata pelajaran.</p>
+    <div class="meta">
+      <span>12 Mata Pelajaran</span>
+      <span>1 Token untuk Semua Mapel</span>
+      <span>Anti-Curang Aktif</span>
+      <span>Hasil Otomatis (PDF)</span>
+    </div>
+  </header>
+
+  <!-- ============ KELOMPOK: SOSIAL & HUMANORA ============ -->
+  <div class="section-title">Kelompok Sosial &amp; Humaniora</div>
+  <div class="grid">
+
+    <a class="card c-ekonomi" href="ekonomi_fix.html" data-code="EKO">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">📊</div>
+      <h3>Ekonomi</h3>
+      <div class="desc">Kelangkaan, biaya peluang, keseimbangan pasar, pendapatan nasional, inflasi, kebijakan moneter &amp; fiskal.</div>
+      <div class="footer-row">
+        <span class="count">30 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-antro" href="antro_fix.html" data-code="ANT">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">🏛️</div>
+      <h3>Antropologi</h3>
+      <div class="desc">Perubahan sosial, antropologi hukum &amp; ekologi, solidaritas sosial, netnografi, multikulturalisme, tradisi lisan.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 90 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-geo" href="geo_fix.html" data-code="GEO">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">🌍</div>
+      <h3>Geografi</h3>
+      <div class="desc">Konsep wilayah, perwilayahan, RTRW, kawasan lindung &amp; budidaya, pusat pertumbuhan, teori tempat pusat.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-sejarah" href="sejarah_fix.html" data-code="SEJ">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">📜</div>
+      <h3>Sejarah</h3>
+      <div class="desc">Sejarah sebagai seni &amp; ilmu, sumber sejarah, Hindu-Buddha, Islamisasi, kolonialisme, pergerakan, kemerdekaan, Reformasi.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-sosiologi" href="sosiologi_fix.html" data-code="SOS">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">🌏</div>
+      <h3>Sosiologi</h3>
+      <div class="desc">Gejala sosial, penelitian sosial, kelompok sosial, konflik &amp; integrasi, ketidaksetaraan, globalisasi, perubahan sosial.</div>
+      <div class="footer-row">
+        <span class="count">30 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-ppkn" href="PPKN_fix.html" data-code="PKN">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">⚖️</div>
+      <h3>PPKN</h3>
+      <div class="desc">Pancasila, UUD 1945, sistem pemerintahan, hak &amp; kewajiban, Bhinneka Tunggal Ika, NKRI, wawasan nusantara.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ============ KELOMPOK: BAHASA ============ -->
+  <div class="section-title">Kelompok Bahasa</div>
+  <div class="grid">
+
+    <a class="card c-indo" href="b_indotl_fix.html" data-code="IND">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">📖</div>
+      <h3>Bahasa Indonesia Tingkat Lanjut</h3>
+      <div class="desc">Hikayat, puisi, teks prosedur, frasa &amp; klausa, tabel data, argumentasi, nilai sosial dalam novel.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 120 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-ing" href="b_ing_tl.html" data-code="ING">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">🌐</div>
+      <h3>Bahasa Inggris Tingkat Lanjut</h3>
+      <div class="desc">Drawing conclusions, critical thinking, central argument, author's attitude, inference, cause &amp; effect.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ============ KELOMPOK: SAINS & MATEMATIKA ============ -->
+  <div class="section-title">Kelompok Sains &amp; Matematika</div>
+  <div class="grid">
+
+    <a class="card c-matematika" href="matematika_fix.html" data-code="MAT">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">∑</div>
+      <h3>Matematika Tingkat Lanjut</h3>
+      <div class="desc">Matriks, polinomial, fungsi eksponen, trigonometri, vektor, lingkaran, transformasi geometri, limit.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-fisika" href="fisika_fix.html" data-code="FIS">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">⚛️</div>
+      <h3>Fisika</h3>
+      <div class="desc">Gerak parabola, melingkar, tumbukan, Efek Doppler, cermin, Coulomb, rangkaian listrik, Archimedes, termodinamika, impuls.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-kimia" href="Kimia_fix.html" data-code="KIM">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">⚗️</div>
+      <h3>Kimia</h3>
+      <div class="desc">Struktur atom, ikatan, stoikiometri, titrasi redoks, penyangga, termokimia, laju reaksi, kesetimbangan, elektrokimia, organik.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 120 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+    <a class="card c-biologi" href="biologi_fix.html" data-code="BIO">
+      <span class="lock-badge">🔐 Token</span>
+      <div class="icon">🧬</div>
+      <h3>Biologi</h3>
+      <div class="desc">Keanekaragaman hayati, virus, jamur, sel, sistem organ, pewarisan sifat, evolusi, bioteknologi, pencemaran.</div>
+      <div class="footer-row">
+        <span class="count">25 Soal · 60 Menit</span>
+        <span class="arrow">Mulai →</span>
+      </div>
+    </a>
+
+  </div>
+
+  <!-- ============ INFO BOX ============ -->
+  <div class="info-box">
+    <strong>ℹ️ Informasi Umum Pelaksanaan Ujian:</strong>
+    <ul>
+      <li><strong>Satu token harian</strong> berlaku untuk <strong>semua mata pelajaran</strong>. Token diberikan oleh pengawas.</li>
+      <li>Setiap peserta hanya dapat mengerjakan maksimal <strong>3 kali percobaan</strong> per mata pelajaran.</li>
+      <li>Waktu pengerjaan berbeda-beda: <strong>60 / 90 / 120 menit</strong> tergantung mata pelajaran.</li>
+      <li>Dilarang berpindah tab, klik kanan, copy-paste, atau membuka inspect element selama ujian.</li>
+      <li>Pelanggaran sebanyak 3 kali akan menyebabkan ujian <strong>otomatis dikumpulkan</strong>.</li>
+      <li>Hasil ujian dapat diunduh sebagai PDF dan diunggah ke Google Drive tujuan.</li>
+    </ul>
+  </div>
+
+  <!-- ============ FOOTER ============ -->
+  <div class="footer">
+    &copy; 2026 <strong>Tes Kemampuan Akademik SMA/MA/SMK</strong> · 12 Mata Pelajaran<br>
+    Sistem Ujian Anti-Curang · Hasil Otomatis · Terintegrasi Google Drive
+  </div>
+
+</div>
+
+<!-- ============================================================
+     ============ MODAL TOKEN ============
+     ============================================================ -->
+<div class="modal-backdrop" id="tokenModal" aria-hidden="true">
+  <div class="modal" id="modalBox" role="dialog" aria-modal="true" aria-labelledby="tokenTitle">
+    <button class="modal-close" id="modalClose" aria-label="Tutup">×</button>
+
+    <div class="modal-icon" id="modalIcon">🔐</div>
+    <h2 id="tokenTitle">Masukkan Token Ujian</h2>
+    <p class="modal-sub" id="modalSub">
+      Token harian berlaku untuk <strong>semua mata pelajaran</strong>.<br>
+      Token diberikan oleh pengawas ujian.
+    </p>
+
+    <div class="token-input-wrap">
+      <input
+        type="text"
+        id="tokenInput"
+        maxlength="6"
+        autocomplete="off"
+        spellcheck="false"
+        placeholder="••••••"
+        inputmode="text"
+      >
+    </div>
+
+    <div class="modal-error" id="modalError"></div>
+
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="btnCancel" type="button">Batal</button>
+      <button class="btn btn-primary" id="btnSubmit" type="button">Verifikasi &amp; Mulai →</button>
+    </div>
+
+    <div class="modal-hint">
+      <span>🕒 Token berlaku per hari</span>
+      <span>·</span>
+      <span>Berlaku semua mapel</span>
+      <span>·</span>
+      <span>6 karakter</span>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  /* ============================================================
+     SHARED CONFIG — dibaca dari Admin Panel (localStorage)
+     ============================================================ */
+  const CFG_KEY = 'tka_admin_config_v1';
+  const TOKEN_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  const DEFAULT_SALT = 'TKA-SMA-2026';
+  const SECRET_SALT = DEFAULT_SALT;
+  const GLOBAL_TOKEN_CODE = 'TKA';   // kode tunggal untuk token global
+
+  function todayKey() {
+    const d = new Date();
+    return d.getFullYear() + '-' +
+      String(d.getMonth()+1).padStart(2,'0') + '-' +
+      String(d.getDate()).padStart(2,'0');
+  }
+  function hashString(str) {
+    let h = 2166136261 >>> 0;
+    for (let i = 0; i < str.length; i++) {
+      h ^= str.charCodeAt(i);
+      h = Math.imul(h, 16777619) >>> 0;
+    }
+    return h >>> 0;
+  }
+  function generateToken(code, dateStr, salt) {
+    const seed = `${code}::${dateStr || todayKey()}::${salt || SECRET_SALT}`;
+    let x = hashString(seed);
+    let out = '';
+    for (let i = 0; i < 6; i++) {
+      out += TOKEN_ALPHABET[x % TOKEN_ALPHABET.length];
+      x = Math.floor(x / TOKEN_ALPHABET.length);
+      if (x === 0 && i < 5) x = hashString(seed + '#' + i);
+    }
+    return out;
+  }
+
+  function loadSharedConfig() {
+    try {
+      const raw = localStorage.getItem(CFG_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch (e) {}
+    return null;
+  }
+
+  function getSubjectConfig(code) {
+    const cfg = loadSharedConfig();
+    if (cfg && cfg.subjects && cfg.subjects[code]) return cfg.subjects[code];
+    return { enabled: true, duration: 60, questions: 25, maxAttempts: 3 };
+  }
+
+  /* ============================================================
+     TOKEN GLOBAL — satu token untuk semua mata pelajaran
+     ============================================================ */
+  function getGlobalManualToken(cfg) {
+    if (cfg && cfg.globalManualToken) {
+      const t = String(cfg.globalManualToken).toUpperCase();
+      if (t.length === 6) return t;
+    }
+    return '';
+  }
+  function getGlobalToken(cfg) {
+    const salt = (cfg && cfg.salt) ? cfg.salt : SECRET_SALT;
+    const manual = getGlobalManualToken(cfg);
+    return manual || generateToken(GLOBAL_TOKEN_CODE, todayKey(), salt);
+  }
+  function isValidToken(input) {
+    if (!input) return false;
+    const clean = String(input).toUpperCase().replace(/[^A-Z0-9]/g, '');
+    if (clean.length !== 6) return false;
+    const cfg = loadSharedConfig();
+    return clean === getGlobalToken(cfg);
+  }
+
+  /* ============================================================
+     DOM
+     ============================================================ */
+  const backdrop      = document.getElementById('tokenModal');
+  const modalBox      = document.getElementById('modalBox');
+  const modalIcon     = document.getElementById('modalIcon');
+  const modalSub      = document.getElementById('modalSub');
+  const tokenInput    = document.getElementById('tokenInput');
+  const modalError    = document.getElementById('modalError');
+  const btnCancel     = document.getElementById('btnCancel');
+  const btnSubmit     = document.getElementById('btnSubmit');
+  const modalClose    = document.getElementById('modalClose');
+  const tokenTitle    = document.getElementById('tokenTitle');
+
+  let pendingHref = null, pendingCode = null, pendingName = null, isRedirecting = false;
+
+  /* ============================================================
+     BANNER PENGUMUMAN + STATUS UJIAN
+     ============================================================ */
+  function renderGlobalStatus() {
+    const cfg = loadSharedConfig() || { examOpen: true, announcement: '', subjects: {} };
+
+    // banner pengumuman
+    if (cfg.announcement && cfg.announcement.trim()) {
+      let banner = document.getElementById('tkaAnnounce');
+      if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'tkaAnnounce';
+        banner.style.cssText =
+          'background:#fff8e1;border-left:5px solid #f39c12;border-radius:12px;' +
+          'padding:14px 18px;margin-bottom:22px;font-size:.88rem;color:#6b5200;' +
+          'line-height:1.6;box-shadow:0 4px 14px rgba(20,60,120,.08)';
+        const container = document.querySelector('.container');
+        const header = container.querySelector('header.doc');
+        header.insertAdjacentElement('afterend', banner);
+      }
+      banner.innerHTML = '📢 <strong>Pengumuman:</strong> ' + cfg.announcement;
+    }
+
+    // status ujian global
+    if (cfg.examOpen === false) {
+      let closed = document.getElementById('tkaClosed');
+      if (!closed) {
+        closed = document.createElement('div');
+        closed.id = 'tkaClosed';
+        closed.style.cssText =
+          'background:#fdecea;border-left:5px solid #c0392b;border-radius:12px;' +
+          'padding:14px 18px;margin-bottom:22px;font-size:.88rem;color:#8b1e13;' +
+          'line-height:1.6;font-weight:700';
+        const container = document.querySelector('.container');
+        const header = container.querySelector('header.doc');
+        header.insertAdjacentElement('afterend', closed);
+      }
+      closed.innerHTML = '⛔ Ujian sedang DITUTUP oleh pengawas. Peserta tidak dapat memulai ujian.';
+    } else {
+      const closed = document.getElementById('tkaClosed');
+      if (closed) closed.remove();
+    }
+
+    // tandai mapel nonaktif
+    document.querySelectorAll('.card').forEach(card => {
+      const code = card.getAttribute('data-code');
+      const sub = (cfg.subjects && cfg.subjects[code]) || {};
+      if (sub.enabled === false) {
+        card.style.opacity = '.5';
+        card.style.filter = 'grayscale(.6)';
+        card.style.pointerEvents = 'none';
+        if (!card.querySelector('.off-badge')) {
+          const b = document.createElement('span');
+          b.className = 'off-badge';
+          b.style.cssText =
+            'position:absolute;top:14px;left:14px;font-size:.68rem;font-weight:700;' +
+            'color:#fff;background:#c0392b;padding:4px 9px;border-radius:999px';
+          b.textContent = '⛔ Nonaktif';
+          card.appendChild(b);
+        }
+      } else {
+        card.style.opacity = '';
+        card.style.filter = '';
+        card.style.pointerEvents = '';
+        const b = card.querySelector('.off-badge');
+        if (b) b.remove();
+      }
+    });
+  }
+
+  /* ============================================================
+     MODAL
+     ============================================================ */
+  function openModal(card) {
+    const cfg = loadSharedConfig() || { examOpen: true, subjects: {} };
+    const code = card.getAttribute('data-code');
+    const sub = (cfg.subjects && cfg.subjects[code]) || {};
+
+    if (cfg.examOpen === false) {
+      alert('Ujian sedang ditutup oleh pengawas.');
+      return;
+    }
+    if (sub.enabled === false) {
+      alert('Mata pelajaran ini sedang dinonaktifkan.');
+      return;
+    }
+
+    pendingHref = card.getAttribute('href');
+    pendingCode = code;
+    pendingName = card.querySelector('h3') ? card.querySelector('h3').textContent.trim() : '—';
+    isRedirecting = false;
+
+    modalBox.classList.remove('success');
+    modalIcon.textContent = '🔐';
+    tokenTitle.textContent = 'Masukkan Token Ujian';
+    modalSub.innerHTML = 'Masukkan <strong>token harian</strong> untuk membuka ujian ' +
+      '<strong>' + pendingName + '</strong>. Token yang sama berlaku untuk semua mata pelajaran.';
+    btnSubmit.textContent = 'Verifikasi & Mulai →';
+    btnSubmit.disabled = false;
+    btnCancel.textContent = 'Batal';
+
+    tokenInput.value = '';
+    tokenInput.disabled = false;
+    tokenInput.classList.remove('error');
+    modalError.classList.remove('show');
+    modalError.textContent = '';
+
+    backdrop.classList.add('show');
+    backdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => tokenInput.focus(), 250);
+  }
+
+  function closeModal() {
+    backdrop.classList.remove('show');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    tokenInput.blur();
+  }
+
+  function showError(msg) {
+    modalError.textContent = msg;
+    modalError.classList.add('show');
+    tokenInput.classList.add('error');
+    void tokenInput.offsetWidth;
+    setTimeout(() => tokenInput.focus(), 10);
+  }
+
+  function showSuccessAndGo() {
+    isRedirecting = true;
+    modalBox.classList.add('success');
+    modalIcon.textContent = '✓';
+    tokenTitle.textContent = 'Token Valid!';
+    modalSub.innerHTML = 'Membuka ujian <strong>' + pendingName + '</strong>…';
+    modalError.classList.remove('show');
+    tokenInput.classList.remove('error');
+    tokenInput.disabled = true;
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = 'Membuka…';
+    btnCancel.textContent = 'Tutup';
+
+    const tokenVal = tokenInput.value.toUpperCase();
+    const url = `${pendingHref}?token=${encodeURIComponent(tokenVal)}`;
+    try {
+      // simpan token global + per-mapel untuk kompatibilitas halaman ujian
+      sessionStorage.setItem('tka_token', tokenVal);
+      sessionStorage.setItem('tka_token_time', String(Date.now()));
+      sessionStorage.setItem('tka_token_' + pendingCode, tokenVal);
+      sessionStorage.setItem('tka_token_time_' + pendingCode, String(Date.now()));
+    } catch (e) {}
+
+    setTimeout(() => { window.location.href = url; }, 850);
+  }
+
+  /* ============================================================
+     EVENTS
+     ============================================================ */
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('click', e => { e.preventDefault(); openModal(card); });
+  });
+
+  btnCancel.addEventListener('click', () => { if (!isRedirecting) closeModal(); });
+  modalClose.addEventListener('click', () => { if (!isRedirecting) closeModal(); });
+  backdrop.addEventListener('click', e => {
+    if (e.target === backdrop && !isRedirecting) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && backdrop.classList.contains('show') && !isRedirecting) closeModal();
+  });
+
+  tokenInput.addEventListener('input', () => {
+    tokenInput.value = tokenInput.value.toUpperCase().replace(/[^A-Z0-9]/g,'').slice(0,6);
+    if (modalError.classList.contains('show')) {
+      modalError.classList.remove('show');
+      tokenInput.classList.remove('error');
+    }
+  });
+  tokenInput.addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); submitToken(); }
+  });
+  btnSubmit.addEventListener('click', submitToken);
+
+  function submitToken() {
+    if (isRedirecting) return;
+    const val = tokenInput.value.trim().toUpperCase();
+    if (val.length !== 6) { showError('Token harus 6 karakter.'); return; }
+
+    if (isValidToken(val)) showSuccessAndGo();
+    else showError('Token salah atau sudah kedaluwarsa. Hubungi pengawas.');
+  }
+
+  /* ============================================================
+     ADMIN VIEWER (Ctrl+Shift+T) — token hari ini
+     ============================================================ */
+  document.addEventListener('keydown', e => {
+    if (e.ctrlKey && e.shiftKey && (e.key === 'T' || e.key === 't')) {
+      e.preventDefault();
+      const cfg = loadSharedConfig() || {};
+      const tok = getGlobalToken(cfg);
+      console.log(
+        `%c🔐 TOKEN TKA ${todayKey()}%c\n` +
+        `Berlaku untuk SEMUA mata pelajaran:\n\n   ${tok}\n`,
+        'background:#0b3b5c;color:#fff;padding:4px 10px;border-radius:6px;font-weight:700',
+        'color:#0b3b5c;font-family:monospace;font-size:13px;line-height:1.6'
+      );
+    }
+  });
+
+  /* ============================================================
+     INIT
+     ============================================================ */
+  renderGlobalStatus();
+  window.addEventListener('storage', e => { if (e.key === CFG_KEY) renderGlobalStatus(); });
+
+})();
+</script>
+</body>
+</html>
